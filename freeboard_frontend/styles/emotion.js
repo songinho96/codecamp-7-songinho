@@ -139,10 +139,14 @@ export const Submit = styled.div`
   justify-content: center;
 `;
 
-export const SubmitFinish = styled.input`
+export const SubmitFinish = styled.button`
   
   width: 179px;
   height: 52px;
   background-color: #ffd600;
   text-align: center;
+`;
+
+export const Error = styled.div`
+  color: red;
 `;

@@ -25,9 +25,11 @@ export const Main = styled.div`
 `;
 
 // search
-export const Search = styled.div`
-  text-align: end;
+export const Search = styled.img`
+  align-self: end;
   margin-bottom: 40px;
+  width:30px;
+  height: 30px;
 `;
 
 
@@ -50,7 +52,13 @@ export const My = styled.div`
   font-weight: bold;
 `;
 
-export const Face = styled.div`
+export const ProFileWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const Face = styled.img`
   margin-right: 20px;
 `;
 
@@ -58,7 +66,7 @@ export const Name = styled.div`
   margin-right: 20px;
 `;
 
-export const Next = styled.div`
+export const Next = styled.img`
 
 `;
 
@@ -128,19 +136,19 @@ export const BottomArrow = styled.div`
 
 
 // Footer
-export const Home = styled.div`
+export const Home = styled.img`
 
 `;
 
-export const ItsLoad = styled.div`
+export const ItsLoad = styled.img`
 
 `;
 
-export const Heart = styled.div`
+export const Heart = styled.img`
   background: url("./././");
 `;
 
-export const Me = styled.div`
+export const Me = styled.img`
   color: #ff1b6d;
 `;
 
@@ -151,4 +159,14 @@ export const Footer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`;
+
+export const FooterWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Red = styled.div`
+  color: red;
 `;

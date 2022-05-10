@@ -1,5 +1,5 @@
 
-import {Wrapper, Body, Search, Title, My, Face, Name, Next, List, Notice, Event, FAQ, QNA, UnderLine, Main, Qus, QuestionTop, QustionBottom, BottomArrow, Home, ItsLoad, Heart, Me, Footer } from '../../../styles/quizEmotion'
+import {Wrapper, Body, Search, Title, My, ProFileWrapper, Face, Name, Next, List, Notice, Event, FAQ, QNA, UnderLine, Main, Qus, QuestionTop, QustionBottom, BottomArrow, Home, ItsLoad, Heart, Me, Footer, FooterWrapper,Red } from '../../../styles/quizEmotion'
 
 export default function FAQPage() {
 
@@ -9,15 +9,15 @@ export default function FAQPage() {
       <Body>
         <Main>
           {/* search */}
-          <Search>search</Search>
+          <Search src="/images/main-search.png" />
           {/* 타이틀 */}
           <Title>
             <My>마이</My>
-            <div>
-              <Face>face</Face>
+            <ProFileWrapper>
+              <Face src="/images/profile-image.png"/>
               <Name>임정아</Name>
-              <Next>Next</Next>
-            </div>
+              <Next src="/images/right-arrow.png"/>
+            </ProFileWrapper>
           </Title>
 
           {/* 공지 리스트 */}
@@ -83,22 +83,22 @@ export default function FAQPage() {
 
           {/* Footer */}
           <Footer>
-            <div>
-            <Home>홈</Home>
+            <FooterWrapper>
+            <Home src="/images/main-home.png"/>
             홈
-            </div>
-            <div>
-            <ItsLoad>잇츠로드</ItsLoad>
+            </FooterWrapper>
+            <FooterWrapper>
+            <ItsLoad src="/images/main-location.png" />
             잇츠로드
-            </div>
-            <div>
-            <Heart>마이찜</Heart>
+            </FooterWrapper>
+            <FooterWrapper>
+            <Heart src="/images/main-like.png"/>
             마이찜
-            </div>
-            <div>
-            <Me>마이</Me>
-            마이
-            </div>
+            </FooterWrapper>
+            <FooterWrapper>
+            <Me src="/images/main-my.png"/>
+            <Red>마이</Red>
+            </FooterWrapper>
           </Footer>
         </Main>
       </Body>

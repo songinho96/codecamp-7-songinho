@@ -16,7 +16,7 @@ export default function SignupStatePage(){
       setPassword(event.target.value)
     }
 
-    function onClickSignup(){ //onClick은 () 안에 event 굳이 쓸 필요 없다.
+    function onClickSignup(){ //() 안에 event를 쓸 필요가 없으면 굳이 쓸 필요 없다.
       // 진짜 포장이 잘 됐는지 확인해보기
       console.log(email)
       console.log(password)
