@@ -1,10 +1,23 @@
 import '../styles/globals.css'
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 
 function MyApp({ Component, pageProps }) {
-
   //  여기에다가 설정하기
+  const client = new ApolloClient({
+    uri: "http://example.codebootcamp.co.kr/graphql", // 백엔드 주소
+    cache: new InMemoryCache() 
+  })
 
-  return <Component {...pageProps} />
+
+
+  
+
+  return (   
+    // 모든 페이지가 useMutation을 사용가능하게끔 함 ApolloProvider
+  <ApolloProvider client={client}>
+    <Component {...pageProps} />
+  </ApolloProvider>
+  )
 }
 
 export default MyApp
