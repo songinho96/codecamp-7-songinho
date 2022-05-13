@@ -85,7 +85,7 @@ export default function StateLogin() {
       <S.Footer>
         <S.Kakao>
           <S.KakaoLogin>
-            <S.KakaoImage src="/images/kakao.png" />
+            <S.KakaoImage src="/images/kakao.svg" />
             <S.KakaoInput>카카오톡 로그인</S.KakaoInput>
           </S.KakaoLogin>
         </S.Kakao>

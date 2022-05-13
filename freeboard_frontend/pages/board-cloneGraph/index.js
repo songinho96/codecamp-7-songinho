@@ -24,6 +24,7 @@ import {
   SubmitButton,
   Error,
 } from "../../styles/emotionClone";
+import { useRouter } from "next/router";
 
 
 const CREAT_BOARD = gql `
@@ -38,6 +39,10 @@ const CREAT_BOARD = gql `
 `
 
 export default function BoardsNewPage() {
+  // router
+  const router = useRouter()
+
+
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
@@ -98,18 +103,27 @@ export default function BoardsNewPage() {
       alert("게시글이 등록되었습니다.");
     }
 
-    const result = await callGraphql({
-      variables: {
-        createBoardInput: {
-          writer: writer,
-          password: password,
-          title: title,
-          contents: contents
+    // router
+    try {
+      const result = await callGraphql({
+        variables: {
+          createBoardInput: {
+            writer: writer,
+            password: password,
+            title: title,
+            contents: contents
+          }
         }
-      }
-    })
+      })
     console.log(result)
-  }
+
+    router.push(`/board-cloneGraph-dynamicRouted/${result.data.createBoard._id}`)
+        }
+    catch(error) {
+      console.log(error)
+      alert(error.message)
+    }
+}
 
   return (
     <Wrapper>
