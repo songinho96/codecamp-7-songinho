@@ -1,12 +1,14 @@
-import {gql} from '@apollo/client'
+import { gql } from "@apollo/client";
 
-export const CREAT_BOARD = gql `
-  mutation createBoard($createBoardInput: CreateBoardInput!){
-    createBoard(createBoardInput: $createBoardInput){
-      writer
-      title
-      contents
-      _id    
-    }
+
+export const CREATE_BOARD = gql`
+  mutation createBoard($createBoardInput:CreateBoardInput!) {
+  createBoard(createBoardInput:$createBoardInput)
+  {
+    _id
+    writer
+    title
+    contents
   }
+}
 `

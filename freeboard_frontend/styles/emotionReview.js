@@ -20,7 +20,7 @@ export const Error = styled.div`
 
 `;
 
-export const Title  = styled.div`
+export const MainTitle  = styled.div`
   font-size: 36;
   font-weight: bold;
 `;
@@ -49,11 +49,11 @@ export const Password   = styled.input`
   
 `;
 
-export const WrapperSubject = styled.div`
+export const WrapperTitle = styled.div`
   
 `;
 
-export const Subject  = styled.input`
+export const Title  = styled.input`
   
 `;
 
@@ -76,6 +76,7 @@ export const WrapZipcode = styled.div`
 export const Zipcode = styled.input`
   
 `;
+
 
 export const SearchButton = styled.button`
   

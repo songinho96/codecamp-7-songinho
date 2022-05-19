@@ -1,16 +1,12 @@
-
-import { useQuery } from '@apollo/client'
-import { useRouter } from 'next/router'
-import BoardDetailPresenter from './BoardDetail.presenter'
-import { FETCH_BOARD } from './BoardDetail.queries'
-
+import { useQuery } from "@apollo/client"
+import { useRouter } from "next/router"
+import BoardDetailUI from "./BoardDetail.presenter"
+import { FETCH_BOARD } from "./BoardDetail.queries"
 
 
-
-export default function DetailPage() {
-  
+export default function BoardDetail() {
   const router = useRouter()
-  
+  console.log("aa", router)
 
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.boardId}  //일반적으로 똑같이 씀 boardId
@@ -18,12 +14,10 @@ export default function DetailPage() {
 
   console.log(data)
 
-
   return (
-      <BoardDetailPresenter
-      data={data}
-      />
+    <BoardDetailUI
+    data={data}
+    />
   )
-
 
 }

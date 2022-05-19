@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react"
 
 export default function SignupStatePage(){
     const [email, setEmail] = useState("")
@@ -39,3 +39,39 @@ export default function SignupStatePage(){
     )
 
 }
+
+// import React, { useState } from 'react'
+
+// export default function SighupStatePage() {
+
+//   const [email, setEmail] = useState()
+//   const [password,setPassword] = useState()
+
+//   const [emailError,setemailError] = useState()
+
+//   const onChangeEmail = (event) => {
+//     setEmail(event.target.value)
+//   }
+
+//   const onChangePassword = (event) => {
+//     setPassword(event.target.value)
+//   }
+
+//   const onClickSignup = () => {
+//     if (email.includes("@") === false){
+//       setemailError("에러")
+//     } else {
+//       alert("회원가입")
+//     }
+//   }
+
+
+//   return (
+//     <div>
+//       이메일 <input type="text" onChange={onChangeEmail} /><br/>
+//       <div>{emailError}</div>
+//       비밀번호 <input type="password" onChange={onChangePassword}/><br/>
+//       <button onClick={onClickSignup}>회원가입</button>
+//     </div>
+//   )
+// }

@@ -1,100 +1,89 @@
-import {
-  Wrapper,
-  Title,
-  WriterWrapper,
-  InputWrapper,
-  Label,
-  Writer,
-  Subject,
-  Password,
-  Contents,
-  ZipcodeWrapper,
-  Zipcode,
-  SearchButton,
-  Address,
-  Youtube,
-  ImageWrapper,
-  UploadButton,
-  OptionWrapper,
-  RadioButton,
-  RadioLabel,
-  ButtonWrapper,
-  SubmitButton,
-  Error,
-} from "./BoardWrite.styles";
+import * as S from './BoardWrite.styles'
 
 
 export default function BoardWriteUI(props){
 
-  return (
-    <Wrapper>
-      <Title>게시글 등록</Title>
-      <WriterWrapper>
-        <InputWrapper>
-          <Label>작성자</Label>
-          <Writer
-            type="text"
-            placeholder="이름을 적어주세요."
-            onChange={props.onChangeWriter}
-          />
-          <Error>{props.writerError}</Error>
-        </InputWrapper>
-        <InputWrapper>
-          <Label>비밀번호</Label>
-          <Password
-            type="password"
-            placeholder="비밀번호를 작성해주세요."
-            onChange={props.onChangePassword}
-          />
-          <Error>{props.passwordError}</Error>
-        </InputWrapper>
-      </WriterWrapper>
-      <InputWrapper>
-        <Label>제목</Label>
-        <Subject
-          type="text"
-          placeholder="제목을 작성해주세요."
-          onChange={props.onChangeTitle}
-        />
-        <Error>{props.titleError}</Error>
-      </InputWrapper>
-      <InputWrapper>
-        <Label>내용</Label>
-        <Contents
-          placeholder="내용을 작성해주세요."
-          onChange={props.onChangeContents}
-        />
-        <Error>{props.contentsError}</Error>
-      </InputWrapper>
-      <InputWrapper>
-        <Label>주소</Label>
-        <ZipcodeWrapper>
-          <Zipcode placeholder="07250" readOnly />
-          <SearchButton>우편번호 검색</SearchButton>
-        </ZipcodeWrapper>
-        <Address readOnly />
-        <Address />
-      </InputWrapper>
-      <InputWrapper>
-        <Label>유튜브</Label>
-        <Youtube placeholder="링크를 복사해주세요." />
-      </InputWrapper>
-      <ImageWrapper>
-        <Label>사진첨부</Label>
-        <UploadButton>+</UploadButton>
-        <UploadButton>+</UploadButton>
-        <UploadButton>+</UploadButton>
-      </ImageWrapper>
-      <OptionWrapper>
-        <Label>메인설정</Label>
-        <RadioButton type="radio" id="youtube" name="radio-button" />
-        <RadioLabel htmlFor="youtube">유튜브</RadioLabel>
-        <RadioButton type="radio" id="image" name="radio-button" />
-        <RadioLabel htmlFor="image">사진</RadioLabel>
-      </OptionWrapper>
-      <ButtonWrapper>
-        <SubmitButton onClick={props.onClickSubmit} >등록하기</SubmitButton>
-      </ButtonWrapper>
-    </Wrapper>
-  );
-}
+    return (
+      <S.Wrapper>
+        <S.MainTitle>게시물 등록</S.MainTitle>
+  
+        <S.WrapperWritePassword>
+  
+          <S.WraprWriter>
+            <S.Label>작성자</S.Label>
+            {/* <S.Writer type="text" /> */}
+            <S.Writer type="text" placeholder="이름을 적어주세요" onChange={props.onChangeWriter}  />
+            <S.Error>{props.writerError}</S.Error>
+          </S.WraprWriter>
+  
+          <S.WrapPassword>
+            <S.Label>비밀번호</S.Label>
+            {/* <S.Password type="text" /> */}
+            <S.Password type="password" placeholder='비밀번호를 입력해주세요.' onChange={props.onChangePassword} />
+            <S.Error>{props.passwordError}</S.Error>
+          </S.WrapPassword>
+        </S.WrapperWritePassword>
+  
+        <S.WrapperTitle>
+          <S.Label>제목</S.Label>
+          {/* <S.Subject type="text" /> */}
+          <S.Title type="text" placeholder='제목을 작성해주세요.' onChange={props.onChangeTitle}/>
+          <S.Error>{props.titleError}</S.Error>
+        </S.WrapperTitle>
+  
+        <S.WrapperContents>
+          <S.Label>내용</S.Label>
+          {/* <S.Contents type="text" /> */}
+          <S.Contents type="text" placeholder='내용을 작성해주세요.' onChange={props.onChangeContents} />
+          <S.Error>{props.contentsError}</S.Error>
+        </S.WrapperContents>
+  
+        <S.WrapperAddress>
+          <S.Label>주소</S.Label>
+          <S.WrapZipcode>
+            <S.Zipcode type="text" placeholder='07250' readonly />
+            <S.SearchButton>우편번호 검색</S.SearchButton>
+          </S.WrapZipcode>
+          <S.Address type="text" readonly />
+          <S.Address type="text" />
+        </S.WrapperAddress>
+  
+        <S.WrapperYoutube>
+          <S.Label>유튜브</S.Label>
+          <S.YoutubeLink type="text" placeholder='링크를 복사해주세요.' />
+        </S.WrapperYoutube>
+  
+        <S.WrapperPicture>
+          <S.Label>사진 첨부</S.Label>
+          <S.WrapUpload>
+            <S.UploadButton>+</S.UploadButton>
+            <S.UploadButton>+</S.UploadButton>
+            <S.UploadButton>+</S.UploadButton>
+          </S.WrapUpload>
+        </S.WrapperPicture>
+  
+        <S.WrapperSetting>
+          <S.Label></S.Label>
+          <S.WrapperRadio>
+            <S.WrapRadio>
+              <S.RadioButton type="radio" name='radioButton'></S.RadioButton>
+              <S.RadioLabel>유튜브</S.RadioLabel>
+            </S.WrapRadio>
+            <S.WrapRadio>
+              <S.RadioButton type='radio' name='radioButton'></S.RadioButton>
+              <S.RadioLabel>사진</S.RadioLabel>
+            </S.WrapRadio>
+          </S.WrapperRadio>
+        </S.WrapperSetting>
+  
+        <S.WrapperSubmit>
+          {/* <S.SubmitButton></S.SubmitButton> */}
+          <S.SubmitButton onClick={props.onClickSubmit}>등록하기</S.SubmitButton>
+        </S.WrapperSubmit>
+  
+      </S.Wrapper>
+  
+  
+  
+    )
+  }

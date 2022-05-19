@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div`
+export const Wrapper  = styled.div`
   width: 1200px;
   /* height: 1847px; */
   border: 1px solid black;
@@ -16,160 +16,120 @@ export const Wrapper = styled.div`
   box-shadow: 0px 0px 10px gray;
 `;
 
-export const Title = styled.div`
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 36px;
+export const Error = styled.div`
+
+`;
+
+export const MainTitle  = styled.div`
+  font-size: 36;
   font-weight: bold;
 `;
 
-export const WriterWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 40px;
+export const WrapperWritePassword  = styled.div`
+  
 `;
 
-export const Writer = styled.input`
-  width: 486px;
-  height: 52px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
+export const WraprWriter = styled.div`
+  
 `;
 
-export const Password = styled.input`
-  width: 486px;
-  height: 52px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
+export const Label  = styled.div`
+  
 `;
 
-export const Label = styled.div`
-  padding-bottom: 16px;
-  font-size: 16px;
-  font-weight: 500;
+export const Writer  = styled.input`
+  
 `;
 
-export const InputWrapper = styled.div`
-  padding-top: 40px;
+export const WrapPassword  = styled.div`
+  
 `;
 
-export const Subject = styled.input`
-  width: 996px;
-  height: 52px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
+export const Password   = styled.input`
+  
 `;
 
-export const Contents = styled.textarea`
-  width: 996px;
-  height: 480px;
-  padding-left: 16px;
-  padding: 14px;
-  border: 1px solid #bdbdbd;
+export const WrapperTitle = styled.div`
+  
 `;
 
-export const ZipcodeWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
+export const Title  = styled.input`
+  
+`;
+
+export const WrapperContents  = styled.div`
+  
+`;
+
+export const Contents  = styled.input`
+  
+`;
+
+export const WrapperAddress  = styled.div`
+  
+`;
+
+export const WrapZipcode = styled.div`
+  
 `;
 
 export const Zipcode = styled.input`
-  width: 77px;
-  height: 52px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
+  
 `;
 
+
 export const SearchButton = styled.button`
-  width: 124px;
-  height: 52px;
-  margin-left: 16px;
-  background-color: black;
-  cursor: pointer;
-  color: white;
+  
 `;
 
 export const Address = styled.input`
-  width: 996px;
-  height: 52px;
-  margin-top: 16px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
+  
 `;
 
-export const Youtube = styled.input`
-  width: 996px;
-  height: 52px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
+export const WrapperYoutube = styled.div`
+  
 `;
 
-export const ImageWrapper = styled.div`
-  width: 996px;
-  padding-top: 40px;
+export const YoutubeLink = styled.input`
+  
+`;
+
+export const WrapperPicture = styled.div`
+  
+`;
+
+export const WrapUpload = styled.div`
+  
 `;
 
 export const UploadButton = styled.button`
-  width: 78px;
-  height: 78px;
-  background-color: #bdbdbd;
-  margin-right: 24px;
-  outline: none;
-  border: none;
-  cursor: pointer;
+  
 `;
 
-export const OptionWrapper = styled.div`
-  width: 996px;
-  padding-top: 40px;
+export const WrapperSetting = styled.div`
+  
+`;
+
+export const WrapperRadio = styled.div`
+  
+`;
+
+export const WrapRadio = styled.div`
+  
 `;
 
 export const RadioButton = styled.input`
-  cursor: pointer;
+  
 `;
 
-export const RadioLabel = styled.label`
-  margin-left: 8px;
-  margin-right: 20px;
-  font-weight: 500;
-  cursor: pointer;
+export const RadioLabel = styled.div`
+  
 `;
 
-export const ButtonWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding-top: 80px;
-`;
-
-export const CancelButton = styled.button`
-  width: 179px;
-  height: 52px;
-  background-color: #bdbdbd;
-  border: none;
-  font-size: 16px;
-  font-weight: 500;
-  margin-left: 12px;
-  margin-right: 12px;
-  cursor: pointer;
+export const WrapperSubmit = styled.div`
+  
 `;
 
 export const SubmitButton = styled.button`
-  width: 179px;
-  height: 52px;
-  border: none;
-  font-size: 16px;
-  font-weight: 500;
-  margin-left: 12px;
-  margin-right: 12px;
-  cursor: pointer;
-
-  background-color: gray;
-`;
-
-export const Error = styled.div`
-  padding-top: 10px;
-  font-size: 14px;
-  color: red;
+  
 `;
