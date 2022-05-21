@@ -1,11 +1,13 @@
 import * as S from "./BoardWrite.styles";
+import { IBoardWriteUIprops } from "./BoardWrite.types";
 
-export default function BoardWriteUI(props) {
+export default function BoardWriteUI(props: IBoardWriteUIprops) {
   return (
     <div>
       <h1>{props.isEdit ? "수정" : "등록"} 페이지</h1>
       작성자:{" "}
       <S.WriterInput
+        backgroundColor="blue"
         type="text"
         onChange={props.aaa}
         defaultValue={props.boardData?.fetchBoard.writer}

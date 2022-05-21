@@ -1,10 +1,3 @@
-import styled from "@emotion/styled";
-import { Checkbox } from "antd";
-import { useState } from "react";
-
-const Wrapper = styled.div`
-`;
-
 export default function checkDelete() {
   const dataList = [
     { id: 1, data: "9월달 시스템 점검 안내입니다.", date: "2020.09.19" },
@@ -14,8 +7,6 @@ export default function checkDelete() {
     { id: 5, data: "이용약관 변경 사전 안내", date: "2020.08.01" },
     { id: 6, data: "개인정보 처리방침 변경 사전 안내", date: "2020.07.19" },
   ];
-
-  
 
   return (
     // <div>
@@ -33,7 +24,7 @@ export default function checkDelete() {
             <th>작성일</th>
           </tr>
           {dataList.map((list) => (
-            <tr>
+            <tr key={list}>
               <td>checkbox</td>
               <td>{list.id}</td>
               <td>{list.data}</td>
@@ -41,10 +32,7 @@ export default function checkDelete() {
             </tr>
           ))}
         </table>
-
-        
       </div>
     </div>
-  )
-
+  );
 }

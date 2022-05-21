@@ -11,18 +11,16 @@ const FRUITS = [
   { number: 10, title: "귤" },
 ];
 
-
 export default function Bonus2() {
-
-  const EvenFruits = FRUITS.filter((item) => (item.number % 2 === 0 ))
-
+  const EvenFruits = FRUITS.filter((item) => item.number % 2 === 0);
 
   return (
     <div>
-      {EvenFruits.map((el)=>(
-        <div>{el.number} {el.title}</div>
+      {EvenFruits.map((el) => (
+        <div key={el.number}>
+          {el.number} {el.title}
+        </div>
       ))}
     </div>
-
-  )
+  );
 }

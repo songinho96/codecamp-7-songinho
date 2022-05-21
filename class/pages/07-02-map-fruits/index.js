@@ -12,7 +12,7 @@ const FRUITS = [
   { number: 10, title: "귤" },
 ];
 
-export default function MapFruitsPage(){
+export default function MapFruitsPage() {
   // const aaa = [<div>1 레드향</div>, <div>2 샤인머스켓</div>, <div>3 산청딸기</div>]
 
   // const bbb = ["나의레드향", "나의샤인머스켓", "나의산청딸기"].map((el) => (<div>{el}</div>))
@@ -20,10 +20,12 @@ export default function MapFruitsPage(){
   // const ccc = FRUITS.map((el) => (<div>{el.number} {el.title}</div>))
 
   return (
-      <div>
-          {FRUITS.map((el) => (
-              <div>{el.number} {el.title}</div>
-          ))}
-      </div>
-  )
+    <div>
+      {FRUITS.map((el) => (
+        <div key={el.number}>
+          {el.number} {el.title}
+        </div>
+      ))}
+    </div>
+  );
 }

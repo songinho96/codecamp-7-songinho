@@ -52,7 +52,7 @@ export default function BoardWrite() {
     if ( myWriter  && event.target.value && myContents ){
       setIsActive(true)
     } else {
-      setIsActive(false)
+      setIsActive(false) 
     }
     
   }
