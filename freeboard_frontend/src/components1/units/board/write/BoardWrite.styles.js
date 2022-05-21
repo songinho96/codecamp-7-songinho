@@ -49,7 +49,7 @@ export const Label = styled.div`
   font-size: 16px;
   font-weight: 500;
 
-  color: ${(props) => props.aaa };
+  color: ${(props) => props.aaa};
 `;
 
 export const InputWrapper = styled.div`
@@ -167,7 +167,7 @@ export const SubmitButton = styled.button`
   margin-right: 12px;
   cursor: pointer;
 
-  background-color: ${(props) => props.isActive ? "yellow" : "default"};
+  background-color: ${(props) => (props.isActive ? "yellow" : "default")};
 `;
 
 export const Error = styled.div`

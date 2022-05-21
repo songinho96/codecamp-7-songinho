@@ -1,18 +1,14 @@
 import { useState } from "react";
-import { useMutation} from '@apollo/client'
+import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import BoardWriteUI from "./BoardWrite.presenter";
-import { CREATE_BOARD, UPDATE_BOARD } from './BoardWrite.queries';
-
-
+import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 
 export default function BoardWrite(props) {
   // router
-  const router = useRouter()
+  const router = useRouter();
 
-  const [isActive, setIsActive] = useState(false)
-  
- 
+  const [isActive, setIsActive] = useState(false);
 
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
@@ -20,8 +16,8 @@ export default function BoardWrite(props) {
   const [contents, setContents] = useState("");
 
   // GRAPHQL-API
-  const [callGraphql] = useMutation(CREATE_BOARD)
-  const [updateBoard] = useMutation(UPDATE_BOARD)
+  const [callGraphql] = useMutation(CREATE_BOARD);
+  const [updateBoard] = useMutation(UPDATE_BOARD);
   // GRAPHQL-API
 
   const [writerError, setWriterError] = useState("");
@@ -35,10 +31,10 @@ export default function BoardWrite(props) {
       setWriterError("");
     }
 
-    if( event.target.value && password && title && contents){
-      setIsActive(true)
+    if (event.target.value && password && title && contents) {
+      setIsActive(true);
     } else {
-      setIsActive(false)
+      setIsActive(false);
     }
   };
 
@@ -48,10 +44,10 @@ export default function BoardWrite(props) {
       setPasswordError("");
     }
 
-    if( writer && event.target.value && title && contents){
-      setIsActive(true)
+    if (writer && event.target.value && title && contents) {
+      setIsActive(true);
     } else {
-      setIsActive(false)
+      setIsActive(false);
     }
   };
 
@@ -61,10 +57,10 @@ export default function BoardWrite(props) {
       setTitleError("");
     }
 
-    if( writer && password && event.target.value && contents){
-      setIsActive(true)
+    if (writer && password && event.target.value && contents) {
+      setIsActive(true);
     } else {
-      setIsActive(false)
+      setIsActive(false);
     }
   };
 
@@ -74,13 +70,13 @@ export default function BoardWrite(props) {
       setContentsError("");
     }
 
-    if( writer && password && title && event.target.value){
-      setIsActive(true)
+    if (writer && password && title && event.target.value) {
+      setIsActive(true);
     } else {
-      setIsActive(false)
+      setIsActive(false);
     }
   };
-  
+
   // onCLick
   const onClickSubmit = async () => {
     // 참과 거짓!
@@ -102,53 +98,53 @@ export default function BoardWrite(props) {
     if (!title) {
       setTitleError("제목을 입력해주세요.");
     }
-    //!contents === contents === ""
+    // !contents === contents === ""
     if (!contents) {
       setContentsError("내용을 입력해주세요.");
     }
     if (writer && password && title && contents) {
-      
-    // router
-    try {
-      const result = await callGraphql({
-        variables: {
-          createBoardInput: {
-            writer: writer,
-            password: password,
-            title: title,
-            contents: contents
-          }
-        }
-      })
-    console.log(result)
-    alert("게시글이 등록되었습니다.");
-    router.push(`/board-cloneGraph-dynamicRouted/${result.data.createBoard._id}`)
-        }
-    catch(error) {
-      console.log(error.message)
-      alert(error.message)
+      // router
+      try {
+        const result = await callGraphql({
+          variables: {
+            createBoardInput: {
+              writer,
+              password,
+              title,
+              contents,
+            },
+          },
+        });
+        console.log(result);
+        alert("게시글이 등록되었습니다.");
+        router.push(
+          `/board-cloneGraph-dynamicRouted/${result.data.createBoard._id}`
+        );
+      } catch (error) {
+        console.log(error.message);
+        alert(error.message);
+      }
     }
-  }
-}
+  };
 
-  const onClickUpdate = async() => {
+  const onClickUpdate = async () => {
     try {
       await updateBoard({
         variables: {
           boardId: router.query.boardId,
-          password: password,
+          password,
           updateBoardInput: {
-            title: title,
-            contents: contents
-          }
-        }
-      })
-      alert("게시글이 수정되었습니다.")
-      router.push(`/board-cloneGraph-dynamicRouted/${router.query.boardId}`)
+            title,
+            contents,
+          },
+        },
+      });
+      alert("게시글이 수정되었습니다.");
+      router.push(`/board-cloneGraph-dynamicRouted/${router.query.boardId}`);
     } catch (error) {
-      alert(error.message)
+      alert(error.message);
     }
-  }
+  };
 
   return (
     <BoardWriteUI
@@ -162,9 +158,8 @@ export default function BoardWrite(props) {
       titleError={titleError}
       passwordError={passwordError}
       contentsError={contentsError}
-      isActive = {isActive}
+      isActive={isActive}
       isEdit={props.isEdit}
     />
-
-  )
+  );
 }
