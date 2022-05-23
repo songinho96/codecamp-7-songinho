@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { AppProps } from "next/app";
+import "antd/dist/antd.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   //  여기에다가 설정하기
