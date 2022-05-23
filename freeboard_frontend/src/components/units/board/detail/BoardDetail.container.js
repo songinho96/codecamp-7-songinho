@@ -1,8 +1,14 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { FETCH_BOARDS } from "../../../../components_XX/units/board/list/BoardList.queries";
+import { FETCH_BOARDS } from "../list/BoardList.queries";
 import BoardDetailUI from "./BoardDetail.presenter";
-import { DELETE_BOARD, FETCH_BOARD } from "./BoardDetail.queries";
+import {
+  DELETE_BOARD,
+  DISLIKE_BOARD,
+  FETCH_BOARD,
+  LIKE_BOARD,
+} from "./BoardDetail.queries";
+import ReactPlayer from "react-player/youtube"; // youtube 영상
 
 export default function BoardDetail() {
   const router = useRouter();
@@ -10,6 +16,8 @@ export default function BoardDetail() {
 
   // 삭제mutation
   const [deleteBoard] = useMutation(DELETE_BOARD);
+  const [likeBoard] = useMutation(LIKE_BOARD);
+  const [dislikeBoard] = useMutation(DISLIKE_BOARD);
 
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.boardId }, // 일반적으로 똑같이 씀 boardId
@@ -37,12 +45,39 @@ export default function BoardDetail() {
     router.push(`/boards`);
   };
 
+  const onClickLike = () => {
+    likeBoard({
+      variables: { boardId: router.query.boardId },
+      refetchQueries: [
+        {
+          query: FETCH_BOARD,
+          variables: { boardId: router.query.boardId },
+        },
+      ],
+    });
+  };
+
+  const onClickDisLike = () => {
+    dislikeBoard({
+      variables: { boardId: router.query.boardId },
+      refetchQueries: [
+        {
+          query: FETCH_BOARD,
+          variables: { boardId: router.query.boardId },
+        },
+      ],
+    });
+  };
+
   return (
     <BoardDetailUI
       data={data}
       onClickMoveList={onClickMoveList}
       onClickMoveEdit={onClickMoveEdit}
       onClickDelete={onClickDelete}
+      ReactPlayer={ReactPlayer}
+      onClickLike={onClickLike}
+      onClickDisLike={onClickDisLike}
     />
   );
 }

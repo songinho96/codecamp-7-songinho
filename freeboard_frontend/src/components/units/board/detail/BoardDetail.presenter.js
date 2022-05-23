@@ -34,15 +34,34 @@ export default function BoardDetailUI(props) {
           <S.WrapperContents>
             <S.Picture />
             <S.Contents>{props.data?.fetchBoard.contents}</S.Contents>
-            <S.Video />
+            <S.Video>
+              <props.ReactPlayer
+                url={props.data?.fetchBoard.youtubeUrl}
+                width={486}
+                height={240}
+                controls={true}
+                playing={true}
+                muted={true}
+              />
+            </S.Video>
             <S.WrapperThumbs>
               <S.InputThumbs>
-                <S.LikeIcon src="/detailBoard/like-Icon.svg" />
-                <S.ThumsNumber>1234</S.ThumsNumber>
+                <S.LikeIcon
+                  src="/detailBoard/like-Icon.svg"
+                  onClick={props.onClickLike}
+                />
+                <S.ThumsNumber>
+                  {props.data?.fetchBoard.likeCount}
+                </S.ThumsNumber>
               </S.InputThumbs>
               <S.InputThumbs>
-                <S.DisLikeIcon src="/detailBoard/dislike-Icon.svg" />
-                <S.ThumsNumber>1234</S.ThumsNumber>
+                <S.DisLikeIcon
+                  src="/detailBoard/dislike-Icon.svg"
+                  onClick={props.onClickDisLike}
+                />
+                <S.ThumsNumber>
+                  {props.data?.fetchBoard.dislikeCount}
+                </S.ThumsNumber>
               </S.InputThumbs>
             </S.WrapperThumbs>
           </S.WrapperContents>

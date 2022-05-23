@@ -66,7 +66,11 @@ export default function BoardWriteUI(props) {
 
       <S.WrapperYoutube>
         <S.Label>유튜브</S.Label>
-        <S.YoutubeLink type="text" placeholder="링크를 복사해주세요." />
+        <S.YoutubeLink
+          type="text"
+          placeholder="링크를 복사해주세요."
+          onChange={props.onChangeYoutube}
+        />
       </S.WrapperYoutube>
 
       <S.WrapperPicture>

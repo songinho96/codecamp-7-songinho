@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   width: 1200px;
   margin: 100px auto;
   box-sizing: border-box;
+  padding-bottom: 200px;
 `;
 
 export const WrapTitle = styled.div`
@@ -48,7 +49,13 @@ export const Password = styled.input`
   padding: 20px;
 `;
 
-export const star = styled.img``;
+export const Star = styled.div``;
+
+export const CommentStar = styled.div`
+  :hover {
+    pointer-events: none;
+  }
+`;
 
 export const WrapperWriteComment = styled.div`
   display: flex;
@@ -66,10 +73,11 @@ export const WriteFooter = styled.div`
   flex-direction: row;
 `;
 
-export const WriteNum = styled.input`
+export const WriteNum = styled.div`
   width: 1108px;
   height: 52px;
   padding: 20px;
+  border: 1px solid black;
 `;
 
 export const CommentButton = styled.button`
@@ -80,9 +88,8 @@ export const CommentButton = styled.button`
 
 export const Wrapperwrited = styled.div`
   display: flex;
-  flex-direction: row;
-  padding-bottom: 20px;
-  padding-top: 40px;
+  flex-direction: column;
+  padding-top: 20px;
 `;
 
 export const ProfileIcon = styled.img`
@@ -106,10 +113,13 @@ export const WrapWritedHeader = styled.div`
 export const WrapFrontHeader = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 
 export const CommentWriter = styled.div`
   padding-right: 18px;
+  font-weight: 500;
+  font-size: 16px;
 `;
 
 export const WrapBackHeader = styled.div``;
@@ -125,11 +135,22 @@ export const Delete = styled.img`
   height: 18px;
 `;
 
-export const Contents = styled.div``;
+export const Contents = styled.div`
+  font-size: 16px;
+  padding-bottom: 20px;
+`;
 
-export const Date = styled.div``;
+export const Date = styled.div`
+  font-size: 12px;
+  font-weight: 400;
+`;
 
 export const Underline = styled.div`
+  width: 100%;
   border-bottom: 1px solid gray;
-  padding-bottom: 200px;
+  padding-top: 20px;
+`;
+
+export const WrapperComment = styled.div`
+  display: flex;
 `;

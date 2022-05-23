@@ -9,12 +9,15 @@ import {
 } from "./BoardComment.queries";
 
 export default function BoardComment(props) {
+  // Antd
+
   // isActive
   const [isActive, setIsActive] = useState(false);
   // useState
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
   const [contents, setContents] = useState("");
+  const [value, setValue] = useState(3);
 
   const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -28,8 +31,8 @@ export default function BoardComment(props) {
     variables: { boardId: router.query.boardId },
   });
 
-  console.log(data);
-  console.log(router);
+  // console.log(data);
+  // console.log(router);
   // detail페이지의 boardId 가져옴
 
   const onChangeWriter = (event) => {
@@ -69,6 +72,11 @@ export default function BoardComment(props) {
     }
   };
 
+  // StarRating
+  const handleChange = (value) => {
+    setValue(value);
+  };
+
   const onClickComments = async () => {
     if (writer === "") {
       setWriterError("작성자를 입력해주세요.");
@@ -91,7 +99,7 @@ export default function BoardComment(props) {
               writer,
               password,
               contents,
-              rating: 4,
+              rating: value,
             },
             boardId: router.query.boardId,
           },
@@ -131,6 +139,8 @@ export default function BoardComment(props) {
     }
   };
 
+  // Antd
+
   return (
     <BoardCommentUI
       onChangeWriter={onChangeWriter}
@@ -143,6 +153,9 @@ export default function BoardComment(props) {
       contentsError={contentsError}
       data={data}
       isActive={isActive}
+      contents={contents}
+      handleChange={handleChange}
+      value={value}
     />
   );
 }

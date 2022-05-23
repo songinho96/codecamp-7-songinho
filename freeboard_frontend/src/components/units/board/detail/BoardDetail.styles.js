@@ -108,7 +108,7 @@ export const Contents = styled.div`
   padding-bottom: 120px;
 `;
 
-export const Video = styled.img`
+export const Video = styled.div`
   padding-bottom: 163px;
 `;
 

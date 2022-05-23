@@ -1,5 +1,6 @@
 import { getDate } from "../../../commons/libraries/utils";
 import * as S from "./BoardComment.styles";
+import { Rate } from "antd";
 
 export default function BoardCommentUI(props) {
   return (
@@ -27,18 +28,20 @@ export default function BoardCommentUI(props) {
           />
           <S.Error>{props.passwordError}</S.Error>
         </S.WrapError>
-        <S.star src="/commentBoard/star.svg" />
+        <S.Star>
+          <Rate onChange={props.handleChange} value={props.value} />
+        </S.Star>
       </S.WrapCommentWrite>
-      {/* 댓글쓰는곳 */}
 
       <S.WrapperWriteComment>
         <S.WriteContent
+          maxLength={100}
           type="text"
           placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
           onChange={props.onChangeContents}
         />
         <S.WriteFooter>
-          <S.WriteNum type="text" placeholder="0/100" readOnly />
+          <S.WriteNum>{props.contents.length}/100</S.WriteNum>
           <S.CommentButton
             onClick={props.onClickComments}
             isActive={props.isActive}
@@ -52,29 +55,32 @@ export default function BoardCommentUI(props) {
       {/* 쓴 댓글 보여주는 곳 */}
       {props.data?.fetchBoardComments.map((el) => (
         <S.Wrapperwrited key={el._id}>
-          <S.ProfileIcon src="/commentBoard/profile-Icon.svg" />
-          <S.WrapWriteComment>
-            <S.WrapWritedHeader>
-              <S.WrapFrontHeader>
-                <S.CommentWriter>{el.writer}</S.CommentWriter>
-                <S.star src="/commentBoard/star.svg" />
-              </S.WrapFrontHeader>
-              <S.WrapBackHeader>
-                <S.Pencil src="/commentBoard/Pencil.svg" />
-                <S.Delete
-                  src="/commentBoard/X-Button.svg"
-                  onClick={props.onClickDelete}
-                  id={el._id}
-                />
-              </S.WrapBackHeader>
-            </S.WrapWritedHeader>
-            <S.Contents>{el.contents}</S.Contents>
-            <S.Date>{getDate(el.createdAt)}</S.Date>
-          </S.WrapWriteComment>
+          <S.WrapperComment>
+            <S.ProfileIcon src="/commentBoard/profile-Icon.svg" />
+            <S.WrapWriteComment>
+              <S.WrapWritedHeader>
+                <S.WrapFrontHeader>
+                  <S.CommentWriter>{el.writer}</S.CommentWriter>
+                  <S.CommentStar>
+                    <Rate value={el.rating} />
+                  </S.CommentStar>
+                </S.WrapFrontHeader>
+                <S.WrapBackHeader>
+                  <S.Pencil src="/commentBoard/Pencil.svg" />
+                  <S.Delete
+                    src="/commentBoard/X-Button.svg"
+                    onClick={props.onClickDelete}
+                    id={el._id}
+                  />
+                </S.WrapBackHeader>
+              </S.WrapWritedHeader>
+              <S.Contents>{el.contents}</S.Contents>
+              <S.Date>{getDate(el.createdAt)}</S.Date>
+            </S.WrapWriteComment>
+          </S.WrapperComment>
+          <S.Underline></S.Underline>
         </S.Wrapperwrited>
       ))}
-
-      <S.Underline></S.Underline>
     </S.Wrapper>
   );
 }

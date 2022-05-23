@@ -7,6 +7,9 @@ export const CREATE_BOARD = gql`
       writer
       title
       contents
+      youtubeUrl
+      # likeCount
+      # dislikeCount
     }
   }
 `;
@@ -26,6 +29,9 @@ export const UPDATE_BOARD = gql`
       title
       writer
       contents
+      youtubeUrl
+      # likeCount
+      # dislikeCount
     }
   }
 `;

@@ -17,6 +17,7 @@ export default function BoardWrite(props) {
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
+  const [youtubeUrl, setYoutubeUrl] = useState("");
 
   // useState Error
   const [writerError, setWriterError] = useState("");
@@ -77,6 +78,11 @@ export default function BoardWrite(props) {
     }
   };
 
+  const onChangeYoutube = (event) => {
+    setYoutubeUrl(event.target.value);
+    // console.log(setYoutubeUrl);
+  };
+
   // onClickSubmit
   const onClickSubmit = async () => {
     if (writer === "") {
@@ -105,6 +111,7 @@ export default function BoardWrite(props) {
               password,
               contents,
               title,
+              youtubeUrl,
             },
           },
         });
@@ -155,6 +162,7 @@ export default function BoardWrite(props) {
       onChangeContents={onChangeContents}
       onClickSubmit={onClickSubmit}
       onClickUpdate={onClickUpdate}
+      onChangeYoutube={onChangeYoutube}
       writerError={writerError}
       passwordError={passwordError}
       titleError={titleError}
