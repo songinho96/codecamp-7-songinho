@@ -27,7 +27,7 @@ export default function BoardWrite(props) {
   // onChange()
   const onChangeWriter = (event) => {
     setWriter(event.target.value);
-    if (event.target.value === "") {
+    if (event.target.value !== "") {
       setWriterError("");
     }
     // setIsActive
@@ -40,7 +40,7 @@ export default function BoardWrite(props) {
 
   const onChangePassword = (event) => {
     setPassword(event.target.value);
-    if (event.target.value === "") {
+    if (event.target.value !== "") {
       setPasswordError("");
     }
 

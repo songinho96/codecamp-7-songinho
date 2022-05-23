@@ -23,9 +23,11 @@ export const Header = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-bottom: 80px;
 `;
 
 export const BestPost = styled.div`
+  text-align: center;
   font-size: 36px;
   font-weight: 700;
   padding-bottom: 40px;
@@ -66,6 +68,41 @@ export const TuumbsCount = styled.div``;
 // body
 export const Body = styled.div`
   width: 100%;
+  padding-bottom: 40px;
+`;
+
+export const WrapperSearch = styled.div`
+  display: flex;
+  width: 100%;
+  padding-bottom: 40px;
+`;
+
+export const InputSearch = styled.input`
+  margin-right: 42px;
+  width: 776px;
+  height: 52px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+`;
+
+export const DateSearch = styled.input`
+  margin-right: 44px;
+  width: 244px;
+  height: 52px;
+  color: #bdbdbd;
+  text-align: center;
+`;
+
+export const ButtonSearch = styled.button`
+  width: 94px;
+  height: 52px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+`;
+
+export const Underline = styled.div`
+  border-bottom: 3px solid gray;
 `;
 
 export const WrapperTable = styled.div`
@@ -75,20 +112,51 @@ export const WrapperTable = styled.div`
 export const TableRow = styled.div`
   display: flex;
   flex-direction: row;
+  padding: 10px 0;
 `;
 
 export const Row = styled.div`
   display: flex;
+  padding: 10px 0;
+  border-top: 1px solid gray;
 `;
 
-export const Column = styled.div`
-  width: 25%;
+export const TitleColumntitle = styled.div`
+  width: 60%;
+  text-align: center;
 `;
 
-export const ColumnTitle = styled.div``;
+export const NumColumn = styled.div`
+  width: 10%;
+  text-align: center;
+`;
 
-export const Footer = styled.div``;
+export const TitleColumn = styled.div`
+  width: 60%;
+  text-align: center;
+  cursor: pointer;
+  :hover {
+    color: red;
+  }
+`;
+
+export const WriterColumn = styled.div`
+  width: 20%;
+  text-align: center;
+`;
+
+export const DateColumn = styled.div`
+  width: 20%;
+  text-align: center;
+`;
+
+export const Footer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
 
 export const Button = styled.button`
   cursor: pointer;
+  display: flex;
 `;

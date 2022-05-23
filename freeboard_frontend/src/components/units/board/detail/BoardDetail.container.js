@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { FETCH_BOARDS } from "../../../../components_XX/units/board/list/BoardList.queries";
 import BoardDetailUI from "./BoardDetail.presenter";
 import { DELETE_BOARD, FETCH_BOARD } from "./BoardDetail.queries";
 
@@ -27,6 +28,11 @@ export default function BoardDetail() {
   const onClickDelete = () => {
     deleteBoard({
       variables: { boardId: router.query.boardId },
+      refetchQueries: [
+        {
+          query: FETCH_BOARDS,
+        },
+      ],
     });
     router.push(`/boards`);
   };

@@ -26,25 +26,31 @@ export default function BoardListUI(props) {
         </S.WrapperBest>
       </S.Header>
       <S.Body>
+        <S.WrapperSearch>
+          <S.InputSearch type="text" placeholder="제목을 입력해주세요." />
+          <S.DateSearch type="text" placeholder="YYYY.MM.DD ~ YYYY.MM.DD" />
+          <S.ButtonSearch>검색하기</S.ButtonSearch>
+        </S.WrapperSearch>
+        <S.Underline></S.Underline>
         <S.WrapperTable>
           <S.TableRow>
-            <S.Column>번호</S.Column>
-            <S.Column>제목</S.Column>
-            <S.Column>작성자</S.Column>
-            <S.Column>날짜</S.Column>
+            <S.NumColumn>번호</S.NumColumn>
+            <S.TitleColumntitle>제목</S.TitleColumntitle>
+            <S.WriterColumn>작성자</S.WriterColumn>
+            <S.DateColumn>날짜</S.DateColumn>
           </S.TableRow>
-
           {props.data?.fetchBoards.map((el, index) => (
             <S.Row key={el._id}>
-              <S.Column>{index + 1}</S.Column>
-              <S.Column id={el._id} onClick={props.onClickMoveBoardDetail}>
+              <S.NumColumn>{index + 1}</S.NumColumn>
+              <S.TitleColumn id={el._id} onClick={props.onClickMoveBoardDetail}>
                 {el.title}
-              </S.Column>
-              <S.Column>{el.writer}</S.Column>
-              <S.Column>{getDate(el.createdAt)}</S.Column>
+              </S.TitleColumn>
+              <S.WriterColumn>{el.writer}</S.WriterColumn>
+              <S.DateColumn>{getDate(el.createdAt)}</S.DateColumn>
             </S.Row>
           ))}
         </S.WrapperTable>
+        <S.Underline></S.Underline>
       </S.Body>
 
       <S.Footer>

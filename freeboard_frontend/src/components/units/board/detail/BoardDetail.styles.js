@@ -145,6 +145,7 @@ export const WrapperButton = styled.div`
   flex-direction: row;
   justify-content: center;
   padding-top: 87px;
+  padding-bottom: 87px;
 `;
 
 export const Button = styled.button`
@@ -154,4 +155,8 @@ export const Button = styled.button`
   background-color: white;
   border: 1px solid #bdbdbd;
   cursor: pointer;
+`;
+
+export const Underline2 = styled.div`
+  border-top: 1px solid gray;
 `;

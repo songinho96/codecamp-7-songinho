@@ -32,9 +32,9 @@ export default function BoardDetailUI(props) {
         <S.WrapperBody>
           <S.Subject>{props.data?.fetchBoard.title}</S.Subject>
           <S.WrapperContents>
-            <S.Picture src="/detailBoard/picture.svg" />
+            <S.Picture />
             <S.Contents>{props.data?.fetchBoard.contents}</S.Contents>
-            <S.Video src="/detailBoard/video.svg" />
+            <S.Video />
             <S.WrapperThumbs>
               <S.InputThumbs>
                 <S.LikeIcon src="/detailBoard/like-Icon.svg" />
@@ -54,6 +54,7 @@ export default function BoardDetailUI(props) {
         <S.Button onClick={props.onClickMoveEdit}>수정하기</S.Button>
         <S.Button onClick={props.onClickDelete}>삭제하기</S.Button>
       </S.WrapperButton>
+      <S.Underline2></S.Underline2>
     </S.Wrapper>
   );
 }
