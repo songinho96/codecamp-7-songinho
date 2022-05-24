@@ -1,6 +1,6 @@
 import { getDate } from "../../../commons/libraries/utils";
 import * as S from "./BoardComment.styles";
-import { Rate } from "antd";
+import { Modal, Rate } from "antd";
 
 export default function BoardCommentUI(props) {
   return (
@@ -62,16 +62,30 @@ export default function BoardCommentUI(props) {
                 <S.WrapFrontHeader>
                   <S.CommentWriter>{el.writer}</S.CommentWriter>
                   <S.CommentStar>
-                    <Rate value={el.rating} />
+                    <Rate value={el.rating} disabled />
                   </S.CommentStar>
                 </S.WrapFrontHeader>
                 <S.WrapBackHeader>
                   <S.Pencil src="/commentBoard/Pencil.svg" />
                   <S.Delete
                     src="/commentBoard/X-Button.svg"
-                    onClick={props.onClickDelete}
                     id={el._id}
+                    onClick={props.onClickDelete}
                   />
+
+                  {props.isModalVisible && (
+                    <Modal
+                      visible={props.isModalVisible}
+                      onOk={props.handleOk}
+                      onCancel={props.handleCancel}
+                    >
+                      비밀번호 입력:
+                      <input
+                        type="password"
+                        onChange={props.onChangeDeletePassword}
+                      />
+                    </Modal>
+                  )}
                 </S.WrapBackHeader>
               </S.WrapWritedHeader>
               <S.Contents>{el.contents}</S.Contents>

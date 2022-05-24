@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import BoardWriteUI from "./BoardWrite.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
+import { Modal } from "antd";
 
 export default function BoardWrite(props) {
   // isActive 버튼 색 바꾸기
@@ -102,7 +103,10 @@ export default function BoardWrite(props) {
     }
 
     if (writer !== "" && password !== "" && title !== "" && contents !== "") {
-      alert("게시글이 등록되었습니다.");
+      Modal.success({
+        title: "게시글 등록 성공!!",
+        content: "게시글이 등록 되었습니다!",
+      });
       try {
         const result = await callGraphql({
           variables: {
@@ -125,18 +129,25 @@ export default function BoardWrite(props) {
 
   const onClickUpdate = async () => {
     if (!title && !contents) {
-      alert("수정한 내용이 없습니다.");
+      Modal.error({
+        title: "Error 메시지",
+        content: "수정한 내용이 없습니다!",
+      });
       return;
     }
 
     if (!password) {
-      alert("비밀번호를 입력해주세요.");
+      Modal.error({
+        title: "Error 메시지",
+        content: "비밀번호를 입력해주세요!",
+      });
       return;
     }
 
     const updateBoardInput = {};
     if (title) updateBoardInput.title = title;
     if (contents) updateBoardInput.contents = contents;
+    if (youtubeUrl) updateBoardInput.youtubeUrl = youtubeUrl;
 
     try {
       const result = await updateBoard({
@@ -146,11 +157,17 @@ export default function BoardWrite(props) {
           updateBoardInput,
         },
       });
-      alert("게시글이 수정되었습니다.");
+      Modal.success({
+        title: "게시글 수정 성공!!",
+        content: "게시글이 수정 되었습니다!",
+      });
       router.push(`/boards/${result.data.updateBoard._id}`);
       // router.push(`/boards/${router.query.boardId}`);
     } catch (error) {
-      alert(error.message);
+      Modal.error({
+        title: "Error 메시지",
+        content: "비밀번호가 틀렸습니다!",
+      });
     }
   };
 

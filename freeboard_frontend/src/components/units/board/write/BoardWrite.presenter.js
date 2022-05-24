@@ -14,6 +14,7 @@ export default function BoardWriteUI(props) {
             placeholder="이름을 적어주세요"
             onChange={props.onChangeWriter}
             defaultValue={props.boardData?.fetchBoard.writer}
+            readOnly={!!props.data?.fetchBoard.writer}
           />
           <S.Error>{props.writerError}</S.Error>
         </S.WraprWriter>
@@ -70,6 +71,7 @@ export default function BoardWriteUI(props) {
           type="text"
           placeholder="링크를 복사해주세요."
           onChange={props.onChangeYoutube}
+          defaultValue={props.boardData?.fetchBoard.youtubeUrl}
         />
       </S.WrapperYoutube>
 

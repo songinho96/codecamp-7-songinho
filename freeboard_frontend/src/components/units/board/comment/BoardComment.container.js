@@ -8,8 +8,13 @@ import {
   FETCH_BOARD_COMMENTS,
 } from "./BoardComment.queries";
 
+import { Modal } from "antd";
+
 export default function BoardComment(props) {
   // Antd
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [deletePassword, setDeletePassword] = useState("");
+  const [eventId, setEventId] = useState("");
 
   // isActive
   const [isActive, setIsActive] = useState(false);
@@ -34,6 +39,10 @@ export default function BoardComment(props) {
   // console.log(data);
   // console.log(router);
   // detail페이지의 boardId 가져옴
+
+  const onChangeDeletePassword = (event) => {
+    setDeletePassword(event.target.value);
+  };
 
   const onChangeWriter = (event) => {
     setWriter(event.target.value);
@@ -73,7 +82,7 @@ export default function BoardComment(props) {
   };
 
   // StarRating
-  const handleChange = (value) => {
+  const handleChange = async (value) => {
     setValue(value);
   };
 
@@ -91,7 +100,10 @@ export default function BoardComment(props) {
     }
 
     if (writer && password && contents) {
-      alert("댓글 등록 성공!");
+      Modal.success({
+        title: "댓글 등록 성공!!",
+        content: "댓글이 등록 되었습니다!",
+      });
       try {
         const result = await createBoardComments({
           variables: {
@@ -113,18 +125,27 @@ export default function BoardComment(props) {
         console.log("aaa" + result);
       } catch (error) {
         console.log(error);
-        alert(error.message);
+        Modal.error({
+          title: "댓글 등록 실패!!",
+          content: "댓글 등록에 실패 했습니다!",
+        });
       }
     }
   };
 
-  const onClickDelete = async (event) => {
+  const onClickDelete = (event) => {
+    setIsModalVisible(true);
+    setEventId(event.target.id);
+  };
+
+  const handleOk = async () => {
+    setIsModalVisible(false);
+    const mypassword = deletePassword;
     try {
-      const myPassword = prompt("비밀번호");
       await deleteBoardComment({
         variables: {
-          boardCommentId: event.target.id,
-          password: myPassword,
+          boardCommentId: eventId,
+          password: mypassword,
         },
         refetchQueries: [
           {
@@ -133,29 +154,47 @@ export default function BoardComment(props) {
           },
         ],
       });
+      Modal.success({
+        title: "댓글 삭제 성공!!",
+        content: "댓글이 삭제 되었습니다!",
+      });
     } catch (error) {
-      console.log(error);
-      alert(error.message);
+      Modal.error({
+        title: "Error 메시지",
+        content: "비밀번호가 틀렸습니다!",
+      });
     }
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
   };
 
   // Antd
 
   return (
-    <BoardCommentUI
-      onChangeWriter={onChangeWriter}
-      onChangePassword={onChangePassword}
-      onChangeContents={onChangeContents}
-      onClickComments={onClickComments}
-      onClickDelete={onClickDelete}
-      writerError={writerError}
-      passwordError={passwordError}
-      contentsError={contentsError}
-      data={data}
-      isActive={isActive}
-      contents={contents}
-      handleChange={handleChange}
-      value={value}
-    />
+    <p>
+      <BoardCommentUI
+        onChangeWriter={onChangeWriter}
+        onChangePassword={onChangePassword}
+        onChangeContents={onChangeContents}
+        onClickComments={onClickComments}
+        onClickDelete={onClickDelete}
+        writerError={writerError}
+        passwordError={passwordError}
+        contentsError={contentsError}
+        data={data}
+        isActive={isActive}
+        contents={contents}
+        handleChange={handleChange}
+        value={value}
+        // Modal
+        Modal={Modal}
+        isModalVisible={isModalVisible}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+        onChangeDeletePassword={onChangeDeletePassword}
+      />
+    </p>
   );
 }

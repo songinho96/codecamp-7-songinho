@@ -9,6 +9,7 @@ import {
   LIKE_BOARD,
 } from "./BoardDetail.queries";
 import ReactPlayer from "react-player/youtube"; // youtube 영상
+import { Modal } from "antd";
 
 export default function BoardDetail() {
   const router = useRouter();
@@ -41,6 +42,10 @@ export default function BoardDetail() {
           query: FETCH_BOARDS,
         },
       ],
+    });
+    Modal.success({
+      title: "게시물 삭제 성공!!",
+      content: "게시물이 삭제 되었습니다!",
     });
     router.push(`/boards`);
   };

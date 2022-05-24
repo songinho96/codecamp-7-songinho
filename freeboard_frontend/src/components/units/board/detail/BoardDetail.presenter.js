@@ -35,14 +35,16 @@ export default function BoardDetailUI(props) {
             <S.Picture />
             <S.Contents>{props.data?.fetchBoard.contents}</S.Contents>
             <S.Video>
-              <props.ReactPlayer
-                url={props.data?.fetchBoard.youtubeUrl}
-                width={486}
-                height={240}
-                controls={true}
-                playing={true}
-                muted={true}
-              />
+              {props.data?.fetchBoard.youtubeUrl && (
+                <props.ReactPlayer
+                  url={props.data?.fetchBoard.youtubeUrl}
+                  width={486}
+                  height={240}
+                  controls={true}
+                  playing={true}
+                  muted={true}
+                />
+              )}
             </S.Video>
             <S.WrapperThumbs>
               <S.InputThumbs>
