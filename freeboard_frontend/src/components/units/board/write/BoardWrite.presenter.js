@@ -1,3 +1,5 @@
+import { Modal } from "antd";
+import DaumPostcode from "react-daum-postcode";
 import * as S from "./BoardWrite.styles";
 
 export default function BoardWriteUI(props) {
@@ -13,8 +15,8 @@ export default function BoardWriteUI(props) {
             type="text"
             placeholder="이름을 적어주세요"
             onChange={props.onChangeWriter}
-            defaultValue={props.boardData?.fetchBoard.writer}
             readOnly={!!props.data?.fetchBoard.writer}
+            defaultValue={props.boardData?.fetchBoard.writer}
           />
           <S.Error>{props.writerError}</S.Error>
         </S.WraprWriter>
@@ -58,11 +60,42 @@ export default function BoardWriteUI(props) {
       <S.WrapperAddress>
         <S.Label>주소</S.Label>
         <S.WrapZipcode>
-          <S.Zipcode type="text" placeholder="07250" readonly />
-          <S.SearchButton>우편번호 검색</S.SearchButton>
+          <S.Zipcode
+            placeholder="07250"
+            readOnly
+            value={
+              props.zipcode || props.boardData?.fetchBoard.boardAddress?.zipcode
+            }
+          />
+
+          <S.SearchButton onClick={props.showModal}>
+            우편번호 검색
+          </S.SearchButton>
         </S.WrapZipcode>
-        <S.Address type="text" readonly />
-        <S.Address type="text" />
+        <S.Address
+          readOnly
+          value={
+            props.address || props.boardData?.fetchBoard.boardAddress?.address
+          }
+        />
+
+        <S.AddressDetail
+          type="text"
+          onChange={props.onChangeAddressDetail}
+          defaultValue={props.boardData?.fetchBoard.boardAddress?.addressDetail}
+        />
+
+        {props.isModalVisible && (
+          <Modal
+            visible={true}
+            onOk={props.showModal}
+            onCancel={props.showModal}
+            // onOk={props.handleOk}
+            // onCancel={props.handleCancel}
+          >
+            <DaumPostcode onComplete={props.handleComplete} />
+          </Modal>
+        )}
       </S.WrapperAddress>
 
       <S.WrapperYoutube>

@@ -20,7 +20,14 @@ export default function BoardDetailUI(props) {
           </S.Profile>
           <S.WrapperHeaderIcon>
             <S.ShareIcon src="/detailBoard/share-Icon.svg" /> {/* 아이콘 */}
-            <S.LocationIcon src="/detailBoard/location-Icon.svg" />{" "}
+            <S.Pop
+              placement="topLeft"
+              arrowPointAtCenter
+              content={props.data?.fetchBoard.boardAddress?.addressDetail}
+              title={props.data?.fetchBoard.boardAddress?.address}
+            >
+              <S.LocationIcon src="/detailBoard/location-Icon.svg" />
+            </S.Pop>
             {/* 아이콘 */}
           </S.WrapperHeaderIcon>
         </S.WrapperHeader>

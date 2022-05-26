@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
   border: none;
   box-shadow: 0px 0px 10px gray;
   box-sizing: border-box;
+  font-size: 16px;
 `;
 
 export const Error = styled.div`
@@ -49,6 +50,7 @@ export const Writer = styled.input`
   width: 486px;
   height: 53px;
   margin-right: 40px;
+  padding-left: 10px;
 `;
 
 export const WrapPassword = styled.div``;
@@ -56,6 +58,7 @@ export const WrapPassword = styled.div``;
 export const Password = styled.input`
   width: 486px;
   height: 53px;
+  padding-left: 10px;
 `;
 
 export const WrapperTitle = styled.div`
@@ -66,6 +69,7 @@ export const WrapperTitle = styled.div`
 export const Title = styled.input`
   width: 996px;
   height: 52px;
+  padding-left: 10px;
 `;
 
 export const WrapperContents = styled.div`
@@ -73,12 +77,17 @@ export const WrapperContents = styled.div`
   padding-bottom: 16px;
 `;
 
-export const Contents = styled.input`
+export const Contents = styled.textarea`
   width: 996px;
   height: 480px;
+  padding-left: 10px;
+  padding-top: 10px;
 `;
 
-export const WrapperAddress = styled.div``;
+export const WrapperAddress = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const WrapZipcode = styled.div`
   padding-bottom: 16px;
@@ -89,17 +98,32 @@ export const Zipcode = styled.input`
   height: 52px;
   text-align: center;
   margin-right: 16px;
+  border: 1px solid black;
+
+  color: #bdbdbd;
 `;
 
 export const SearchButton = styled.button`
   width: 124px;
   height: 52px;
+  background-color: black;
+  color: white;
 `;
 
 export const Address = styled.input`
   width: 996px;
   height: 52px;
   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+`;
+
+export const AddressDetail = styled.input`
+  width: 996px;
+  height: 52px;
+  margin-bottom: 30px;
+  padding-left: 10px;
 `;
 
 export const WrapperYoutube = styled.div`
@@ -109,6 +133,7 @@ export const WrapperYoutube = styled.div`
 export const YoutubeLink = styled.input`
   width: 996px;
   height: 52px;
+  padding-left: 10px;
 `;
 
 export const WrapperPicture = styled.div`

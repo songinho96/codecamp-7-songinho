@@ -1,4 +1,7 @@
 import styled from "@emotion/styled";
+import { Popover } from "antd";
+
+export const Pop = styled(Popover)``;
 
 export const Wrapper = styled.div`
   width: 1200px;

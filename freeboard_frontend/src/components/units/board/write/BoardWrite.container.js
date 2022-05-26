@@ -103,10 +103,6 @@ export default function BoardWrite(props) {
     }
 
     if (writer !== "" && password !== "" && title !== "" && contents !== "") {
-      Modal.success({
-        title: "게시글 등록 성공!!",
-        content: "게시글이 등록 되었습니다!",
-      });
       try {
         const result = await callGraphql({
           variables: {
@@ -116,10 +112,20 @@ export default function BoardWrite(props) {
               contents,
               title,
               youtubeUrl,
+              boardAddress: {
+                zipcode,
+                address,
+                addressDetail,
+              },
             },
           },
         });
         router.push(`/boards/${result.data.createBoard._id}`);
+        console.log(result);
+        Modal.success({
+          title: "게시글 등록 성공!!",
+          content: "게시글이 등록 되었습니다!",
+        });
       } catch (error) {
         console.log(error);
         alert(error.message);
@@ -128,7 +134,14 @@ export default function BoardWrite(props) {
   };
 
   const onClickUpdate = async () => {
-    if (!title && !contents) {
+    if (
+      !title &&
+      !contents &&
+      !youtubeUrl &&
+      !address &&
+      !addressDetail &&
+      !zipcode
+    ) {
       Modal.error({
         title: "Error 메시지",
         content: "수정한 내용이 없습니다!",
@@ -148,6 +161,16 @@ export default function BoardWrite(props) {
     if (title) updateBoardInput.title = title;
     if (contents) updateBoardInput.contents = contents;
     if (youtubeUrl) updateBoardInput.youtubeUrl = youtubeUrl;
+    // 주소 변경
+    if (zipcode || address || addressDetail) {
+      updateBoardInput.boardAddress = {};
+      if (zipcode) updateBoardInput.boardAddress.zipcode = zipcode;
+      if (address) updateBoardInput.boardAddress.address = address;
+      if (addressDetail)
+        updateBoardInput.boardAddress.addressDetail = addressDetail;
+    }
+
+    console.log(updateBoardInput.boardAddress);
 
     try {
       const result = await updateBoard({
@@ -171,6 +194,35 @@ export default function BoardWrite(props) {
     }
   };
 
+  // 모달 다음 포스트 어드레스
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [zipcode, setZipcode] = useState("");
+  const [address, setAddress] = useState("");
+  const [addressDetail, setAddressDetail] = useState("");
+
+  const showModal = () => {
+    setIsModalVisible((prev) => !prev);
+  };
+
+  // const handleOk = () => {
+  //   setIsModalVisible(false);
+  // };
+
+  // const handleCancel = () => {
+  //   setIsModalVisible(false);
+  // };
+
+  const handleComplete = (data) => {
+    setZipcode(data.zonecode);
+    setAddress(data.address);
+    // console.log(data);
+    setIsModalVisible((prev) => !prev); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
+  };
+
+  const onChangeAddressDetail = (event) => {
+    setAddressDetail(event.target.value);
+  };
+
   return (
     <BoardWriteUI
       onChangeWriter={onChangeWriter}
@@ -187,6 +239,14 @@ export default function BoardWrite(props) {
       isActive={isActive}
       isEdit={props.isEdit}
       boardData={props.boardData}
+      isModalVisible={isModalVisible}
+      showModal={showModal}
+      // handleOk={handleOk}
+      // handleCancel={handleCancel}
+      handleComplete={handleComplete}
+      onChangeAddressDetail={onChangeAddressDetail}
+      zipcode={zipcode}
+      address={address}
     />
   );
 }

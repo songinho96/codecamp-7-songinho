@@ -10,6 +10,11 @@ export const CREATE_BOARD = gql`
       youtubeUrl
       # likeCount
       # dislikeCount
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
     }
   }
 `;
@@ -32,6 +37,11 @@ export const UPDATE_BOARD = gql`
       youtubeUrl
       # likeCount
       # dislikeCount
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
     }
   }
 `;

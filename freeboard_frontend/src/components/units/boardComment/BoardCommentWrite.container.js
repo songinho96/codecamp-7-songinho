@@ -1,21 +1,13 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import BoardCommentUI from "./BoardComment.presenter";
-import {
-  CREATE_BOARD_COMMENT,
-  DELETE_BOARD_COMMENT,
-  FETCH_BOARD_COMMENTS,
-} from "./BoardComment.queries";
+import BoardCommentUI from "./BoardCommentWrite.presenter";
+import { CREATE_BOARD_COMMENT } from "./BoardCommentWrite.queries";
 
 import { Modal } from "antd";
+import { FETCH_BOARD_COMMENTS } from "./list/BoardCommentList.queries";
 
-export default function BoardComment(props) {
-  // Antd
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [deletePassword, setDeletePassword] = useState("");
-  const [eventId, setEventId] = useState("");
-
+export default function BoardCommentWrite(props) {
   // isActive
   const [isActive, setIsActive] = useState(false);
   // useState
@@ -31,7 +23,6 @@ export default function BoardComment(props) {
   // Mutation
   const router = useRouter();
   const [createBoardComments] = useMutation(CREATE_BOARD_COMMENT);
-  const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
   const { data } = useQuery(FETCH_BOARD_COMMENTS, {
     variables: { boardId: router.query.boardId },
   });
@@ -39,10 +30,6 @@ export default function BoardComment(props) {
   // console.log(data);
   // console.log(router);
   // detail페이지의 boardId 가져옴
-
-  const onChangeDeletePassword = (event) => {
-    setDeletePassword(event.target.value);
-  };
 
   const onChangeWriter = (event) => {
     setWriter(event.target.value);
@@ -133,45 +120,6 @@ export default function BoardComment(props) {
     }
   };
 
-  const onClickDelete = (event) => {
-    setIsModalVisible(true);
-    setEventId(event.target.id);
-  };
-
-  const handleOk = async () => {
-    setIsModalVisible(false);
-    const mypassword = deletePassword;
-    try {
-      await deleteBoardComment({
-        variables: {
-          boardCommentId: eventId,
-          password: mypassword,
-        },
-        refetchQueries: [
-          {
-            query: FETCH_BOARD_COMMENTS,
-            variables: { boardId: router.query.boardId },
-          },
-        ],
-      });
-      Modal.success({
-        title: "댓글 삭제 성공!!",
-        content: "댓글이 삭제 되었습니다!",
-      });
-    } catch (error) {
-      Modal.error({
-        title: "Error 메시지",
-        content: "비밀번호가 틀렸습니다!",
-      });
-    }
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-
-  // Antd
-
   return (
     <p>
       <BoardCommentUI
@@ -179,7 +127,6 @@ export default function BoardComment(props) {
         onChangePassword={onChangePassword}
         onChangeContents={onChangeContents}
         onClickComments={onClickComments}
-        onClickDelete={onClickDelete}
         writerError={writerError}
         passwordError={passwordError}
         contentsError={contentsError}
@@ -190,10 +137,6 @@ export default function BoardComment(props) {
         value={value}
         // Modal
         Modal={Modal}
-        isModalVisible={isModalVisible}
-        handleOk={handleOk}
-        handleCancel={handleCancel}
-        onChangeDeletePassword={onChangeDeletePassword}
       />
     </p>
   );
