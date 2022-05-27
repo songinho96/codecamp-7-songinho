@@ -8,6 +8,8 @@ import LayoutSideBar from "./sidebar";
 
 const LayoutBodyWrapper = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;
 
 const LayoutBody = styled.div``;
@@ -21,7 +23,6 @@ export default function Layout(props) {
       <LayoutBanner />
       <LayoutNavigation />
       <LayoutBodyWrapper>
-        <LayoutSideBar />
         <LayoutBody>{props.children}</LayoutBody>
       </LayoutBodyWrapper>
       <LayoutFooter />

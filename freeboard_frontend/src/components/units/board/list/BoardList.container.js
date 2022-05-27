@@ -1,11 +1,14 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import React from "react";
+
+// import React, { useState } from "react";
 import BoardListUI from "./BoardList.presenter";
 import { FETCH_BOARDS } from "./BoardList.queries";
 
 export default function BoardList() {
-  const { data } = useQuery(FETCH_BOARDS);
+  const { data, refetch } = useQuery(FETCH_BOARDS, {
+    variables: { page: 1 },
+  });
 
   const router = useRouter();
 
@@ -22,6 +25,7 @@ export default function BoardList() {
       data={data}
       onClickMoveBoardDetail={onClickMoveBoardDetail}
       onClickMoveBoardNew={onClickMoveBoardNew}
+      refetch={refetch}
     />
   );
 }

@@ -1,5 +1,6 @@
 import * as S from "./BoardList.styles";
 import { getDate } from "../../../commons/libraries/utils";
+import Paginationbasic from "../../../commons/paginations/basic/Paginationsbasic.container";
 export default function BoardListUI(props) {
   return (
     <S.Wrapper>
@@ -54,6 +55,9 @@ export default function BoardListUI(props) {
       </S.Body>
 
       <S.Footer>
+        <S.WrapPagination>
+          <Paginationbasic refetch={props.refetch} />
+        </S.WrapPagination>
         <S.Button onClick={props.onClickMoveBoardNew}>게시물 등록</S.Button>
       </S.Footer>
     </S.Wrapper>

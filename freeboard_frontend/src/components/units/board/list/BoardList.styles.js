@@ -159,4 +159,7 @@ export const Footer = styled.div`
 export const Button = styled.button`
   cursor: pointer;
   display: flex;
+  margin-left: 150px;
 `;
+
+export const WrapPagination = styled.div``;
