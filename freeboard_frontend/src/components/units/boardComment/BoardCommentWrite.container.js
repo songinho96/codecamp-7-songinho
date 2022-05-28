@@ -2,7 +2,10 @@ import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import BoardCommentUI from "./BoardCommentWrite.presenter";
-import { CREATE_BOARD_COMMENT } from "./BoardCommentWrite.queries";
+import {
+  CREATE_BOARD_COMMENT,
+  UPDATE_BOARD_COMMENT,
+} from "./BoardCommentWrite.queries";
 
 import { Modal } from "antd";
 import { FETCH_BOARD_COMMENTS } from "./list/BoardCommentList.queries";
@@ -23,6 +26,7 @@ export default function BoardCommentWrite(props) {
   // Mutation
   const router = useRouter();
   const [createBoardComments] = useMutation(CREATE_BOARD_COMMENT);
+  const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
   const { data } = useQuery(FETCH_BOARD_COMMENTS, {
     variables: { boardId: router.query.boardId },
   });
@@ -73,6 +77,7 @@ export default function BoardCommentWrite(props) {
     setValue(value);
   };
 
+  // onClickComments
   const onClickComments = async () => {
     if (writer === "") {
       setWriterError("작성자를 입력해주세요.");
@@ -120,6 +125,48 @@ export default function BoardCommentWrite(props) {
     }
   };
 
+  // onCLickUpdate
+  const onClickBackButton = () => {
+    props.setIsEdit(false);
+  };
+
+  const onClickUpdate = async () => {
+    if (password === "") {
+      setPasswordError("비밀번호를 입력해주세요.");
+    }
+
+    if (contents === "") {
+      setContentsError("내용을 입력해주세요.");
+    }
+
+    if (password && contents) {
+      try {
+        await updateBoardComment({
+          variables: {
+            updateBoardCommentInput: {
+              contents,
+              rating: value,
+            },
+            password,
+            boardCommentId: props.eventId,
+          },
+          refetchQueries: [
+            {
+              query: FETCH_BOARD_COMMENTS,
+              variables: { boardId: router.query.boardId },
+            },
+          ],
+        });
+      } catch (error) {
+        Modal.error({
+          title: "Error 메시지",
+          content: "비밀번호가 틀렸습니다!",
+        });
+      }
+      props.setIsEdit(false);
+    }
+  };
+
   return (
     <p>
       <BoardCommentUI
@@ -127,6 +174,8 @@ export default function BoardCommentWrite(props) {
         onChangePassword={onChangePassword}
         onChangeContents={onChangeContents}
         onClickComments={onClickComments}
+        onClickUpdate={onClickUpdate}
+        onClickBackButton={onClickBackButton}
         writerError={writerError}
         passwordError={passwordError}
         contentsError={contentsError}
@@ -137,6 +186,7 @@ export default function BoardCommentWrite(props) {
         value={value}
         // Modal
         Modal={Modal}
+        isEdit={props.isEdit}
       />
     </p>
   );

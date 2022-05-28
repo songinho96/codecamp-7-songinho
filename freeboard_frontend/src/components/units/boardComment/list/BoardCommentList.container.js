@@ -24,7 +24,7 @@ export default function BoardCommentList() {
   const router = useRouter();
   const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
 
-  const { data } = useQuery(FETCH_BOARD_COMMENTS, {
+  const { data, fetchMore } = useQuery(FETCH_BOARD_COMMENTS, {
     variables: { boardId: router.query.boardId },
   });
 
@@ -76,6 +76,28 @@ export default function BoardCommentList() {
 
   // Antd
 
+  // 무한 스크롤
+  const loadFunc = () => {
+    if (!data) return;
+
+    fetchMore({
+      variables: { page: Math.ceil(data.fetchBoardComments.length / 10) + 1 },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchBoardComments)
+          return {
+            fetchBoardComments: [...prev.fetchBoardComments],
+          };
+
+        return {
+          fetchBoardComments: [
+            ...prev.fetchBoardComments,
+            ...fetchMoreResult.fetchBoardComments,
+          ],
+        };
+      },
+    });
+  };
+
   return (
     <p>
       <BoardCommentListUI
@@ -89,6 +111,9 @@ export default function BoardCommentList() {
         handleOk={handleOk}
         handleCancel={handleCancel}
         onChangeDeletePassword={onChangeDeletePassword}
+        setEventId={setEventId}
+        eventId={eventId}
+        loadFunc={loadFunc}
       />
     </p>
   );

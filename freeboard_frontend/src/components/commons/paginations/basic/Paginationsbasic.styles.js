@@ -1,8 +1,12 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
+  width: 600px;
+`;
+
+export const Wrap = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 export const PrevButtin = styled.div`

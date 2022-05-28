@@ -81,3 +81,8 @@ export const CommentButton = styled.button`
 export const Contents = styled.div`
   font-size: 16px;
 `;
+
+export const EditBackButton = styled.button`
+  width: 91px;
+  height: 52px;
+`;
