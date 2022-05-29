@@ -1,10 +1,7 @@
-// import { getDate } from "../../../commons/libraries/utils";
-// import * as S from "./BoardCommentList.styles";
-// import { Modal, Rate } from "antd";
 import styled from "@emotion/styled";
 import { Modal } from "antd";
-import BoardCommentItemUI from "../edit/BoardCommentItem.presenter";
 import InfiniteScroll from "react-infinite-scroller";
+import BoardCommentItem from "../edit/BoardCommentItem.container";
 
 const Wrapperwrited = styled.div`
   width: 1200px;
@@ -30,6 +27,7 @@ export default function BoardCommentListUI(props) {
           <input type="password" onChange={props.onChangeDeletePassword} />
         </Modal>
       )}
+
       <Scroll>
         <InfiniteScroll
           pageStart={0}
@@ -39,17 +37,13 @@ export default function BoardCommentListUI(props) {
         >
           {props.data?.fetchBoardComments.map((el) => (
             <Wrapperwrited key={el._id}>
-              <BoardCommentItemUI
-                el={el}
-                setEventId={props.setEventId}
-                eventId={props.eventId}
-                onClickDelete={props.onClickDelete}
-              />
+              <BoardCommentItem el={el} onClickDelete={props.onClickDelete} />
             </Wrapperwrited>
           ))}
         </InfiniteScroll>
       </Scroll>
     </>
+
     // <S.Wrapper>
     //   {/* 쓴 댓글 보여주는 곳 */}
     //   {props.data?.fetchBoardComments.map((el) => (

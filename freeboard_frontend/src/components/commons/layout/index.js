@@ -23,7 +23,10 @@ export default function Layout(props) {
       <LayoutBanner />
       <LayoutNavigation />
       <LayoutBodyWrapper>
-        <LayoutBody>{props.children}</LayoutBody>
+        <LayoutBody>
+          <LayoutSideBar />
+          {props.children}
+        </LayoutBody>
       </LayoutBodyWrapper>
       <LayoutFooter />
     </>

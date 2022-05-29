@@ -83,7 +83,7 @@ export default function BoardCommentList() {
     fetchMore({
       variables: { page: Math.ceil(data.fetchBoardComments.length / 10) + 1 },
       updateQuery: (prev, { fetchMoreResult }) => {
-        if (!fetchMoreResult.fetchBoardComments)
+        if (!fetchMoreResult?.fetchBoardComments)
           return {
             fetchBoardComments: [...prev.fetchBoardComments],
           };
@@ -111,8 +111,6 @@ export default function BoardCommentList() {
         handleOk={handleOk}
         handleCancel={handleCancel}
         onChangeDeletePassword={onChangeDeletePassword}
-        setEventId={setEventId}
-        eventId={eventId}
         loadFunc={loadFunc}
       />
     </p>

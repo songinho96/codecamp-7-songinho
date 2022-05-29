@@ -148,7 +148,7 @@ export default function BoardCommentWrite(props) {
               rating: value,
             },
             password,
-            boardCommentId: props.eventId,
+            boardCommentId: props.editId,
           },
           refetchQueries: [
             {

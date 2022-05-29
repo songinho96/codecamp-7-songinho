@@ -4,7 +4,9 @@ export default function PaginationbasicUI(props) {
   return (
     <S.Wrapper>
       <S.Wrap>
-        <S.PrevButtin onClick={props.onClickPrev}>이전</S.PrevButtin>
+        <S.StartButton onClick={props.onClickStart}>＜＜</S.StartButton>
+        <S.PrevButton onClick={props.onClickPrev}>＜</S.PrevButton>
+
         {new Array(10).fill(1).map(
           (_, index) =>
             index + props.startPage <= props.lastPage && (
@@ -12,12 +14,15 @@ export default function PaginationbasicUI(props) {
                 onClick={props.onClickPage}
                 id={String(index + props.startPage)}
                 key={index + props.startPage}
+                isActive={index + props.startPage === props.activePage}
               >
                 {` ${index + props.startPage} `}
               </S.Pagination>
             )
         )}
-        <S.NextButton onClick={props.onClickNext}>다음</S.NextButton>
+
+        <S.NextButton onClick={props.onClickNext}>＞</S.NextButton>
+        <S.LastButton onClick={props.onClickLast}>＞＞</S.LastButton>
       </S.Wrap>
     </S.Wrapper>
   );

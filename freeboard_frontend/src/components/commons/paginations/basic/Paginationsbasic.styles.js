@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 600px;
+  width: 700px;
 `;
 
 export const Wrap = styled.div`
@@ -9,19 +9,31 @@ export const Wrap = styled.div`
   justify-content: space-between;
 `;
 
-export const PrevButtin = styled.div`
-  padding-right: 20px;
-  padding-left: 50px;
+export const PrevButton = styled.div`
   cursor: pointer;
+  padding-left: 15px;
 `;
 
 export const Pagination = styled.div`
-  padding-left: 10px;
+  margin-left: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
   width: 40px;
   cursor: pointer;
+  background-color: ${(props) => (props.isActive ? "#ddd" : "none")};
 `;
 
 export const NextButton = styled.div`
-  padding-left: 20px;
+  padding-left: 15px;
+  cursor: pointer;
+`;
+
+export const StartButton = styled.div`
+  padding-left: 15px;
+  cursor: pointer;
+`;
+
+export const LastButton = styled.div`
+  padding-left: 15px;
   cursor: pointer;
 `;

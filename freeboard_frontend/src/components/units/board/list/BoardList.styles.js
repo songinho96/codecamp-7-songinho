@@ -161,5 +161,3 @@ export const Button = styled.button`
   display: flex;
   margin-left: 150px;
 `;
-
-export const WrapPagination = styled.div``;

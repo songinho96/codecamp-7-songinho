@@ -4,7 +4,7 @@ import Paginationbasic from "../../../commons/paginations/basic/Paginationsbasic
 export default function BoardListUI(props) {
   return (
     <S.Wrapper>
-      <S.Header>
+      {/* <S.Header>
         <S.BestPost>베스트 게시글</S.BestPost>
         <S.WrapperBest>
           <S.WrapBest>
@@ -25,7 +25,7 @@ export default function BoardListUI(props) {
             </S.WrapBestInfo>
           </S.WrapBest>
         </S.WrapperBest>
-      </S.Header>
+      </S.Header> */}
       <S.Body>
         <S.WrapperSearch>
           <S.InputSearch type="text" placeholder="제목을 입력해주세요." />
@@ -53,11 +53,8 @@ export default function BoardListUI(props) {
         </S.WrapperTable>
         <S.Underline></S.Underline>
       </S.Body>
-
+      <Paginationbasic refetch={props.refetch} />
       <S.Footer>
-        <S.WrapPagination>
-          <Paginationbasic refetch={props.refetch} />
-        </S.WrapPagination>
         <S.Button onClick={props.onClickMoveBoardNew}>게시물 등록</S.Button>
       </S.Footer>
     </S.Wrapper>
