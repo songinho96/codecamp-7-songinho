@@ -36,6 +36,7 @@ export default function BoardCommentItemUI(props) {
           </S.WrapWriteComment>
         </S.WrapperComment>
       )}
+
       {props.isEdit === true && (
         <BoardCommentWrite
           setIsEdit={props.setIsEdit}

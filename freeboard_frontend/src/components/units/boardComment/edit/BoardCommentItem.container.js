@@ -13,9 +13,9 @@ export default function BoardCommentItem(props) {
     <BoardCommentItemUI
       setIsEdit={setIsEdit}
       onClickEdit={onClickEdit}
-      isEdit={isEdit}
       el={props.el}
       onClickDelete={props.onClickDelete}
+      isEdit={isEdit}
       editId={editId}
       setEditId={setEditId}
     />

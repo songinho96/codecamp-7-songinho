@@ -1,7 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-
 import {
   DELETE_BOARD_COMMENT,
   FETCH_BOARD_COMMENTS,
@@ -79,7 +78,6 @@ export default function BoardCommentList() {
   // 무한 스크롤
   const loadFunc = () => {
     if (!data) return;
-
     fetchMore({
       variables: { page: Math.ceil(data.fetchBoardComments.length / 10) + 1 },
       updateQuery: (prev, { fetchMoreResult }) => {
