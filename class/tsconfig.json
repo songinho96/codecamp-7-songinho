@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/09-02-typescript/index.js"  ],
+, "pages/09-02-typescript/index.js", "pages/quiz/14-quiz-pagination/1/index.js"  ],
   "exclude": [
     "node_modules"
   ]
