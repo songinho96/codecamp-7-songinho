@@ -6,6 +6,6 @@ const Wrapper = styled.div`
   background-color: chocolate;
 `;
 
-export default function LayoutSideBar() {
+export default function SideBar() {
   return <Wrapper></Wrapper>;
 }

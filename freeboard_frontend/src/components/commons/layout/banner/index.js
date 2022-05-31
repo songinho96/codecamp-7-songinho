@@ -1,71 +1,62 @@
 import styled from "@emotion/styled";
-import React, { Component } from "react";
 import Slider from "react-slick";
-
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "black" }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "black" }}
-      onClick={onClick}
-    />
-  );
-}
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Images = styled.img`
-  margin: auto;
+  height: 400px;
+  width: 100%;
+  border-radius: 0;
 `;
 
 const Wrapper = styled.div`
-  height: 700px;
-  padding: 100px;
+  height: 400px;
+  width: 100%;
+  border-radius: 0%;
 `;
 
-export default function LayoutBanner() {
+export default function Banner() {
+  const StyledSlider = styled(Slider)`
+    .slick-dots {
+      bottom: 20px;
+    }
+    /* .slick-dots li button:before {
+      color: black;
+    } */
+  `;
+
   const settings = {
     dots: true,
     infinite: true,
+    speed: 4000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3500,
     pauseOnHover: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    arrows: false,
+
+    // nextArrow: <SampleNextArrow />,
+    // prevArrow: <SamplePrevArrow />,
   };
 
   return (
     <Wrapper>
       <div>
-        <Slider {...settings}>
+        <StyledSlider {...settings}>
           <div>
-            <Images src="/images/dog.jpeg" />
+            <Images src="/bannerImages/banner1.jpeg" />
           </div>
           <div>
-            <Images src="/images/dog.jpeg" />
+            <Images src="/bannerImages/banner2.jpeg" />
           </div>
           <div>
-            <Images src="/images/dog.jpeg" />
+            <Images src="/bannerImages/banner3.jpeg" />
           </div>
           <div>
-            <Images src="/images/dog.jpeg" />
+            <Images src="/bannerImages/banner4.jpeg" />
           </div>
-          <div>
-            <Images src="/images/dog.jpeg" />
-          </div>
-        </Slider>
+        </StyledSlider>
       </div>
     </Wrapper>
   );

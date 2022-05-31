@@ -79,7 +79,9 @@ export default function BoardCommentList() {
   const loadFunc = () => {
     if (!data) return;
     fetchMore({
-      variables: { page: Math.ceil(data.fetchBoardComments.length / 10) + 1 },
+      // 더 받아옴
+      variables: { page: Math.ceil(data.fetchBoardComments.length / 10) + 1 }, // 한 페이지당 10개 다음페이지 까지 불러 와야 하기 때문에 + 1 해준다.
+      // fetchMoreResult = 11~20  prev는 1~10
       updateQuery: (prev, { fetchMoreResult }) => {
         if (!fetchMoreResult?.fetchBoardComments)
           return {
@@ -88,8 +90,8 @@ export default function BoardCommentList() {
 
         return {
           fetchBoardComments: [
-            ...prev.fetchBoardComments,
-            ...fetchMoreResult.fetchBoardComments,
+            ...prev.fetchBoardComments, // 기존꺼 10개
+            ...fetchMoreResult.fetchBoardComments, // 다음꺼 10개
           ],
         };
       },

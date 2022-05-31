@@ -14,9 +14,20 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border: none;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 16px 48px;
   box-sizing: border-box;
   font-size: 16px;
+  background-color: white;
+`;
+export const WrapBackButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const BackButton = styled.button`
+  width: 77px;
+  height: 38px;
 `;
 
 export const Error = styled.div`
@@ -51,6 +62,7 @@ export const Writer = styled.input`
   height: 53px;
   margin-right: 40px;
   padding-left: 10px;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const WrapPassword = styled.div``;
@@ -59,6 +71,7 @@ export const Password = styled.input`
   width: 486px;
   height: 53px;
   padding-left: 10px;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const WrapperTitle = styled.div`
@@ -70,6 +83,7 @@ export const Title = styled.input`
   width: 996px;
   height: 52px;
   padding-left: 10px;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const WrapperContents = styled.div`
@@ -82,6 +96,7 @@ export const Contents = styled.textarea`
   height: 480px;
   padding-left: 10px;
   padding-top: 10px;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const WrapperAddress = styled.div`
@@ -99,8 +114,8 @@ export const Zipcode = styled.input`
   text-align: center;
   margin-right: 16px;
   border: 1px solid black;
-
   color: #bdbdbd;
+  box-shadow: 0px 2px 4px;
 `;
 
 export const SearchButton = styled.button`
@@ -108,6 +123,7 @@ export const SearchButton = styled.button`
   height: 52px;
   background-color: black;
   color: white;
+  box-shadow: 0px 2px 4px;
 `;
 
 export const Address = styled.input`
@@ -117,6 +133,7 @@ export const Address = styled.input`
   display: flex;
   align-items: center;
   padding-left: 10px;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const AddressDetail = styled.input`
@@ -124,6 +141,7 @@ export const AddressDetail = styled.input`
   height: 52px;
   margin-bottom: 30px;
   padding-left: 10px;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const WrapperYoutube = styled.div`
@@ -134,6 +152,7 @@ export const YoutubeLink = styled.input`
   width: 996px;
   height: 52px;
   padding-left: 10px;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const WrapperPicture = styled.div`
@@ -147,6 +166,8 @@ export const UploadButton = styled.button`
   width: 78px;
   height: 78px;
   margin-right: 24px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px;
 `;
 
 export const WrapperSetting = styled.div`
@@ -168,6 +189,7 @@ export const WrapRadio = styled.div`
 
 export const RadioButton = styled.input`
   margin-right: 14px;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const RadioLabel = styled.div``;
@@ -175,7 +197,10 @@ export const RadioLabel = styled.div``;
 export const WrapperSubmit = styled.div``;
 
 export const SubmitButton = styled.button`
-  background-color: ${(props) => (props.isActive ? "yellow" : "default")};
+  background-color: ${(props) => (props.isActive ? "#212529" : "default")};
+  color: ${(props) => (props.isActive ? "white" : "#212529")};
   width: 179px;
   height: 52px;
+  border-radius: 4px;
+  box-shadow: 0px 16px 48px;
 `;

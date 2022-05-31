@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   width: 1200px;
   margin: 100px auto;
   box-sizing: border-box;
+  /* background-color: white; */
 `;
 
 export const WrapTitle = styled.div`

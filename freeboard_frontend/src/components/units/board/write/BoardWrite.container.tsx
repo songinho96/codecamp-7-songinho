@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import BoardWriteUI from "./BoardWrite.presenter";
 import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 import { Modal } from "antd";
+import { IBoardWriteProps, IUpdateBoardInput } from "./BoardWrite.types";
 
-export default function BoardWrite(props) {
+export default function BoardWrite(props: IBoardWriteProps) {
+  // useEffect(), useRef()
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   // isActive 버튼 색 바꾸기
   const [isActive, setIsActive] = useState(false);
 
@@ -27,7 +35,7 @@ export default function BoardWrite(props) {
   const [contentsError, setContentsError] = useState("");
 
   // onChange()
-  const onChangeWriter = (event) => {
+  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
     setWriter(event.target.value);
     if (event.target.value !== "") {
       setWriterError("");
@@ -40,7 +48,7 @@ export default function BoardWrite(props) {
     }
   };
 
-  const onChangePassword = (event) => {
+  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     if (event.target.value !== "") {
       setPasswordError("");
@@ -53,7 +61,7 @@ export default function BoardWrite(props) {
     }
   };
 
-  const onChangeTitle = (event) => {
+  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
     if (event.target.value !== "") {
       setTitleError("");
@@ -66,7 +74,7 @@ export default function BoardWrite(props) {
     }
   };
 
-  const onChangeContents = (event) => {
+  const onChangeContents = (event: ChangeEvent<HTMLInputElement>) => {
     setContents(event.target.value);
     if (event.target.value !== "") {
       setContentsError("");
@@ -79,7 +87,7 @@ export default function BoardWrite(props) {
     }
   };
 
-  const onChangeYoutube = (event) => {
+  const onChangeYoutube = (event: ChangeEvent<HTMLInputElement>) => {
     setYoutubeUrl(event.target.value);
     // console.log(setYoutubeUrl);
   };
@@ -127,8 +135,10 @@ export default function BoardWrite(props) {
           content: "게시글이 등록 되었습니다!",
         });
       } catch (error) {
-        console.log(error);
-        alert(error.message);
+        Modal.error({
+          title: "Error 메시지",
+          content: "비밀번호를 입력해주세요!",
+        });
       }
     }
   };
@@ -157,7 +167,7 @@ export default function BoardWrite(props) {
       return;
     }
 
-    const updateBoardInput = {};
+    const updateBoardInput: IUpdateBoardInput = {};
     if (title) updateBoardInput.title = title;
     if (contents) updateBoardInput.contents = contents;
     if (youtubeUrl) updateBoardInput.youtubeUrl = youtubeUrl;
@@ -212,15 +222,38 @@ export default function BoardWrite(props) {
   //   setIsModalVisible(false);
   // };
 
-  const handleComplete = (data) => {
+  const handleComplete = (data: any) => {
     setZipcode(data.zonecode);
     setAddress(data.address);
     // console.log(data);
     setIsModalVisible((prev) => !prev); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
   };
 
-  const onChangeAddressDetail = (event) => {
+  const onChangeAddressDetail = (event: ChangeEvent<HTMLInputElement>) => {
     setAddressDetail(event.target.value);
+  };
+
+  // 모달
+  const [isBackVisible, setIsBackVisible] = useState(false);
+
+  // 돌아가기
+  const onClickbackDetail = () => {
+    setIsBackVisible(true);
+  };
+
+  // 모달 ok 눌렀을 때
+  const onClickhandleOk = () => {
+    props.isEdit
+      ? router.push(`/boards/${router.query.boardId}`)
+      : router.push("/boards");
+  };
+
+  const onClickbackList = () => {
+    setIsBackVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsBackVisible(false);
   };
 
   return (
@@ -231,6 +264,7 @@ export default function BoardWrite(props) {
       onChangeContents={onChangeContents}
       onClickSubmit={onClickSubmit}
       onClickUpdate={onClickUpdate}
+      onClickbackDetail={onClickbackDetail}
       onChangeYoutube={onChangeYoutube}
       writerError={writerError}
       passwordError={passwordError}
@@ -247,6 +281,12 @@ export default function BoardWrite(props) {
       onChangeAddressDetail={onChangeAddressDetail}
       zipcode={zipcode}
       address={address}
+      data={undefined}
+      inputRef={inputRef}
+      onClickbackList={onClickbackList}
+      handleCancel={handleCancel}
+      isBackVisible={isBackVisible}
+      onClickhandleOk={onClickhandleOk}
     />
   );
 }

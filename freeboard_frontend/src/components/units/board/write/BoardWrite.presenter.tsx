@@ -1,10 +1,32 @@
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import * as S from "./BoardWrite.styles";
+import { IBoardWriteUIProps } from "./BoardWrite.types";
 
-export default function BoardWriteUI(props) {
+export default function BoardWriteUI(props: IBoardWriteUIProps) {
   return (
     <S.Wrapper>
+      <S.WrapBackButton>
+        <S.BackButton
+          onClick={
+            props.isEdit ? props.onClickbackDetail : props.onClickbackList
+          }
+        >
+          돌아가기
+        </S.BackButton>
+        <Modal
+          title={props.isEdit ? "수정 취소" : "등록 취소"}
+          visible={props.isBackVisible}
+          onOk={props.onClickhandleOk}
+          onCancel={props.handleCancel}
+        >
+          <p>
+            {props.isEdit
+              ? "수정 취소 하시겠습니까?"
+              : "등록 취소 하시겠습니까?"}
+          </p>
+        </Modal>
+      </S.WrapBackButton>
       <S.MainTitle>{props.isEdit ? "게시글 수정" : "게시글 등록"}</S.MainTitle>
 
       <S.WrapperWritePassword>
@@ -12,6 +34,7 @@ export default function BoardWriteUI(props) {
           <S.Label>작성자</S.Label>
           {/* <S.Writer type="text" /> */}
           <S.Writer
+            ref={props.inputRef}
             type="text"
             placeholder="이름을 적어주세요"
             onChange={props.onChangeWriter}
@@ -49,7 +72,6 @@ export default function BoardWriteUI(props) {
         <S.Label>내용</S.Label>
         {/* <S.Contents type="text" /> */}
         <S.Contents
-          type="text"
           placeholder="내용을 작성해주세요."
           onChange={props.onChangeContents}
           defaultValue={props.boardData?.fetchBoard.contents}

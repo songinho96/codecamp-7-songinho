@@ -1,6 +1,7 @@
 import { Rate } from "antd";
 import { getDateList } from "../../../commons/libraries/utils";
-import BoardCommentWrite from "../BoardCommentWrite.container";
+import BoardCommentWrite from "../write/BoardCommentWrite.container";
+
 import * as S from "./BoardCommentItem.styles";
 
 export default function BoardCommentItemUI(props) {
@@ -42,6 +43,7 @@ export default function BoardCommentItemUI(props) {
           setIsEdit={props.setIsEdit}
           isEdit={props.isEdit}
           editId={props.editId}
+          el={props.el}
         />
       )}
       <S.Underline></S.Underline>

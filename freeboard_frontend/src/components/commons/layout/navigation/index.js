@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 
 const Wrapper = styled.div`
   height: 100px;
-  background-color: blue;
+  background-color: #495057;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,15 +18,27 @@ const GoBoard = styled.div`
   font-size: 30px;
   font-weight: 700;
   color: white;
+  cursor: pointer;
 `;
 
-export default function LayoutNavigation() {
+export default function Navigation() {
+  const router = useRouter();
+
+  const onClickBoard = () => {
+    router.push("/boards");
+  };
+
+  const onClickMyPage = () => {
+    router.push("/");
+  };
   return (
     <Wrapper>
       <List>
-        <GoBoard>게시판 등록</GoBoard>
-        <GoBoard>게시판 목록</GoBoard>
-        <GoBoard>마이 페이지</GoBoard>
+        <GoBoard>나의 메뉴2</GoBoard>
+        <GoBoard>나의 메뉴1</GoBoard>
+        <GoBoard onClick={onClickBoard}>게시판</GoBoard>
+        <GoBoard>중고마켓</GoBoard>
+        <GoBoard onClick={onClickMyPage}>마이 페이지</GoBoard>
       </List>
     </Wrapper>
   );

@@ -14,8 +14,9 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border: none;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 16px 48px;
   box-sizing: border-box;
+  background-color: white;
 `;
 // header
 
@@ -34,7 +35,7 @@ export const BestPost = styled.div`
 `;
 
 export const WrapperBest = styled.div`
-  background-color: gray;
+  background-color: #adb5bd;
   display: flex;
 `;
 
@@ -160,4 +161,5 @@ export const Button = styled.button`
   cursor: pointer;
   display: flex;
   margin-left: 150px;
+  box-shadow: 0px 8px 16px;
 `;

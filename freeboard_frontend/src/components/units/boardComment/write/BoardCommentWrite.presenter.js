@@ -12,16 +12,17 @@ export default function BoardCommentWriteUI(props) {
       </S.WrapTitle>
       {/* 작성자, 비밀번호, 별 */}
       <S.WrapCommentWrite>
-        {props.isEdit || (
-          <S.WrapError>
-            <S.Writer
-              type="text"
-              placeholder="작성자"
-              onChange={props.onChangeWriter}
-            />
-            <S.Error>{props.writerError}</S.Error>
-          </S.WrapError>
-        )}
+        {/* {props.isEdit || ( */}
+        <S.WrapError>
+          <S.Writer
+            type="text"
+            placeholder="작성자"
+            onChange={props.onChangeWriter}
+            defaultValue={props.el?.writer || ""}
+          />
+          <S.Error>{props.writerError}</S.Error>
+        </S.WrapError>
+        {/* )} */}
 
         <S.WrapError>
           <S.Password
@@ -42,6 +43,7 @@ export default function BoardCommentWriteUI(props) {
           type="text"
           placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
           onChange={props.onChangeContents}
+          defaultValue={props.el?.contents}
         />
         <S.WriteFooter>
           <S.WriteNum>{props.contents.length}/100</S.WriteNum>

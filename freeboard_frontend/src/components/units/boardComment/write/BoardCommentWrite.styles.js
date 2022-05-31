@@ -11,6 +11,7 @@ export const WrapError = styled.div``;
 export const Wrapper = styled.div`
   width: 1200px;
   margin: 100px auto;
+  /* background-color: white; */
 `;
 
 export const WrapTitle = styled.div`
@@ -38,6 +39,7 @@ export const Writer = styled.input`
   height: 52px;
   margin-right: 24px;
   padding: 20px;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const Password = styled.input`
@@ -45,6 +47,7 @@ export const Password = styled.input`
   height: 52px;
   margin-right: 26px;
   padding: 20px;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const Star = styled.div``;
@@ -52,6 +55,7 @@ export const Star = styled.div``;
 export const WrapperWriteComment = styled.div`
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 8px 16px;
 `;
 
 export const WriteContent = styled.input`

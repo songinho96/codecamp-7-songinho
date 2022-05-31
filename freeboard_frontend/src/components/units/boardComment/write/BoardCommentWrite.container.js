@@ -1,14 +1,15 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import BoardCommentUI from "./BoardCommentWrite.presenter";
+
 import {
   CREATE_BOARD_COMMENT,
   UPDATE_BOARD_COMMENT,
 } from "./BoardCommentWrite.queries";
 
 import { Modal } from "antd";
-import { FETCH_BOARD_COMMENTS } from "./list/BoardCommentList.queries";
+import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
+import BoardCommentWriteUI from "./BoardCommentWrite.presenter";
 
 export default function BoardCommentWrite(props) {
   // isActive
@@ -139,14 +140,15 @@ export default function BoardCommentWrite(props) {
       setContentsError("내용을 입력해주세요.");
     }
 
+    const updateBoardCommentInput = {};
+    if (contents) updateBoardCommentInput.contents = contents;
+    if (value !== props.el?.rating) updateBoardCommentInput.rating = value;
+
     if (password && contents) {
       try {
         await updateBoardComment({
           variables: {
-            updateBoardCommentInput: {
-              contents,
-              rating: value,
-            },
+            updateBoardCommentInput,
             password,
             boardCommentId: props.editId,
           },
@@ -157,19 +159,23 @@ export default function BoardCommentWrite(props) {
             },
           ],
         });
+        Modal.success({
+          title: "댓글 수정 성공!!",
+          content: "댓글이 수정 되었습니다!",
+        });
       } catch (error) {
         Modal.error({
           title: "Error 메시지",
           content: "비밀번호가 틀렸습니다!",
         });
       }
-      props.setIsEdit(false);
+      props.setIsEdit?.(false); // 있을수도 있고 없을 수도 있다. 등록으로 쓰일 때는 setisEdit이 없기 때문에
     }
   };
 
   return (
     <p>
-      <BoardCommentUI
+      <BoardCommentWriteUI
         onChangeWriter={onChangeWriter}
         onChangePassword={onChangePassword}
         onChangeContents={onChangeContents}
@@ -184,9 +190,11 @@ export default function BoardCommentWrite(props) {
         contents={contents}
         handleChange={handleChange}
         value={value}
+        setValue={setValue}
         // Modal
         Modal={Modal}
         isEdit={props.isEdit}
+        el={props.el}
       />
     </p>
   );
