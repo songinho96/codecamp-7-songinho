@@ -8,6 +8,24 @@ import LayoutQuiz from "./quiz/13-qiuz-layout";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAxwW7WvsK_J7gPA9-oinmTj0TetyxumTo",
+  authDomain: "codecamp-songinho-07.firebaseapp.com",
+  projectId: "codecamp-songinho-07",
+  storageBucket: "codecamp-songinho-07.appspot.com",
+  messagingSenderId: "886722074089",
+  appId: "1:886722074089:web:021ba82f0c460c5787a778",
+};
+
+// Initialize Firebase
+export const firebaseApp = initializeApp(firebaseConfig);
+
 function MyApp({ Component, pageProps }: AppProps) {
   //  여기에다가 설정하기
   const client = new ApolloClient({

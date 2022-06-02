@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true, // 엄격하게 검사
@@ -22,9 +18,11 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/09-02-typescript/index.js", "pages/quiz/14-quiz-pagination/1/index.js"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "**/*.tsx",
+    "pages/09-02-typescript/index.js",
+    "pages/quiz/14-quiz-pagination/1/index.js",
+    "pages/16-01-inputs-spread/index.js",
+    "pages/quiz/16-quiz-1-lifecycle/index.js"
+  ],
+  "exclude": ["node_modules"]
 }
