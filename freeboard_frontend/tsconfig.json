@@ -21,6 +21,6 @@
     "**/*.tsx",
     "src/components/units/board/write/BoardWrite.container.js",
     "src/components/units/board/write/BoardWrite.presenter.js"
-, "src/components/units/boardMain/main/BoardMain.container.js"  ],
+, "src/components/units/boardMain/main/BoardMain.container.js", "src/components/commons/layout/footer/index.js", "pages/openapis/index.js"  ],
   "exclude": ["node_modules"]
 }

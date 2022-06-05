@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { PlusSquareFilled } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -162,7 +163,11 @@ export const WrapperPicture = styled.div`
 
 export const WrapUpload = styled.div``;
 
-export const UploadButton = styled.button`
+export const UploadButton = styled.input`
+  display: none;
+`;
+
+export const UploadImage = styled.div`
   width: 78px;
   height: 78px;
   margin-right: 24px;
@@ -203,4 +208,14 @@ export const SubmitButton = styled.button`
   height: 52px;
   border-radius: 4px;
   box-shadow: 0px 16px 48px;
+`;
+
+export const See = styled.img`
+  width: 78px;
+  height: 78px;
+`;
+
+export const PlusIcon = styled(PlusSquareFilled)`
+  font-size: 20px;
+  padding: 27px;
 `;

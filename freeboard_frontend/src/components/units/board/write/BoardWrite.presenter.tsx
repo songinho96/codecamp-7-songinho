@@ -38,7 +38,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
             type="text"
             placeholder="이름을 적어주세요"
             onChange={props.onChangeWriter}
-            readOnly={!!props.data?.fetchBoard.writer}
+            readOnly={!!props.boardData?.fetchBoard.writer}
             defaultValue={props.boardData?.fetchBoard.writer}
           />
           <S.Error>{props.writerError}</S.Error>
@@ -133,9 +133,21 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
       <S.WrapperPicture>
         <S.Label>사진 첨부</S.Label>
         <S.WrapUpload>
-          <S.UploadButton>+</S.UploadButton>
-          <S.UploadButton>+</S.UploadButton>
-          <S.UploadButton>+</S.UploadButton>
+          <S.UploadImage onClick={props.onClickImage}>
+            {props.imageUrl ? (
+              <S.See src={`http://storage.googleapis.com/${props.imageUrl}`} />
+            ) : (
+              <S.PlusIcon></S.PlusIcon>
+            )}
+          </S.UploadImage>
+          <S.UploadButton
+            type="file"
+            onChange={props.onChangeFile}
+            ref={props.fileRef}
+          />
+
+          {/* <S.UploadButton>+</S.UploadButton>
+          <S.UploadButton>+</S.UploadButton> */}
         </S.WrapUpload>
       </S.WrapperPicture>
 

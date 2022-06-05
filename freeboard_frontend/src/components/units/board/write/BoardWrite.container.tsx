@@ -2,13 +2,16 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import BoardWriteUI from "./BoardWrite.presenter";
-import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
+import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
 import { Modal } from "antd";
 import { IBoardWriteProps, IUpdateBoardInput } from "./BoardWrite.types";
+import { checkFileValidation } from "../../../../commons/libraries/fileValidation";
 
 export default function BoardWrite(props: IBoardWriteProps) {
   // useEffect(), useRef()
   const inputRef = useRef();
+
+  const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     inputRef.current.focus();
@@ -20,6 +23,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const router = useRouter();
   const [callGraphql] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
 
   // useState onChagne
   const [writer, setWriter] = useState("");
@@ -27,6 +31,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
   const [youtubeUrl, setYoutubeUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   // useState Error
   const [writerError, setWriterError] = useState("");
@@ -74,7 +79,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   };
 
-  const onChangeContents = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContents(event.target.value);
     if (event.target.value !== "") {
       setContentsError("");
@@ -125,9 +130,11 @@ export default function BoardWrite(props: IBoardWriteProps) {
                 address,
                 addressDetail,
               },
+              images: [imageUrl],
             },
           },
         });
+
         router.push(`/boards/${result.data.createBoard._id}`);
         console.log(result);
         Modal.success({
@@ -256,6 +263,31 @@ export default function BoardWrite(props: IBoardWriteProps) {
     setIsBackVisible(false);
   };
 
+  // imageUpload
+  const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    console.log(file);
+
+    const isValid = checkFileValidation(file);
+    if (!isValid) return;
+
+    try {
+      const result = await uploadFile({
+        variables: {
+          file,
+        },
+      });
+      setImageUrl(result.data.uploadFile.url);
+      console.log(result.data);
+    } catch (error) {
+      Modal.error({ content: "에러발생!!" });
+    }
+  };
+
+  const onClickImage = () => {
+    fileRef.current?.click();
+  };
+
   return (
     <BoardWriteUI
       onChangeWriter={onChangeWriter}
@@ -281,12 +313,15 @@ export default function BoardWrite(props: IBoardWriteProps) {
       onChangeAddressDetail={onChangeAddressDetail}
       zipcode={zipcode}
       address={address}
-      data={undefined}
       inputRef={inputRef}
       onClickbackList={onClickbackList}
       handleCancel={handleCancel}
       isBackVisible={isBackVisible}
       onClickhandleOk={onClickhandleOk}
+      onChangeFile={onChangeFile}
+      imageUrl={imageUrl}
+      fileRef={fileRef}
+      onClickImage={onClickImage}
     />
   );
 }

@@ -1,5 +1,6 @@
 import { getDate } from "../../../commons/libraries/utils";
 import * as S from "./BoardDetail.styles";
+import { Image } from "antd";
 
 export default function BoardDetailUI(props) {
   return (
@@ -39,8 +40,18 @@ export default function BoardDetailUI(props) {
         <S.WrapperBody>
           <S.Subject>{props.data?.fetchBoard.title}</S.Subject>
           <S.WrapperContents>
-            <S.Picture />
+            {props.data?.fetchBoard.images ? (
+              <S.Images>
+                <Image
+                  src={`http://storage.googleapis.com/${props.data?.fetchBoard.images}`}
+                />
+              </S.Images>
+            ) : (
+              ""
+            )}
+
             <S.Contents>{props.data?.fetchBoard.contents}</S.Contents>
+
             <S.Video>
               {props.data?.fetchBoard.youtubeUrl && (
                 <props.ReactPlayer

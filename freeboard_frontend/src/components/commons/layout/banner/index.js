@@ -45,6 +45,9 @@ export default function Banner() {
       <div>
         <StyledSlider {...settings}>
           <div>
+            <Images src="/bannerImages/banner4.jpeg" />
+          </div>
+          <div>
             <Images src="/bannerImages/banner1.jpeg" />
           </div>
           <div>
@@ -52,9 +55,6 @@ export default function Banner() {
           </div>
           <div>
             <Images src="/bannerImages/banner3.jpeg" />
-          </div>
-          <div>
-            <Images src="/bannerImages/banner4.jpeg" />
           </div>
         </StyledSlider>
       </div>

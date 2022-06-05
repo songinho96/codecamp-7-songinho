@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Popover } from "antd";
+import { Popover, Image } from "antd";
 
 export const Pop = styled(Popover)``;
 
@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   margin: 100px auto;
   box-sizing: border-box;
   /* background-color: white; */
-
+  font-size: 20px;
   /* height: 1847px; */
 `;
 
@@ -104,12 +104,18 @@ export const WrapperContents = styled.div`
   align-items: center;
 `;
 
-export const Picture = styled.img`
+export const Picture = styled(Image)`
   padding-bottom: 40px;
+  width: 200;
+  margin-right: 12px;
 `;
 
 export const Contents = styled.div`
-  padding-bottom: 120px;
+  margin-top: 100px;
+  overflow: hidden;
+  word-wrap: break-word;
+  width: 996px;
+  border: none;
 `;
 
 export const Video = styled.div`
@@ -119,14 +125,14 @@ export const Video = styled.div`
 export const WrapperThumbs = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
 `;
 
 export const InputThumbs = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 60px;
+  padding: 20px;
+  /* margin: 0 auto; */
 `;
 
 export const ThumsNumber = styled.div``;
@@ -164,4 +170,8 @@ export const Button = styled.button`
 
 export const Underline2 = styled.div`
   border-top: 1px solid gray;
+`;
+
+export const Images = styled.div`
+  width: 200px;
 `;
