@@ -14,9 +14,9 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border: none;
-  box-shadow: 0px 16px 48px;
   box-sizing: border-box;
   background-color: white;
+  font-size: 20px;
 `;
 // header
 
@@ -161,5 +161,8 @@ export const Button = styled.button`
   cursor: pointer;
   display: flex;
   margin-left: 150px;
-  box-shadow: 0px 8px 16px;
+`;
+
+export const Word = styled.span`
+  color: ${(props: any) => (props.isMatched ? "gray" : "black")};
 `;

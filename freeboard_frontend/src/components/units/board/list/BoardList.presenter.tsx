@@ -1,6 +1,8 @@
 import * as S from "./BoardList.styles";
 import { getDate } from "../../../commons/libraries/utils";
 import Paginationbasic from "../../../commons/paginations/basic/Paginationsbasic.container";
+import { v4 as uuidv4 } from "uuid";
+
 export default function BoardListUI(props) {
   return (
     <S.Wrapper>
@@ -28,7 +30,11 @@ export default function BoardListUI(props) {
       </S.Header>
       <S.Body>
         <S.WrapperSearch>
-          <S.InputSearch type="text" placeholder="제목을 입력해주세요." />
+          <S.InputSearch
+            onChange={props.onChangeSearch}
+            type="text"
+            placeholder="제목을 입력해주세요."
+          />
           <S.DateSearch type="text" placeholder="YYYY.MM.DD ~ YYYY.MM.DD" />
           <S.ButtonSearch>검색하기</S.ButtonSearch>
         </S.WrapperSearch>
@@ -44,7 +50,19 @@ export default function BoardListUI(props) {
             <S.Row key={el._id}>
               <S.NumColumn>{index + 1}</S.NumColumn>
               <S.TitleColumn id={el._id} onClick={props.onClickMoveBoardDetail}>
-                {el.title}
+                {/* {el.title} */}
+                {el.title
+                  .replaceAll(props.keyword, `#$%${props.keyword}#$%`)
+                  .split("#$%")
+                  .map((keywordel: any) => (
+                    <S.Word
+                      id={el._id}
+                      key={uuidv4()}
+                      isMatched={props.keyword === keywordel}
+                    >
+                      {keywordel}
+                    </S.Word>
+                  ))}
               </S.TitleColumn>
               <S.WriterColumn>{el.writer}</S.WriterColumn>
               <S.DateColumn>{getDate(el.createdAt)}</S.DateColumn>

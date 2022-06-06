@@ -23,7 +23,7 @@ export default function BoardDetail() {
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.boardId }, // 일반적으로 똑같이 씀 boardId
   }); // 모두 한줄  FETCH_BOARD요청 data에 저장, 처음에 undefined => data
-
+  console.log(data?.fetchBoard.images);
   // console.log(data);
 
   const onClickMoveList = () => {

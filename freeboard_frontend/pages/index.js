@@ -1,20 +1,35 @@
+import styled from "@emotion/styled";
+
 import React from "react";
-import { Zoom } from "react-reveal";
-import Fade from "react-reveal/Fade";
-import Spin from "react-reveal/Spin";
+
+import RubberBand from "react-reveal/RubberBand";
+
+const Wrapper = styled.div`
+  width: 1200px;
+  border: 1px solid black;
+  margin: 100px auto;
+  /* padding: 80px 102px 100px 102px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  box-shadow: 0px 16px 48px;
+  box-sizing: border-box;
+  background-color: white;
+`;
+
+const RubberMain = styled(RubberBand)``;
+
+const Title = styled.div`
+  font-size: 200px;
+`;
 
 export default function Main() {
   return (
-    <div>
-      <Zoom>
-        <img src="/images/dog.jpeg" />
-      </Zoom>
-      <Fade>
-        <img src="/images/dog.jpeg" />
-      </Fade>
-      <Spin>
-        <img src="/images/dog.jpeg " />
-      </Spin>
-    </div>
+    <Wrapper>
+      <RubberMain>
+        <Title>PORT FOLIO</Title>
+      </RubberMain>
+    </Wrapper>
   );
 }

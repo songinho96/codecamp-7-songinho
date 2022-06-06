@@ -32,6 +32,11 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [contents, setContents] = useState("");
   const [youtubeUrl, setYoutubeUrl] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  // 모달 다음 포스트 어드레스
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [zipcode, setZipcode] = useState("");
+  const [address, setAddress] = useState("");
+  const [addressDetail, setAddressDetail] = useState("");
 
   // useState Error
   const [writerError, setWriterError] = useState("");
@@ -212,10 +217,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
   };
 
   // 모달 다음 포스트 어드레스
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [zipcode, setZipcode] = useState("");
-  const [address, setAddress] = useState("");
-  const [addressDetail, setAddressDetail] = useState("");
 
   const showModal = () => {
     setIsModalVisible((prev) => !prev);

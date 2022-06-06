@@ -40,15 +40,15 @@ export default function BoardDetailUI(props) {
         <S.WrapperBody>
           <S.Subject>{props.data?.fetchBoard.title}</S.Subject>
           <S.WrapperContents>
-            {props.data?.fetchBoard.images ? (
-              <S.Images>
+            <S.Images>
+              {props.data?.fetchBoard.images[0] ? (
                 <Image
-                  src={`http://storage.googleapis.com/${props.data?.fetchBoard.images}`}
+                  src={`https://storage.googleapis.com/${props.data?.fetchBoard.images[0]}`}
                 />
-              </S.Images>
-            ) : (
-              ""
-            )}
+              ) : (
+                ""
+              )}
+            </S.Images>
 
             <S.Contents>{props.data?.fetchBoard.contents}</S.Contents>
 

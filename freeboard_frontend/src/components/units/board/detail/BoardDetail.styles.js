@@ -7,9 +7,8 @@ export const Wrapper = styled.div`
   width: 1200px;
   margin: 100px auto;
   box-sizing: border-box;
-  /* background-color: white; */
   font-size: 20px;
-  /* height: 1847px; */
+  border: 1px solid black;
 `;
 
 export const WrapperCard = styled.div`
@@ -21,7 +20,6 @@ export const WrapperCard = styled.div`
   display: flex;
   flex-direction: column;
   border: none;
-  box-shadow: 0px 16px 48px;
 `;
 // 메인
 
@@ -165,7 +163,6 @@ export const Button = styled.button`
   background-color: white;
   border: 1px solid #bdbdbd;
   cursor: pointer;
-  box-shadow: 0px 8px 16px;
 `;
 
 export const Underline2 = styled.div`

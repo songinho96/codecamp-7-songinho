@@ -97,6 +97,7 @@ export const Underline = styled.div`
   width: 100%;
   border-bottom: 1px solid gray;
   padding-top: 20px;
+  border-radius: 0px;
 `;
 
 export const WrapperComment = styled.div`

@@ -4,13 +4,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Images = styled.img`
-  height: 400px;
-  width: 100%;
-  border-radius: 0;
+  width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0px 16px 48px;
 `;
 
 const Wrapper = styled.div`
-  height: 400px;
   width: 100%;
   border-radius: 0%;
 `;
@@ -18,26 +17,34 @@ const Wrapper = styled.div`
 export default function Banner() {
   const StyledSlider = styled(Slider)`
     .slick-dots {
-      bottom: 20px;
+      bottom: 260px;
     }
-    /* .slick-dots li button:before {
-      color: black;
-    } */
+    .slick-dots li button:before {
+      color: blue;
+    }
   `;
 
   const settings = {
     dots: true,
     infinite: true,
-    speed: 4000,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3500,
     pauseOnHover: true,
-    arrows: false,
-
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />,
+    arrows: true,
+    appendDots: (dots) => (
+      <div
+        style={{
+          backgroundColor: "#ddd",
+          borderRadius: "10px",
+          padding: "10px",
+        }}
+      >
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
   };
 
   return (

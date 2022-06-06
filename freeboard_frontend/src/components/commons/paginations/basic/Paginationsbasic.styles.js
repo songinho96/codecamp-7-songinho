@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 700px;
+  font-size: 16px;
 `;
 
 export const Wrap = styled.div`

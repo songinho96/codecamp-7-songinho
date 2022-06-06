@@ -12,6 +12,10 @@ const Wrapperwrited = styled.div`
 const Scroll = styled.div`
   height: 867px;
   overflow: auto;
+  width: 1240px;
+  display: flex;
+  margin: 0px auto;
+  margin-bottom: 200px;
 `;
 
 export default function BoardCommentListUI(props) {
