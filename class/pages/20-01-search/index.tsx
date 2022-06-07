@@ -1,9 +1,11 @@
+// 14-01-pagination copy
 import { useQuery, gql } from "@apollo/client";
 import styled from "@emotion/styled";
+import { ChangeEvent, useState } from "react";
 
 const FETCH_BOARDS = gql`
-  query fetchBoards($page: Int) {
-    fetchBoards(page: $page) {
+  query fetchBoards($search: String, $page: Int) {
+    fetchBoards(search: $search, page: $page) {
       _id
       writer
       title
@@ -21,41 +23,37 @@ const MyColumn = styled.div`
 `;
 
 export default function MapBoardPage() {
+  const [search, setSearch] = useState("");
   const { data, refetch } = useQuery(FETCH_BOARDS); // refetch
 
   const onClickPage = (event: any) => {
     refetch({ page: Number(event.target.id) }); // id가 String 이기 때문에 Number 로 바꿔준다.
   };
+
+  const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value); // 검색어가 들어온다.
+  };
+
+  const onClickSearch = () => {
+    refetch({ search, page: 1 });
+  };
+
   return (
     <div>
+      검색어입력: <input type="text" onChange={onChangeSearch} />
+      <button onClick={onClickSearch}>검색하기</button>
       {data?.fetchBoards.map((el: any) => (
         <MyRow key={el._id}>
           <MyColumn>{el.writer}</MyColumn>
           <MyColumn>{el.title}</MyColumn>
         </MyRow>
       ))}
-
       {new Array(10).fill(1).map((_, index) => (
         <span key={index + 1} id={String(index + 1)} onClick={onClickPage}>
           {" "}
           {index + 1}{" "}
         </span>
       ))}
-
-      {/* 인덱스 사용하기
-      {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, index)  => (
-        <span key={index + 1} id={String(index + 1)} onClick={onClickPage}> {index + 1} </span>
-      ))} */}
-
-      {/* 맵 이용하기
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(el => (
-        <span key={el} id={String(el)} onClick={onClickPage}> {el} </span>
-      ))} */}
-
-      {/* 그냥 써주기
-      <span id="1" onClick={onClickPage}> 1 </span>
-      <span id="2" onClick={onClickPage}> 2 </span>
-      <span id="3" onClick={onClickPage}> 3 </span> */}
     </div>
   );
 }

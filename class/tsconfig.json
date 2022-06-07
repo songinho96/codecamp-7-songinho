@@ -22,7 +22,8 @@
     "pages/09-02-typescript/index.js",
     "pages/quiz/14-quiz-pagination/1/index.js",
     "pages/16-01-inputs-spread/index.js",
-    "pages/quiz/16-quiz-1-lifecycle/index.js"
+    "pages/quiz/16-quiz-1-lifecycle/index.js",
+    "pages/quiz/19-quiz-1/index.js"
   ],
   "exclude": ["node_modules"]
 }

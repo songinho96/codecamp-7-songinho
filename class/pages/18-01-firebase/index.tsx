@@ -41,7 +41,6 @@ export default function FirebasePage() {
       {result.docs.map((el) => (
         <div>{el.writer}</div>
       ))}
-      
     </div>
   );
 }
