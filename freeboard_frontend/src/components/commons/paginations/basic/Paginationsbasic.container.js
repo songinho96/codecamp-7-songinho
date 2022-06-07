@@ -1,16 +1,14 @@
-import { useQuery } from "@apollo/client";
 import { useState } from "react";
-
 import PaginationbasicUI from "./Paginationsbasic.presenter";
-import { FETCH_BOARDS_COUNT } from "./Paginationsbasic.queries";
 
 export default function Paginationbasic(props) {
-  const { data } = useQuery(FETCH_BOARDS_COUNT);
   const [startPage, setStartPage] = useState(1);
   const [isActive, setIsActive] = useState(false);
   const [activePage, setActivePage] = useState();
 
-  const lastPage = Math.ceil(data?.fetchBoardsCount / 10);
+  const lastPage = props.dataCount?.fetchBoardsCount
+    ? Math.ceil(props.dataCount?.fetchBoardsCount / 10)
+    : 0;
 
   const onClickStart = () => {
     if (startPage === 1) return;

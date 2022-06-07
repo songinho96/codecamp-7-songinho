@@ -8,11 +8,6 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Logo = styled.img`
-  width: 400px;
-  height: 200px;
-`;
-
 const WrapButton = styled.div`
   display: flex;
 `;
@@ -55,11 +50,11 @@ export default function Header() {
   };
 
   const onClickLogin = () => {
-    router.push(`/`);
+    router.push(`/login`);
   };
 
   const onClickSign = () => {
-    router.push(`/`);
+    router.push(`/signup`);
   };
 
   return (

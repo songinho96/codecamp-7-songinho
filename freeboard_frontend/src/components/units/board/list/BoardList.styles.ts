@@ -2,14 +2,9 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 1200px;
-  /* height: 1847px; */
   border: 1px solid black;
   margin: 100px auto;
-  /* margin: 100px; */
-  padding-top: 80px;
-  padding-bottom: 100px;
-  padding-left: 102px;
-  padding-right: 102px;
+  padding: 0px 102px 100px 102px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,53 +13,6 @@ export const Wrapper = styled.div`
   background-color: white;
   font-size: 20px;
 `;
-// header
-
-export const Header = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding-bottom: 80px;
-`;
-
-export const BestPost = styled.div`
-  text-align: center;
-  font-size: 36px;
-  font-weight: 700;
-  padding-bottom: 40px;
-`;
-
-export const WrapperBest = styled.div`
-  background-color: #adb5bd;
-  display: flex;
-`;
-
-export const WrapBest = styled.div`
-  width: 282px;
-  height: 257px;
-`;
-
-export const BestImage = styled.div``;
-
-export const BestTitle = styled.div``;
-
-export const WrapBestInfo = styled.div``;
-
-export const WrapperProfileInfo = styled.div``;
-
-export const WrapProfile = styled.div``;
-
-export const ProfileIcon = styled.div``;
-
-export const ProfileWriter = styled.div``;
-
-export const WrapDate = styled.div``;
-
-export const WrapperThumbs = styled.div``;
-
-export const Thumbsup = styled.div``;
-
-export const TuumbsCount = styled.div``;
 
 // body
 export const Body = styled.div`
