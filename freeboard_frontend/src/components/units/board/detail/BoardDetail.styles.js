@@ -4,7 +4,7 @@ import { Popover, Image } from "antd";
 export const Pop = styled(Popover)``;
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  width: 80%;
   margin: 100px auto;
   box-sizing: border-box;
   font-size: 20px;
@@ -26,7 +26,6 @@ export const WrapperCard = styled.div`
 // 헤더
 
 export const WrapperHeader = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -85,7 +84,6 @@ export const Underline = styled.div`
 // 게시글 바디
 
 export const WrapperBody = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -148,7 +146,6 @@ export const DisLikeIcon = styled.img`
 `;
 
 export const WrapperButton = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;

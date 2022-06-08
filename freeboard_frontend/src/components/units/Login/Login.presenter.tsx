@@ -12,20 +12,29 @@ export default function LoginPresenter(props) {
         <S.WrapperEmailLogin>
           <S.Title>Email Login</S.Title>
           <S.Label>Email address</S.Label>
-          <S.InputEmail placeholder="이메일을 입력해 주세요" />
+          <S.InputEmail
+            id="email"
+            onChange={props.onChangeInputs}
+            placeholder="이메일을 입력해 주세요"
+          />
           <S.Label>Password</S.Label>
-          <S.InputPassword placeholder="비밀번호를 입력해 주세요" />
+          <S.InputPassword
+            id="password"
+            type="password"
+            placeholder="비밀번호를 입력해 주세요"
+            onChange={props.onChangeInputs}
+          />
           <S.WrapLoginCheck>
             <S.CheckButton>
               <CheckCircleOutlined />
             </S.CheckButton>
             <S.LoginCheck>로그인 상태 유지</S.LoginCheck>
           </S.WrapLoginCheck>
-          <S.LoginButton>로그인하기</S.LoginButton>
+          <S.LoginButton onClick={props.onClickLogin}>로그인하기</S.LoginButton>
         </S.WrapperEmailLogin>
         <S.WrapperDivideLine>
           <S.DivideLine></S.DivideLine>
-          <div>or</div>
+          <S.Or>or</S.Or>
           <S.DivideLine></S.DivideLine>
         </S.WrapperDivideLine>
         <S.WrapperSocialLogin>

@@ -9,9 +9,8 @@ export const Error = styled.div`
 export const WrapError = styled.div``;
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  width: 80%;
   margin: 100px auto;
-  /* background-color: white; */
 `;
 
 export const WrapTitle = styled.div`
@@ -56,7 +55,7 @@ export const WrapperWriteComment = styled.div`
 `;
 
 export const WriteContent = styled.input`
-  width: 1200px;
+  /* width: 1200px; */
   height: 108px;
   padding: 20px;
 `;
@@ -67,14 +66,14 @@ export const WriteFooter = styled.div`
 `;
 
 export const WriteNum = styled.div`
-  width: 1108px;
+  width: 90%;
   height: 52px;
   padding: 20px;
   border: 1px solid black;
 `;
 
 export const CommentButton = styled.button`
-  width: 91px;
+  width: 10%;
   height: 52px;
   background-color: ${(props) => (props.isActive ? "yellow" : "default")};
 `;
@@ -84,6 +83,6 @@ export const Contents = styled.div`
 `;
 
 export const EditBackButton = styled.button`
-  width: 91px;
+  width: 10%;
   height: 52px;
 `;

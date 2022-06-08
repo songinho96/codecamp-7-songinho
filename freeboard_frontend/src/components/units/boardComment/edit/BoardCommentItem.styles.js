@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  width: 80%;
   margin: 100px auto;
   box-sizing: border-box;
-  /* background-color: white; */
 `;
 
 export const WrapTitle = styled.div`
@@ -49,7 +48,6 @@ export const ProfileIcon = styled.img`
 export const WrapWriteComment = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
 `;
 
 export const WrapWritedHeader = styled.div`
@@ -102,4 +100,5 @@ export const Underline = styled.div`
 
 export const WrapperComment = styled.div`
   display: flex;
+  width: 80%;
 `;

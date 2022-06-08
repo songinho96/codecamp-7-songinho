@@ -39,7 +39,7 @@ export const SliderWrap = styled(Slider)`
 `;
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  width: 80%;
   border: 1px solid black;
   margin: 100px auto;
   padding: 80px 102px 0px 102px;
@@ -54,13 +54,13 @@ export const Wrapper = styled.div`
 export const Header = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  margin: 0 auto;
   padding-bottom: 80px;
 `;
 
 export const BestPost = styled.div`
   text-align: center;
-  font-size: 36px;
+  font-size: 60px;
   font-weight: 700;
   padding-bottom: 40px;
 `;

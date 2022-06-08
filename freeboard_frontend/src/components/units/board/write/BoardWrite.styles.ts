@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { PlusSquareFilled } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  width: 80%;
   /* height: 1847px; */
   border: 1px solid black;
   margin: 100px auto;
@@ -11,14 +11,12 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: none;
+  /* border: none; */
   box-shadow: 0px 16px 48px;
   box-sizing: border-box;
   font-size: 16px;
-  background-color: white;
 `;
 export const WrapBackButton = styled.div`
-  width: 100%;
   display: flex;
   justify-content: flex-end;
 `;
@@ -39,10 +37,10 @@ export const MainTitle = styled.div`
   font-weight: bold;
   padding-bottom: 80px;
   font-weight: 700;
+  text-align: center;
 `;
 
 export const WrapperWritePassword = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: row;
   padding-bottom: 40px;
@@ -71,7 +69,6 @@ export const Password = styled.input`
 `;
 
 export const WrapperTitle = styled.div`
-  width: 100%;
   padding-bottom: 40px;
 `;
 
@@ -82,7 +79,6 @@ export const Title = styled.input`
 `;
 
 export const WrapperContents = styled.div`
-  width: 100%;
   padding-bottom: 16px;
 `;
 
@@ -146,7 +142,6 @@ export const YoutubeLink = styled.input`
 `;
 
 export const WrapperPicture = styled.div`
-  width: 100%;
   padding-bottom: 40px;
 `;
 
@@ -164,7 +159,6 @@ export const UploadImage = styled.div`
 `;
 
 export const WrapperSetting = styled.div`
-  width: 100%;
   padding-bottom: 80px;
 `;
 
@@ -187,6 +181,10 @@ export const RadioButton = styled.input`
 export const RadioLabel = styled.div``;
 
 export const WrapperSubmit = styled.div``;
+
+export const Wrap = styled.div`
+  margin: 0 auto;
+`;
 
 export const SubmitButton = styled.button`
   background-color: ${(props) => (props.isActive ? "#212529" : "default")};

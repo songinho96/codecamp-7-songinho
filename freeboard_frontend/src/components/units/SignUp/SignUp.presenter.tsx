@@ -26,14 +26,31 @@ export default function SignUpPresenter(props) {
         <S.WrapperEmailSignup>
           <S.Title>Sign up with your email address</S.Title>
           <S.Label>Email address</S.Label>
-          <S.InputSign placeholder="이메일을 입력해 주세요" />
+          <S.InputSign
+            id="email"
+            placeholder="이메일을 입력해 주세요"
+            onChange={props.onChangeInputs}
+          />
+
           <S.Label>Name</S.Label>
-          <S.InputSign placeholder="이름을 입력해 주세요" />
+          <S.InputSign
+            id="name"
+            placeholder="이름을 입력해 주세요"
+            onChange={props.onChangeInputs}
+          />
+          <S.Error>{props.nameError}</S.Error>
           <S.Label>Password</S.Label>
-          <S.InputSign placeholder="비밀번호를 입력해 주세요" />
+          <S.InputSign
+            id="password"
+            type="password"
+            placeholder="비밀번호를 입력해 주세요"
+            onChange={props.onChangeInputs}
+          />
           <S.Label>Password Check</S.Label>
-          <S.InputSign placeholder="비밀번호를 입력해 주세요" />
-          <S.SignupButton>회원가입 하기</S.SignupButton>
+          <S.InputSign type="password" placeholder="비밀번호를 입력해 주세요" />
+          <S.SignupButton onClick={props.onClickSubmit}>
+            회원가입 하기
+          </S.SignupButton>
         </S.WrapperEmailSignup>
       </S.WrapperBody>
       <S.WrapperFooter>

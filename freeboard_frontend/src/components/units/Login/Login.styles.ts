@@ -1,11 +1,22 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  /* width: 1200px; */
+  width: 80%;
+  height: 100vh;
   margin: 100px auto;
-  box-sizing: border-box;
   font-size: 20px;
   border: 1px solid black;
+  background: no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/login/macbook.avif");
+  background-size: cover;
+  object-fit: fill;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 auto;
 `;
 
 export const WrapMainTitle = styled.div`
@@ -17,7 +28,7 @@ export const WrapMainTitle = styled.div`
 export const MainIcon = styled.div``;
 
 export const MainTitle = styled.div`
-  font-size: 40px;
+  font-size: 60px;
   padding-bottom: 30px;
 `;
 
@@ -25,11 +36,12 @@ export const WrapperBody = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 `;
 
 export const Title = styled.div`
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
 `;
 
 export const WrapperEmailLogin = styled.div`
@@ -38,21 +50,24 @@ export const WrapperEmailLogin = styled.div`
 `;
 
 export const Label = styled.div`
-  padding: 10px 0;
+  padding: 20px 0;
+  font-size: 25px;
 `;
 
 export const InputEmail = styled.input`
-  width: 354px;
+  width: 500px;
   height: 64px;
+  color: black;
 `;
 
 export const InputPassword = styled.input`
-  width: 354px;
+  width: 500px;
   height: 64px;
+  color: black;
 `;
 
 export const WrapLoginCheck = styled.div`
-  padding-top: 5px;
+  padding: 20px 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -67,16 +82,23 @@ export const LoginCheck = styled.div`
 `;
 
 export const LoginButton = styled.button`
-  width: 354px;
+  width: 500px;
   height: 64px;
   margin-top: 10px;
+  font-size: 30px;
+  background-color: yellow;
+  color: black;
 `;
 
 export const DivideLine = styled.div`
-  width: 170px;
-  height: 0.01vw;
+  height: 170px;
+  width: 0.01vw;
   border-width: 0;
-  background-color: #000;
+  background-color: white;
+`;
+
+export const Or = styled.div`
+  font-size: 30px;
 `;
 
 export const WrapperSocialLogin = styled.div`
@@ -85,7 +107,7 @@ export const WrapperSocialLogin = styled.div`
 `;
 
 export const SocialButton = styled.img`
-  width: 354px;
+  width: 500px;
   height: 64px;
 `;
 
@@ -105,11 +127,11 @@ export const WrapperFooter = styled.div`
 
 export const UnderLine = styled.div`
   width: 100%;
-  margin-top: 70px;
-  border-top: 1px solid black;
+  border-top: 1px solid white;
 `;
 
 export const FooterLabel = styled.div`
-  padding: 20px;
+  font-size: 30px;
+  padding: 40px;
   cursor: pointer;
 `;
