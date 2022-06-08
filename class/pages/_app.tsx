@@ -12,12 +12,15 @@ import { globalStyles } from "../src/commons/styles/globalStyles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { createUploadLink } from "apollo-upload-client";
-
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import Layout from "../src/components/commons/layout";
+import { RecoilRoot, useSetRecoilState } from "recoil";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+import { createContext, useState } from "react";
+import { accessTokenState } from "../src/commons/store";
+import ApolloSetting from "../src/components/commons/apollo";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -29,30 +32,51 @@ const firebaseConfig = {
   appId: "1:886722074089:web:021ba82f0c460c5787a778",
 };
 
+// Context-Api
+export const GlobalContext = createContext({
+  isEdit: "",
+  setIsEdit: (_: any) => {},
+});
+
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);
 
 function MyApp({ Component, pageProps }: AppProps) {
   //  여기에다가 설정하기
+  // // Login
+  // const [accessToken, setAccessToken] = useSetRecoilState(accessTokenState);
 
-  const uploadLink = createUploadLink({
-    uri: "http://backend07.codebootcamp.co.kr/graphql", // 백엔드 주소
-  });
+  // // Context-Api
+  // const [isEdit, setIsEdit] = useState(true);
 
-  const client = new ApolloClient({
-    link: ApolloLink.from([uploadLink as unknown as ApolloLink]), // 명확한 타입이 없어 이렇게 작성하라고 DOCS에 나와있다.
+  // const uploadLink = createUploadLink({
+  //   uri: "http://backend07.codebootcamp.co.kr/graphql", // 백엔드 주소
+  //   headers: {
+  //     Authorization: `Bearer ${accessToken}`,
+  //   },
+  // });
 
-    cache: new InMemoryCache(),
-  });
+  // const client = new ApolloClient({
+  //   link: ApolloLink.from([uploadLink as unknown as ApolloLink]), // 명확한 타입이 없어 이렇게 작성하라고 DOCS에 나와있다.
+
+  //   cache: new InMemoryCache(),
+  // });
+
+  // Context-Api
+  const [isEdit, setIsEdit] = useState(true);
 
   return (
-    // 모든 페이지가 useMutation을 사용가능하게끔 함 ApolloProvider
-    <ApolloProvider client={client}>
-      <Global styles={globalStyles} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ApolloProvider>
+    <GlobalContext.Provider value={{ isEdit, setIsEdit }}>
+      {/* 모든 페이지가 useMutation을 사용가능하게끔 함 ApolloProvider */}
+      <RecoilRoot>
+        <ApolloSetting>
+          <Global styles={globalStyles} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ApolloSetting>
+      </RecoilRoot>
+    </GlobalContext.Provider>
   );
 }
 
