@@ -3,7 +3,7 @@ import Slider from "react-slick";
 
 export const SliderWrapper = styled.div`
   margin: 5% auto;
-  width: 100%;
+  width: 80%;
   .slick-prev {
     left: -70px;
   }

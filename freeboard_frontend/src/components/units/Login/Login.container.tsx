@@ -30,11 +30,11 @@ export default function LoginContainer() {
           ...inputs,
         },
       });
-
       const accessToken = result.data.loginUser.accessToken;
       setAccessToken(accessToken);
-      console.log(result);
-      console.log({ inputs });
+      localStorage.setItem("accessToken", accessToken);
+      // console.log(result);
+      // console.log({ inputs });
       Modal.success({ title: "로그인 성공!", content: "환영합니다!" });
       router.push("/boards");
     } catch (error) {

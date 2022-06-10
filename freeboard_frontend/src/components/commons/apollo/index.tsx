@@ -5,12 +5,17 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../store";
 
 export default function ApolloSetting(props) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    setAccessToken(accessToken || "");
+  }, []);
 
   const uploadLink = createUploadLink({
     uri: "http://backend07.codebootcamp.co.kr/graphql", // 백엔드 주소
