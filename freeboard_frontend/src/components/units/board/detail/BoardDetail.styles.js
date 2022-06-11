@@ -167,5 +167,11 @@ export const Underline2 = styled.div`
 `;
 
 export const Images = styled.div`
-  width: 200px;
+  width: 100%;
+  display: flex;
+`;
+
+export const DetailImage = styled.div`
+  border: 1px solid gray;
+  margin: 0 30px;
 `;

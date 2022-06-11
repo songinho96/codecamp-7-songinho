@@ -1,7 +1,9 @@
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
+import UploadBasicContainer from "../../../commons/uploads/basic/UploadBasic.container";
 import * as S from "./BoardWrite.styles";
 import { IBoardWriteUIProps } from "./BoardWrite.types";
+import { v4 as uuidv4 } from "uuid";
 
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
   return (
@@ -137,25 +139,16 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
         </S.WrapperYoutube>
 
         <S.WrapperPicture>
-          <S.Label>사진 첨부</S.Label>
+          <S.Label>사진첨부</S.Label>
           <S.WrapUpload>
-            <S.UploadImage onClick={props.onClickImage}>
-              {props.imageUrl ? (
-                <S.See
-                  src={`http://storage.googleapis.com/${props.imageUrl}`}
-                />
-              ) : (
-                <S.PlusIcon></S.PlusIcon>
-              )}
-            </S.UploadImage>
-            <S.UploadButton
-              type="file"
-              onChange={props.onChangeFile}
-              ref={props.fileRef}
-            />
-
-            {/* <S.UploadButton>+</S.UploadButton>
-          <S.UploadButton>+</S.UploadButton> */}
+            {props.fileUrls.map((el, index) => (
+              <UploadBasicContainer
+                key={uuidv4()}
+                index={index}
+                fileUrl={el}
+                onChangeFileUrls={props.onChangeFileUrls}
+              />
+            ))}
           </S.WrapUpload>
         </S.WrapperPicture>
 

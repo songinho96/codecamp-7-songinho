@@ -2,16 +2,15 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import BoardWriteUI from "./BoardWrite.presenter";
-import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
+import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 import { Modal } from "antd";
 import { IBoardWriteProps, IUpdateBoardInput } from "./BoardWrite.types";
-import { checkFileValidation } from "../../../../commons/libraries/fileValidation";
 
 export default function BoardWrite(props: IBoardWriteProps) {
   // useEffect(), useRef()
   const inputRef = useRef();
 
-  const fileRef = useRef<HTMLInputElement>(null);
+  // const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     inputRef.current.focus();
@@ -23,7 +22,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const router = useRouter();
   const [callGraphql] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
-  const [uploadFile] = useMutation(UPLOAD_FILE);
+  // const [uploadFile] = useMutation(UPLOAD_FILE);
 
   // useState onChagne
   const [writer, setWriter] = useState("");
@@ -31,7 +30,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
   const [youtubeUrl, setYoutubeUrl] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [fileUrls, setFileUrls] = useState(["", "", ""]);
   // 모달 다음 포스트 어드레스
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [zipcode, setZipcode] = useState("");
@@ -135,7 +134,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
                 address,
                 addressDetail,
               },
-              images: [imageUrl],
+              images: fileUrls,
             },
           },
         });
@@ -192,7 +191,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
         updateBoardInput.boardAddress.addressDetail = addressDetail;
     }
 
-    console.log(updateBoardInput.boardAddress);
+    // console.log(updateBoardInput.boardAddress);
 
     try {
       const result = await updateBoard({
@@ -221,14 +220,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const showModal = () => {
     setIsModalVisible((prev) => !prev);
   };
-
-  // const handleOk = () => {
-  //   setIsModalVisible(false);
-  // };
-
-  // const handleCancel = () => {
-  //   setIsModalVisible(false);
-  // };
 
   const handleComplete = (data: any) => {
     setZipcode(data.zonecode);
@@ -264,29 +255,10 @@ export default function BoardWrite(props: IBoardWriteProps) {
     setIsBackVisible(false);
   };
 
-  // imageUpload
-  const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    console.log(file);
-
-    const isValid = checkFileValidation(file);
-    if (!isValid) return;
-
-    try {
-      const result = await uploadFile({
-        variables: {
-          file,
-        },
-      });
-      setImageUrl(result.data.uploadFile.url);
-      console.log(result.data);
-    } catch (error) {
-      Modal.error({ content: "에러발생!!" });
-    }
-  };
-
-  const onClickImage = () => {
-    fileRef.current?.click();
+  const onChangeFileUrls = (fileUrl: string, index: number) => {
+    const newFileUrls = [...fileUrls];
+    newFileUrls[index] = fileUrl;
+    setFileUrls(newFileUrls);
   };
 
   return (
@@ -308,8 +280,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
       boardData={props.boardData}
       isModalVisible={isModalVisible}
       showModal={showModal}
-      // handleOk={handleOk}
-      // handleCancel={handleCancel}
       handleComplete={handleComplete}
       onChangeAddressDetail={onChangeAddressDetail}
       zipcode={zipcode}
@@ -319,10 +289,8 @@ export default function BoardWrite(props: IBoardWriteProps) {
       handleCancel={handleCancel}
       isBackVisible={isBackVisible}
       onClickhandleOk={onClickhandleOk}
-      onChangeFile={onChangeFile}
-      imageUrl={imageUrl}
-      fileRef={fileRef}
-      onClickImage={onClickImage}
+      onChangeFileUrls={onChangeFileUrls}
+      fileUrls={fileUrls}
     />
   );
 }

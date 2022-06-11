@@ -53,6 +53,11 @@ export const Label = styled.div`
   padding-bottom: 16px;
 `;
 
+export const WrapUpload = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 export const Writer = styled.input`
   width: 486px;
   height: 53px;
@@ -145,19 +150,6 @@ export const WrapperPicture = styled.div`
   padding-bottom: 40px;
 `;
 
-export const WrapUpload = styled.div``;
-
-export const UploadButton = styled.input`
-  display: none;
-`;
-
-export const UploadImage = styled.div`
-  width: 78px;
-  height: 78px;
-  margin-right: 24px;
-  border-radius: 4px;
-`;
-
 export const WrapperSetting = styled.div`
   padding-bottom: 80px;
 `;
@@ -192,14 +184,4 @@ export const SubmitButton = styled.button`
   width: 179px;
   height: 52px;
   border-radius: 4px;
-`;
-
-export const See = styled.img`
-  width: 78px;
-  height: 78px;
-`;
-
-export const PlusIcon = styled(PlusSquareFilled)`
-  font-size: 20px;
-  padding: 27px;
 `;
