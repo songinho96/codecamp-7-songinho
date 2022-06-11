@@ -1,7 +1,7 @@
 import React from "react";
-import * as S from "./UploadBasic.styles";
+import * as S from "./SearchbarsBasic.styles";
 
-export default function UploadBasicPresenter(props) {
+export default function SearchbarBasicPresenter(props) {
   return (
     <S.WrapperSearch>
       <S.InputSearch

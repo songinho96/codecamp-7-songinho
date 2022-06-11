@@ -1,8 +1,8 @@
 import React, { ChangeEvent } from "react";
-import UploadBasicPresenter from "./UploadBasic.presenter";
 import _ from "lodash";
+import SearchbarBasicPresenter from "./SearchbarsBasic.presenter";
 
-export default function UploadBasicContainer(props: any) {
+export default function SearchbarBasicContainer(props: any) {
   const getDebounce = _.debounce((searchData) => {
     props.refetch({ search: searchData, page: 1 });
     props.setKeyword(searchData);
@@ -12,5 +12,5 @@ export default function UploadBasicContainer(props: any) {
   const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
     getDebounce(event.target.value);
   };
-  return <UploadBasicPresenter onChangeSearch={onChangeSearch} />;
+  return <SearchbarBasicPresenter onChangeSearch={onChangeSearch} />;
 }

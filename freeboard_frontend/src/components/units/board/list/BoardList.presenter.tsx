@@ -2,14 +2,14 @@ import * as S from "./BoardList.styles";
 import { getDate } from "../../../commons/libraries/utils";
 import Paginationbasic from "../../../commons/paginations/basic/Paginationsbasic.container";
 import { v4 as uuidv4 } from "uuid";
-import UploadBasicContainer from "../../../commons/uploads/basic/UploadBasic.container";
+import SearchbarBasicContainer from "../../../commons/searchbars/basic/SearchbarBasic.container";
 
 export default function BoardListUI(props) {
   return (
     <S.Wrapper>
       <S.Body>
         {/* 게시물 검색 컴포넌트 */}
-        <UploadBasicContainer
+        <SearchbarBasicContainer
           keyword={props.keyword}
           refetch={props.refetch}
           setKeyword={props.setKeyword}
