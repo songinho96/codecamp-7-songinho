@@ -5,37 +5,41 @@ import React, { useState } from "react";
 import SignUpPresenter from "./SignUp.presenter";
 import { CREATE_USER } from "./SignUp.queries";
 
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+const schema = yup.object({
+  email: yup
+    .string()
+    .email("이메일 형식이 적합하지 않습니다.")
+    .required("이메일은 필수 입력 사항입니다."),
+  password: yup
+    .string()
+    .min(4, "비밀번호는 최소 4자리 이상 입력해 주세요.")
+    .max(15, "비밀번호는 최대 15자리로 입력해 주세요.")
+    .required("비밀번호는 필수 입력 사항입니다."),
+  name: yup.string().required("이름은 필수 입력 사항입니다."),
+});
+
 export default function SignUpContainer() {
   const router = useRouter();
-  const [inputs, setInputs] = useState({
-    email: "",
-    password: "",
-    name: "",
-  });
-
-  const [nameError, setNameError] = useState("");
-
   const [createUser] = useMutation(CREATE_USER);
 
-  const onChangeInputs = (event) => {
-    setInputs({
-      ...inputs,
-      [event.target.id]: event.target.value,
-    });
-    if (!inputs.name) {
-      setNameError("");
-    }
-  };
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onChange",
+  });
 
-  const onClickSubmit = async () => {
-    if (!inputs.name) {
-      setNameError("이름 입력해 시발려나");
-    }
+  const onClickSubmit = async (data) => {
+    console.log(data);
     try {
       const result = await createUser({
         variables: {
           createUserInput: {
-            ...inputs,
+            email: data.email,
+            password: data.password,
+            name: data.name,
           },
         },
       });
@@ -58,9 +62,10 @@ export default function SignUpContainer() {
   return (
     <SignUpPresenter
       onClickMoveLogin={onClickMoveLogin}
-      onChangeInputs={onChangeInputs}
       onClickSubmit={onClickSubmit}
-      nameError={nameError}
+      handleSubmit={handleSubmit}
+      formState={formState}
+      register={register}
     />
   );
 }

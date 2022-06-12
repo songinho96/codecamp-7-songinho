@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   margin: 0 auto;
+  padding: 30px 0px;
 `;
 
 export const WrapMainTitle = styled.div`
@@ -58,6 +59,11 @@ export const InputEmail = styled.input`
   width: 500px;
   height: 64px;
   color: black;
+`;
+
+export const Error = styled.div`
+  font-size: 12px;
+  color: red;
 `;
 
 export const InputPassword = styled.input`

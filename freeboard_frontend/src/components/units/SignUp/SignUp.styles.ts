@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const Error = styled.div`
   color: red;
+  font-size: 14px;
 `;
 
 export const Wrapper = styled.div`
@@ -18,7 +19,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   margin: 0 auto;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 `;
 
 export const WrapMainTitle = styled.div`
