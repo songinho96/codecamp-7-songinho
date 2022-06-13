@@ -1,8 +1,19 @@
 import BestBoardsContainer from "../../src/components/commons/BestBoards/basic/BestBoards.container";
-import { withAuth } from "../../src/components/commons/hocs/withAuth";
+import { useAuth } from "../../src/components/commons/hooks/useAuth";
 import BoardList from "../../src/components/units/board/list/BoardList.container";
 
-function BoardsPage(props) {
+// function BoardsPage(props) {
+//   return (
+//     <>
+//       <BestBoardsContainer />
+//       <BoardList />
+//     </>
+//   );
+// }
+// export default withAuth(BoardsPage);
+
+export default function BoardsPage() {
+  useAuth();
   return (
     <>
       <BestBoardsContainer />
@@ -10,4 +21,3 @@ function BoardsPage(props) {
     </>
   );
 }
-export default withAuth(BoardsPage);

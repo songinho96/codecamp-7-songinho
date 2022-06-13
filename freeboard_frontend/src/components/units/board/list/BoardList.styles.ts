@@ -12,6 +12,10 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
   background-color: white;
   font-size: 20px;
+  background: no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
+  /* background-image: url("/list/blackground.jpeg"); */
+  background-size: cover;
+  object-fit: fill;
 `;
 
 // body
