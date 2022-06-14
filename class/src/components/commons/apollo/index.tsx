@@ -52,6 +52,7 @@ export default function ApolloSetting(props) {
   const client = new ApolloClient({
     link: ApolloLink.from([uploadLink as unknown as ApolloLink]), // 명확한 타입이 없어 이렇게 작성하라고 DOCS에 나와있다.
     cache: new InMemoryCache(),
+    connectToDevTools: true,
   });
   return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
 }
