@@ -1,31 +1,36 @@
 import React from "react";
+import InputBasic from "../../../commons/inputs/basic";
 import * as S from "./ProductWrite.styles";
 
 export default function ProductWritePresenter(props) {
   return (
-    <>
+    <form onSubmit={props.handleSubmit(props.onClickSubmit)}>
       <S.Wrapper>
         <S.Title>상품 등록하기</S.Title>
         <S.Wrap>
           <S.WrapProduct>
             <S.Label>상품명</S.Label>
-            <S.InputProduct />
+            <InputBasic type="text" register={props.register("name")} />
+            <S.Error>{props.formState.errors.name?.message}</S.Error>
           </S.WrapProduct>
           <S.WrapProduct>
             <S.Label>한줄 요약</S.Label>
-            <S.InputProduct />
+            <InputBasic type="text" register={props.register("remarks")} />
+            <S.Error>{props.formState.errors.remarks?.message}</S.Error>
           </S.WrapProduct>
           <S.WrapDetail>
             <S.Label>상품설명</S.Label>
-            <S.InputDetail />
+            <S.InputDetail {...props.register("contents")} />
+            <S.Error>{props.formState.errors.contents?.message}</S.Error>
           </S.WrapDetail>
           <S.WrapProduct>
             <S.Label>판매 가격</S.Label>
-            <S.InputProduct />
+            <InputBasic type="text" register={props.register("price")} />
+            <S.Error>{props.formState.errors.price?.message}</S.Error>
           </S.WrapProduct>
           <S.WrapProduct>
             <S.Label>태그 입력</S.Label>
-            <S.InputProduct />
+            <InputBasic type="text" register={props.register("tags")} />
           </S.WrapProduct>
           <S.WrapperLocation>
             <S.WrapMap>
@@ -68,10 +73,12 @@ export default function ProductWritePresenter(props) {
             </S.WrapperRadio>
           </S.WrapperRadioButton>
           <S.WrapButton>
-            <S.SubmitButton>SubmitButton</S.SubmitButton>
+            <S.SubmitButton isActive={props.formState.isValid}>
+              SubmitButton
+            </S.SubmitButton>
           </S.WrapButton>
         </S.Wrap>
       </S.Wrapper>
-    </>
+    </form>
   );
 }

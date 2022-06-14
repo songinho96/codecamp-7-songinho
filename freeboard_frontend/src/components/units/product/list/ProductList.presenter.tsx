@@ -15,11 +15,11 @@ export default function ProductListPresenter() {
           </S.BestExplanation> */}
           <S.WrapperBestProduct>
             <S.WrapperBest1>
-              <S.ProductDetail>배스트게시물</S.ProductDetail>
+              <S.ProductDetail>베스트게시물</S.ProductDetail>
               <S.WrapBestProduct>캐러셀</S.WrapBestProduct>
             </S.WrapperBest1>
             <S.WrapperBest1>
-              <S.ProductDetail>배스트게시물</S.ProductDetail>
+              <S.ProductDetail>베스트게시물</S.ProductDetail>
               <S.WrapBestProduct>캐러셀</S.WrapBestProduct>
             </S.WrapperBest1>
           </S.WrapperBestProduct>

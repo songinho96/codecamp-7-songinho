@@ -35,10 +35,15 @@ export const Label = styled.div`
   padding-bottom: 16px;
 `;
 
-export const InputProduct = styled.input`
-  width: 996px;
-  height: 52px;
+export const Error = styled.div`
+  font-size: 14px;
+  color: red;
 `;
+
+// export const InputProduct = styled.input`
+//   width: 996px;
+//   height: 52px;
+// `;
 
 export const WrapDetail = styled.div`
   display: flex;

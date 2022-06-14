@@ -50,7 +50,7 @@ export const ProductTag = styled.div`
 export const WrapProductButton = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
 export const ListButton = styled.button`

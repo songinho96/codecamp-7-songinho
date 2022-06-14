@@ -36,7 +36,6 @@ export const MainTitle = styled.div`
   font-size: 36px;
   font-weight: bold;
   padding-bottom: 80px;
-  font-weight: 700;
   text-align: center;
 `;
 
