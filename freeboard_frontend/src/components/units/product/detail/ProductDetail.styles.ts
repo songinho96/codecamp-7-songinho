@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 100%;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Body = styled.div`
-  width: 80%;
+  width: 1200px;
   margin: 0 auto;
 `;
 
@@ -16,10 +16,20 @@ export const WrapperProduct = styled.div`
   padding: 200px 0;
 `;
 
-export const ProductImage = styled.img`
+export const WrapperProductImage = styled.div`
   width: 760px;
   height: 680px;
-  margin-right: 30px;
+`;
+
+export const ProductImage = styled.div`
+  width: 400px;
+  border: 1px solid black;
+  margin-right: 100px;
+`;
+
+export const DetailImage = styled.div`
+  border: 1px solid gray;
+  margin: 0 30px;
 `;
 
 export const WrapProductDetail = styled.div`

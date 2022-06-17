@@ -3,7 +3,7 @@ import { useAuth } from "../../../src/components/commons/hooks/useAuth";
 
 import ProductWriteContainer from "../../../src/components/units/product/write/ProductWrite.container";
 
-export default function WritePage() {
+export default function ProductWritePage() {
   useAuth();
-  return <ProductWriteContainer />;
+  return <ProductWriteContainer isEdit={false} />;
 }

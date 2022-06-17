@@ -4,12 +4,11 @@ export const globalStyles = css`
   * {
     margin: 0;
     box-sizing: border-box;
-    font-family: "my-font";
-    border-radius: 10px;
+    /* font-family: "my-font"; */
   }
 
   @font-face {
     font-family: my-font;
-    src: url("/font/NanumPenScript-Regular.ttf");
+    src: url("/font/Jalnan.ttf");
   }
 `;

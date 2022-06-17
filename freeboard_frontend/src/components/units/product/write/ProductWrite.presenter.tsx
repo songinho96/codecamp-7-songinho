@@ -1,12 +1,26 @@
 import React from "react";
 import InputBasic from "../../../commons/inputs/basic";
+import UploadBasicContainer from "../../../commons/uploads/basic/UploadBasic.container";
 import * as S from "./ProductWrite.styles";
+import { v4 as uuidv4 } from "uuid";
+import dynamic from "next/dynamic";
+
+const ToastUi = dynamic(() => import("../../../commons/toastUi"), {
+  ssr: false,
+});
 
 export default function ProductWritePresenter(props) {
   return (
-    <form onSubmit={props.handleSubmit(props.onClickSubmit)}>
+    // <form onSubmit={props.handleSubmit(props.onClickSubmit)}>
+    <form
+      onSubmit={
+        props.isEdit
+          ? props.handleSubmit(props.onClickUpdate)
+          : props.handleSubmit(props.onClickSubmit)
+      }
+    >
       <S.Wrapper>
-        <S.Title>상품 등록하기</S.Title>
+        <S.Title>{props.isEdit ? "상품 수정하기" : "상품 등록하기"} </S.Title>
         <S.Wrap>
           <S.WrapProduct>
             <S.Label>상품명</S.Label>
@@ -20,7 +34,11 @@ export default function ProductWritePresenter(props) {
           </S.WrapProduct>
           <S.WrapDetail>
             <S.Label>상품설명</S.Label>
-            <S.InputDetail {...props.register("contents")} />
+            {/* <S.InputDetail {...props.register("contents")} /> */}
+            <ToastUi
+              onChangeContents={props.onChangeContents}
+              editorRef={props.editorRef}
+            />
             <S.Error>{props.formState.errors.contents?.message}</S.Error>
           </S.WrapDetail>
           <S.WrapProduct>
@@ -55,8 +73,14 @@ export default function ProductWritePresenter(props) {
           <S.WrapperImage>
             <S.Label>사진 첨부</S.Label>
             <S.WrapImage>
-              <S.Image1>Image1</S.Image1>
-              <S.Image1>Image2</S.Image1>
+              {props.fileUrls.map((el, index) => (
+                <UploadBasicContainer
+                  key={uuidv4()}
+                  index={index}
+                  fileUrl={el}
+                  onChangeFileUrls={props.onChangeFileUrls}
+                />
+              ))}
             </S.WrapImage>
           </S.WrapperImage>
           <S.WrapperRadioButton>
@@ -74,7 +98,7 @@ export default function ProductWritePresenter(props) {
           </S.WrapperRadioButton>
           <S.WrapButton>
             <S.SubmitButton isActive={props.formState.isValid}>
-              SubmitButton
+              {props.isEdit ? "UpdateButton" : "SubmitButton"}
             </S.SubmitButton>
           </S.WrapButton>
         </S.Wrap>

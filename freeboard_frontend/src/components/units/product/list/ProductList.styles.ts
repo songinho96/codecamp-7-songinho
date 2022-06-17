@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
+import InfiniteScroll from "react-infinite-scroller";
+import Slider from "react-slick";
 
 export const Wrapper = styled.div`
-  width: 100%;
-  background-color: #303030;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -11,18 +11,18 @@ export const Wrapper = styled.div`
 export const Header = styled.div``;
 
 export const MainImage = styled.div`
-  background-image: url("/product/Banner.svg");
-  height: 1700px;
-  background-position: center;
-  object-fit: scale-down;
+  /* background-image: url("/product/Banner.svg"); */
+  /* height: 1700px; */
+  /* background-position: center; */
+  /* object-fit: scale-down; */
 `;
 
 export const Body = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 1200px;
   margin: 0 auto;
-  background-color: #424242;
+  /* background-color: #424242; */
 `;
 
 export const WrapperBest = styled.div`
@@ -62,43 +62,75 @@ export const WrapBestProduct = styled.div`
   font-size: 200px;
 `;
 
+export const WrapSearchBar = styled.div`
+  margin-top: 50px;
+  position: sticky;
+  top: 30px;
+`;
+
 export const WrapperProductList = styled.div`
-  height: 855px;
-  width: 530px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  margin: 50px 0;
 `;
 
 export const WrapProductRow = styled.div`
+  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
 
+export const Scroll = styled.div`
+  height: 2000px;
+  overflow: auto;
+`;
+
+export const InfiniteScrolls = styled(InfiniteScroll)`
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
+
 export const WrapProductList = styled.div`
-  border: 1px solid black;
-  margin: 50px 0;
+  /* height: 855px; */
+  width: 70%;
+  margin: 60px auto;
+  box-shadow: 5px 10px 10px #c8c8c8;
+  border-radius: 20px 30px 0 0;
+  cursor: pointer;
 `;
 
 export const ProductImage = styled.img`
-  height: 500px;
+  /* height: 70%; */
   width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #d1d1d6;
 `;
 
+export const WrapProductDetail = styled.div``;
+
 export const ProductName = styled.div`
-  font-size: 30px;
+  font-size: 16px;
+  padding: 10px;
 `;
 
 export const ProductPrice = styled.div`
-  font-size: 50px;
-  font-weight: bold;
+  font-weight: 100;
+  padding: 10px;
+  font-size: 18px;
 `;
 
 export const WrapperProductMini = styled.div`
-  margin-top: 700px;
+  /* margin-top: 700px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; */
+  width: 100%;
+  margin: 30px 20px;
+  padding: 40px;
+  cursor: pointer;
 `;
 
 export const Image = styled.img`
@@ -119,4 +151,13 @@ export const SubmitButton = styled.button`
   color: red;
   font-weight: bold;
   font-size: 40px;
+`;
+
+export const StyledSlider = styled(Slider)`
+  .slick-dots {
+    bottom: -100px;
+  }
+  .slick-dots li button:before {
+    color: blue;
+  }
 `;

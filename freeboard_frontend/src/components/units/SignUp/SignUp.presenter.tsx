@@ -21,11 +21,11 @@ export default function SignUpPresenter(props) {
           </S.WrapperSocialSignup>
           <S.WrapperDivideLine>
             <S.DivideLine></S.DivideLine>
-            <div> or </div>
+            <S.Or>or</S.Or>
             <S.DivideLine></S.DivideLine>
           </S.WrapperDivideLine>
           <S.WrapperEmailSignup>
-            <S.Title>Sign up with your email address</S.Title>
+            <S.Title>Sign up</S.Title>
             <S.Label>Email address</S.Label>
             <S.InputSign
               type="text"

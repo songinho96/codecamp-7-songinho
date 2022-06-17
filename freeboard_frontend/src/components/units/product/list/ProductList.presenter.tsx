@@ -1,6 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import * as S from "./ProductList.styles";
-export default function ProductListPresenter() {
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import SearchbarBasicContainer from "../../../commons/searchbars/basic/SearchbarBasic.container";
+
+export default function ProductListPresenter(props) {
   return (
     <S.Wrapper>
       <S.Header>
@@ -24,52 +28,89 @@ export default function ProductListPresenter() {
             </S.WrapperBest1>
           </S.WrapperBestProduct>
         </S.WrapperBest>
+        <S.WrapSearchBar>
+          <SearchbarBasicContainer />
+        </S.WrapSearchBar>
         <S.WrapperProductList>
           <S.WrapProductRow>
-            <S.WrapProductList>
-              <S.ProductImage src="/product/Promo.png" />
-              <S.ProductName>핸드폰</S.ProductName>
-              <S.ProductPrice>3000원</S.ProductPrice>
-            </S.WrapProductList>
-            <S.WrapProductList>
-              <S.ProductImage src="/product/Promo.png" />
-              <S.ProductName>핸드폰</S.ProductName>
-              <S.ProductPrice>3000원</S.ProductPrice>
-            </S.WrapProductList>
-            <S.WrapProductList>
-              <S.ProductImage src="/product/Promo.png" />
-              <S.ProductName>핸드폰</S.ProductName>
-              <S.ProductPrice>3000원</S.ProductPrice>
-            </S.WrapProductList>
-          </S.WrapProductRow>
-          <S.WrapProductRow>
-            <S.WrapProductList>
-              <S.ProductImage src="/product/Promo.png" />
-              <S.ProductName>핸드폰</S.ProductName>
-              <S.ProductPrice>3000원</S.ProductPrice>
-            </S.WrapProductList>
-            <S.WrapProductList>
-              <S.ProductImage src="/product/Promo.png" />
-              <S.ProductName>핸드폰</S.ProductName>
-              <S.ProductPrice>3000원</S.ProductPrice>
-            </S.WrapProductList>
-            <S.WrapProductList>
-              <S.ProductImage src="/product/Promo.png" />
-              <S.ProductName>핸드폰</S.ProductName>
-              <S.ProductPrice>3000원</S.ProductPrice>
-            </S.WrapProductList>
+            <S.Scroll>
+              <S.InfiniteScrolls
+                pageStart={0}
+                loadMore={props.loadFunc}
+                hasMore={true}
+                useWindow={false}
+              >
+                {props.data?.fetchUseditems.map((el: any, index: number) => (
+                  <S.WrapProductList
+                    key={el._id}
+                    id={el._id}
+                    onClick={props.onClickList}
+                  >
+                    <S.ProductImage
+                      src={
+                        el.images[0]
+                          ? `https://storage.googleapis.com/${el.images[0]}`
+                          : "/list/noimage.gif"
+                      }
+                    />
+                    <S.WrapProductDetail>
+                      <S.ProductName>{el.name}</S.ProductName>
+                      <S.ProductPrice>{el.price}원</S.ProductPrice>
+                    </S.WrapProductDetail>
+                  </S.WrapProductList>
+                ))}
+              </S.InfiniteScrolls>
+            </S.Scroll>
           </S.WrapProductRow>
         </S.WrapperProductList>
-        <S.WrapperProductMini>
-          <S.Image src="/product/Item.png" />
-          <S.Image src="/product/Item.png" />
-          <S.Image src="/product/Item.png" />
-          <S.Image src="/product/Item.png" />
-        </S.WrapperProductMini>
-        <S.WrapButton>
-          <S.SubmitButton>글 등록 </S.SubmitButton>
-        </S.WrapButton>
       </S.Body>
+      <S.WrapperProductMini>
+        <div>
+          <S.StyledSlider {...props.settings}>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+            <div>
+              <S.Image src="/product/Item.png" />
+            </div>
+          </S.StyledSlider>
+        </div>
+      </S.WrapperProductMini>
+      <S.WrapButton>
+        <S.SubmitButton onClick={props.onClickMoveWrite}>
+          글 등록
+        </S.SubmitButton>
+      </S.WrapButton>
     </S.Wrapper>
   );
 }

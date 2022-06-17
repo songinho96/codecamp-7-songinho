@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  /* width: 1200px; */
-  width: 80%;
-  height: 100vh;
+  width: 1920px;
+
+  height: 1080px;
   margin: 100px auto;
   font-size: 20px;
   border: 1px solid black;
   background: no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("/login/macbook.avif");
+    url("/login/Frame 1.png");
   background-size: cover;
   object-fit: fill;
   color: white;
@@ -94,11 +94,12 @@ export const LoginButton = styled.button`
   font-size: 30px;
   background-color: yellow;
   color: black;
+  margin-bottom: 40px;
 `;
 
 export const DivideLine = styled.div`
   height: 170px;
-  width: 0.01vw;
+  width: 0.02vw;
   border-width: 0;
   background-color: white;
 `;
@@ -132,8 +133,9 @@ export const WrapperFooter = styled.div`
 `;
 
 export const UnderLine = styled.div`
-  width: 100%;
+  width: 90%;
   border-top: 1px solid white;
+  margin: 0 auto;
 `;
 
 export const FooterLabel = styled.div`

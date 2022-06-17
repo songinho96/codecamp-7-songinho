@@ -35,11 +35,11 @@ export default function Banner() {
     pauseOnHover: true,
     appendDots: (dots: any) => (
       <div
-      // style={{
-      //   backgroundColor: "#ddd",
-      //   borderRadius: "10px",
-      //   padding: "10px",
-      // }}
+        style={{
+          backgroundColor: "#ddd",
+          borderRadius: "10px",
+          padding: "10px",
+        }}
       >
         <ul style={{ margin: "0px" }}> {dots} </ul>
       </div>

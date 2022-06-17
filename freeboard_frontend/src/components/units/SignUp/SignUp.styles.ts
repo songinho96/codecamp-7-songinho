@@ -6,12 +6,12 @@ export const Error = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 80%;
-  height: 100%;
+  width: 1920px;
+  height: 1080px;
   margin: 100px auto;
   font-size: 20px;
   border: 1px solid black;
-  background: url("/login/macbook.avif") no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
+  background: url("/login/Background Image-1.png"), no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
   background-size: cover;
   object-fit: fill;
   color: white;
@@ -37,7 +37,7 @@ export const MainTitle = styled.div`
 
 export const WrapperBody = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
 `;
@@ -60,7 +60,6 @@ export const Title = styled.div`
 export const WrapperEmailSignup = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
 `;
 
 export const Label = styled.div`
@@ -85,17 +84,29 @@ export const SignupButton = styled.button`
 `;
 
 export const WrapperDivideLine = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 40px 0px;
+  padding: 40px 0px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const DivideLine = styled.div`
-  width: 600px;
+  /* width: 600px;
   border-top: 1px solid black;
-  margin: 0px 20px;
+  margin: 0px 20px; */
+  height: 170px;
+  width: 0.01vw;
+  border-width: 0;
+  background-color: white;
+`;
+
+export const Or = styled.div`
+  font-size: 30px;
 `;
 
 export const WrapperFooter = styled.div`

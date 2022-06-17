@@ -1,18 +1,38 @@
+import { Image } from "antd";
+import DOMPurify from "dompurify";
 import React from "react";
 import * as S from "./ProductDetail.styles";
-export default function ProductDetailPresenter() {
+export default function ProductDetailPresenter(props) {
   return (
     <S.Wrapper>
       <S.Body>
         <S.WrapperProduct>
-          <S.ProductImage src="/product/detail1.png" />
+          <S.WrapperProductImage>
+            <S.ProductImage>
+              {props.data?.fetchUseditem.images
+                ?.filter((el) => el)
+                .map((el) => (
+                  <S.DetailImage key={el}>
+                    <Image src={`https://storage.googleapis.com/${el}`} />
+                  </S.DetailImage>
+                ))}
+            </S.ProductImage>
+          </S.WrapperProductImage>
           <S.WrapProductDetail>
             <S.ProductName>FLORAL PLIMSOLL</S.ProductName>
-            <S.ProductPrice>$ 780.00</S.ProductPrice>
+            <S.ProductPrice>{props.data?.fetchUseditem.price}</S.ProductPrice>
             <S.ProductContents>
-              Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a
-              pellentesque dui, non felis. Maecenas malesuada elit lectus felis,
-              malesuada ultricies.
+              {typeof window !== "undefined" ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(
+                      props.data?.fetchUseditem.contents
+                    ),
+                  }}
+                ></div>
+              ) : (
+                ""
+              )}
             </S.ProductContents>
             <S.ProductTag>ProductTag</S.ProductTag>
             <S.WrapProductButton>
