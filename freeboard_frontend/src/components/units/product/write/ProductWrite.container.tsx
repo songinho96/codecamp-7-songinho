@@ -31,7 +31,7 @@ export default function ProductWriteContainer(props) {
     // console.log(value);
     // const data = editorRef.current?.getInstance().getMarkdown(); // 마크다운 언어
     const htmlData = editorRef.current?.getInstance().getHTML();
-    console.log(htmlData);
+    // console.log(htmlData);
 
     // register로 등록하지 않고, 강제로 값을 넣어주는 기능!!
     setValue("contents", htmlData);
@@ -54,35 +54,46 @@ export default function ProductWriteContainer(props) {
           },
         },
       });
-      console.log(result);
+      // console.log(result);
       Modal.success({
         title: "등록 성공!",
         content: "상품이 등록되었습니다!",
       });
       router.push(`/products/${result.data.createUseditem._id}`);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       Modal.error({
         title: "Error 메시지",
-        content: "상품 등록 실패 !!!",
+        content: error.message,
       });
     }
   };
 
-  const onClickUpdate = async (data) => {
-    const updateUseditemInput = {};
+  const onClickUpdate = async (data: any) => {
+    const updateUseditemInput: any = {};
     if (data?.name) updateUseditemInput.name = data.name;
-    // if (data?.remarks) updateUseditemInput.remarks = remarks;
     if (data?.remarks) updateUseditemInput.remarks = data.remarks;
     if (data?.price) updateUseditemInput.price = data.price;
-    console.log(name);
-    const result = await updateUseditem({
-      variables: {
-        useditemId: router.query.boardId,
-        updateUseditemInput,
-      },
-    });
-    router.push(`/products/${result.data.updateUseditem._id}`);
+    if (data?.contents) updateUseditemInput.contents = data.contents;
+
+    try {
+      const result = await updateUseditem({
+        variables: {
+          useditemId: router.query.boardId,
+          updateUseditemInput,
+        },
+      });
+      Modal.success({
+        title: "상품 수정 성공!!",
+        content: "상품이 수정 되었습니다.",
+      });
+      router.push(`/products/${result.data.updateUseditem._id}`);
+    } catch (error) {
+      Modal.error({
+        title: "Error 메시지",
+        content: error.message,
+      });
+    }
   };
 
   const onChangeFileUrls = (fileUrl: string, index: number) => {
@@ -103,6 +114,7 @@ export default function ProductWriteContainer(props) {
       editorRef={editorRef}
       onClickUpdate={onClickUpdate}
       isEdit={props.isEdit}
+      productData={props.productData}
     />
   );
 }

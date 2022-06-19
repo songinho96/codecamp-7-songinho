@@ -6,5 +6,11 @@ const Input = styled.input`
 `;
 
 export default function InputBasic(props) {
-  return <Input type={props.type} {...props.register} />;
+  return (
+    <Input
+      type={props.type}
+      {...props.register}
+      defaultValue={props.defaultValue}
+    />
+  );
 }
