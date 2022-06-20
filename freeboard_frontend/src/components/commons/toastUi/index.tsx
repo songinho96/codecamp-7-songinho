@@ -17,7 +17,6 @@ export default function ToastUi(props) {
         initialEditType="markdown"
         useCommandShortcut={true}
         ref={props.editorRef}
-        // toolbarItems={[["bold", "italic", "strike"]]}
         plugins={[
           [
             colorSyntax,
@@ -27,6 +26,7 @@ export default function ToastUi(props) {
             },
           ],
         ]}
+        initialValue={props.initialValue}
       />
     </>
   );

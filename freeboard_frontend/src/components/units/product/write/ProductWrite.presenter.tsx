@@ -47,6 +47,7 @@ export default function ProductWritePresenter(props) {
             <ToastUi
               onChangeContents={props.onChangeContents}
               editorRef={props.editorRef}
+              initialValue={props.productData?.fetchUseditem.contents}
             />
             <S.Error>{props.formState.errors.contents?.message}</S.Error>
           </S.WrapDetail>

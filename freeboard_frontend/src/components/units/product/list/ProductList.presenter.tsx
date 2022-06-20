@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import * as S from "./ProductList.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SearchbarBasicContainer from "../../../commons/searchbars/basic/SearchbarBasic.container";
+import ProductBasketContainer from "../basket/ProductBasket.container";
 
 export default function ProductListPresenter(props) {
   return (
@@ -29,7 +29,7 @@ export default function ProductListPresenter(props) {
           </S.WrapperBestProduct>
         </S.WrapperBest>
         <S.WrapSearchBar>
-          <SearchbarBasicContainer />
+          상품명 입력: <input type="text" onChange={props.onChangeSearch} />
         </S.WrapSearchBar>
         <S.WrapperProductList>
           <S.WrapProductRow>
@@ -67,9 +67,6 @@ export default function ProductListPresenter(props) {
       <S.WrapperProductMini>
         <div>
           <S.StyledSlider {...props.settings}>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
             <div>
               <S.Image src="/product/Item.png" />
             </div>

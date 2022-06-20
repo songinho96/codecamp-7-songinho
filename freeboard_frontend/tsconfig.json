@@ -25,7 +25,9 @@
     "src/components/commons/layout/footer/index.js",
     "pages/openapis/index.js",
     "pages/aaex/index.js",
-    "src/components/units/board/list/BoardList.presenter.js"
-, "src/components/units/board/list/BoardList.container.js"  ],
+    "src/components/units/board/list/BoardList.presenter.js",
+    "src/components/units/board/list/BoardList.container.js",
+    "src/components/commons/layout/index.js"
+  ],
   "exclude": ["node_modules"]
 }

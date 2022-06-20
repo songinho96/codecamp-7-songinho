@@ -19,9 +19,13 @@ export const FETCH_USED_ITEM = gql`
 export default function ProductEditPage() {
   const router = useRouter();
 
-  const { data } = useQuery(FETCH_USED_ITEM, {
+  const { data, loading } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.boardId },
   });
 
-  return <ProductWriteContainer isEdit={true} productData={data} />;
+  return loading ? (
+    <></>
+  ) : (
+    <ProductWriteContainer isEdit={true} productData={data} />
+  );
 }

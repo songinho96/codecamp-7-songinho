@@ -59,7 +59,7 @@ export const ProductTag = styled.div`
 
 export const WrapProductButton = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
 `;
 
@@ -72,6 +72,8 @@ export const ListButton = styled.button`
 export const BuyButton = styled.button`
   width: 180px;
   height: 50px;
+  background-color: ${(props) => (props.isBaskets ? "yellow" : "gray")};
+  color: ${(props) => (props.isBaskets ? "black" : "white")};
 `;
 
 export const WrapMap = styled.div`

@@ -29,16 +29,13 @@ const CREATE_POINT_TRANSACTION_OF_LOADING = gql`
 const FETCH_USER_LOGED_IN = gql`
   query fetchUserLoggedIn {
     fetchUserLoggedIn {
-      email
-      name
       _id
-      # userPoint {
-      #   amount
-      #   user
-      #   _id
-      #   createdAt
-      #   updatedAt
-      # }
+      name
+      email
+      userPoint {
+        _id
+        amount
+      }
     }
   }
 `;
@@ -61,16 +58,14 @@ export default function MypageContainer() {
   const { data: fetchPointData } = useQuery(FETCH_POINT_TRANSACTIONS, {
     variables: { page: 1 },
   });
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(100);
   const [createPointTransactionOfLoading] = useMutation(
     CREATE_POINT_TRANSACTION_OF_LOADING
   );
-  // const router = useRouter();
 
   const onChangeValue = (event: any) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setValue(event.target.value);
-    console.log(value);
   };
 
   const requestPay = () => {
@@ -102,6 +97,11 @@ export default function MypageContainer() {
               variables: {
                 impUid: rsp?.imp_uid,
               },
+              refetchQueries: [
+                {
+                  query: FETCH_USER_LOGED_IN,
+                },
+              ],
             });
             console.log(result);
           } catch (error) {
@@ -148,6 +148,7 @@ export default function MypageContainer() {
         <button onClick={Click}>하하하</button>
         <div>{data?.fetchUserLoggedIn.email}</div>
         <div>{fetchPointData?.fetchPointTransactions.amount}</div>
+        <div>{data?.fetchUserLoggedIn.userPoint.amount}</div>
       </Mypage>
       <MyBasket>찜한 상품</MyBasket>
       <ProductBasketContainer />

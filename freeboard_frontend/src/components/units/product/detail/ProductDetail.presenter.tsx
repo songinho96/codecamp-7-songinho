@@ -39,11 +39,18 @@ export default function ProductDetailPresenter(props) {
               <S.BuyButton onClick={props.onClickEdit}>
                 수정하기Button
               </S.BuyButton>
-              <S.BuyButton onClick={props.onClickBasket}>
-                {props.isBaskets ? "장바구니삭제버튼" : "장바구니담기버튼"}
+              <S.BuyButton
+                onClick={props.onClickBasket}
+                isBaskets={props.isBaskets}
+              >
+                {props.isBaskets ? "장바구니삭제" : "장바구니담기"}
+              </S.BuyButton>
+              <S.BuyButton onClick={props.onClickDelete}>
+                삭제하기Button
               </S.BuyButton>
               <S.ListButton>ListButton</S.ListButton>
               <S.BuyButton>BuyButton</S.BuyButton>
+              <S.BuyButton onClick={props.onClickPick}>찜하기</S.BuyButton>
             </S.WrapProductButton>
           </S.WrapProductDetail>
         </S.WrapperProduct>

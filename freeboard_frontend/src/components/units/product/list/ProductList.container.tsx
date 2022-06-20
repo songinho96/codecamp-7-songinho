@@ -1,12 +1,14 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import ProductListPresenter from "./ProductList.presenter";
 import { FETCH_USED_ITEMS } from "./ProductList.queries";
+import _ from "lodash";
 
 export default function ProductListContainer() {
+  const [search, setSearch] = useState("");
   const router = useRouter();
-  const { data, fetchMore } = useQuery(FETCH_USED_ITEMS, {
+  const { data, fetchMore, refetch } = useQuery(FETCH_USED_ITEMS, {
     variables: {
       page: 1,
     },
@@ -33,13 +35,22 @@ export default function ProductListContainer() {
     });
   };
 
-  const onClickList = (event) => {
+  const onClickList = (event: any) => {
     router.push(`/products/${event.currentTarget.id}`);
     // console.log(data);
   };
 
   const onClickMoveWrite = () => {
     router.push("/products/new");
+  };
+
+  const getDebounce = _.debounce((data) => {
+    refetch({ search: data, page: 1 });
+  }, 200);
+
+  const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    getDebounce(event.target.value);
+    // setSearch(event.target.value);
   };
 
   const settings = {
@@ -52,13 +63,7 @@ export default function ProductListContainer() {
     autoplaySpeed: 3500,
     pauseOnHover: true,
     appendDots: (dots: any) => (
-      <div
-      // style={{
-      //   backgroundColor: "#ddd",
-      //   borderRadius: "10px",
-      //   padding: "10px",
-      // }}
-      >
+      <div>
         <ul style={{ margin: "0px" }}> {dots} </ul>
       </div>
     ),
@@ -71,6 +76,7 @@ export default function ProductListContainer() {
       settings={settings}
       onClickList={onClickList}
       onClickMoveWrite={onClickMoveWrite}
+      onChangeSearch={onChangeSearch}
     />
   );
 }

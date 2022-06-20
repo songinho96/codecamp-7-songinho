@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ProductWritePresenter from "./ProductWrite.presenter";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -70,17 +70,25 @@ export default function ProductWriteContainer(props) {
   };
 
   const onClickUpdate = async (data: any) => {
+    const currentFiles = JSON.stringify(fileUrls);
+    const defaultFiles = JSON.stringify(props.productData.fetchUseditem.images);
+    const isChangedFiles = currentFiles !== defaultFiles;
+
     const updateUseditemInput: any = {};
-    if (data?.name) updateUseditemInput.name = data.name;
-    if (data?.remarks) updateUseditemInput.remarks = data.remarks;
-    if (data?.price) updateUseditemInput.price = data.price;
-    if (data?.contents) updateUseditemInput.contents = data.contents;
+    // if (data?.name) updateUseditemInput.name = data.name;
+    // if (data?.remarks) updateUseditemInput.remarks = data.remarks;
+    // if (data?.price) updateUseditemInput.price = data.price;
+    // if (data?.contents) updateUseditemInput.contents = data.contents;
+    if (isChangedFiles) updateUseditemInput.images = data.images;
 
     try {
       const result = await updateUseditem({
         variables: {
           useditemId: router.query.boardId,
-          updateUseditemInput,
+          updateUseditemInput: {
+            ...data,
+            images: fileUrls,
+          },
         },
       });
       Modal.success({
@@ -101,6 +109,12 @@ export default function ProductWriteContainer(props) {
     newFileUrls[index] = fileUrl;
     setFileUrls(newFileUrls);
   };
+
+  useEffect(() => {
+    if (props.productData?.fetchUseditem.images?.length) {
+      setFileUrls([...props.productData?.fetchUseditem.images]);
+    }
+  }, [props.productData]);
 
   return (
     <ProductWritePresenter
