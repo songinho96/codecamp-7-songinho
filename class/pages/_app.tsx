@@ -66,17 +66,25 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [isEdit, setIsEdit] = useState(true);
 
   return (
-    <GlobalContext.Provider value={{ isEdit, setIsEdit }}>
-      {/* 모든 페이지가 useMutation을 사용가능하게끔 함 ApolloProvider */}
-      <RecoilRoot>
-        <ApolloSetting>
-          <Global styles={globalStyles} />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ApolloSetting>
-      </RecoilRoot>
-    </GlobalContext.Provider>
+    <div>
+      {/* <Head> 모든 페이지에서 카카오맵을 다운로드 받으므로 비효율적임.
+        <script
+          type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5146441fa20a4db96dbfcb5606df8b38"
+        ></script>
+      </Head> */}
+      <GlobalContext.Provider value={{ isEdit, setIsEdit }}>
+        {/* 모든 페이지가 useMutation을 사용가능하게끔 함 ApolloProvider */}
+        <RecoilRoot>
+          <ApolloSetting>
+            <Global styles={globalStyles} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ApolloSetting>
+        </RecoilRoot>
+      </GlobalContext.Provider>
+    </div>
   );
 }
 
