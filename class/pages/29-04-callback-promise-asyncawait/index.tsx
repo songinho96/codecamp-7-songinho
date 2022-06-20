@@ -8,13 +8,13 @@ export default function CallbackPromiseAsyncAwaitPage() {
     aaa.open("get", `http://numbersapi.com/random?min=1&max=200`);
     aaa.send();
     aaa.addEventListener("load", (res: any) => {
-      const num = res.target.resonse.split(" ")[0]; // 150 ( 랜덤 숫자 )
+      const num = res.target.response.split(" ")[0]; // 150 ( 랜덤 숫자 )
 
       const bbb = new XMLHttpRequest();
       bbb.open("get", `http://koreanjson.com/posts/${num}`);
       bbb.send();
       bbb.addEventListener("load", (res: any) => {
-        const userId = console.log(JSON.parse(res.target.response.UserId));
+        const userId = JSON.parse(res.target.response).UserId;
 
         const ccc = new XMLHttpRequest();
         ccc.open("get", `http://koreanjson.com/posts?userId=${userId}`);

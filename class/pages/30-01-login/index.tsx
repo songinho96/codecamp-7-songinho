@@ -4,14 +4,22 @@ import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../src/commons/store";
 
-const LOGIN_USER = gql`
-  mutation loginUser($password: String!, $email: String!) {
-    loginUser(password: $password, email: $email) {
+// const LOGIN_USER = gql`
+//   mutation loginUser($password: String!, $email: String!) {
+//     loginUser(password: $password, email: $email) {
+//       accessToken
+//     }
+//   }
+// `;
+
+// 토큰 만료시간 5초
+const LOGIN_USER_EXAMPLE = gql`
+  mutation loginUserExample($password: String!, $email: String!) {
+    loginUserExample(password: $password, email: $email) {
       accessToken
     }
   }
 `;
-
 export default function LoginPage() {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
@@ -19,7 +27,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [loginUser] = useMutation(LOGIN_USER);
+  const [loginUserExample] = useMutation(LOGIN_USER_EXAMPLE);
 
   const onChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -30,17 +38,17 @@ export default function LoginPage() {
   };
 
   const onClickLogin = async () => {
-    const result = await loginUser({
+    const result = await loginUserExample({
       variables: {
         password,
         email,
       },
     });
-    const accessToken = result.data.loginUser.accessToken;
+    const accessToken = result.data.loginUserExample.accessToken;
     console.log(accessToken);
     setAccessToken(accessToken);
     alert("로그인에 성공하였습니다.");
-    router.push("./22-02-login-success");
+    router.push("./30-02-login-success");
   };
 
   return (
