@@ -26,17 +26,17 @@ export default function CallbackPromiseAsyncAwaitPage() {
     });
   }; // 콜백 지옥
 
-  const myaxios = () => {
-    return new Promise((resolve, reject) => {
+  // const myaxios = () => {
+  //   return new Promise((resolve, reject) => {
       // 오래걸리는 작업(외부 API 요청 등)
 
       // 성공시
-      resolve("철수");
+      // resolve("철수");
 
       // 실패시
       // reject("에러발생!!!");
-    });
-  };
+    // });
+  // };
 
   const onClickPromise = () => {
     // const result = myaxios().then((res) => {
