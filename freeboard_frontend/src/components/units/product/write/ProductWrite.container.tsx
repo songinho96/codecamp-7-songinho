@@ -16,6 +16,11 @@ const schema = yup.object({
 });
 
 export default function ProductWriteContainer(props) {
+  // kakao
+  const [getLat, setGetLat] = useState();
+  const [getLng, setGetLng] = useState();
+  const [addressClick, setAddressClick] = useState("");
+
   const router = useRouter();
   const [fileUrls, setFileUrls] = useState(["", "", "", "", "", ""]);
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
@@ -51,10 +56,16 @@ export default function ProductWriteContainer(props) {
             price: data.price,
             tags: data.tags,
             images: fileUrls,
+            useditemAddress: {
+              addressDetail: data.addressDetail,
+              address: addressClick,
+              lat: getLat,
+              lng: getLng,
+            },
           },
         },
       });
-      // console.log(result);
+      console.log(result);
       Modal.success({
         title: "등록 성공!",
         content: "상품이 등록되었습니다!",
@@ -129,6 +140,13 @@ export default function ProductWriteContainer(props) {
       onClickUpdate={onClickUpdate}
       isEdit={props.isEdit}
       productData={props.productData}
+      // kakaomap
+      setGetLat={setGetLat}
+      getLat={getLat}
+      setGetLng={setGetLng}
+      getLng={getLng}
+      setAddressClick={setAddressClick}
+      addressClick={addressClick}
     />
   );
 }

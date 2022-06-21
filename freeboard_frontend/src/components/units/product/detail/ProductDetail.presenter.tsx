@@ -1,6 +1,7 @@
 import { Image } from "antd";
 import DOMPurify from "dompurify";
 import React from "react";
+import KakaoMapPageRouted from "../../../commons/maps/kakaorouted";
 import * as S from "./ProductDetail.styles";
 export default function ProductDetailPresenter(props) {
   return (
@@ -55,7 +56,10 @@ export default function ProductDetailPresenter(props) {
           </S.WrapProductDetail>
         </S.WrapperProduct>
         <S.WrapMap>
-          <S.Map>Map</S.Map>
+          <KakaoMapPageRouted
+            lat={props.data?.fetchUseditem.useditemAddress.lat}
+            lng={props.data?.fetchUseditem.useditemAddress.lng}
+          />
         </S.WrapMap>
       </S.Body>
     </S.Wrapper>

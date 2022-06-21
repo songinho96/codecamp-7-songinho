@@ -68,21 +68,26 @@ export default function ProductWritePresenter(props) {
             <S.WrapMap>
               <S.Label>거래 위치</S.Label>
               <S.Map>
-                <KakaoMapPage />
+                <KakaoMapPage
+                  setGetLat={props.setGetLat}
+                  setGetLng={props.setGetLng}
+                  setAddressClick={props.setAddressClick}
+                  addressClick={props.addressClick}
+                />
               </S.Map>
             </S.WrapMap>
             <S.WrapperGpsLocation>
               <S.WrapGps>
                 <S.Label>GPS</S.Label>
                 <S.WrapCoordinate>
-                  <S.Latitude />
-                  <S.Longitude />
+                  <S.Latitude defaultValue={props.getLat} />
+                  <S.Longitude defaultValue={props.getLng} />
                 </S.WrapCoordinate>
               </S.WrapGps>
               <S.WrapAddress>
                 <S.Label>주소</S.Label>
-                <S.Address />
-                <S.Address />
+                <S.Address defaultValue={props.addressClick} />
+                <S.Address {...props.register("addressDetail")} />
               </S.WrapAddress>
             </S.WrapperGpsLocation>
           </S.WrapperLocation>

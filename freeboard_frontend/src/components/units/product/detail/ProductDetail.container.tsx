@@ -2,7 +2,6 @@ import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { FETCH_USED_ITEMS } from "../list/ProductList.queries";
 import ProductDetailPresenter from "./ProductDetail.presenter";
 import {
   DELTE_USED_ITEM,

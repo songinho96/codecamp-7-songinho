@@ -1,0 +1,22 @@
+import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import React from "react";
+import MyProductPresenter from "./MyProduct.presenter";
+
+import { FETCH_USED_ITEMS_I_SOLD } from "./MyProduct.queries";
+
+export default function MyProductContainer() {
+  const router = useRouter();
+  const { data } = useQuery(FETCH_USED_ITEMS_I_SOLD, {
+    variables: { page: 1 },
+  });
+
+  const onClickMoveToDetail = (event) => {
+    router.push(`/products/${event.target.id}`);
+    console.log(data);
+  };
+
+  return (
+    <MyProductPresenter data={data} onClickMoveToDetail={onClickMoveToDetail} />
+  );
+}
