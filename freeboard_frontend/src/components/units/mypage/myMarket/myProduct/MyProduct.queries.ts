@@ -7,6 +7,7 @@ export const FETCH_USED_ITEMS_I_SOLD = gql`
       name
       price
       createdAt
+      soldAt
     }
   }
 `;

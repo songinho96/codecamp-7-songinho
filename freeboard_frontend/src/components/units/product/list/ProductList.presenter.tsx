@@ -44,19 +44,23 @@ export default function ProductListPresenter(props) {
                   <S.WrapProductList
                     key={el._id}
                     id={el._id}
-                    onClick={props.onClickList}
+                    onClick={props.onClickList(el)}
                   >
+                    {/* <S.Wrap> */}
                     <S.ProductImage
                       src={
                         el.images[0]
                           ? `https://storage.googleapis.com/${el.images[0]}`
                           : "/list/noimage.gif"
                       }
+                      id={el._id}
+                      // onClick={props.onClickMoveDetail}
                     />
                     <S.WrapProductDetail>
                       <S.ProductName>{el.name}</S.ProductName>
                       <S.ProductPrice>{el.price}원</S.ProductPrice>
                     </S.WrapProductDetail>
+                    {/* </S.Wrap> */}
                   </S.WrapProductList>
                 ))}
               </S.InfiniteScrolls>

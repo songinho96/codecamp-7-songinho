@@ -5,13 +5,12 @@ declare const window: typeof globalThis & {
   kakao: any;
 };
 
-export default function KakaoMapPageRouted(props) {
+export default function KakaoMapPageRoute(props) {
   useEffect(() => {
     const script = document.createElement("script"); // <script></script> 태그 만들기
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5146441fa20a4db96dbfcb5606df8b38&autoload=false";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5146441fa20a4db96dbfcb5606df8b38&autoload=false&libraries=services,clusterer,drawing";
     document.head.appendChild(script);
-
     script.onload = () => {
       // 그때 실행시켜줘
       window.kakao.maps.load(function () {
@@ -26,6 +25,7 @@ export default function KakaoMapPageRouted(props) {
 
         const map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
         // 마커가 표시될 위치입니다
+
         const markerPosition = new window.kakao.maps.LatLng(
           props?.lat,
           props?.lng
@@ -37,13 +37,22 @@ export default function KakaoMapPageRouted(props) {
 
         // 마커가 지도 위에 표시되도록 설정합니다
         marker.setMap(map);
+
+        // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+        const mapTypeControl = new window.kakao.maps.MapTypeControl();
+
+        // 지도 타입 컨트롤을 지도에 표시합니다
+        map.addControl(
+          mapTypeControl,
+          window.kakao.maps.ControlPosition.TOPRIGHT
+        );
       });
     };
   }, []);
 
   return (
     <div>
-      <div id="map" style={{ width: 1000, height: 800 }}></div>
+      <div id="map" style={{ width: 800, height: 360 }}></div>
     </div>
   );
 }

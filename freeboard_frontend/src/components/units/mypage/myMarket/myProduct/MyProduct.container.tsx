@@ -7,7 +7,7 @@ import { FETCH_USED_ITEMS_I_SOLD } from "./MyProduct.queries";
 
 export default function MyProductContainer() {
   const router = useRouter();
-  const { data } = useQuery(FETCH_USED_ITEMS_I_SOLD, {
+  const { data, refetch } = useQuery(FETCH_USED_ITEMS_I_SOLD, {
     variables: { page: 1 },
   });
 
@@ -17,6 +17,10 @@ export default function MyProductContainer() {
   };
 
   return (
-    <MyProductPresenter data={data} onClickMoveToDetail={onClickMoveToDetail} />
+    <MyProductPresenter
+      data={data}
+      onClickMoveToDetail={onClickMoveToDetail}
+      refetch={refetch}
+    />
   );
 }

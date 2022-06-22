@@ -1,88 +1,62 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 80%;
-  border: 1px solid black;
-  margin: 100px auto;
-  padding: 0px 102px 100px 102px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: none;
-  box-sizing: border-box;
-  background-color: white;
-  font-size: 20px;
-  background: no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
-  /* background-image: url("/list/blackground.jpeg"); */
-  background-size: cover;
-  object-fit: fill;
-`;
-
-// body
-export const Body = styled.div`
-  width: 100%;
-  padding-bottom: 40px;
-`;
-
-export const Underline = styled.div`
-  border-bottom: 3px solid gray;
-`;
-
-export const WrapperTable = styled.div`
-  width: 100%;
+  width: 1000px;
+  height: 100%;
+  border-bottom: 2px solid gray;
+  margin: auto 0;
 `;
 
 export const TableRow = styled.div`
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   padding: 10px 0;
+
+  border-top: 2px solid gray;
 `;
 
-export const Row = styled.div`
+export const WrapProduct = styled.div`
   display: flex;
-  padding: 10px 0;
   border-top: 1px solid gray;
+  padding-top: 10px;
 `;
 
-export const NameColumntitle = styled.div`
-  width: 60%;
-  text-align: center;
-  cursor: pointer;
-  :hover {
-    color: red;
-  }
-`;
-
-export const NumColumn = styled.div`
+export const Index = styled.div`
   width: 10%;
+  padding-left: 30px;
   text-align: center;
 `;
 
-export const PriceColumn = styled.div`
-  width: 60%;
+export const Name = styled.div`
+  width: 30%;
   text-align: center;
 `;
 
-export const SellerColumn = styled.div`
-  width: 20%;
-  text-align: center;
-`;
-
-export const DateColumn = styled.div`
-  width: 20%;
-  text-align: center;
-`;
-
-export const NameColumn = styled.div`
-  width: 60%;
-  text-align: center;
+export const NameMove = styled.div`
+  width: 30%;
   cursor: pointer;
   :hover {
     color: red;
   }
+  text-align: center;
 `;
 
-export const WriterColumn = styled.div`
+export const IsBuyer = styled.div`
+  width: 10%;
+  color: red;
+`;
+
+export const Seller = styled.div`
+  width: 20%;
+  text-align: center;
+`;
+
+export const Price = styled.div`
+  width: 10%;
+`;
+
+export const Date = styled.div`
   width: 20%;
   text-align: center;
 `;

@@ -1,5 +1,14 @@
 // import Head from "next/head";
+import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
+
+const Input = styled.input`
+  width: 100%;
+`;
+
+const Button = styled.button`
+  width: 100%;
+`;
 
 declare const window: typeof globalThis & {
   kakao: any;
@@ -187,10 +196,10 @@ export default function KakaoMapPage(props) {
 
   return (
     <div>
-      <input onChange={onChangeAddress} />
-      <button type="button" onClick={onClickAddress}>
-        클릭
-      </button>
+      <Input placeholder="주소를 적어주세요" onChange={onChangeAddress} />
+      <Button type="button" onClick={onClickAddress}>
+        주소 검색
+      </Button>
       <div id="map" style={{ width: 384, height: 252 }}></div>
     </div>
   );

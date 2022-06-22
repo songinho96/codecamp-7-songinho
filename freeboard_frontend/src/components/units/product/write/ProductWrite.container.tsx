@@ -86,19 +86,30 @@ export default function ProductWriteContainer(props) {
     const isChangedFiles = currentFiles !== defaultFiles;
 
     const updateUseditemInput: any = {};
-    // if (data?.name) updateUseditemInput.name = data.name;
-    // if (data?.remarks) updateUseditemInput.remarks = data.remarks;
-    // if (data?.price) updateUseditemInput.price = data.price;
-    // if (data?.contents) updateUseditemInput.contents = data.contents;
+    if (data?.name) updateUseditemInput.name = data.name;
+    if (data?.remarks) updateUseditemInput.remarks = data.remarks;
+    if (data?.price) updateUseditemInput.price = data.price;
+    if (data?.contents) updateUseditemInput.contents = data.contents;
     if (isChangedFiles) updateUseditemInput.images = data.images;
 
+    const useditemAddress: any = {};
+    if (data?.addressDetail)
+      useditemAddress.addressDetail = data?.addressDetail;
+    if (addressClick) useditemAddress.address = addressClick;
+    if (getLat) useditemAddress.lat = getLat;
+    if (getLng) useditemAddress.lng = getLng;
     try {
       const result = await updateUseditem({
         variables: {
           useditemId: router.query.boardId,
           updateUseditemInput: {
-            ...data,
+            name: data.name,
+            remarks: data.remarks,
+            contents: data.contents,
+            price: data.price,
+            tags: data.tags,
             images: fileUrls,
+            useditemAddress,
           },
         },
       });

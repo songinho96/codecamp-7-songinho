@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
+import MyProductChargePage from "../../charge";
 
 const Wrapper = styled.div`
   height: 156px;
@@ -23,6 +24,7 @@ const SignButton = styled.button`
   width: 118px;
   height: 38px;
   cursor: pointer;
+  margin-right: 20px;
 `;
 
 const WrapTitle = styled.div`
@@ -66,6 +68,7 @@ export default function Header() {
       <WrapButton>
         <LoginButton onClick={onClickLogin}>로그인</LoginButton>
         <SignButton onClick={onClickSign}>회원가입</SignButton>
+        <MyProductChargePage />
       </WrapButton>
     </Wrapper>
   );

@@ -1,12 +1,13 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import ProductListPresenter from "./ProductList.presenter";
 import { FETCH_USED_ITEMS } from "./ProductList.queries";
 import _ from "lodash";
 
 export default function ProductListContainer() {
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
+  const [isBaskets, setIsBaskets] = useState(false);
   const router = useRouter();
   const { data, fetchMore, refetch } = useQuery(FETCH_USED_ITEMS, {
     variables: {
@@ -35,15 +36,45 @@ export default function ProductListContainer() {
     });
   };
 
-  const onClickList = (event: any) => {
+  const onClickList = (el) => (event: any) => {
+    const today = JSON.parse(localStorage.getItem("today") || "[]");
+    // setIsBaskets(true);
+
+    const temp = today.filter((today: any) => today._id === el._id);
+    if (temp.length === 1) {
+      // alert("이미 담으신 물품입니다!");
+      // return;
+      // setIsBaskets(false);
+
+      // const Delete = today.filter(
+      //   (baskets: any) => baskets._id !== event.currentTarget.id
+      // );
+      // console.log(today);
+      // localStorage.setItem("today", JSON.stringify(Delete));
+      router.push(`/products/${event.currentTarget.id}`);
+
+      return;
+    }
+
+    const { __typename, ...newEl } = el;
+    today.push(newEl);
+    localStorage.setItem("today", JSON.stringify(today));
+
     router.push(`/products/${event.currentTarget.id}`);
     // console.log(data);
   };
+
+  // 오늘본 상품
 
   const onClickMoveWrite = () => {
     router.push("/products/new");
   };
 
+  // const onClickMoveDetail = (event: any) => {
+  //   router.push(`/products/${event.currentTarget.id}`);
+  // };
+
+  // 끝~~~~~~
   const getDebounce = _.debounce((data) => {
     refetch({ search: data, page: 1 });
   }, 200);
@@ -77,6 +108,7 @@ export default function ProductListContainer() {
       onClickList={onClickList}
       onClickMoveWrite={onClickMoveWrite}
       onChangeSearch={onChangeSearch}
+      // onClickMoveDetail={onClickMoveDetail}
     />
   );
 }

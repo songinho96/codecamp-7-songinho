@@ -73,13 +73,36 @@ export const ListButton = styled.button`
 export const BuyButton = styled.button`
   width: 180px;
   height: 50px;
+`;
+
+export const BasketButton = styled.button`
+  width: 180px;
+  height: 50px;
   background-color: ${(props) => (props.isBaskets ? "yellow" : "gray")};
   color: ${(props) => (props.isBaskets ? "black" : "white")};
+`;
+
+export const PickButton = styled.button`
+  width: 180px;
+  height: 50px;
+  background-color: ${(props) => (props.myPick === 1 ? "yellow" : "gray")};
+  color: ${(props) => (props.myPick === 1 ? "black" : "white")};
 `;
 
 export const WrapMap = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Address = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  width: 800px;
+  height: 50px;
+
+  margin: 20px 0;
 `;
 
 export const Map = styled.div`

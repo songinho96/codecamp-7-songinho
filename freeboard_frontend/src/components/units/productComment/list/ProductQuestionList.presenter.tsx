@@ -21,8 +21,6 @@ export default function ProductQuestionListPresenter(props) {
                 el={el}
                 onClickDelete={props.onClickDelete}
               />
-
-              <S.Underline></S.Underline>
             </S.WrapperComment>
           ))}
         </InfiniteScroll>

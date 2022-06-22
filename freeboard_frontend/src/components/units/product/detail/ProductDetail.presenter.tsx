@@ -40,27 +40,39 @@ export default function ProductDetailPresenter(props) {
               <S.BuyButton onClick={props.onClickEdit}>
                 수정하기Button
               </S.BuyButton>
-              <S.BuyButton
+              <S.BasketButton
                 onClick={props.onClickBasket}
                 isBaskets={props.isBaskets}
               >
                 {props.isBaskets ? "장바구니삭제" : "장바구니담기"}
-              </S.BuyButton>
+              </S.BasketButton>
               <S.BuyButton onClick={props.onClickDelete}>
                 삭제하기Button
               </S.BuyButton>
               <S.ListButton>ListButton</S.ListButton>
-              <S.BuyButton>BuyButton</S.BuyButton>
-              <S.BuyButton onClick={props.onClickPick}>찜하기</S.BuyButton>
+              <S.BuyButton onClick={props.onClickBuy}>BuyButton</S.BuyButton>
+              <S.PickButton onClick={props.onClickPick} myPick={props.myPick}>
+                찜하기
+              </S.PickButton>
             </S.WrapProductButton>
           </S.WrapProductDetail>
         </S.WrapperProduct>
-        <S.WrapMap>
-          <KakaoMapPageRouted
-            lat={props.data?.fetchUseditem.useditemAddress.lat}
-            lng={props.data?.fetchUseditem.useditemAddress.lng}
-          />
-        </S.WrapMap>
+        {props.data?.fetchUseditem.useditemAddress?.lat && (
+          <S.WrapMap>
+            <S.Address>
+              주소: {props.data?.fetchUseditem.useditemAddress?.address}
+            </S.Address>
+            <S.Address>
+              상세주소:{" "}
+              {props.data?.fetchUseditem.useditemAddress?.addressDetail}
+            </S.Address>
+
+            <KakaoMapPageRouted
+              lat={props.data?.fetchUseditem.useditemAddress?.lat}
+              lng={props.data?.fetchUseditem.useditemAddress?.lng}
+            />
+          </S.WrapMap>
+        )}
       </S.Body>
     </S.Wrapper>
   );

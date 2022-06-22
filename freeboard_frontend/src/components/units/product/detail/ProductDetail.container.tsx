@@ -4,12 +4,13 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import ProductDetailPresenter from "./ProductDetail.presenter";
 import {
+  CREATE_POINT_TRANSATION_OF_BUYING_AND_SELLING,
   DELTE_USED_ITEM,
   FETCH_USED_ITEM,
   TOGGLE_USED_ITEM_PICK,
 } from "./ProductDetail.queries";
 
-export default function ProductDetailContainer() {
+export default function ProductDetailContainer(props) {
   const router = useRouter();
 
   const [isBaskets, setIsBaskets] = useState(false);
@@ -17,13 +18,18 @@ export default function ProductDetailContainer() {
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.boardId },
   });
-  console.log(data);
+  // console.log(data);
   // 마이 찜
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK, {
     variables: { useditemId: router.query.boardId },
   });
+  const [myPick, setMyPick] = useState(0);
 
   const [deleteUseditem] = useMutation(DELTE_USED_ITEM);
+
+  const [createPointTransactionOfBuyingAndSelling] = useMutation(
+    CREATE_POINT_TRANSATION_OF_BUYING_AND_SELLING
+  );
 
   const onClickEdit = () => {
     router.push(`/products/${router.query.boardId}/edit`);
@@ -77,18 +83,28 @@ export default function ProductDetailContainer() {
   // 마이찜
   const onClickPick = async () => {
     try {
-      await toggleUseditemPick({
+      const result = await toggleUseditemPick({
         variables: { useditemId: router.query.boardId },
       });
-      Modal.success({
-        title: "마이찜!",
-        content: "상품이 마이찜에 등록되었습니다!",
-      });
+      // console.log(result);
+      setMyPick(result.data.toggleUseditemPick);
     } catch (error) {
       Modal.error({
         title: "Error 메시지",
         content: error.message,
       });
+    }
+  };
+
+  const onClickBuy = async () => {
+    try {
+      const result = await createPointTransactionOfBuyingAndSelling({
+        variables: { useritemId: router.query.boardId },
+      });
+      console.log(result);
+      Modal.success({ content: "구매가 완료되었습니다!" });
+    } catch (error) {
+      Modal.error({ content: error.message });
     }
   };
 
@@ -100,6 +116,8 @@ export default function ProductDetailContainer() {
       isBaskets={isBaskets}
       onClickDelete={onClickDelete}
       onClickPick={onClickPick}
+      onClickBuy={onClickBuy}
+      myPick={myPick}
     />
   );
 }

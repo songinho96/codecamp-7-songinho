@@ -3,12 +3,12 @@ import styled from "@emotion/styled";
 import React from "react";
 import { useMoveToPage } from "../hooks/useMoveToPage";
 const Wraaper = styled.div`
-  padding-top: 80px;
   width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 1200px;
+  justify-content: center;
 `;
 
 const MyPage = styled.div`
@@ -94,7 +94,9 @@ export default function MypageSidebar() {
         <WrapMoveToClick>
           <WrapClickMove>
             <Image src="/product/cart.svg" />
-            <MyClickMove onClick={onClickMoveToPage("/mypage/myproducts")}>
+            <MyClickMove
+              onClick={onClickMoveToPage("/mypage/mymarket/myproducts")}
+            >
               내 장터
             </MyClickMove>
           </WrapClickMove>

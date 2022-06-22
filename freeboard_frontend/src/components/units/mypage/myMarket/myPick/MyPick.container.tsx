@@ -1,14 +1,23 @@
 import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
 import React from "react";
-import { FETCH_USED } from "../../../product/detail/ProductDetail.queries";
-
 import MyPickPresenter from "./MyPick.presenter";
 import { FETCH_USED_I_PICKED } from "./MyPick.queries";
 
 export default function MyPickContainer() {
-  const { data } = useQuery(FETCH_USED_I_PICKED, {
-    variables: { page: 1 },
+  const router = useRouter();
+  const { data, refetch } = useQuery(FETCH_USED_I_PICKED, {
+    variables: { search: "" },
   });
 
-  return <MyPickPresenter data={data} />;
+  const onClickMoveToDetail = (event) => {
+    router.push(`/products/${event.target.id}`);
+  };
+  return (
+    <MyPickPresenter
+      data={data}
+      refetch={refetch}
+      onClickMoveToDetail={onClickMoveToDetail}
+    />
+  );
 }

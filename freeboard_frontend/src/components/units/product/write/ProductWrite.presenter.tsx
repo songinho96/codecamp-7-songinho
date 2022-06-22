@@ -73,6 +73,8 @@ export default function ProductWritePresenter(props) {
                   setGetLng={props.setGetLng}
                   setAddressClick={props.setAddressClick}
                   addressClick={props.addressClick}
+                  getLat={props.getLat}
+                  getLng={props.getLng}
                 />
               </S.Map>
             </S.WrapMap>
@@ -80,13 +82,14 @@ export default function ProductWritePresenter(props) {
               <S.WrapGps>
                 <S.Label>GPS</S.Label>
                 <S.WrapCoordinate>
-                  <S.Latitude defaultValue={props.getLat} />
-                  <S.Longitude defaultValue={props.getLng} />
+                  <S.Latitude readOnly defaultValue={props.getLat} />
+                  <S.Longitude readOnly defaultValue={props.getLng} />
                 </S.WrapCoordinate>
               </S.WrapGps>
               <S.WrapAddress>
                 <S.Label>주소</S.Label>
-                <S.Address defaultValue={props.addressClick} />
+                <S.Address readOnly defaultValue={props.addressClick} />
+                <S.Label>상세 주소</S.Label>
                 <S.Address {...props.register("addressDetail")} />
               </S.WrapAddress>
             </S.WrapperGpsLocation>

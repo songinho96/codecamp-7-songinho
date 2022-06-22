@@ -101,6 +101,8 @@ export const WrapProductList = styled.div`
   cursor: pointer;
 `;
 
+export const Wrap = styled.div``;
+
 export const ProductImage = styled.img`
   /* height: 70%; */
   width: 100%;
