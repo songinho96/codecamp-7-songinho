@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Images = styled.img`
   width: 1200px;
-  margin: 0 auto;
+  margin: auto;
   box-shadow: 0px 16px 48px;
 `;
 
@@ -33,12 +33,13 @@ export default function Banner() {
     autoplay: true,
     autoplaySpeed: 3500,
     pauseOnHover: true,
+    arrows: false,
     appendDots: (dots: any) => (
       <div
         style={{
           backgroundColor: "#ddd",
           borderRadius: "10px",
-          padding: "10px",
+          // padding: "10px",
         }}
       >
         <ul style={{ margin: "0px" }}> {dots} </ul>

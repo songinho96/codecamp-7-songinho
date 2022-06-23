@@ -38,7 +38,9 @@ export default function Layout(props: any) {
       {/* {!isHiddenSidebar && <SideBar />} */}
       {/* <LayoutBodyWrapper> */}
       {/* {!isHideenMypageSidebar && <MypageSidebar />} */}
+      {/* <div style={{ width: "1000px", margin: "auto" }}>{props.children}</div> */}
       <div>{props.children}</div>
+
       {/* </LayoutBodyWrapper> */}
       {!isHiddenFooter && <Footer />}
     </>

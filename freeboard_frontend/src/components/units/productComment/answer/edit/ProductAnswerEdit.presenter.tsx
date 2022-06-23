@@ -1,13 +1,12 @@
-import { getDateList } from "../../../commons/libraries/utils";
-import ProductAnswerListContainer from "../answer/list/ProductAnswerList.container";
-import ProductAnswerContainer from "../answer/write/ProductAnswer.container";
-import ProductQuestionWriteContainer from "../write/ProductQuestionWrite.container";
-import * as S from "./ProductQuestionItem.styles";
+import React from "react";
+import { getDateList } from "../../../../commons/libraries/utils";
+import ProductAnswerContainer from "../write/ProductAnswer.container";
+import * as S from "./ProductAnswerEdit.styles";
 
-export default function ProductQuestionItemPresenter(props) {
+export default function ProductAnswerEditPresenter(props) {
   return (
     <S.Wrapper>
-      {props.isEdit === false && (
+      {props.isAnswerEdit === false && (
         <S.Wrap>
           <S.ProfileIcon src="/commentBoard/profile-Icon.svg" />
           <S.WrapWriteComment>
@@ -36,26 +35,17 @@ export default function ProductQuestionItemPresenter(props) {
             <S.Contents>{props.el.contents}</S.Contents>
             <S.Date>{getDateList(props.el.createdAt)}</S.Date>
           </S.WrapWriteComment>
-          <ProductAnswerListContainer el={props.el} />
         </S.Wrap>
       )}
 
-      {props.isEdit === true && (
-        <ProductQuestionWriteContainer
-          isEdit={props.isEdit}
-          editId={props.editId}
-          setIsEdit={props.setIsEdit}
-          el={props.el}
-        />
-      )}
-
-      {props.isAnswer === true && (
+      {props.isAnswerEdit === true && (
         <ProductAnswerContainer
-          setIsAnswer={props.setIsAnswer}
-          isAnswer={props.isAnswer}
-          answerId={props.answerId}
-          el={props.el}
-          onClickAnswerImg={props.onClickAnswerImg}
+          refetch={props.refetch}
+          isAnswerEdit={props.isAnswerEdit}
+          setIsAnswerEdit={props.setIsAnswerEdit}
+          answerEditId={props.answerEditId}
+          firstId={props.el._id}
+          answerData={props.answerData}
         />
       )}
     </S.Wrapper>

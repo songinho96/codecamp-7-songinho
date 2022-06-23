@@ -6,9 +6,9 @@ export const Error = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 1920px;
-  height: 1080px;
-  margin: 100px auto;
+  /* width: 100%; */
+  /* height: 100%; */
+  margin: auto;
   font-size: 20px;
   border: 1px solid black;
   background: url("/login/Background Image-1.png"), no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치

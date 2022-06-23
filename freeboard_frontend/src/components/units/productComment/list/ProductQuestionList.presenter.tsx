@@ -1,7 +1,7 @@
 import InfiniteScroll from "react-infinite-scroller";
-import { getDateList } from "../../../commons/libraries/utils";
+
 import ProductQuestionItemContainer from "../edit/ProductQuestionItem.container";
-import ProductQuestionWriteContainer from "../write/ProductQuestionWrite.container";
+
 import * as S from "./ProductQuestionList.styles";
 
 export default function ProductQuestionListPresenter(props) {

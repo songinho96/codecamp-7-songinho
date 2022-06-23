@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import InfiniteScroll from "react-infinite-scroller";
-import Slider from "react-slick";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -125,21 +124,6 @@ export const ProductPrice = styled.div`
   font-size: 18px;
 `;
 
-export const WrapperProductMini = styled.div`
-  /* margin-top: 700px;
-  display: flex;
-  justify-content: space-between; */
-  width: 100%;
-  margin: 30px 20px;
-  padding: 40px;
-  cursor: pointer;
-`;
-
-export const Image = styled.img`
-  width: 251px;
-  height: 315px;
-`;
-
 export const WrapButton = styled.div`
   margin-top: 50px;
   display: flex;
@@ -153,13 +137,4 @@ export const SubmitButton = styled.button`
   color: red;
   font-weight: bold;
   font-size: 40px;
-`;
-
-export const StyledSlider = styled(Slider)`
-  .slick-dots {
-    bottom: -100px;
-  }
-  .slick-dots li button:before {
-    color: blue;
-  }
 `;

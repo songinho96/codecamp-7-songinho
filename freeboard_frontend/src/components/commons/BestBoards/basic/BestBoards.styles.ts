@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 
 export const SliderWrapper = styled.div`
-  margin: 5% auto;
-  width: 80%;
+  margin: auto;
+
   .slick-prev {
     left: -70px;
   }
@@ -34,12 +34,12 @@ export const SliderWrapper = styled.div`
 `;
 
 export const SliderWrap = styled(Slider)`
-  width: 1200px;
-  padding-left: 80px;
+  width: 1000px;
+  margin: auto;
+  /* padding-left: 80px; */
 `;
 
 export const Wrapper = styled.div`
-  width: 80%;
   border: 1px solid black;
   margin: 100px auto;
   padding: 80px 102px 0px 102px;

@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import * as S from "./ProductList.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProductBasketContainer from "../basket/ProductBasket.container";
+import TodayProductPage from "../../../commons/todayProduct/todayProduct.container";
 
 export default function ProductListPresenter(props) {
   return (
@@ -28,6 +28,11 @@ export default function ProductListPresenter(props) {
             </S.WrapperBest1>
           </S.WrapperBestProduct>
         </S.WrapperBest>
+        <S.WrapButton>
+          <S.SubmitButton onClick={props.onClickMoveWrite}>
+            글 등록
+          </S.SubmitButton>
+        </S.WrapButton>
         <S.WrapSearchBar>
           상품명 입력: <input type="text" onChange={props.onChangeSearch} />
         </S.WrapSearchBar>
@@ -54,7 +59,6 @@ export default function ProductListPresenter(props) {
                           : "/list/noimage.gif"
                       }
                       id={el._id}
-                      // onClick={props.onClickMoveDetail}
                     />
                     <S.WrapProductDetail>
                       <S.ProductName>{el.name}</S.ProductName>
@@ -68,50 +72,7 @@ export default function ProductListPresenter(props) {
           </S.WrapProductRow>
         </S.WrapperProductList>
       </S.Body>
-      <S.WrapperProductMini>
-        <div>
-          <S.StyledSlider {...props.settings}>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-            <div>
-              <S.Image src="/product/Item.png" />
-            </div>
-          </S.StyledSlider>
-        </div>
-      </S.WrapperProductMini>
-      <S.WrapButton>
-        <S.SubmitButton onClick={props.onClickMoveWrite}>
-          글 등록
-        </S.SubmitButton>
-      </S.WrapButton>
+      <TodayProductPage />
     </S.Wrapper>
   );
 }

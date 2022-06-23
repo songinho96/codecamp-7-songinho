@@ -7,7 +7,7 @@ import _ from "lodash";
 
 export default function ProductListContainer() {
   // const [search, setSearch] = useState("");
-  const [isBaskets, setIsBaskets] = useState(false);
+
   const router = useRouter();
   const { data, fetchMore, refetch } = useQuery(FETCH_USED_ITEMS, {
     variables: {
@@ -59,8 +59,8 @@ export default function ProductListContainer() {
     const { __typename, ...newEl } = el;
     today.push(newEl);
     localStorage.setItem("today", JSON.stringify(today));
-
     router.push(`/products/${event.currentTarget.id}`);
+
     // console.log(data);
   };
 
@@ -69,10 +69,6 @@ export default function ProductListContainer() {
   const onClickMoveWrite = () => {
     router.push("/products/new");
   };
-
-  // const onClickMoveDetail = (event: any) => {
-  //   router.push(`/products/${event.currentTarget.id}`);
-  // };
 
   // 끝~~~~~~
   const getDebounce = _.debounce((data) => {
@@ -108,7 +104,6 @@ export default function ProductListContainer() {
       onClickList={onClickList}
       onClickMoveWrite={onClickMoveWrite}
       onChangeSearch={onChangeSearch}
-      // onClickMoveDetail={onClickMoveDetail}
     />
   );
 }
