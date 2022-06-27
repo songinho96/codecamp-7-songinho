@@ -22,7 +22,7 @@ export default function ProductQuestionWriteContainer(props) {
   const router = useRouter();
   const [createUseditemQuestion] = useMutation(CREATE_USED_ITEM_QUESTION);
   const [updateUseditemQuestion] = useMutation(UPDATE_USED_ITEM_QUESTION);
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState, reset } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
@@ -43,6 +43,7 @@ export default function ProductQuestionWriteContainer(props) {
           },
         ],
       });
+      reset();
       Modal.success({
         title: "댓글 등록!",
         content: "댓글 등록되었습니다!",

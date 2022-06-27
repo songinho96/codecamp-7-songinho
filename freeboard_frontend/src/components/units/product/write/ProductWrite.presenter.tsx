@@ -72,7 +72,10 @@ export default function ProductWritePresenter(props) {
                   setGetLat={props.setGetLat}
                   setGetLng={props.setGetLng}
                   setAddressClick={props.setAddressClick}
-                  addressClick={props.addressClick}
+                  addressClick={
+                    props.addressClick ||
+                    props.productData?.fetchUseditem.useditemAddress?.address
+                  }
                   getLat={props.getLat}
                   getLng={props.getLng}
                 />
@@ -90,7 +93,13 @@ export default function ProductWritePresenter(props) {
                 <S.Label>주소</S.Label>
                 <S.Address readOnly defaultValue={props.addressClick} />
                 <S.Label>상세 주소</S.Label>
-                <S.Address {...props.register("addressDetail")} />
+                <S.Address
+                  {...props.register("addressDetail")}
+                  defaultValue={
+                    props.productData?.fetchUseditem.useditemAddress
+                      ?.addressDetail
+                  }
+                />
               </S.WrapAddress>
             </S.WrapperGpsLocation>
           </S.WrapperLocation>

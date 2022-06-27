@@ -10,6 +10,7 @@ export const FETCH_USED_ITEM = gql`
       price
       tags
       images
+      pickedCount
       useditemAddress {
         address
         addressDetail

@@ -52,7 +52,7 @@ export default function LoginContainer() {
     } catch (error) {
       Modal.error({
         title: "Error 메시지",
-        content: "로그인 실패 !!!",
+        content: error.message,
       });
     }
   };

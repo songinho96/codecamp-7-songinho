@@ -54,6 +54,7 @@ export default function ProductDetailPresenter(props) {
               <S.PickButton onClick={props.onClickPick} myPick={props.myPick}>
                 찜하기
               </S.PickButton>
+              {/* <div>{props.data?.fetchUseditem.pickedCount}</div> */}
             </S.WrapProductButton>
           </S.WrapProductDetail>
         </S.WrapperProduct>

@@ -45,6 +45,16 @@ export default function ProductWriteContainer(props) {
     trigger("contents");
   };
 
+  // 수정 컨텐츠 html 로 바꿔주기
+  useEffect(() => {
+    const htmlString = props?.productData?.fetchUseditem.contents;
+    editorRef.current?.getInstance().setHTML(htmlString);
+
+    setValue("contents", htmlString);
+
+    trigger("contents");
+  }, []);
+
   const onClickSubmit = async (data) => {
     try {
       const result = await createUseditem({
@@ -93,8 +103,7 @@ export default function ProductWriteContainer(props) {
     if (isChangedFiles) updateUseditemInput.images = data.images;
 
     const useditemAddress: any = {};
-    if (data?.addressDetail)
-      useditemAddress.addressDetail = data?.addressDetail;
+    if (data?.addressDetail) useditemAddress.addressDetail = data.addressDetail;
     if (addressClick) useditemAddress.address = addressClick;
     if (getLat) useditemAddress.lat = getLat;
     if (getLng) useditemAddress.lng = getLng;
@@ -110,6 +119,12 @@ export default function ProductWriteContainer(props) {
             tags: data.tags,
             images: fileUrls,
             useditemAddress,
+            // useditemAddress: {
+            //   addressDetail: data.addressDetail,
+            //   address: addressClick,
+            //   lat: getLat,
+            //   lng: getLng,
+            // },
           },
         },
       });
@@ -135,6 +150,14 @@ export default function ProductWriteContainer(props) {
   useEffect(() => {
     if (props.productData?.fetchUseditem.images?.length) {
       setFileUrls([...props.productData?.fetchUseditem.images]);
+    }
+  }, [props.productData]);
+
+  useEffect(() => {
+    if (props.productData?.fetchUseditem.useditemAddress?.address.length) {
+      setAddressClick(
+        props.productData?.fetchUseditem.useditemAddress?.address
+      );
     }
   }, [props.productData]);
 

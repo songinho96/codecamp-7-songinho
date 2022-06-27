@@ -86,7 +86,7 @@ export default function ProductDetailContainer(props) {
       const result = await toggleUseditemPick({
         variables: { useditemId: router.query.boardId },
       });
-      // console.log(result);
+      console.log(result);
       setMyPick(result.data.toggleUseditemPick);
     } catch (error) {
       Modal.error({

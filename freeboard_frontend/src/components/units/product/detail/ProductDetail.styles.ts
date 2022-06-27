@@ -50,7 +50,6 @@ export const ProductPrice = styled.div`
 
 export const ProductContents = styled.div`
   width: 996px;
-  height: 184px;
   font-size: 17px;
 `;
 
