@@ -23,7 +23,6 @@ export default function ProductDetailContainer(props) {
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK, {
     variables: { useditemId: router.query.boardId },
   });
-  const [myPick, setMyPick] = useState(0);
 
   const [deleteUseditem] = useMutation(DELTE_USED_ITEM);
 
@@ -83,11 +82,17 @@ export default function ProductDetailContainer(props) {
   // 마이찜
   const onClickPick = async () => {
     try {
-      const result = await toggleUseditemPick({
+      await toggleUseditemPick({
         variables: { useditemId: router.query.boardId },
+        refetchQueries: [
+          {
+            query: FETCH_USED_ITEM,
+            variables: {
+              useditemId: router.query.boardId,
+            },
+          },
+        ],
       });
-      console.log(result);
-      setMyPick(result.data.toggleUseditemPick);
     } catch (error) {
       Modal.error({
         title: "Error 메시지",
@@ -103,6 +108,7 @@ export default function ProductDetailContainer(props) {
       });
       console.log(result);
       Modal.success({ content: "구매가 완료되었습니다!" });
+      router.push("/products");
     } catch (error) {
       Modal.error({ content: error.message });
     }
@@ -117,7 +123,6 @@ export default function ProductDetailContainer(props) {
       onClickDelete={onClickDelete}
       onClickPick={onClickPick}
       onClickBuy={onClickBuy}
-      myPick={myPick}
     />
   );
 }

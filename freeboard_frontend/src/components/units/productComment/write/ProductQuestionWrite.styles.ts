@@ -9,6 +9,10 @@ export const Error = styled.div`
 export const WrapError = styled.div``;
 
 export const Wrapper = styled.div`
+  width: 100%;
+`;
+
+export const Body = styled.div`
   width: 80%;
   margin: 0 auto;
 `;
@@ -41,6 +45,7 @@ export const WriteContent = styled.input`
 export const WriteFooter = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 `;
 
 export const WriteNum = styled.div`

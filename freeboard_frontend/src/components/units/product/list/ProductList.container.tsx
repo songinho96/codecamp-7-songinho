@@ -37,31 +37,22 @@ export default function ProductListContainer() {
   };
 
   const onClickList = (el) => (event: any) => {
-    const today = JSON.parse(localStorage.getItem("today") || "[]");
+    const today = JSON.parse(sessionStorage.getItem("today") || "[]");
     // setIsBaskets(true);
 
     const temp = today.filter((today: any) => today._id === el._id);
     if (temp.length === 1) {
-      // alert("이미 담으신 물품입니다!");
-      // return;
-      // setIsBaskets(false);
-
-      // const Delete = today.filter(
-      //   (baskets: any) => baskets._id !== event.currentTarget.id
-      // );
-      // console.log(today);
-      // localStorage.setItem("today", JSON.stringify(Delete));
       router.push(`/products/${event.currentTarget.id}`);
-
       return;
+    }
+    if (today.length > 2) {
+      today.pop();
     }
 
     const { __typename, ...newEl } = el;
     today.push(newEl);
-    localStorage.setItem("today", JSON.stringify(today));
+    sessionStorage.setItem("today", JSON.stringify(today));
     router.push(`/products/${event.currentTarget.id}`);
-
-    // console.log(data);
   };
 
   // 오늘본 상품

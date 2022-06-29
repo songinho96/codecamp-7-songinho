@@ -35,6 +35,15 @@ export const Label = styled.div`
   padding-bottom: 16px;
 `;
 
+export const WrapTags = styled.div`
+  width: 800px;
+  height: 56px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
 export const Error = styled.div`
   font-size: 14px;
   color: red;

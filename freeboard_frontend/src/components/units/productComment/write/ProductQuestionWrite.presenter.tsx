@@ -2,7 +2,7 @@ import * as S from "./ProductQuestionWrite.styles";
 
 export default function ProductQuestionWritePresenter(props) {
   return (
-    <>
+    <S.Wrapper>
       <form
         onSubmit={
           props.isEdit
@@ -10,7 +10,7 @@ export default function ProductQuestionWritePresenter(props) {
             : props.handleSubmit(props.onClickComment)
         }
       >
-        <S.Wrapper>
+        <S.Body>
           {/* 댓글 */}
           <S.WrapTitle>
             <S.TitlePicture src="/commentBoard/comment.svg" />
@@ -41,8 +41,8 @@ export default function ProductQuestionWritePresenter(props) {
             </S.WriteFooter>
           </S.WrapperWriteComment>
           <S.Error>{props.formState.errors.contents?.message}</S.Error>
-        </S.Wrapper>
+        </S.Body>
       </form>
-    </>
+    </S.Wrapper>
   );
 }

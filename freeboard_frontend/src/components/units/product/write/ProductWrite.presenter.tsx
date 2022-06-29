@@ -5,6 +5,7 @@ import * as S from "./ProductWrite.styles";
 import { v4 as uuidv4 } from "uuid";
 import dynamic from "next/dynamic";
 import KakaoMapPage from "../../../commons/maps/kakao";
+import Tags from "../../../commons/tags";
 
 const ToastUi = dynamic(() => import("../../../commons/toastUi"), {
   ssr: false,
@@ -62,7 +63,9 @@ export default function ProductWritePresenter(props) {
           </S.WrapProduct>
           <S.WrapProduct>
             <S.Label>태그 입력</S.Label>
-            <InputBasic type="text" register={props.register("tags")} />
+            <S.WrapTags>
+              <Tags tags={props.tags} setTags={props.setTags} />
+            </S.WrapTags>
           </S.WrapProduct>
           <S.WrapperLocation>
             <S.WrapMap>

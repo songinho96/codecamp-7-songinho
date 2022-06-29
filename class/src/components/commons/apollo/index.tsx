@@ -9,13 +9,15 @@ import { onError } from "@apollo/client/link/error";
 import { createUploadLink } from "apollo-upload-client";
 import { GraphQLClient } from "graphql-request";
 import { useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useRecoilValueLoadable } from "recoil";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
-import { accessTokenState } from "../../../commons/store";
+import { accessTokenState, isLoadedState, restoreAccessTokenLoadable } from "../../../commons/store";
 
 export default function ApolloSetting(props) {
   // Login
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState);
+  const aaa = useRecoilValueLoadable(restoreAccessTokenLoadable)
 
   // const accessToken = localStorage.getItem("accessToken");
 
@@ -41,17 +43,37 @@ export default function ApolloSetting(props) {
   // 3. 프리렌더링 예제 - useEffect 방법
   useEffect(() => {
     // 무조건 브라우저에서 실행
-
     // 1. 기존방식
     // console.log("지금은 브라우저다!!!!!!");
     // const accessToken = localStorage.getItem("accessToken");
     // setAccessToken(accessToken || "");
-
-    // 2. 새로운방식
-    getAccessToken().then((newAccessToken) => {
-      setAccessToken(newAccessToken);
-    });
-  }, []);
+    // // 2. 새로운방식
+    // getAccessToken().then((newAccessToken) => {
+    //   setAccessToken(newAccessToken);
+    // });
+    //
+    //
+    // [ 해결방법: 1번째 -  restoreAccessToken을 두 번 요청하기!! ]
+    //  getAccessToken().then((newAccessToken) => {
+    //   setAccessToken(newAccessToken);
+    // });
+    //
+    //
+    //
+    // [ 해결방법: 2번째 -  로딩 활용하기 ]
+    // store . isLoadedState 만들기
+    // getAccessToken().then((newAccessToken) => {
+    //   setAccessToken(newAccessToken);
+    //   setIsLoaded(true);
+    // });
+    //
+    //
+    // [ 해결방법: 3번째 -  recoil selecter 활용하기]
+    aaa.toPromise().then((newAccessToken) => {
+      setAccessToken(newAccessToken)
+   
+    },[] )
+  
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {
     // 1-1. 에러를 캐치

@@ -1,111 +1,197 @@
 import styled from "@emotion/styled";
+import { Image } from "antd";
 
 export const Wrapper = styled.div`
+  width: 80%;
+  margin: auto;
+`;
+
+export const Header = styled.div`
   display: flex;
-  flex-direction: column;
-  padding-bottom: 70px;
+  justify-content: space-between;
+  padding-bottom: 73px;
 `;
 
-export const Body = styled.div`
-  width: 1200px;
-  margin: 0 auto;
-`;
-
-export const WrapperProduct = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding: 200px 0;
-`;
-
-export const WrapperProductImage = styled.div`
-  width: 760px;
-  height: 680px;
-`;
-
-export const ProductImage = styled.div`
-  width: 400px;
-  border: 1px solid black;
-  margin-right: 100px;
-`;
-
-export const DetailImage = styled.div`
+export const Image = styled.img`
+  width: 480px;
+  height: 480px;
   border: 1px solid gray;
-  margin: 0 30px;
+  margin-right: 75px;
 `;
 
-export const WrapProductDetail = styled.div`
+export const AntImage = styled(Image)`
+  width: 480px;
+  height: 480px;
+`;
+
+export const WrapDetail = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const WrapTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const ProductName = styled.div`
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 24px;
+`;
+
+export const WrapIcon = styled.div`
+  display: flex;
+`;
+
+export const EditIcon = styled.img`
+  width: 18px;
+  height: 18px;
+  margin-right: 15px;
+`;
+
+export const Price = styled.div`
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 20px;
+`;
+
+export const Underline = styled.div`
+  border-top: 4px solid black;
   padding-bottom: 20px;
 `;
 
-export const ProductPrice = styled.div`
-  font-size: 25px;
+export const Contents = styled.div`
+  width: 800px;
+
+  padding-bottom: 30px;
 `;
 
-export const ProductContents = styled.div`
-  width: 996px;
-  font-size: 17px;
-`;
-
-export const ProductTag = styled.div`
-  padding-bottom: 200px;
-`;
-
-export const WrapProductButton = styled.div`
+export const WrapTags = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
 `;
 
-export const ListButton = styled.button`
-  width: 180px;
-  height: 50px;
-  margin: 0 50px;
+export const Tags = styled.div`
+  margin-right: 10px;
 `;
 
-export const BuyButton = styled.button`
-  width: 180px;
-  height: 50px;
+export const WrapButton = styled.div`
+  display: flex;
+  padding-top: 40px;
+`;
+
+export const Pickbutton = styled.button`
+  width: 152px;
+  height: 100px;
+  margin-right: 22px;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  background-color: red;
 `;
 
 export const BasketButton = styled.button`
-  width: 180px;
-  height: 50px;
-  background-color: ${(props) => (props.isBaskets ? "yellow" : "gray")};
-  color: ${(props) => (props.isBaskets ? "black" : "white")};
+  width: 312px;
+  height: 100px;
+  margin-right: 22px;
+  font-size: 30px;
+  font-weight: 700;
 `;
 
-export const PickButton = styled.button`
-  width: 180px;
-  height: 50px;
-  background-color: ${(props) => (props.myPick === 1 ? "yellow" : "gray")};
-  color: ${(props) => (props.myPick === 1 ? "black" : "white")};
+export const BuyButton = styled.button`
+  width: 312px;
+  height: 100px;
+  font-size: 30px;
+  font-weight: 700;
 `;
 
-export const WrapMap = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`;
+// export const Wrapper = styled.div`
+//   width: 80%;
+//   display: flex;
+//   flex-direction: column;
+//   margin: 0 auto;
+// `;
 
-export const Address = styled.div`
-  font-size: 20px;
-  font-weight: bold;
-  width: 800px;
-  height: 50px;
+// export const WrapImage = styled.div`
+//   display: flex;
+// `;
 
-  margin: 20px 0;
-`;
+// export const DetailImage = styled.div`
+//   border: 1px solid gray;
 
-export const Map = styled.div`
-  width: 792px;
-  height: 360px;
-  background-color: gray;
-`;
+//   /* width: 300px; */
+// `;
+
+// export const WrapEditDelete = styled.div`
+//   display: flex;
+//   background-color: gray;
+// `;
+
+// export const ProductName = styled.div`
+//   font-size: 30px;
+//   font-weight: bold;
+//   padding-bottom: 20px;
+// `;
+
+// export const ProductPrice = styled.div`
+//   font-size: 25px;
+// `;
+
+// export const ProductContents = styled.div`
+//   width: 996px;
+//   font-size: 17px;
+// `;
+
+// export const ProductTag = styled.div`
+//   padding-bottom: 200px;
+// `;
+
+// export const ListButton = styled.button`
+//   width: 180px;
+//   height: 50px;
+//   margin: 0 50px;
+// `;
+
+// export const BuyButton = styled.button`
+//   width: 180px;
+//   height: 50px;
+// `;
+
+// export const BasketButton = styled.button`
+//   width: 180px;
+//   height: 50px;
+//   background-color: ${(props) => (props.isBaskets ? "yellow" : "gray")};
+//   color: ${(props) => (props.isBaskets ? "black" : "white")};
+// `;
+
+// export const PickButton = styled.button`
+//   width: 180px;
+//   height: 50px;
+//   background-color: ${(props) => (props.myPick === 1 ? "yellow" : "gray")};
+//   color: ${(props) => (props.myPick === 1 ? "black" : "white")};
+// `;
+
+// export const WrapMap = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   flex-direction: row;
+//   /* align-items: center; */
+// `;
+
+// export const WrapAddress = styled.div`
+//   display: flex;
+//   flex-direction: column;
+// `;
+
+// export const Address = styled.div`
+//   font-size: 20px;
+//   font-weight: bold;
+//   height: 50px;
+//   margin: 20px 0;
+// `;
+
+// export const Map = styled.div`
+//   width: 792px;
+//   height: 360px;
+//   background-color: gray;
+// `;

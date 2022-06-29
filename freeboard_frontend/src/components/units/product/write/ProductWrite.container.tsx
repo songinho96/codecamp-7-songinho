@@ -64,7 +64,7 @@ export default function ProductWriteContainer(props) {
             remarks: data.remarks,
             contents: data.contents,
             price: data.price,
-            tags: data.tags,
+            tags,
             images: fileUrls,
             useditemAddress: {
               addressDetail: data.addressDetail,
@@ -116,15 +116,9 @@ export default function ProductWriteContainer(props) {
             remarks: data.remarks,
             contents: data.contents,
             price: data.price,
-            tags: data.tags,
+            tags,
             images: fileUrls,
             useditemAddress,
-            // useditemAddress: {
-            //   addressDetail: data.addressDetail,
-            //   address: addressClick,
-            //   lat: getLat,
-            //   lng: getLng,
-            // },
           },
         },
       });
@@ -161,6 +155,16 @@ export default function ProductWriteContainer(props) {
     }
   }, [props.productData]);
 
+  // 태그
+
+  const [tags, setTags] = useState([""]);
+
+  useEffect(() => {
+    if (props.productData?.fetchUseditem.tags?.length) {
+      setTags([...props.productData?.fetchUseditem.tags]);
+    }
+  }, [props.productData]);
+
   return (
     <ProductWritePresenter
       register={register}
@@ -181,6 +185,9 @@ export default function ProductWriteContainer(props) {
       getLng={getLng}
       setAddressClick={setAddressClick}
       addressClick={addressClick}
+      // 태그
+      tags={tags}
+      setTags={setTags}
     />
   );
 }
