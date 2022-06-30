@@ -1,10 +1,12 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import React from "react";
+import { useAuth } from "../../../../commons/hooks/useAuth";
 import MyPickPresenter from "./MyPick.presenter";
 import { FETCH_USED_I_PICKED } from "./MyPick.queries";
 
 export default function MyPickContainer() {
+  useAuth();
   const router = useRouter();
   const { data, refetch } = useQuery(FETCH_USED_I_PICKED, {
     variables: { search: "" },

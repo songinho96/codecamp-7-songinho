@@ -4,8 +4,9 @@ import MypageSidebar from "../../../../src/components/commons/mypage";
 import MyPickContainer from "../../../../src/components/units/mypage/myMarket/myPick/MyPick.container";
 
 const Wrapper = styled.div`
+  width: 80%;
+  margin: auto;
   display: flex;
-  margin: 0;
 `;
 export default function MyPickPage() {
   return (

@@ -5,7 +5,10 @@ import MypageSidebar from "../../src/components/commons/mypage";
 import MypageContainer from "../../src/components/units/mypage/charge";
 
 const Wrapper = styled.div`
+  width: 80%;
+  margin: auto;
   display: flex;
+  margin: 0;
 `;
 
 export default function MyPage() {

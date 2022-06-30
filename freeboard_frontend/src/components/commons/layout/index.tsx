@@ -40,7 +40,7 @@ export default function Layout(props: any) {
       {/* {!isHideenMypageSidebar && <MypageSidebar />} */}
       {/* <div style={{ width: "1000px", margin: "auto" }}>{props.children}</div> */}
       <div>{props.children}</div>
-
+      <SideBar />
       {/* </LayoutBodyWrapper> */}
       {!isHiddenFooter && <Footer />}
     </>

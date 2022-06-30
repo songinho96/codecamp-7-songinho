@@ -4,12 +4,13 @@ import { Image } from "antd";
 export const Wrapper = styled.div`
   width: 80%;
   margin: auto;
+  padding: 100px 0;
 `;
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-bottom: 73px;
+  padding-bottom: 100px;
 `;
 
 export const Image = styled.img`
@@ -105,6 +106,11 @@ export const BuyButton = styled.button`
   font-weight: 700;
 `;
 
+export const Body = styled.div`
+  display: flex;
+  padding-top: 70px;
+`;
+
 // export const Wrapper = styled.div`
 //   width: 80%;
 //   display: flex;
@@ -137,10 +143,12 @@ export const BuyButton = styled.button`
 //   font-size: 25px;
 // `;
 
-// export const ProductContents = styled.div`
-//   width: 996px;
-//   font-size: 17px;
-// `;
+export const ProductContents = styled.div`
+  width: 996px;
+  font-size: 17px;
+  padding-left: 130px;
+  padding-bottom: 10px;
+`;
 
 // export const ProductTag = styled.div`
 //   padding-bottom: 200px;
@@ -171,27 +179,26 @@ export const BuyButton = styled.button`
 //   color: ${(props) => (props.myPick === 1 ? "black" : "white")};
 // `;
 
-// export const WrapMap = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   flex-direction: row;
-//   /* align-items: center; */
-// `;
+export const WrapMap = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-// export const WrapAddress = styled.div`
-//   display: flex;
-//   flex-direction: column;
-// `;
+export const WrapAddress = styled.div`
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+`;
 
-// export const Address = styled.div`
-//   font-size: 20px;
-//   font-weight: bold;
-//   height: 50px;
-//   margin: 20px 0;
-// `;
+export const Address = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  height: 50px;
+  margin: 10px;
+`;
 
-// export const Map = styled.div`
-//   width: 792px;
-//   height: 360px;
-//   background-color: gray;
-// `;
+export const Map = styled.div`
+  width: 792px;
+  height: 360px;
+  background-color: gray;
+`;

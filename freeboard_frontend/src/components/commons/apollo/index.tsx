@@ -10,20 +10,18 @@ import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
 
-import { accessTokenState } from "../../store";
+import { accessTokenState, basketPageState } from "../../store";
 
 export default function ApolloSetting(props) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [basketPage, setBasketPage] = useRecoilState(basketPageState);
 
   useEffect(() => {
-    // 기존 방식
-    // const accessToken = localStorage.getItem("accessToken");
-    // setAccessToken(accessToken || "");
-
-    // 2. 새로운방식
     getAccessToken().then((newAccessToken) => {
       setAccessToken(newAccessToken);
     });
+    const baskets = JSON.parse(localStorage.getItem("baskets") || "[]");
+    setBasketPage(baskets);
   }, []);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {

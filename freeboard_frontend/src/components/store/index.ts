@@ -9,3 +9,8 @@ export const visitedPageState = atom({
   key: "visitedPageState",
   default: "/",
 });
+
+export const basketPageState = atom({
+  key: "basketPageState",
+  default: "[]",
+});

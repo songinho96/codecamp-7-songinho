@@ -11,6 +11,7 @@ import { Editor } from "@toast-ui/react-editor";
 
 const schema = yup.object({
   name: yup.string().required("상품명은 필수 입력 사항입니다."),
+  remarks: yup.string().required("상품요약은 필수 입력 사항입니다."),
   contents: yup.string().required("상품설명은 필수 입력 사항입니다."),
   price: yup.number().required("가격은 필수 입력 사항입니다."),
 });
@@ -35,7 +36,7 @@ export default function ProductWriteContainer(props) {
   const onChangeContents = (value: string) => {
     // console.log(value);
     // const data = editorRef.current?.getInstance().getMarkdown(); // 마크다운 언어
-    const htmlData = editorRef.current?.getInstance().getHTML();
+    const htmlData = editorRef.current?.getInstance()?.getHTML();
     // console.log(htmlData);
 
     // register로 등록하지 않고, 강제로 값을 넣어주는 기능!!
@@ -44,16 +45,6 @@ export default function ProductWriteContainer(props) {
     // onChange 됐다고 react-hook-form에 알려주는 기능!!
     trigger("contents");
   };
-
-  // 수정 컨텐츠 html 로 바꿔주기
-  useEffect(() => {
-    const htmlString = props?.productData?.fetchUseditem.contents;
-    editorRef.current?.getInstance().setHTML(htmlString);
-
-    setValue("contents", htmlString);
-
-    trigger("contents");
-  }, []);
 
   const onClickSubmit = async (data) => {
     try {
@@ -89,6 +80,16 @@ export default function ProductWriteContainer(props) {
       });
     }
   };
+
+  // 수정 컨텐츠 html 로 바꿔주기
+  useEffect(() => {
+    const htmlString = props?.productData?.fetchUseditem.contents;
+    editorRef.current?.getInstance().setHTML(htmlString);
+
+    setValue("contents", htmlString);
+
+    trigger("contents");
+  }, [props?.productData]);
 
   const onClickUpdate = async (data: any) => {
     const currentFiles = JSON.stringify(fileUrls);

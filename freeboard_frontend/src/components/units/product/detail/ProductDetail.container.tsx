@@ -2,6 +2,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { useRecoilState } from "recoil";
+import { basketPageState } from "../../../store";
 import ProductDetailPresenter from "./ProductDetail.presenter";
 import {
   CREATE_POINT_TRANSATION_OF_BUYING_AND_SELLING,
@@ -36,6 +38,7 @@ export default function ProductDetailContainer(props) {
 
   // // 장바구니
 
+  const [basketPage, setBasketPage] = useRecoilState(basketPageState);
   const onClickBasket = () => {
     const baskets = JSON.parse(localStorage.getItem("baskets") || "[]");
     setIsBaskets(true);
@@ -51,14 +54,16 @@ export default function ProductDetailContainer(props) {
       const Delete = baskets.filter(
         (baskets: any) => baskets._id !== data.fetchUseditem._id
       );
-      console.log(baskets);
+
       localStorage.setItem("baskets", JSON.stringify(Delete));
+      setBasketPage(Delete);
       return;
     }
 
     const { __typename, ...newEl } = data.fetchUseditem;
     baskets.push(newEl);
     localStorage.setItem("baskets", JSON.stringify(baskets));
+    setBasketPage(baskets);
   };
 
   const onClickDelete = async () => {

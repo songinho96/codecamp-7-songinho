@@ -1,3 +1,4 @@
+import { PlusCircleOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 import InfiniteScroll from "react-infinite-scroller";
 
@@ -43,15 +44,18 @@ export const WrapperBestProduct = styled.div`
 
 export const WrapperBest1 = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
 `;
 
 export const ProductDetail = styled.div`
-  width: 50%;
-  height: 1000px;
-  border: 2px solid black;
+  padding-top: 30px;
+  text-align: center;
   font-size: 200px;
+`;
+
+export const WrapBest = styled.div`
+  display: flex;
 `;
 
 export const WrapBestProduct = styled.div`
@@ -137,4 +141,16 @@ export const SubmitButton = styled.button`
   color: red;
   font-weight: bold;
   font-size: 40px;
+`;
+
+export const Submit = styled.div`
+  width: 50px;
+  height: 50px;
+`;
+
+export const PlusCircle = styled(PlusCircleOutlined)`
+  position: fixed;
+  font-size: 100px;
+  bottom: 100px;
+  right: 150px;
 `;

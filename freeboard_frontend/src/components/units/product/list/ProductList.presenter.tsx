@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./ProductList.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import TodayProductPage from "../../../commons/todayProduct/todayProduct.container";
+import { PlusCircleOutlined } from "@ant-design/icons";
 
 export default function ProductListPresenter(props) {
   return (
@@ -19,12 +19,38 @@ export default function ProductListPresenter(props) {
           </S.BestExplanation> */}
           <S.WrapperBestProduct>
             <S.WrapperBest1>
-              <S.ProductDetail>베스트게시물</S.ProductDetail>
-              <S.WrapBestProduct>캐러셀</S.WrapBestProduct>
+              <S.ProductDetail>베스트 상품</S.ProductDetail>
+              {/* <S.WrapBestProduct>캐러셀</S.WrapBestProduct>
             </S.WrapperBest1>
             <S.WrapperBest1>
               <S.ProductDetail>베스트게시물</S.ProductDetail>
-              <S.WrapBestProduct>캐러셀</S.WrapBestProduct>
+              <S.WrapBestProduct>캐러셀</S.WrapBestProduct>  */}
+              <S.WrapBest>
+                {props.BestData?.fetchUseditemsOfTheBest.map(
+                  (el: any, index: number) => (
+                    <S.WrapProductList
+                      key={el._id}
+                      id={el._id}
+                      onClick={props.onClickList(el)}
+                    >
+                      {/* <S.Wrap> */}
+                      <S.ProductImage
+                        src={
+                          el.images[0]
+                            ? `https://storage.googleapis.com/${el.images[0]}`
+                            : "/list/noimage.gif"
+                        }
+                        id={el._id}
+                      />
+                      <S.WrapProductDetail>
+                        <S.ProductName>{el.name}</S.ProductName>
+                        <S.ProductPrice>{el.price}원</S.ProductPrice>
+                      </S.WrapProductDetail>
+                      {/* </S.Wrap> */}
+                    </S.WrapProductList>
+                  )
+                )}
+              </S.WrapBest>
             </S.WrapperBest1>
           </S.WrapperBestProduct>
         </S.WrapperBest>
@@ -72,7 +98,8 @@ export default function ProductListPresenter(props) {
           </S.WrapProductRow>
         </S.WrapperProductList>
       </S.Body>
-      <TodayProductPage />
+      {/* <TodayProductPage /> */}
+      <S.PlusCircle onClick={props.onClickMoveWrite} />
     </S.Wrapper>
   );
 }

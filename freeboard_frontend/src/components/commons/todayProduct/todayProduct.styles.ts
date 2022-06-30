@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 
 export const Wrapper = styled.div`
+  /* width: 80%;
+  margin: 0 auto; */
   padding-top: 100px;
   display: flex;
   flex-direction: column;
@@ -17,12 +19,11 @@ export const Label = styled.div`
 `;
 
 export const WrapperProductMini = styled.div`
-  /* margin-top: 700px;
-  display: flex;
-  justify-content: space-between; */
-  width: 100%;
-  margin: 0 20px;
-  padding: 40px;
+  /* display: flex;
+  justify-content: space-between;
+  width: 100%; */
+  /* margin: 0 20px; */
+  /* padding: 40px; */
   /* cursor: pointer; */
 `;
 

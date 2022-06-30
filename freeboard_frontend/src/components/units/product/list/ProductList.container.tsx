@@ -2,7 +2,10 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import ProductListPresenter from "./ProductList.presenter";
-import { FETCH_USED_ITEMS } from "./ProductList.queries";
+import {
+  FETCH_USED_ITEMS,
+  FETCH_USED_ITEMS_OF_THE_BEST,
+} from "./ProductList.queries";
 import _ from "lodash";
 
 export default function ProductListContainer() {
@@ -14,6 +17,8 @@ export default function ProductListContainer() {
       page: 1,
     },
   });
+
+  const { data: BestData } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
 
   const loadFunc = () => {
     if (!data) return;
@@ -50,7 +55,7 @@ export default function ProductListContainer() {
     }
 
     const { __typename, ...newEl } = el;
-    today.push(newEl);
+    today.unshift(newEl);
     sessionStorage.setItem("today", JSON.stringify(today));
     router.push(`/products/${event.currentTarget.id}`);
   };
@@ -95,6 +100,7 @@ export default function ProductListContainer() {
       onClickList={onClickList}
       onClickMoveWrite={onClickMoveWrite}
       onChangeSearch={onChangeSearch}
+      BestData={BestData}
     />
   );
 }

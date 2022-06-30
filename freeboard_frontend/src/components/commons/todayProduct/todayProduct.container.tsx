@@ -15,7 +15,7 @@ export default function TodayProductPage() {
   const [todayItems, setTodayItems] = useState<IPickItems[]>([]);
 
   useEffect(() => {
-    const today = JSON.parse(localStorage.getItem("today") || "[]");
+    const today = JSON.parse(sessionStorage.getItem("today") || "[]");
     setTodayItems(today);
   }, []);
 
