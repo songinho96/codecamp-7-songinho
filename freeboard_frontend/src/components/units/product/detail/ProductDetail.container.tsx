@@ -75,7 +75,7 @@ export default function ProductDetailContainer(props) {
         content: "게시물이 삭제 되었습니다",
       });
       router.push(`/products`);
-    } catch (error) {
+    } catch (error: any) {
       // console.log(error);
       Modal.error({
         title: "Error 메시지",
@@ -114,7 +114,7 @@ export default function ProductDetailContainer(props) {
       console.log(result);
       Modal.success({ content: "구매가 완료되었습니다!" });
       router.push("/products");
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: error.message });
     }
   };

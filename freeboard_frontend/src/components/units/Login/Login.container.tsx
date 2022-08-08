@@ -49,7 +49,7 @@ export default function LoginContainer() {
         content: "환영합니다!",
       });
       router.push("/boards");
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({
         title: "Error 메시지",
         content: error.message,

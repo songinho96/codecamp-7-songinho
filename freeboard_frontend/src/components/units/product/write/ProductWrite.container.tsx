@@ -72,7 +72,7 @@ export default function ProductWriteContainer(props) {
         content: "상품이 등록되었습니다!",
       });
       router.push(`/products/${result.data.createUseditem._id}`);
-    } catch (error) {
+    } catch (error: any) {
       // console.log(error);
       Modal.error({
         title: "Error 메시지",
@@ -128,7 +128,7 @@ export default function ProductWriteContainer(props) {
         content: "상품이 수정 되었습니다.",
       });
       router.push(`/products/${result.data.updateUseditem._id}`);
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({
         title: "Error 메시지",
         content: error.message,

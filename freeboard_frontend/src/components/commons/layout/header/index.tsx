@@ -95,6 +95,12 @@ const Basket = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
+  position: sticky;
+  z-index: 10;
+  border-bottom: 1px solid rgb(238, 238, 238);
+  top: 0px;
+  left: 0px;
+  background: rgb(255, 255, 255);
 `;
 
 const WrapTitle = styled.div`
@@ -163,7 +169,7 @@ export default function Header() {
       setAccessToken("");
       localStorage.clear();
       router.push("/products/login");
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: error.message });
     }
   };
@@ -194,18 +200,10 @@ export default function Header() {
               ? `${data?.fetchUserLoggedIn.name}님 포인트 ${data?.fetchUserLoggedIn.userPoint.amount} P`
               : ""}
           </Label>
-          <Label
-            onClick={
-              data ? onClickCharge : onClickMoveToPage("/products/login")
-            }
-          >
+          <Label onClick={data ? onClickCharge : onClickMoveToPage("/login")}>
             {data ? <MyProductChargePage /> : "로그인"}
           </Label>
-          <Label
-            onClick={
-              data ? onClickLogout : onClickMoveToPage("/products/signup")
-            }
-          >
+          <Label onClick={data ? onClickLogout : onClickMoveToPage("/signup")}>
             {data ? "로그아웃" : "회원가입"}
           </Label>
           <WrapBasket>

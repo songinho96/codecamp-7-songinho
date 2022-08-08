@@ -9,8 +9,6 @@ import {
 import _ from "lodash";
 
 export default function ProductListContainer() {
-  // const [search, setSearch] = useState("");
-
   const router = useRouter();
   const { data, fetchMore, refetch } = useQuery(FETCH_USED_ITEMS, {
     variables: {

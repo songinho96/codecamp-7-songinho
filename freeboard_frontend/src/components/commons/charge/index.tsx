@@ -131,7 +131,7 @@ export default function MyProductChargePage() {
               title: "결제성공",
               content: "포인트가 충전 되었습니다!",
             });
-          } catch (error) {
+          } catch (error: any) {
             Modal.error({ content: error.message });
           }
           console.log(rsp.imp_uid);

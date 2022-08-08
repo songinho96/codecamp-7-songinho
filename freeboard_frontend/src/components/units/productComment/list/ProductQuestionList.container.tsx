@@ -30,7 +30,7 @@ export default function ProductQuestionListContainer(props) {
         ],
       });
       Modal.success({ title: "삭제 성공", content: "댓글이 삭제 되었습니다!" });
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: error.message });
     }
   };

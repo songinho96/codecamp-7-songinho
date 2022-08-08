@@ -107,7 +107,7 @@ export default function MypageConutainer() {
               ],
             });
             console.log(result);
-          } catch (error) {
+          } catch (error: any) {
             alert(error.message);
           }
           console.log(rsp.imp_uid);

@@ -33,9 +33,11 @@ const Wrapper = styled.div`
   width: 115px;
   height: 373px;
   position: fixed;
-  top: 30px;
-  right: 30px;
+  top: 220px;
+  right: calc(50% - 650px);
+  z-index: 20;
   border: 1px solid black;
+  background-color: white;
 `;
 export default function SideBar() {
   const router = useRouter();

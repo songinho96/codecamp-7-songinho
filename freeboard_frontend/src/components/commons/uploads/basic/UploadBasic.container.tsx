@@ -28,7 +28,7 @@ export default function UploadBasicContainer(props) {
         },
       });
       props.onChangeFileUrls(result.data.uploadFile.url, props.index);
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: "에러발생!!" });
     }
   };

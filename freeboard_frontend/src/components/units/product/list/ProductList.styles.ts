@@ -20,7 +20,7 @@ export const MainImage = styled.div`
 export const Body = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1200px;
+  width: 1024px;
   margin: 0 auto;
   /* background-color: #424242; */
 `;
@@ -84,48 +84,59 @@ export const WrapProductRow = styled.div`
   justify-content: space-between;
 `;
 
-export const Scroll = styled.div`
-  height: 2000px;
-  overflow: auto;
-`;
+export const Scroll = styled.div``;
 
 export const InfiniteScrolls = styled(InfiniteScroll)`
+  width: 100%;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 `;
 
 export const WrapProductList = styled.div`
   /* height: 855px; */
-  width: 70%;
-  margin: 60px auto;
-  box-shadow: 5px 10px 10px #c8c8c8;
-  border-radius: 20px 30px 0 0;
+  width: 196px;
+  height: 276px;
   cursor: pointer;
+  margin: 0 11px 11px 0;
 `;
 
 export const Wrap = styled.div``;
 
 export const ProductImage = styled.img`
-  /* height: 70%; */
-  width: 100%;
-  height: 300px;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  width: 194px;
+  height: 194px;
   border: 1px solid #d1d1d6;
 `;
 
-export const WrapProductDetail = styled.div``;
+export const WrapProductDetail = styled.div`
+  width: 194px;
+  height: 80px;
+  border: 1px solid #d1d1d6;
+  border-top: none;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 export const ProductName = styled.div`
   font-size: 16px;
-  padding: 10px;
+`;
+
+export const WrapDate = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const ProductPrice = styled.div`
   font-weight: 100;
-  padding: 10px;
-  font-size: 18px;
+  font-size: 0.9rem;
+`;
+
+export const ProductDate = styled.div`
+  font-size: 0.7rem;
 `;
 
 export const WrapButton = styled.div`

@@ -47,7 +47,7 @@ export default function ProductAnswerContainer(props) {
       });
 
       Modal.success({ title: "답변 등록!", content: "답변이 등록되었습니다." });
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: error.message });
     }
     props.setIsAnswer((prev) => !prev);
@@ -67,7 +67,7 @@ export default function ProductAnswerContainer(props) {
       props.refetch();
       props.setIsAnswerEdit((prev) => !prev);
       Modal.success({ title: "수정 성공", content: "답글이 수정 되었습니다!" });
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: error.message });
     }
   };

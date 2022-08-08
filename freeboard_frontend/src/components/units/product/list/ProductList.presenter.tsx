@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./ProductList.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { PlusCircleOutlined } from "@ant-design/icons";
+import { getDateToday } from "../../../commons/libraries/utils";
 
 export default function ProductListPresenter(props) {
   return (
@@ -12,19 +12,9 @@ export default function ProductListPresenter(props) {
       </S.Header>
       <S.Body>
         <S.WrapperBest>
-          {/* WrapperBest
-          <S.BestExplanation>
-            BestExplanation
-            <S.Detail>쏼라쏼라</S.Detail>
-          </S.BestExplanation> */}
           <S.WrapperBestProduct>
             <S.WrapperBest1>
               <S.ProductDetail>베스트 상품</S.ProductDetail>
-              {/* <S.WrapBestProduct>캐러셀</S.WrapBestProduct>
-            </S.WrapperBest1>
-            <S.WrapperBest1>
-              <S.ProductDetail>베스트게시물</S.ProductDetail>
-              <S.WrapBestProduct>캐러셀</S.WrapBestProduct>  */}
               <S.WrapBest>
                 {props.BestData?.fetchUseditemsOfTheBest.map(
                   (el: any, index: number) => (
@@ -69,7 +59,7 @@ export default function ProductListPresenter(props) {
                 pageStart={0}
                 loadMore={props.loadFunc}
                 hasMore={true}
-                useWindow={false}
+                useWindow={true}
               >
                 {props.data?.fetchUseditems.map((el: any, index: number) => (
                   <S.WrapProductList
@@ -88,7 +78,12 @@ export default function ProductListPresenter(props) {
                     />
                     <S.WrapProductDetail>
                       <S.ProductName>{el.name}</S.ProductName>
-                      <S.ProductPrice>{el.price}원</S.ProductPrice>
+                      <S.WrapDate>
+                        <S.ProductPrice>{el.price}원</S.ProductPrice>
+                        <S.ProductDate>
+                          {getDateToday(el.createdAt)}
+                        </S.ProductDate>
+                      </S.WrapDate>
                     </S.WrapProductDetail>
                     {/* </S.Wrap> */}
                   </S.WrapProductList>

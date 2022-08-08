@@ -85,7 +85,7 @@ export default function App() {
 
       // 2. 요청 결과 URL을 state에 저장하기
       setImageUrl(result.data.uploadFile.url);
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: "에러발생!!" });
     }
   };

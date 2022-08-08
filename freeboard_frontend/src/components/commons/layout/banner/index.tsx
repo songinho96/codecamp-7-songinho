@@ -12,6 +12,7 @@ const Images = styled.img`
 const Wrapper = styled.div`
   width: 100%;
   border-radius: 0%;
+  display: none;
 `;
 
 export default function Banner() {

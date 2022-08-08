@@ -50,7 +50,7 @@ export default function ProductQuestionWriteContainer(props) {
       });
 
       console.log(result);
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({
         title: "Error 메시지",
         content: error.message,
@@ -70,7 +70,7 @@ export default function ProductQuestionWriteContainer(props) {
       });
 
       Modal.success({ title: "수정 성공", content: "댓글이 수정 되었습니다!" });
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({ content: error.message });
     }
     props.setIsEdit(false);
