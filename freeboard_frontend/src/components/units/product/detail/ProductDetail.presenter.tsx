@@ -28,7 +28,9 @@ export default function ProductDetailPresenter(props) {
               />
             </S.WrapIcon>
           </S.WrapTitle>
-          <S.Price>{props.data?.fetchUseditem.price} 원</S.Price>
+          <S.Price>
+            {props.data?.fetchUseditem.price.toLocaleString("ko-KR")} 원
+          </S.Price>
           <S.Underline></S.Underline>
           <S.Contents>{props.data?.fetchUseditem.remarks}</S.Contents>
           <S.WrapTags>

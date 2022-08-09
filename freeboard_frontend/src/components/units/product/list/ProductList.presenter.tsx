@@ -7,24 +7,20 @@ import { getDateToday } from "../../../commons/libraries/utils";
 export default function ProductListPresenter(props) {
   return (
     <S.Wrapper>
-      <S.Header>
-        <S.MainImage></S.MainImage>
-      </S.Header>
       <S.Body>
-        <S.WrapperBest>
+        {/* <S.WrapperBest>
           <S.WrapperBestProduct>
             <S.WrapperBest1>
               <S.ProductDetail>베스트 상품</S.ProductDetail>
               <S.WrapBest>
                 {props.BestData?.fetchUseditemsOfTheBest.map(
                   (el: any, index: number) => (
-                    <S.WrapProductList
+                    <S.BestWrapProductList
                       key={el._id}
                       id={el._id}
                       onClick={props.onClickList(el)}
                     >
-                      {/* <S.Wrap> */}
-                      <S.ProductImage
+                      <S.BestProductImage
                         src={
                           el.images[0]
                             ? `https://storage.googleapis.com/${el.images[0]}`
@@ -32,25 +28,28 @@ export default function ProductListPresenter(props) {
                         }
                         id={el._id}
                       />
-                      <S.WrapProductDetail>
+                      <S.BestWrapProductDetail>
                         <S.ProductName>{el.name}</S.ProductName>
                         <S.ProductPrice>{el.price}원</S.ProductPrice>
-                      </S.WrapProductDetail>
-                      {/* </S.Wrap> */}
-                    </S.WrapProductList>
+                        <S.ProductDate>
+                          {getDateToday(el.createdAt)}
+                        </S.ProductDate>
+                      </S.BestWrapProductDetail>
+                    </S.BestWrapProductList>
                   )
                 )}
               </S.WrapBest>
             </S.WrapperBest1>
           </S.WrapperBestProduct>
-        </S.WrapperBest>
+        </S.WrapperBest> */}
         <S.WrapButton>
           <S.SubmitButton onClick={props.onClickMoveWrite}>
-            글 등록
+            판매하기
           </S.SubmitButton>
         </S.WrapButton>
         <S.WrapSearchBar>
-          상품명 입력: <input type="text" onChange={props.onChangeSearch} />
+          상품명 입력:{" "}
+          <S.SearchInput type="text" onChange={props.onChangeSearch} />
         </S.WrapSearchBar>
         <S.WrapperProductList>
           <S.WrapProductRow>

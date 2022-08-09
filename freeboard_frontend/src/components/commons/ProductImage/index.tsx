@@ -14,19 +14,18 @@ export const FETCH_USED_ITEM = gql`
 `;
 
 const SliderWrapper = styled.div`
-  margin: auto;
-  padding-left: 140px;
+  margin-right: 30px;
 `;
 
 const SliderWrap = styled(Slider)`
-  width: 480px;
-  height: 480px;
+  width: 428px;
+  height: 428px;
   .slick-prev {
-    left: -100px;
+    left: -50px;
   }
 
   .slick-next {
-    right: -100px;
+    right: -50px;
   }
   .slick-prev:before {
     opacity: 1; // 기존에 숨어있던 화살표 버튼이 보이게
@@ -53,7 +52,6 @@ export const Image = styled.img`
   width: 480px;
   height: 480px;
   border: 1px solid gray;
-  margin-right: 75px;
 `;
 
 export default function ProductImage() {

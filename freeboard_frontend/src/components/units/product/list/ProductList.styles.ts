@@ -3,24 +3,45 @@ import styled from "@emotion/styled";
 import InfiniteScroll from "react-infinite-scroller";
 
 export const Wrapper = styled.div`
+  width: 1024px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 `;
 
-export const Header = styled.div``;
+// 베스트
 
-export const MainImage = styled.div`
-  /* background-image: url("/product/Banner.svg"); */
-  /* height: 1700px; */
-  /* background-position: center; */
-  /* object-fit: scale-down; */
+export const BestWrapProductList = styled.div`
+  width: 400px;
+  height: 400px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const BestProductImage = styled.img`
+  width: 352px;
+  height: 227px;
+  border: 1px solid #d1d1d6;
+`;
+
+export const BestWrapProductDetail = styled.div`
+  width: 400px;
+  height: 105px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(29.6924px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 80px;
+  margin-top: -50px;
 `;
 
 export const Body = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1024px;
+  width: 100%;
   margin: 0 auto;
   /* background-color: #424242; */
 `;
@@ -55,7 +76,10 @@ export const ProductDetail = styled.div`
 `;
 
 export const WrapBest = styled.div`
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 `;
 
 export const WrapBestProduct = styled.div`
@@ -69,6 +93,11 @@ export const WrapSearchBar = styled.div`
   margin-top: 50px;
   position: sticky;
   top: 30px;
+`;
+
+export const SearchInput = styled.input`
+  width: 456px;
+  height: 36px;
 `;
 
 export const WrapperProductList = styled.div`

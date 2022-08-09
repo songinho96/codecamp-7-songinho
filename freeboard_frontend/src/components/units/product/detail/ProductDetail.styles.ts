@@ -2,23 +2,24 @@ import styled from "@emotion/styled";
 import { Image } from "antd";
 
 export const Wrapper = styled.div`
-  width: 80%;
+  width: 1024px;
   margin: auto;
   padding: 100px 0;
 `;
 
 export const Header = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding-bottom: 100px;
 `;
 
-export const Image = styled.img`
-  width: 480px;
-  height: 480px;
-  border: 1px solid gray;
-  margin-right: 75px;
-`;
+// export const Image = styled.img`
+//   width: 480px;
+//   height: 480px;
+//   border: 1px solid gray;
+//   margin-right: 75px;
+// `;
 
 export const AntImage = styled(Image)`
   width: 480px;
@@ -26,6 +27,7 @@ export const AntImage = styled(Image)`
 `;
 
 export const WrapDetail = styled.div`
+  width: 50%;
   display: flex;
   flex-direction: column;
 `;
@@ -37,6 +39,7 @@ export const WrapTitle = styled.div`
 
 export const ProductName = styled.div`
   font-size: 24px;
+  font-weight: 600;
 `;
 
 export const WrapIcon = styled.div`
@@ -56,6 +59,7 @@ export const Price = styled.div`
 `;
 
 export const Underline = styled.div`
+  width: 100%;
   border-top: 4px solid black;
   padding-bottom: 20px;
 `;
@@ -82,28 +86,31 @@ export const WrapButton = styled.div`
 `;
 
 export const Pickbutton = styled.button`
-  width: 152px;
-  height: 100px;
+  width: 177px;
+  height: 54px;
   margin-right: 22px;
   font-size: 30px;
   font-weight: 700;
   color: white;
   background-color: red;
+  border: none;
 `;
 
 export const BasketButton = styled.button`
-  width: 312px;
-  height: 100px;
+  width: 177px;
+  height: 54px;
   margin-right: 22px;
   font-size: 30px;
   font-weight: 700;
+  border: none;
 `;
 
 export const BuyButton = styled.button`
-  width: 312px;
-  height: 100px;
+  width: 177px;
+  height: 54px;
   font-size: 30px;
   font-weight: 700;
+  border: none;
 `;
 
 export const Body = styled.div`

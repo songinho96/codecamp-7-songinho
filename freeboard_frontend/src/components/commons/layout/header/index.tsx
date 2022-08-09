@@ -92,6 +92,7 @@ const Basket = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 const Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -101,6 +102,17 @@ const Wrapper = styled.div`
   top: 0px;
   left: 0px;
   background: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Head = styled.div`
+  width: 1024px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 `;
 
 const WrapTitle = styled.div`
@@ -116,28 +128,27 @@ const WrapInfo = styled.div`
 
 const Title1 = styled.div`
   font-weight: 800;
-  font-size: 70px;
+  font-size: 60px;
   padding-right: 20px;
   color: #ffc107;
 `;
 
 const Title2 = styled.div`
   font-weight: 800;
-  font-size: 50px;
+  font-size: 40px;
 `;
 
 const Main = styled.div`
+  width: 1024px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 50px 0;
-
-  width: 80%;
+  padding: 10px 0;
   margin: 0 auto;
 `;
 
 const Label = styled.div`
-  padding-left: 65px;
+  padding-left: 20px;
   cursor: pointer;
   padding-right: 5px;
 `;
@@ -147,7 +158,8 @@ const WrapBasket = styled.div`
 `;
 
 const Underline = styled.div`
-  border-bottom: 1px solid black;
+  width: 100%;
+  border-bottom: 1px solid #555555;
 `;
 
 export default function Header() {
@@ -189,11 +201,7 @@ export default function Header() {
 
   return (
     <Wrapper>
-      <Main>
-        <WrapTitle onClick={onClickTitle}>
-          <Title1>&#123; &#125;</Title1>
-          <Title2>PORTFOLIO</Title2>
-        </WrapTitle>
+      <Head>
         <WrapInfo>
           <Label>
             {data
@@ -211,8 +219,14 @@ export default function Header() {
             <Basket>{basketPage.length}</Basket>
           </WrapBasket>
         </WrapInfo>
-      </Main>
+      </Head>
       <Underline></Underline>
+      <Main>
+        <WrapTitle onClick={onClickTitle}>
+          <Title1>&#123; &#125;</Title1>
+          <Title2>PORTFOLIO</Title2>
+        </WrapTitle>
+      </Main>
     </Wrapper>
   );
 }
