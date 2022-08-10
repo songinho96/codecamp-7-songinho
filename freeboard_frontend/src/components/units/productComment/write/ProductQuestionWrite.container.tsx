@@ -11,6 +11,7 @@ import { Modal } from "antd";
 
 import { useRouter } from "next/router";
 import ProductQuestionWritePresenter from "./ProductQuestionWrite.presenter";
+import { useState } from "react";
 
 const schema = yup.object({
   contents: yup.string().required("문의사항을 입력해주세요."),

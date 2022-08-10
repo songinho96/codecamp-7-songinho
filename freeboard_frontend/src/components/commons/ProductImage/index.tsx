@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
+import { Image } from "antd";
 import { useRouter } from "next/router";
 import React from "react";
 import Slider from "react-slick";
@@ -40,18 +41,12 @@ const SliderWrap = styled(Slider)`
   }
 
   .slick-dots {
-    bottom: -60px;
+    bottom: -90px;
   }
   .slick-dots li button:before {
     color: blue;
     font-size: 15px;
   }
-`;
-
-export const Image = styled.img`
-  width: 480px;
-  height: 480px;
-  border: 1px solid gray;
 `;
 
 export default function ProductImage() {
@@ -69,16 +64,32 @@ export default function ProductImage() {
     autoplay: true,
     autoplaySpeed: 2000,
   };
+
   return (
     <div>
       <SliderWrapper>
-        <SliderWrap {...settings}>
-          {data?.fetchUseditem.images
-            ?.filter((el) => el)
-            .map((el) => (
-              <Image key={el} src={`https://storage.googleapis.com/${el}`} />
-            ))}
-        </SliderWrap>
+        {data?.fetchUseditem.images[0] ? (
+          <SliderWrap {...settings}>
+            {data?.fetchUseditem.images
+              ?.filter((el) => el)
+              .map((el) => (
+                <Image
+                  style={{ border: "1px solid gray" }}
+                  width={480}
+                  height={480}
+                  key={el}
+                  src={`https://storage.googleapis.com/${el}`}
+                />
+              ))}
+          </SliderWrap>
+        ) : (
+          <Image
+            style={{ border: "1px solid gray" }}
+            width={480}
+            height={480}
+            src="/images/noimage.gif/"
+          />
+        )}
       </SliderWrapper>
     </div>
   );

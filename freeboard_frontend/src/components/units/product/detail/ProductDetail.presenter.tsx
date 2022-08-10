@@ -1,13 +1,18 @@
 import {
+  ClockCircleFilled,
   DeleteOutlined,
   EnvironmentOutlined,
   FormOutlined,
+  HeartFilled,
 } from "@ant-design/icons";
 import { Image, Tag } from "antd";
 import DOMPurify from "dompurify";
 import React from "react";
+import { getDateToday } from "../../../commons/libraries/utils";
 import KakaoMapPageRouted from "../../../commons/maps/kakaorouted";
 import ProductImage from "../../../commons/ProductImage";
+import ProductQuestionListContainer from "../../productComment/list/ProductQuestionList.container";
+import ProductQuestionWriteContainer from "../../productComment/write/ProductQuestionWrite.container";
 import * as S from "./ProductDetail.styles";
 export default function ProductDetailPresenter(props) {
   return (
@@ -32,8 +37,27 @@ export default function ProductDetailPresenter(props) {
             {props.data?.fetchUseditem.price.toLocaleString("ko-KR")} 원
           </S.Price>
           <S.Underline></S.Underline>
-          <S.Contents>{props.data?.fetchUseditem.remarks}</S.Contents>
+          <S.WrapInfo>
+            <S.WrapHeart>
+              <HeartFilled style={{ color: "#cccccc", fontSize: "20px" }} />
+              <S.Count>{props.data?.fetchUseditem.pickedCount} </S.Count>
+            </S.WrapHeart>
+            <S.WrapHeart>
+              <ClockCircleFilled
+                style={{ color: "#cccccc", fontSize: "20px" }}
+              />
+              <S.Count>
+                {" "}
+                {getDateToday(props.data?.fetchUseditem.createdAt)}
+              </S.Count>
+            </S.WrapHeart>
+          </S.WrapInfo>
+          <S.WrapRemarks>
+            <S.Remark>한줄 요약</S.Remark>
+            <S.Contents>{props.data?.fetchUseditem.remarks}</S.Contents>
+          </S.WrapRemarks>
           <S.WrapTags>
+            <S.Remark>상품태그</S.Remark>
             <S.Tags>
               {props.data?.fetchUseditem.tags
                 ?.filter((el) => el)
@@ -42,6 +66,13 @@ export default function ProductDetailPresenter(props) {
                 ))}
             </S.Tags>
           </S.WrapTags>
+          <S.WrapLocation>
+            <S.Remark>거래지역</S.Remark>
+            <S.Contents>
+              <EnvironmentOutlined style={{ marginRight: 7 }} />
+              {props.data?.fetchUseditem.useditemAddress?.address}
+            </S.Contents>
+          </S.WrapLocation>
           <S.WrapButton>
             <S.Pickbutton onClick={props.onClickPick}>
               찜 {props.data?.fetchUseditem.pickedCount}
@@ -55,84 +86,61 @@ export default function ProductDetailPresenter(props) {
       </S.Header>
       <S.Underline></S.Underline>
       <S.Body>
-        <S.ProductContents>
-          {typeof window !== "undefined" ? (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(props.data?.fetchUseditem.contents),
-              }}
-            ></div>
-          ) : (
-            ""
+        <S.WrapProduct>
+          <S.WrapProductContents>
+            <S.Title>상품정보</S.Title>
+            <S.ProductContents>
+              {typeof window !== "undefined" ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(
+                      props.data?.fetchUseditem.contents
+                    ),
+                  }}
+                ></div>
+              ) : (
+                ""
+              )}
+            </S.ProductContents>
+          </S.WrapProductContents>
+
+          {props.data?.fetchUseditem.useditemAddress?.lat && (
+            <S.WrapMap>
+              <S.Title>거래지역</S.Title>
+              <KakaoMapPageRouted
+                lat={props.data?.fetchUseditem.useditemAddress?.lat}
+                lng={props.data?.fetchUseditem.useditemAddress?.lng}
+              />
+              <S.WrapAddress>
+                <S.Address>
+                  <EnvironmentOutlined style={{ marginRight: 20 }} />
+                  {props.data?.fetchUseditem.useditemAddress?.address}
+                </S.Address>
+                <S.Address>
+                  {props.data?.fetchUseditem.useditemAddress?.addressDetail}
+                </S.Address>
+              </S.WrapAddress>
+            </S.WrapMap>
           )}
-        </S.ProductContents>
+        </S.WrapProduct>
+        <S.DiveideLine></S.DiveideLine>
+        <S.WrapComment>
+          <S.Title>판매자 정보</S.Title>
+          <S.WrapSeller>
+            {props.data?.fetchUseditem.seller.picture ? (
+              <S.ProfileImage>
+                {props.data?.fetchUseditem.seller?.picture}
+              </S.ProfileImage>
+            ) : (
+              <S.Profile src="/commentBoard/profile-Icon.svg" />
+            )}
 
-        {props.data?.fetchUseditem.useditemAddress?.lat && (
-          <S.WrapMap>
-            <KakaoMapPageRouted
-              lat={props.data?.fetchUseditem.useditemAddress?.lat}
-              lng={props.data?.fetchUseditem.useditemAddress?.lng}
-            />
-            <S.WrapAddress>
-              <S.Address>
-                <EnvironmentOutlined style={{ marginRight: 20 }} />
-                {props.data?.fetchUseditem.useditemAddress?.address}
-              </S.Address>
-              <S.Address>
-                {props.data?.fetchUseditem.useditemAddress?.addressDetail}
-              </S.Address>
-            </S.WrapAddress>
-          </S.WrapMap>
-        )}
+            <S.UserId>{props.data?.fetchUseditem.seller.name}</S.UserId>
+          </S.WrapSeller>
+          <ProductQuestionWriteContainer />
+          <ProductQuestionListContainer />
+        </S.WrapComment>
       </S.Body>
-
-      {/* {props.data?.fetchUseditem.images
-        ?.filter((el) => el)
-        .map((el) => (
-          <S.WrapImage key={el}>
-            <Image
-              style={{ width: 300, backgroundColor: "gray" }}
-              src={`https://storage.googleapis.com/${el}`}
-            />
-          </S.WrapImage>
-        ))}
-
-      <S.ProductName>{props.data?.fetchUseditem.name}</S.ProductName>
-      <S.ProductPrice>{props.data?.fetchUseditem.price}</S.ProductPrice>
-      <S.ProductContents>
-        {typeof window !== "undefined" ? (
-          <div
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(props.data?.fetchUseditem.contents),
-            }}
-          ></div>
-        ) : (
-          ""
-        )}
-      </S.ProductContents>
-      <S.ProductTag>ProductTag</S.ProductTag>
-
-      <S.WrapEditDelete>
-        <FormOutlined
-          style={{ fontSize: 50, marginRight: 20 }}
-          onClick={props.onClickEdit}
-        />
-        <DeleteOutlined
-          style={{ fontSize: 50 }}
-          onClick={props.onClickDelete}
-        />
-      </S.WrapEditDelete>
-
-      <S.BasketButton onClick={props.onClickBasket} isBaskets={props.isBaskets}>
-        {props.isBaskets ? "장바구니삭제" : "장바구니담기"}
-      </S.BasketButton>
-
-      <S.ListButton>ListButton</S.ListButton>
-      <S.BuyButton onClick={props.onClickBuy}>BuyButton</S.BuyButton>
-      <S.PickButton onClick={props.onClickPick} myPick={props.myPick}>
-        찜하기
-      </S.PickButton>
-       */}
     </S.Wrapper>
   );
 }

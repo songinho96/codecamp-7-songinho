@@ -1,9 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  padding-left: 100px;
-  width: 1200px;
-  margin: 30px 0;
+  margin: 15px 0;
 `;
 
 export const WrapperComment = styled.div`
@@ -14,12 +12,24 @@ export const WrapperComment = styled.div`
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
+  padding-left: 15px;
   /* margin-top: 20px; */
 `;
 
+export const WrapComment = styled.div`
+  display: flex;
+`;
+
+export const AnswerIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-right: 5px;
+`;
+
 export const ProfileIcon = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   padding-right: 16px;
 `;
 
@@ -68,7 +78,6 @@ export const Delete = styled.img`
 
 export const Contents = styled.div`
   font-size: 16px;
-  padding-bottom: 20px;
 `;
 
 export const Date = styled.div`
@@ -85,7 +94,6 @@ export const Underline = styled.div`
 export const Scroll = styled.div`
   height: 867px;
   overflow: auto;
-  width: 1240px;
 
   margin: 0px auto;
   margin-bottom: 200px;

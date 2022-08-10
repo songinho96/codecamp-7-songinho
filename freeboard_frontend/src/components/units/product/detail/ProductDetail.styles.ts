@@ -61,23 +61,56 @@ export const Price = styled.div`
 export const Underline = styled.div`
   width: 100%;
   border-top: 4px solid black;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 `;
 
-export const Contents = styled.div`
-  width: 800px;
+export const WrapInfo = styled.div`
+  display: flex;
+  padding-bottom: 15px;
+`;
 
-  padding-bottom: 30px;
+export const WrapHeart = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+`;
+
+export const Count = styled.div`
+  font-size: 20px;
+  padding-left: 7px;
+  color: #cccccc;
+`;
+
+export const WrapRemarks = styled.div`
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  padding-bottom: 10px;
+`;
+
+export const Remark = styled.div`
+  font-size: 1.4rem;
+  color: #b5b5b5;
+`;
+export const Contents = styled.div`
+  padding-top: 7px;
+  font-size: 1rem;
 `;
 
 export const WrapTags = styled.div`
   display: flex;
-  border-bottom: 1px solid black;
   padding-bottom: 30px;
+  flex-direction: column;
 `;
 
 export const Tags = styled.div`
   margin-right: 10px;
+  padding-top: 7px;
+`;
+
+export const WrapLocation = styled.div`
+  padding-bottom: 30px;
+  border-bottom: 1.5px solid #eeeeee;
 `;
 
 export const WrapButton = styled.div`
@@ -115,7 +148,28 @@ export const BuyButton = styled.button`
 
 export const Body = styled.div`
   display: flex;
-  padding-top: 70px;
+  padding-top: 30px;
+`;
+
+export const WrapProduct = styled.div`
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-right: 1.5px solid #eeeeee;
+  padding-right: 30px;
+`;
+
+export const WrapProductContents = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Title = styled.div`
+  font-size: 1.3rem;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid #eeeeee;
+  font-weight: 700;
 `;
 
 // export const Wrapper = styled.div`
@@ -151,10 +205,10 @@ export const Body = styled.div`
 // `;
 
 export const ProductContents = styled.div`
-  width: 996px;
   font-size: 17px;
-  padding-left: 130px;
-  padding-bottom: 10px;
+  padding: 20px 0;
+  border-bottom: 1.5px solid #eeeeee;
+  height: 200px;
 `;
 
 // export const ProductTag = styled.div`
@@ -189,6 +243,8 @@ export const ProductContents = styled.div`
 export const WrapMap = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 30px;
+  border-bottom: 1.5px solid #eeeeee;
 `;
 
 export const WrapAddress = styled.div`
@@ -200,12 +256,34 @@ export const WrapAddress = styled.div`
 export const Address = styled.div`
   font-size: 20px;
   font-weight: bold;
-  height: 50px;
   margin: 10px;
 `;
 
-export const Map = styled.div`
-  width: 792px;
-  height: 360px;
-  background-color: gray;
+export const DiveideLine = styled.div`
+  height: 170px;
+  width: 0.02vw;
+  border-width: 1;
+  background-color: white;
+`;
+
+export const WrapComment = styled.div`
+  width: 40%;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const WrapSeller = styled.div`
+  display: flex;
+  padding: 15px 0 15px 15px;
+  align-items: center;
+  border-bottom: 1.5px solid #eeeeee;
+`;
+
+export const ProfileImage = styled.div``;
+
+export const Profile = styled.img``;
+
+export const UserId = styled.div`
+  margin-left: 20px;
 `;

@@ -1,9 +1,17 @@
 // import Head from "next/head";
+
+import styled from "@emotion/styled";
 import { useEffect } from "react";
 
 declare const window: typeof globalThis & {
   kakao: any;
 };
+
+const Wrapper = styled.div`
+  width: 1024px;
+  padding-top: 20px;
+  padding-right: 30px;
+`;
 
 export default function KakaoMapPageRoute(props) {
   useEffect(() => {
@@ -51,8 +59,8 @@ export default function KakaoMapPageRoute(props) {
   }, []);
 
   return (
-    <div>
-      <div id="map" style={{ width: 800, height: 360 }}></div>
-    </div>
+    <Wrapper>
+      <div id="map" style={{ width: "60%", height: 360 }}></div>
+    </Wrapper>
   );
 }

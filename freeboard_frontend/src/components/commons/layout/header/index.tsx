@@ -56,7 +56,7 @@
 //   );
 // }
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import { useMoveToPage } from "../../hooks/useMoveToPage";
 import { gql, useMutation, useQuery } from "@apollo/client";

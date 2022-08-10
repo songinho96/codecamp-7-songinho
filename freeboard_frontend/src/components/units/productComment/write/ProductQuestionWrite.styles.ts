@@ -13,22 +13,24 @@ export const Wrapper = styled.div`
 `;
 
 export const Body = styled.div`
-  width: 80%;
   margin: 0 auto;
 `;
 
 export const WrapTitle = styled.div`
   display: flex;
-  padding-bottom: 40px;
+  align-items: center;
+  padding: 40px 0 20px 0;
 `;
 
-export const TitlePicture = styled.img`
-  width: 20px;
-  height: 20px;
-`;
+// export const TitlePicture = styled.img`
+//   width: 20px;
+//   height: 20px;
+// `;
 
 export const Title = styled.div`
-  padding-left: 14px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  width: 100%;
 `;
 
 export const WrapperWriteComment = styled.div`
@@ -36,10 +38,11 @@ export const WrapperWriteComment = styled.div`
   flex-direction: column;
 `;
 
-export const WriteContent = styled.input`
-  /* width: 1200px; */
+export const WriteContent = styled.textarea`
+  width: 100%;
   height: 108px;
-  padding: 20px;
+  padding: 10px;
+  resize: none;
 `;
 
 export const WriteFooter = styled.div`
@@ -56,8 +59,14 @@ export const WriteNum = styled.div`
 `;
 
 export const CommentButton = styled.button`
-  width: 10%;
   height: 52px;
+  width: 100px;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: #ffa425;
+  margin-left: 10px;
 `;
 
 export const Contents = styled.div`
