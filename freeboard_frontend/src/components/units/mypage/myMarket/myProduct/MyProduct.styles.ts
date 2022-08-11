@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1000px;
-  height: 100%;
+  width: 70%;
   border-bottom: 2px solid gray;
   margin: auto 0;
 `;
@@ -30,12 +29,12 @@ export const Index = styled.div`
 `;
 
 export const Name = styled.div`
-  width: 40%;
+  width: 20%;
   text-align: center;
 `;
 
 export const NameMove = styled.div`
-  width: 40%;
+  width: 20%;
   cursor: pointer;
   :hover {
     color: red;
@@ -50,7 +49,7 @@ export const IsBuyer = styled.div`
 `;
 
 export const Price = styled.div`
-  width: 10%;
+  width: 30%;
   /* text-align: start; */
 `;
 

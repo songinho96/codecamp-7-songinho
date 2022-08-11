@@ -3,16 +3,18 @@ import styled from "@emotion/styled";
 import React from "react";
 import { useMoveToPage } from "../hooks/useMoveToPage";
 const Wraaper = styled.div`
-  width: 400px;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 1200px;
   justify-content: center;
 `;
 
+const WrapTitle = styled.div`
+  display: flex;
+`;
+
 const MyPage = styled.div`
-  font-size: 50px;
   padding-bottom: 50px;
 `;
 
@@ -81,7 +83,10 @@ export default function MypageSidebar() {
   return (
     <>
       <Wraaper>
-        <MyPage>MYPAGE</MyPage>
+        <WrapTitle>
+          <MyPage>Home</MyPage>
+          <MyPage>나의 메뉴</MyPage>
+        </WrapTitle>
         <WrapProfile>
           <ProfileImage src="/detailBoard/profile-Icon.svg" />
           <ProfileName> {data?.fetchUserLoggedIn.email}</ProfileName>

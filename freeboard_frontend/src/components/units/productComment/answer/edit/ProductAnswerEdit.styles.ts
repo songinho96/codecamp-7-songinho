@@ -77,7 +77,10 @@ export const Delete = styled.img`
 `;
 
 export const Contents = styled.div`
-  font-size: 16px;
+  font-size: 13px;
+  color: rgb(136, 136, 136);
+  line-height: 1.4;
+  flex-wrap: wrap;
 `;
 
 export const Date = styled.div`

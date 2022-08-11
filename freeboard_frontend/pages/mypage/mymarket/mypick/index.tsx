@@ -4,7 +4,7 @@ import MypageSidebar from "../../../../src/components/commons/mypage";
 import MyPickContainer from "../../../../src/components/units/mypage/myMarket/myPick/MyPick.container";
 
 const Wrapper = styled.div`
-  width: 80%;
+  width: 1024px;
   margin: auto;
   display: flex;
 `;
