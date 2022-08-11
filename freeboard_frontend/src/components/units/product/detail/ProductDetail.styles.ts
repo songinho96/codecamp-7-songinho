@@ -40,6 +40,7 @@ export const WrapTitle = styled.div`
 export const ProductName = styled.div`
   font-size: 24px;
   font-weight: 600;
+  word-break: break-all;
 `;
 
 export const WrapIcon = styled.div`
@@ -95,6 +96,7 @@ export const Remark = styled.div`
 export const Contents = styled.div`
   padding-top: 7px;
   font-size: 1rem;
+  word-break: break-all;
 `;
 
 export const WrapTags = styled.div`
@@ -208,7 +210,6 @@ export const ProductContents = styled.div`
   font-size: 17px;
   padding: 20px 0;
   border-bottom: 1.5px solid #eeeeee;
-  height: 200px;
 `;
 
 // export const ProductTag = styled.div`

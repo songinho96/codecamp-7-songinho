@@ -17,14 +17,13 @@ export const Myproduct = styled.div`
   margin-right: 40px;
   font-size: 1.2rem;
   cursor: pointer;
-  font-weight: 700;
-  border-bottom: 2px solid black;
 `;
 
 export const Mypick = styled.div`
   font-size: 1.2rem;
   cursor: pointer;
-  font-weight: ${(props) => (props.soldclick ? 700 : 400)};
+  font-weight: 700;
+  border-bottom: 2px solid black;
 `;
 
 export const WrapperSearch = styled.div``;

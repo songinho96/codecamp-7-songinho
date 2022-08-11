@@ -150,7 +150,12 @@ export const WrapProductDetail = styled.div`
 `;
 
 export const ProductName = styled.div`
-  font-size: 16px;
+  font-size: 0.9rem;
+  overflow: hidden;
+  /* display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; */
 `;
 
 export const WrapDate = styled.div`
@@ -160,8 +165,8 @@ export const WrapDate = styled.div`
 `;
 
 export const ProductPrice = styled.div`
-  font-weight: 100;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 1rem;
 `;
 
 export const ProductDate = styled.div`

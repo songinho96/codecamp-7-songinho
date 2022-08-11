@@ -1,9 +1,17 @@
+import { EnvironmentFilled } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 70%;
   border-bottom: 2px solid gray;
-  margin: auto 0;
+  margin: 0 auto;
+`;
+
+export const WrapHeader = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0 25px;
+  justify-content: space-between;
 `;
 
 export const Count = styled.div`
@@ -12,10 +20,36 @@ export const Count = styled.div`
   margin: 15px 0;
 `;
 
+export const WrapperSearch = styled.div`
+  width: 190px;
+  height: 30px;
+  background: white;
+  border-radius: 5px;
+  padding: 8px;
+  display: flex;
+  cursor: pointer;
+  border: 1px solid #d1d1d6;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const SearchIcon = styled.img``;
+
+export const Searchbar = styled.input`
+  width: 180px;
+  height: 25px;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 export const WrapperList = styled.div`
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-rows: 2fr;
   grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
 `;
 
 export const WrapProductList = styled.div`
@@ -42,7 +76,7 @@ export const WrapProductDetail = styled.div`
 `;
 
 export const ProductName = styled.div`
-  font-size: 16px;
+  font-size: 0.9rem;
 `;
 
 export const WrapDate = styled.div`
@@ -52,12 +86,34 @@ export const WrapDate = styled.div`
 `;
 
 export const ProductPrice = styled.div`
-  font-weight: 100;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 1rem;
 `;
 
 export const ProductDate = styled.div`
   font-size: 0.7rem;
+`;
+
+export const WrapAddress = styled.div`
+  width: 194px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d1d6;
+  border-top: none;
+  padding: 10px;
+  flex-wrap: wrap;
+`;
+
+export const ProductAddressIcon = styled(EnvironmentFilled)`
+  color: #a8a8a8;
+  font-size: 0.9rem;
+`;
+
+export const ProductAddress = styled.div`
+  color: #a8a8a8;
+  font-size: 0.9rem;
+  margin-left: 10px;
 `;
 
 // export const TableRow = styled.div`

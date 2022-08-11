@@ -1,13 +1,13 @@
 import React from "react";
 import { getDate } from "../../../../commons/libraries/utils";
-import SearchbarMymarketContainer from "../../../../commons/searchbars/myMarket/SearchbarMymarket.container";
+import SearchbarMymarketPickPresenter from "../../../../commons/searchbars/myMarket/pick/SearchbarMymarket.container";
 
 import * as S from "./MyPick.styles";
 
 export default function MyProductPresenter(props) {
   return (
     <S.Wrapper>
-      <SearchbarMymarketContainer refetch={props.refetch} />
+      <SearchbarMymarketPickPresenter refetch={props.refetch} />
       <S.TableRow>
         <S.Index>번호</S.Index>
         <S.Name>상품명</S.Name>
