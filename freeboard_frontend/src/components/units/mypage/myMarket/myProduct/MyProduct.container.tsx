@@ -4,7 +4,10 @@ import React from "react";
 import { useAuth } from "../../../../commons/hooks/useAuth";
 import MyProductPresenter from "./MyProduct.presenter";
 
-import { FETCH_USED_ITEMS_I_SOLD } from "./MyProduct.queries";
+import {
+  FETCH_USED_ITEMS_COUNT_I_SOLD,
+  FETCH_USED_ITEMS_I_SOLD,
+} from "./MyProduct.queries";
 
 export default function MyProductContainer() {
   useAuth();
@@ -12,6 +15,7 @@ export default function MyProductContainer() {
   const { data, refetch } = useQuery(FETCH_USED_ITEMS_I_SOLD, {
     variables: { page: 1 },
   });
+  const { data: soldData } = useQuery(FETCH_USED_ITEMS_COUNT_I_SOLD);
 
   const onClickMoveToDetail = (event) => {
     router.push(`/products/${event.target.id}`);
@@ -23,6 +27,7 @@ export default function MyProductContainer() {
       data={data}
       onClickMoveToDetail={onClickMoveToDetail}
       refetch={refetch}
+      soldData={soldData}
     />
   );
 }

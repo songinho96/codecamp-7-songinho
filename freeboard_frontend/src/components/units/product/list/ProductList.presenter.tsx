@@ -78,7 +78,9 @@ export default function ProductListPresenter(props) {
                     <S.WrapProductDetail>
                       <S.ProductName>{el.name}</S.ProductName>
                       <S.WrapDate>
-                        <S.ProductPrice>{el.price}원</S.ProductPrice>
+                        <S.ProductPrice>
+                          {el.price.toLocaleString("ko-KR")}원
+                        </S.ProductPrice>
                         <S.ProductDate>
                           {getDateToday(el.createdAt)}
                         </S.ProductDate>

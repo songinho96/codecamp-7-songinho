@@ -21,7 +21,7 @@ export default function SearchbarMymarketPresenter(props) {
           나의 상품
         </S.Myproduct>
         <S.Mypick onClick={onClickMoveToPage("/mypage/mymarket/mypick")}>
-          마이찜
+          찜한 상품
         </S.Mypick>
       </S.WrapMove>
       <S.WrapperSearch>

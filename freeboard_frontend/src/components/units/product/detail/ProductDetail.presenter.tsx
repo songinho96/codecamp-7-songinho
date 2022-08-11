@@ -5,7 +5,7 @@ import {
   FormOutlined,
   HeartFilled,
 } from "@ant-design/icons";
-import { Image, Tag } from "antd";
+import { Tag } from "antd";
 import DOMPurify from "dompurify";
 import React from "react";
 import { getDateToday } from "../../../commons/libraries/utils";
