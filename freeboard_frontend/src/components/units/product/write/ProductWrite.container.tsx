@@ -149,7 +149,7 @@ export default function ProductWriteContainer(props) {
   }, [props.productData]);
 
   useEffect(() => {
-    if (props.productData?.fetchUseditem.useditemAddress?.address.length) {
+    if (props.productData?.fetchUseditem.useditemAddress?.address?.length) {
       setAddressClick(
         props.productData?.fetchUseditem.useditemAddress?.address
       );

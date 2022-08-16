@@ -6,10 +6,21 @@ export const FETCH_USED_I_PICKED = gql`
       _id
       name
       price
+      soldAt
       seller {
         name
       }
       createdAt
+      images
+      useditemAddress {
+        address
+      }
     }
+  }
+`;
+
+export const FETCH_USED_ITEMS_COUNT_I_PICKED = gql`
+  query fetchUseditemsCountIPicked {
+    fetchUseditemsCountIPicked
   }
 `;

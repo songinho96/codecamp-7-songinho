@@ -16,7 +16,7 @@ export default function MyProductContainer() {
   const { data, refetch } = useQuery(FETCH_USED_ITEMS_I_SOLD, {
     variables: { page: 1 },
   });
-  const { data: soldData } = useQuery(FETCH_USED_ITEMS_COUNT_I_SOLD);
+  const { data: soldCount } = useQuery(FETCH_USED_ITEMS_COUNT_I_SOLD);
 
   const onClickMoveToDetail = (event) => {
     router.push(`/products/${event.target.id}`);
@@ -36,7 +36,7 @@ export default function MyProductContainer() {
       data={data}
       onClickMoveToDetail={onClickMoveToDetail}
       refetch={refetch}
-      soldData={soldData}
+      soldCount={soldCount}
       onChangeSearch={onChangeSearch}
     />
   );

@@ -1,6 +1,7 @@
 import { EnvironmentFilled } from "@ant-design/icons";
 import React from "react";
 import { getDateToday } from "../../../../commons/libraries/utils";
+import PaginationMyProduct from "../../../../commons/paginations/myProduct/Paginationsbasic.container";
 import SearchbarMymarketSoldPresenter from "../../../../commons/searchbars/myMarket/SearchbarMymarket.container";
 
 import * as S from "./MyProduct.styles";
@@ -30,7 +31,7 @@ export default function MyProductPresenter(props) {
         </S.WrapProduct>
       ))} */}
       <S.WrapHeader>
-        <S.Count>전체: {props.soldData?.fetchUseditemsCountISold} </S.Count>
+        <S.Count>전체: {props.soldCount?.fetchUseditemsCountISold} </S.Count>
         <S.WrapperSearch>
           <S.Searchbar
             placeholder="상품명을 검색해주세요"
@@ -46,14 +47,19 @@ export default function MyProductPresenter(props) {
             key={el._id}
             id={el._id}
           >
-            <S.ProductImage
-              src={
-                el.images[0]
-                  ? `https://storage.googleapis.com/${el.images[0]}`
-                  : "/list/noimage.gif"
-              }
-              id={el._id}
-            />
+            <S.WrapProductImage>
+              {el.soldAt && <S.ProductSold>판매완료</S.ProductSold>}
+
+              <S.ProductImage
+                src={
+                  el.images[0]
+                    ? `https://storage.googleapis.com/${el.images[0]}`
+                    : "/list/noimage.gif"
+                }
+                id={el._id}
+                soldAt={el.soldAt}
+              />
+            </S.WrapProductImage>
             <S.WrapProductDetail>
               <S.ProductName>{el.name}</S.ProductName>
               <S.WrapDate>
@@ -76,6 +82,10 @@ export default function MyProductPresenter(props) {
           </S.WrapProductList>
         ))}
       </S.WrapperList>
+      <PaginationMyProduct
+        refetch={props.refetch}
+        soldCount={props.soldCount}
+      />
     </S.Wrapper>
   );
 }

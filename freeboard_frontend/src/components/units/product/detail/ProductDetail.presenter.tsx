@@ -70,7 +70,9 @@ export default function ProductDetailPresenter(props) {
             <S.Remark>거래지역</S.Remark>
             <S.Contents>
               <EnvironmentOutlined style={{ marginRight: 7 }} />
-              {props.data?.fetchUseditem.useditemAddress?.address}
+              {props.data?.fetchUseditem.useditemAddress?.address
+                ? `${props.data?.fetchUseditem.useditemAddress?.address}`
+                : "전국"}
             </S.Contents>
           </S.WrapLocation>
           <S.WrapButton>

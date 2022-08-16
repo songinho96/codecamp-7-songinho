@@ -58,10 +58,28 @@ export const WrapProductList = styled.div`
   cursor: pointer;
 `;
 
+export const WrapProductImage = styled.div`
+  width: 194px;
+  height: 194px;
+`;
+
+export const ProductSold = styled.div`
+  position: absolute;
+  width: 194px;
+  height: 194px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  z-index: 10;
+`;
+
 export const ProductImage = styled.img`
   width: 194px;
   height: 194px;
   border: 1px solid #d1d1d6;
+  filter: ${(props) => props.soldAt && "brightness(45%)"};
+  background: ${(props) => props.soldAt && "rgba(0, 0, 0, 0.55)"};
 `;
 
 export const WrapProductDetail = styled.div`
@@ -77,6 +95,9 @@ export const WrapProductDetail = styled.div`
 
 export const ProductName = styled.div`
   font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const WrapDate = styled.div`
@@ -102,7 +123,7 @@ export const WrapAddress = styled.div`
   border: 1px solid #d1d1d6;
   border-top: none;
   padding: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 `;
 
 export const ProductAddressIcon = styled(EnvironmentFilled)`
@@ -114,6 +135,9 @@ export const ProductAddress = styled.div`
   color: #a8a8a8;
   font-size: 0.9rem;
   margin-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 // export const TableRow = styled.div`
