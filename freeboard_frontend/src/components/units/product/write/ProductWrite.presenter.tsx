@@ -83,6 +83,8 @@ export default function ProductWritePresenter(props) {
                 setGetLng={props.setGetLng}
                 getLat={props.getLat}
                 getLng={props.getLng}
+                setAddress={props.setAddress}
+                onClickCurrent={props.onClickCurrent}
               />
 
               {props.isModalVisible && (
@@ -99,9 +101,14 @@ export default function ProductWritePresenter(props) {
             </S.WrapMap>
             <S.WrapperGpsLocation>
               <S.WrapAddress>
-                <S.SearchButton onClick={props.showModal}>
-                  주소 검색
-                </S.SearchButton>
+                <S.WrapSearch>
+                  <S.SearchButton onClick={props.showModal}>
+                    주소 검색
+                  </S.SearchButton>
+                  {/* <S.SearchButton onClick={props.onClickCurrent}>
+                    현 주소로
+                  </S.SearchButton> */}
+                </S.WrapSearch>
                 <S.Label>주소</S.Label>
                 {/* <S.Address readOnly defaultValue={props.addressClick} /> */}
                 <S.Address

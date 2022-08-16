@@ -184,7 +184,7 @@ export default function ProductWriteContainer(props) {
 
   // 현재위치
 
-  // const onClickgetLocation = () => {
+  // const onClickCurrent = () => {
   //   let lat, lng;
   //   if (navigator.geolocation) {
   //     // GPS를 지원하면
@@ -244,7 +244,9 @@ export default function ProductWriteContainer(props) {
       address={address}
       showModal={showModal}
       handleComplete={handleComplete}
-      // onClickgetLocation={onClickgetLocation}
+      // 현재 위치
+      // onClickCurrent={onClickCurrent}
+      setAddress={setAddress}
     />
   );
 }

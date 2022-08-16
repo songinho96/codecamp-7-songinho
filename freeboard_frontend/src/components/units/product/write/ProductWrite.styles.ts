@@ -93,6 +93,10 @@ export const WrapAddress = styled.div`
   flex-direction: column;
 `;
 
+export const WrapSearch = styled.div`
+  display: flex;
+`;
+
 export const Address = styled.input`
   width: 588px;
   height: 52px;
@@ -159,4 +163,6 @@ export const SearchButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 10px;
+  cursor: pointer;
 `;

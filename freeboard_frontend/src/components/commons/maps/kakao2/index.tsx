@@ -49,20 +49,30 @@ export default function KakaoMapPage2(props) {
 
         const map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
 
-        // // 현재 위치
         // // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
-
         // if (navigator.geolocation) {
         //   // GeoLocation을 이용해서 접속 위치를 얻어옵니다
         //   navigator.geolocation.getCurrentPosition(function (position) {
         //     const lat = position.coords.latitude; // 위도
-        //     const lon = position.coords.longitude; // 경도
+        //     const lng = position.coords.longitude; // 경도
 
-        //     const locPosition = new window.kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-        //     const message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+        //     getAddr(lat, lng);
+        //     function getAddr(lat: any, lng: any) {
+        //       const geocoder = new window.kakao.maps.services.Geocoder();
 
-        //     // 마커와 인포윈도우를 표시합니다
-        //     displayMarker(locPosition, message);
+        //       const coords = new window.kakao.maps.LatLng(lat, lng);
+        //       const callback = function (result: any, status: any) {
+        //         if (status === window.kakao.maps.services.Status.OK) {
+        //           props.setAddress(result[0].address.address_name);
+        //           console.log(result);
+        //         }
+        //       };
+        //       geocoder.coord2Address(
+        //         coords.getLng(),
+        //         coords.getLat(),
+        //         callback
+        //       );
+        //     }
         //   });
         // } else {
         //   // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
@@ -76,7 +86,8 @@ export default function KakaoMapPage2(props) {
         //   displayMarker(locPosition, message);
         // }
 
-        // function displayMarker(locPosition: any, message: any) {
+        // // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+        // function displayMarker(locPosition, message) {
         //   // 마커를 생성합니다
         //   const marker = new window.kakao.maps.Marker({
         //     map,
@@ -97,23 +108,6 @@ export default function KakaoMapPage2(props) {
 
         //   // 지도 중심좌표를 접속위치로 변경합니다
         //   map.setCenter(locPosition);
-        // }
-
-        // getAddr(props.getLat, props.getLng);
-        // function getAddr(lat: any, lng: any) {
-        //   const geocoder = new window.kakao.maps.services.Geocoder();
-
-        //   const coord = new window.kakao.maps.LatLng(
-        //     props.getLat,
-        //     props.getLng
-        //   );
-        //   const callback = function (result, status) {
-        //     if (status === window.kakao.maps.services.Status.OK) {
-        //       console.log(result);
-        //     }
-        //   };
-
-        //   geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
         // }
 
         // 주소-좌표 변환 객체를 생성합니다
@@ -148,18 +142,69 @@ export default function KakaoMapPage2(props) {
               map.setCenter(coords);
             }
 
-            // function getInfo() {
-            //   // 지도의 현재 중심좌표를 얻어옵니다
-            //   const center = map.getCenter();
-            //   // 지도의 현재 영역을 얻어옵니다
-            //   let message =
-            //     "지도 중심좌표는 위도 " + center.getLat() + ", <br>";
-            //   message += "경도 " + center.getLng() + " 이고 <br>";
-            //   console.log(message);
-            //   props.setGetLat(center.getLat());
-            //   props.setGetLng(center.getLng());
+            // const lat = props.getLat;
+            // const lng = props.getLng;
+
+            // getAddr(lat, lng);
+            // function getAddr(lat: any, lng: any) {
+            //   const geocoder = new window.kakao.maps.services.Geocoder();
+
+            //   const coords = new window.kakao.maps.LatLng(lat, lng);
+            //   const callback = function (result: any, status: any) {
+            //     if (status === window.kakao.maps.services.Status.OK) {
+            //       props.setAddress(result[0].address.address_name);
+            //       console.log(result);
+            //     }
+            //   };
+            //   geocoder.coord2Address(
+            //     coords.getLng(),
+            //     coords.getLat(),
+            //     callback
+            //   );
             // }
-            // getInfo();
+
+            // 지도에 클릭 이벤트를 등록합니다
+
+            // // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+            // window.kakao.maps.event.addListener(
+            //   map,
+            //   "click",
+            //   function (mouseEvent) {
+            //     // 클릭한 위도, 경도 정보를 가져옵니다
+            //     const latlng = mouseEvent.latLng;
+
+            //     console.log(
+            //       "클릭한 위치의 위도는 " +
+            //         latlng.getLat() +
+            //         " 이고, 경도는 " +
+            //         latlng.getLng() +
+            //         " 입니다"
+            //     );
+            //     const lat = latlng.getLat();
+            //     const lng = latlng.getLng();
+
+            //     getAddr(lat, lng);
+            //     function getAddr(lat: any, lng: any) {
+            //       const geocoder = new window.kakao.maps.services.Geocoder();
+
+            //       const coords = new window.kakao.maps.LatLng(lat, lng);
+            //       const callback = function (result: any, status: any) {
+            //         if (status === window.kakao.maps.services.Status.OK) {
+            //           props.setAddress(result[0].address.address_name);
+            //           console.log(result);
+            //           // 마커를 클릭한 위치에 표시합니다
+            //           marker.setPosition(mouseEvent.latLng);
+            //           marker.setMap(map);
+            //         }
+            //       };
+            //       geocoder.coord2Address(
+            //         coords.getLng(),
+            //         coords.getLat(),
+            //         callback
+            //       );
+            //     }
+            //   }
+            // );
           }
         );
 
@@ -179,13 +224,83 @@ export default function KakaoMapPage2(props) {
       props.getLng,
   ]);
 
+  // useEffect(() => {
+  //   const script = document.createElement("script"); // <script></script> 태그 만들기
+  //   script.src =
+  //     "//dapi.kakao.com/v2/maps/sdk.js?appkey=5146441fa20a4db96dbfcb5606df8b38&autoload=false&libraries=services,clusterer,drawing";
+  //   document.head.appendChild(script);
+
+  //   script.onload = () => {
+  //     // 그때 실행시켜줘
+  //     window.kakao.maps.load(function () {
+  //       // 카카오가 load 되면 function 실행해줘
+
+  //       const container = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스
+  //       const options = {
+  //         // 지도를 생성할 때 필요한 기본 옵션
+  //         center: new window.kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표.
+  //         level: 3, // 지도의 레벨(확대, 축소 정도)
+  //       };
+
+  //       const map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
+
+  //       // 현재 위치
+  //       // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
+
+  //       const locPosition = new window.kakao.maps.LatLng(
+  //         props.getLat,
+  //         props.getLng
+  //       ); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+
+  //       // 마커와 인포윈도우를 표시합니다
+  //       displayMarker(locPosition);
+
+  //       function displayMarker(locPosition: any) {
+  //         // 마커를 생성합니다
+  //         const marker = new window.kakao.maps.Marker({
+  //           map,
+  //           position: locPosition,
+  //         });
+
+  //         const iwRemoveable = true;
+
+  //         // 인포윈도우를 생성합니다
+  //         const infowindow = new window.kakao.maps.InfoWindow({
+  //           removable: iwRemoveable,
+  //         });
+
+  //         // 인포윈도우를 마커위에 표시합니다
+  //         infowindow.open(map, marker);
+
+  //         // 지도 중심좌표를 접속위치로 변경합니다
+  //         map.setCenter(locPosition);
+  //       }
+  //       const lat = props.getLat;
+  //       const lng = props.getLng;
+
+  //       getAddr(lat, lng);
+  //       function getAddr(lat, lng) {
+  //         const geocoder = new window.kakao.maps.services.Geocoder();
+
+  //         const coord = new window.kakao.maps.LatLng(lat, lng);
+  //         const callback = function (result, status) {
+  //           if (status === window.kakao.maps.services.Status.OK) {
+  //             props.setAddress(result[0].address.address_name);
+  //           }
+  //         };
+  //         geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+  //       }
+  //     });
+  //   };
+  // }, [props.getLng]);
+
   return (
     <div>
       {/* <Input placeholder="주소를 적어주세요" onChange={onChangeAddress} />
       <Button type="button" onClick={onClickAddress}>
         주소 검색
       </Button> */}
-
+      {/* <div onClick={onClickCurrent}>현재위치 로</div> */}
       <div id="map" style={{ width: 384, height: 252 }}></div>
     </div>
   );
