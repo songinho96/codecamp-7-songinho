@@ -107,12 +107,11 @@ export default function ProductDetailPresenter(props) {
             </S.ProductContents>
           </S.WrapProductContents>
 
-          {props.data?.fetchUseditem.useditemAddress?.lat && (
+          {props.data?.fetchUseditem.useditemAddress?.address && (
             <S.WrapMap>
               <S.Title>거래지역</S.Title>
               <KakaoMapPageRouted
-                lat={props.data?.fetchUseditem.useditemAddress?.lat}
-                lng={props.data?.fetchUseditem.useditemAddress?.lng}
+                address={props.data?.fetchUseditem.useditemAddress?.address}
               />
               <S.WrapAddress>
                 <S.Address>

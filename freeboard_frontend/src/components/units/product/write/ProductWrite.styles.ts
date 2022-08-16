@@ -79,34 +79,13 @@ export const WrapMap = styled.div`
 export const Map = styled.div`
   width: 384px;
   height: 252px;
-  background-color: yellow;
 `;
 
 export const WrapperGpsLocation = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 24px;
-`;
-
-export const WrapGps = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
-`;
-
-export const WrapCoordinate = styled.div`
-  display: flex;
-`;
-
-export const Latitude = styled.input`
-  width: 108px;
-  height: 52px;
-  margin-right: 30px;
-`;
-
-export const Longitude = styled.input`
-  width: 108px;
-  height: 52px;
+  padding-top: 30px;
 `;
 
 export const WrapAddress = styled.div`
@@ -168,4 +147,16 @@ export const SubmitButton = styled.button`
   width: 180px;
   height: 52px;
   color: gray; ;
+`;
+
+// 다음 포스트
+
+export const SearchButton = styled.div`
+  width: 124px;
+  height: 52px;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

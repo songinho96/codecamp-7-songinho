@@ -6,6 +6,9 @@ import { v4 as uuidv4 } from "uuid";
 import dynamic from "next/dynamic";
 import KakaoMapPage from "../../../commons/maps/kakao";
 import Tags from "../../../commons/tags";
+import { Modal } from "antd";
+import DaumPostcode from "react-daum-postcode";
+import KakaoMapPage2 from "../../../commons/maps/kakao2";
 
 const ToastUi = dynamic(() => import("../../../commons/toastUi"), {
   ssr: false,
@@ -70,31 +73,44 @@ export default function ProductWritePresenter(props) {
           <S.WrapperLocation>
             <S.WrapMap>
               <S.Label>거래 위치</S.Label>
-              <S.Map>
-                <KakaoMapPage
-                  setGetLat={props.setGetLat}
-                  setGetLng={props.setGetLng}
-                  setAddressClick={props.setAddressClick}
-                  addressClick={
-                    props.addressClick ||
-                    props.productData?.fetchUseditem.useditemAddress?.address
-                  }
-                  getLat={props.getLat}
-                  getLng={props.getLng}
-                />
-              </S.Map>
+
+              <KakaoMapPage2
+                address={
+                  props.address ||
+                  props.productData?.fetchUseditem.useditemAddress?.address
+                }
+                setGetLat={props.setGetLat}
+                setGetLng={props.setGetLng}
+                getLat={props.getLat}
+                getLng={props.getLng}
+              />
+
+              {props.isModalVisible && (
+                <Modal
+                  visible={true}
+                  onOk={props.showModal}
+                  onCancel={props.showModal}
+                  // onOk={props.handleOk}
+                  // onCancel={props.handleCancel}
+                >
+                  <DaumPostcode onComplete={props.handleComplete} />
+                </Modal>
+              )}
             </S.WrapMap>
             <S.WrapperGpsLocation>
-              <S.WrapGps>
-                <S.Label>GPS</S.Label>
-                <S.WrapCoordinate>
-                  <S.Latitude readOnly defaultValue={props.getLat} />
-                  <S.Longitude readOnly defaultValue={props.getLng} />
-                </S.WrapCoordinate>
-              </S.WrapGps>
               <S.WrapAddress>
+                <S.SearchButton onClick={props.showModal}>
+                  주소 검색
+                </S.SearchButton>
                 <S.Label>주소</S.Label>
-                <S.Address readOnly defaultValue={props.addressClick} />
+                {/* <S.Address readOnly defaultValue={props.addressClick} /> */}
+                <S.Address
+                  readOnly
+                  value={
+                    props.address ||
+                    props.productData?.fetchUseditem.useditemAddress?.address
+                  }
+                />
                 <S.Label>상세 주소</S.Label>
                 <S.Address
                   {...props.register("addressDetail")}
@@ -138,6 +154,7 @@ export default function ProductWritePresenter(props) {
             </S.SubmitButton>
           </S.WrapButton>
         </S.Wrap>
+        {/* <div onClick={props.onClickgetLocation}>123123</div> */}
       </S.Wrapper>
     </form>
   );

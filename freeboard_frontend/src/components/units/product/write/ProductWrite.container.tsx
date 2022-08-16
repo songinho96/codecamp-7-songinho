@@ -59,7 +59,7 @@ export default function ProductWriteContainer(props) {
             images: fileUrls,
             useditemAddress: {
               addressDetail: data.addressDetail,
-              address: addressClick,
+              address,
               lat: getLat,
               lng: getLng,
             },
@@ -105,7 +105,7 @@ export default function ProductWriteContainer(props) {
 
     const useditemAddress: any = {};
     if (data?.addressDetail) useditemAddress.addressDetail = data.addressDetail;
-    if (addressClick) useditemAddress.address = addressClick;
+    if (addressClick) useditemAddress.address = address;
     if (getLat) useditemAddress.lat = getLat;
     if (getLng) useditemAddress.lng = getLng;
     try {
@@ -166,6 +166,55 @@ export default function ProductWriteContainer(props) {
     }
   }, [props.productData]);
 
+  // 다음 포스트
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [zipcode, setZipcode] = useState("");
+  const [address, setAddress] = useState("");
+
+  const showModal = () => {
+    setIsModalVisible((prev) => !prev);
+  };
+
+  const handleComplete = (data: any) => {
+    setZipcode(data.zonecode);
+    setAddress(data.address);
+    // console.log(data);
+    setIsModalVisible((prev) => !prev); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
+  };
+
+  // 현재위치
+
+  // const onClickgetLocation = () => {
+  //   let lat, lng;
+  //   if (navigator.geolocation) {
+  //     // GPS를 지원하면
+  //     navigator.geolocation.getCurrentPosition(
+  //       function (position) {
+  //         lat = position.coords.latitude;
+  //         lng = position.coords.longitude;
+  //         console.log("위도 : " + lat + " 경도 : " + lng);
+  //         setGetLat(lat);
+  //         setGetLng(lng);
+  //       },
+
+  //       function (error) {
+  //         console.error(error);
+  //       },
+  //       {
+  //         enableHighAccuracy: false,
+  //         maximumAge: 0,
+  //         timeout: Infinity,
+  //       }
+  //     );
+  //   } else {
+  //     alert("GPS를 지원하지 않습니다");
+  //     return;
+  //   }
+  // };
+
+  // console.log(getLat);
+  // console.log(getLng);
+
   return (
     <ProductWritePresenter
       register={register}
@@ -189,6 +238,13 @@ export default function ProductWriteContainer(props) {
       // 태그
       tags={tags}
       setTags={setTags}
+      // 다음 포스트
+      isModalVisible={isModalVisible}
+      zipcode={zipcode}
+      address={address}
+      showModal={showModal}
+      handleComplete={handleComplete}
+      // onClickgetLocation={onClickgetLocation}
     />
   );
 }
