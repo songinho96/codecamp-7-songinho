@@ -1,13 +1,13 @@
 import { useState } from "react";
 import PaginationbasicUI from "./Paginationsbasic.presenter";
 
-export default function Paginationbasic(props) {
+export default function PaginationSellPoint(props) {
   const [startPage, setStartPage] = useState(1);
   const [isActive, setIsActive] = useState(false);
-  const [activePage, setActivePage] = useState();
+  const [activePage, setActivePage] = useState(1);
 
-  const lastPage = props.dataCount?.fetchBoardsCount
-    ? Math.ceil(props.dataCount?.fetchBoardsCount / 10)
+  const lastPage = props.dataCount?.fetchPointTransactionsCountOfSelling
+    ? Math.ceil(props.dataCount?.fetchPointTransactionsCountOfSelling / 10)
     : 0;
 
   const onClickStart = () => {

@@ -62,6 +62,7 @@ export default function PaginationMyProduct(props) {
       activePage={activePage}
       onClickStart={onClickStart}
       onClickLast={onClickLast}
+      soldCount={props.soldCount}
     />
   );
 }

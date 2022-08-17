@@ -5,7 +5,7 @@ import MypageSidebar from "../../src/components/commons/mypage";
 import MypageContainer from "../../src/components/units/mypage/charge";
 
 const Wrapper = styled.div`
-  width: 80%;
+  width: 1024px;
   margin: auto;
   display: flex;
   margin: 0;

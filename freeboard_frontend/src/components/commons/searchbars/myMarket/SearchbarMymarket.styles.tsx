@@ -18,7 +18,7 @@ export const Myproduct = styled.div`
   font-size: 1.2rem;
   cursor: pointer;
   font-weight: 700;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #fed602;
 `;
 
 export const Mypick = styled.div`

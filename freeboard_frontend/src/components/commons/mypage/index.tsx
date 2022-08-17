@@ -1,8 +1,9 @@
 import { RightOutlined } from "@ant-design/icons";
 import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
-import React from "react";
-import { useMoveToPage } from "../hooks/useMoveToPage";
+import { useRouter } from "next/router";
+import MyProductChargePage from "../charge";
+
 import { getDate } from "../libraries/utils";
 const Wraaper = styled.div`
   width: 30%;
@@ -51,6 +52,10 @@ const ProfileName = styled.div`
 const ProfilePoint = styled.div`
   display: flex;
   justify-content: space-between;
+  padding-bottom: 20px;
+`;
+
+const WrapCharge = styled.div`
   padding-bottom: 20px;
 `;
 
@@ -120,7 +125,20 @@ export default function MypageSidebar() {
   const { data } = useQuery(FETCH_USER_LOGED_IN);
   const { data: soldData } = useQuery(FETCH_USED_ITEMS_COUNT_I_SOLD);
   const { data: boughtData } = useQuery(FETCH_USED_ITEMS_COUNT_I_BOUNT);
-  const { onClickMoveToPage } = useMoveToPage();
+
+  const router = useRouter();
+
+  const onClickMarket = () => {
+    router.push("/mypage/mymarket/myproducts");
+  };
+
+  const onClickPoint = () => {
+    router.push("/mypage/mypoint");
+  };
+
+  const onClickProfile = () => {
+    router.push("/mypage/myprofile");
+  };
 
   return (
     <>
@@ -144,6 +162,9 @@ export default function MypageSidebar() {
             )}{" "}
             원
           </ProfilePoint>
+          <WrapCharge>
+            <MyProductChargePage />
+          </WrapCharge>
           <WrapCount>
             <Label>올린 상품</Label>
             <Count>{soldData?.fetchUseditemsCountISold}</Count>
@@ -156,23 +177,15 @@ export default function MypageSidebar() {
         <WrapMoveToClick>
           <WrapClickMove>
             <Image src="/product/cart.svg" />
-            <MyClickMove
-              onClick={onClickMoveToPage("/mypage/mymarket/myproducts")}
-            >
-              내 장터
-            </MyClickMove>
+            <MyClickMove onClick={onClickMarket}>내 장터</MyClickMove>
           </WrapClickMove>
           <WrapClickMove>
             <Image src="/product/point.svg" />
-            <MyClickMove onClick={onClickMoveToPage("/mypage/mypoint")}>
-              내 포인트
-            </MyClickMove>
+            <MyClickMove onClick={onClickPoint}>내 포인트</MyClickMove>
           </WrapClickMove>
           <WrapClickMove>
             <Image src="/commentBoard/profile-Icon.svg" />
-            <MyClickMove onClick={onClickMoveToPage("/mypage/myprofile")}>
-              내 프로필
-            </MyClickMove>
+            <MyClickMove onClick={onClickProfile}>내 프로필</MyClickMove>
           </WrapClickMove>
         </WrapMoveToClick>
       </Wraaper>

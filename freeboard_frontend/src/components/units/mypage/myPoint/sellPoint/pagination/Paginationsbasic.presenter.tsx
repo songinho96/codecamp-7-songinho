@@ -4,7 +4,7 @@ export default function PaginationbasicUI(props) {
   return (
     <S.Wrapper>
       <S.Wrap>
-        {props.pickCount?.fetchUseditemsCountIPicked > 100 && (
+        {props.dataCount?.fetchPointTransactionsCountOfSelling > 100 && (
           <>
             <S.StartButton onClick={props.onClickStart}>＜＜</S.StartButton>
             <S.PrevButton onClick={props.onClickPrev}>＜</S.PrevButton>
@@ -24,7 +24,7 @@ export default function PaginationbasicUI(props) {
               </S.Pagination>
             )
         )}
-        {props.pickCount?.fetchUseditemsCountIPicked > 100 && (
+        {props.dataCount?.fetchPointTransactionsCountOfSelling > 100 && (
           <>
             <S.NextButton onClick={props.onClickNext}>＞</S.NextButton>
             <S.LastButton onClick={props.onClickLast}>＞＞</S.LastButton>

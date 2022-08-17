@@ -4,8 +4,12 @@ export default function PaginationbasicUI(props) {
   return (
     <S.Wrapper>
       <S.Wrap>
-        <S.StartButton onClick={props.onClickStart}>＜＜</S.StartButton>
-        <S.PrevButton onClick={props.onClickPrev}>＜</S.PrevButton>
+        {props.soldCount?.fetchUseditemsCountISold > 100 && (
+          <>
+            <S.StartButton onClick={props.onClickStart}>＜＜</S.StartButton>
+            <S.PrevButton onClick={props.onClickPrev}>＜</S.PrevButton>
+          </>
+        )}
 
         {new Array(10).fill(1).map(
           (_, index) =>
@@ -20,9 +24,12 @@ export default function PaginationbasicUI(props) {
               </S.Pagination>
             )
         )}
-
-        <S.NextButton onClick={props.onClickNext}>＞</S.NextButton>
-        <S.LastButton onClick={props.onClickLast}>＞＞</S.LastButton>
+        {props.soldCount?.fetchUseditemsCountISold > 100 && (
+          <>
+            <S.NextButton onClick={props.onClickNext}>＞</S.NextButton>
+            <S.LastButton onClick={props.onClickLast}>＞＞</S.LastButton>
+          </>
+        )}
       </S.Wrap>
     </S.Wrapper>
   );

@@ -1,14 +1,12 @@
 import { useState } from "react";
 import PaginationbasicUI from "./Paginationsbasic.presenter";
 
-export default function PaginationPick(props) {
+export default function PaginationAllPoint(props) {
   const [startPage, setStartPage] = useState(1);
   const [isActive, setIsActive] = useState(false);
   const [activePage, setActivePage] = useState(1);
 
-  const lastPage = props.pickCount?.fetchUseditemsCountIPicked
-    ? Math.ceil(props.pickCount?.fetchUseditemsCountIPicked / 10)
-    : 0;
+  const lastPage = props.dataCount ? Math.ceil(props.dataCount / 10) : 0;
 
   const onClickStart = () => {
     if (startPage === 1) return;
@@ -62,7 +60,7 @@ export default function PaginationPick(props) {
       activePage={activePage}
       onClickStart={onClickStart}
       onClickLast={onClickLast}
-      pickCount={props.pickCount}
+      dataCount={props.dataCount}
     />
   );
 }

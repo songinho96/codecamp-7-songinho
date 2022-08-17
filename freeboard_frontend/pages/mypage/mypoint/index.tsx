@@ -4,7 +4,7 @@ import MypageSidebar from "../../../src/components/commons/mypage";
 import MyPointContainer from "../../../src/components/units/mypage/myPoint/MyPoint.container";
 
 const Wrapper = styled.div`
-  width: 80%;
+  width: 1024px;
   margin: auto;
   display: flex;
 `;
