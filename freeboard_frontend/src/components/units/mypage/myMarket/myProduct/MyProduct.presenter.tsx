@@ -48,7 +48,7 @@ export default function MyProductPresenter(props) {
             id={el._id}
           >
             <S.WrapProductImage>
-              {el.soldAt && <S.ProductSold>판매완료</S.ProductSold>}
+              {el.soldAt && <S.ProductSold>판매 완료</S.ProductSold>}
 
               <S.ProductImage
                 src={

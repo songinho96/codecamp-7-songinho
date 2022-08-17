@@ -1,61 +1,3 @@
-// import styled from "@emotion/styled";
-// import { useRouter } from "next/router";
-// import MyProductChargePage from "../../charge";
-
-// const Wrapper = styled.div`
-//   height: 156px;
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center;
-// `;
-
-// const WrapButton = styled.div`
-//   display: flex;
-// `;
-
-// const LoginButton = styled.button`
-//   width: 118px;
-//   height: 38px;
-//   margin-right: 20px;
-//   cursor: pointer;
-// `;
-
-// const SignButton = styled.button`
-//   width: 118px;
-//   height: 38px;
-//   cursor: pointer;
-//   margin-right: 20px;
-// `;
-
-// export default function Header() {
-//   const router = useRouter();
-//   const onClickTitle = () => {
-//     router.push(`/boards`);
-//   };
-
-//   const onClickLogin = () => {
-//     router.push(`/login`);
-//   };
-
-//   const onClickSign = () => {
-//     router.push(`/signup`);
-//   };
-
-//   return (
-//     <Wrapper>
-//       <WrapTitle onClick={onClickTitle}>
-//         <Title1>&#123; &#125;</Title1>
-//         <Title2>PORTFOLIO</Title2>
-//       </WrapTitle>
-//       <WrapButton>
-//         <LoginButton onClick={onClickLogin}>로그인</LoginButton>
-//         <SignButton onClick={onClickSign}>회원가입</SignButton>
-//         <MyProductChargePage />
-//       </WrapButton>
-//     </Wrapper>
-//   );
-// }
-
 import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import { useMoveToPage } from "../../hooks/useMoveToPage";
@@ -85,7 +27,7 @@ const FETCH_USER_LOGGEDIN = gql`
 `;
 
 const Basket = styled.div`
-  background-image: url("/images/circle.png");
+  background-image: url("/product/circle.png");
   width: 20px;
   height: 20px;
   display: flex;
@@ -95,20 +37,23 @@ const Basket = styled.div`
 
 const Wrapper = styled.div`
   width: 100%;
-  margin: 0 auto;
   position: sticky;
   z-index: 10;
   border-bottom: 1px solid rgb(238, 238, 238);
   top: 0px;
   left: 0px;
   background: rgb(255, 255, 255);
+`;
+
+const Wrap = styled.div`
+  width: 1024px;
   display: flex;
-  flex-direction: column;
+  margin: 0 auto;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const Head = styled.div`
-  width: 1024px;
   height: 80px;
   display: flex;
   align-items: center;
@@ -139,18 +84,23 @@ const Title2 = styled.div`
 `;
 
 const Main = styled.div`
-  width: 1024px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding: 10px 0;
-  margin: 0 auto;
 `;
 
 const Label = styled.div`
   padding-left: 20px;
   cursor: pointer;
   padding-right: 5px;
+`;
+
+const LabelSell = styled.div`
+  padding-left: 20px;
+  cursor: pointer;
+  padding-right: 5px;
+  font-weight: 600;
+  color: blue;
 `;
 
 const WrapBasket = styled.div`
@@ -201,32 +151,43 @@ export default function Header() {
 
   return (
     <Wrapper>
-      <Head>
-        <WrapInfo>
-          <Label>
-            {data
-              ? `${data?.fetchUserLoggedIn.name}님 포인트 ${data?.fetchUserLoggedIn.userPoint.amount} P`
-              : ""}
-          </Label>
-          <Label onClick={data ? onClickCharge : onClickMoveToPage("/login")}>
-            {data ? <MyProductChargePage /> : "로그인"}
-          </Label>
-          <Label onClick={data ? onClickLogout : onClickMoveToPage("/signup")}>
-            {data ? "로그아웃" : "회원가입"}
-          </Label>
-          <WrapBasket>
-            <Label>장바구니</Label>
-            <Basket>{basketPage.length}</Basket>
-          </WrapBasket>
-        </WrapInfo>
-      </Head>
-      <Underline></Underline>
-      <Main>
-        <WrapTitle onClick={onClickTitle}>
-          <Title1>&#123; &#125;</Title1>
-          <Title2>PORTFOLIO</Title2>
-        </WrapTitle>
-      </Main>
+      <Wrap>
+        <Main>
+          <WrapTitle onClick={onClickTitle}>
+            <Title1>&#123; &#125;</Title1>
+            <Title2>PORTFOLIO</Title2>
+          </WrapTitle>
+        </Main>
+        <Head>
+          <WrapInfo>
+            <Label>
+              {data
+                ? `${
+                    data?.fetchUserLoggedIn.name
+                  }님 포인트 ${data?.fetchUserLoggedIn.userPoint.amount.toLocaleString(
+                    "ko-KR"
+                  )} P`
+                : ""}
+            </Label>
+            <Label onClick={data ? onClickCharge : onClickMoveToPage("/login")}>
+              {/* {data ? <MyProductChargePage /> : "로그인"} */}
+              {data ? "" : "로그인"}
+            </Label>
+            <Label
+              onClick={data ? onClickLogout : onClickMoveToPage("/signup")}
+            >
+              {data ? "로그아웃" : "회원가입"}
+            </Label>
+            <WrapBasket>
+              <Label>장바구니</Label>
+              <Basket>{basketPage.length}</Basket>
+              <LabelSell onClick={onClickMoveToPage("/products/new")}>
+                판매하기
+              </LabelSell>
+            </WrapBasket>
+          </WrapInfo>
+        </Head>
+      </Wrap>
     </Wrapper>
   );
 }

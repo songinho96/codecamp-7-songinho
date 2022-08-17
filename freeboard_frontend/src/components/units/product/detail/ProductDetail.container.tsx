@@ -9,6 +9,7 @@ import {
   CREATE_POINT_TRANSATION_OF_BUYING_AND_SELLING,
   DELTE_USED_ITEM,
   FETCH_USED_ITEM,
+  FETCH_USER_LOGGED_IN,
   TOGGLE_USED_ITEM_PICK,
 } from "./ProductDetail.queries";
 
@@ -20,6 +21,7 @@ export default function ProductDetailContainer(props) {
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.boardId },
   });
+  const { data: UserData } = useQuery(FETCH_USER_LOGGED_IN);
   // console.log(data);
   // 마이 찜
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK, {
@@ -119,6 +121,10 @@ export default function ProductDetailContainer(props) {
     }
   };
 
+  // 아이디
+  const seller =
+    data?.fetchUseditem.seller._id === UserData?.fetchUserLoggedIn._id;
+
   return (
     <ProductDetailPresenter
       data={data}
@@ -128,6 +134,7 @@ export default function ProductDetailContainer(props) {
       onClickDelete={onClickDelete}
       onClickPick={onClickPick}
       onClickBuy={onClickBuy}
+      seller={seller}
     />
   );
 }

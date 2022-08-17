@@ -10,9 +10,11 @@ import _ from "lodash";
 
 export default function ProductListContainer() {
   const router = useRouter();
+  const [isSold, setIsSold] = useState(false);
   const { data, fetchMore, refetch } = useQuery(FETCH_USED_ITEMS, {
     variables: {
       page: 1,
+      isSoldout: isSold,
     },
   });
 
@@ -90,6 +92,15 @@ export default function ProductListContainer() {
     ),
   };
 
+  // 판매상품
+  const onClickSold = () => {
+    setIsSold(true);
+  };
+
+  const onClickSell = () => {
+    setIsSold(false);
+  };
+
   return (
     <ProductListPresenter
       data={data}
@@ -99,6 +110,10 @@ export default function ProductListContainer() {
       onClickMoveWrite={onClickMoveWrite}
       onChangeSearch={onChangeSearch}
       BestData={BestData}
+      // 판매상품
+      onClickSold={onClickSold}
+      onClickSell={onClickSell}
+      isSold={isSold}
     />
   );
 }

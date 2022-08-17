@@ -120,32 +120,43 @@ export const WrapButton = styled.div`
   padding-top: 40px;
 `;
 
+export const Sold = styled.div`
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  height: 54px;
+  background-color: #ddd;
+`;
+
 export const Pickbutton = styled.button`
   width: 177px;
   height: 54px;
   margin-right: 22px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   color: white;
   background-color: red;
   border: none;
+  cursor: pointer;
 `;
 
 export const BasketButton = styled.button`
   width: 177px;
   height: 54px;
   margin-right: 22px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   border: none;
+  cursor: pointer;
 `;
 
 export const BuyButton = styled.button`
   width: 177px;
   height: 54px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   border: none;
+  cursor: pointer;
 `;
 
 export const Body = styled.div`

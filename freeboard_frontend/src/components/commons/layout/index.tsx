@@ -14,17 +14,16 @@ const LayoutBodyWrapper = styled.div`
 // const LayoutBody = styled.div``;
 
 // const HIDDEN_HEADERS = ["/"];
-const HIDDEN_BANNER = [""];
 const HIDDEN_NAVIGATION = ["/"];
 const HIDDEN_SIDEBAR = ["/"];
-const HIDDEN_FOOTER = ["/"];
+const HIDDEN_FOOTER = ["/", "/products"];
 const HIDDEN_MYPAGE_SIDEBAR = ["products", "/boards"];
 
 export default function Layout(props: any) {
   const router = useRouter();
 
   // const isHiddenHeader = HIDDEN_HEADERS.includes(router.asPath);
-  const isHiddenBanner = HIDDEN_BANNER.includes(router.asPath);
+
   const isHiddenNavigation = HIDDEN_NAVIGATION.includes(router.asPath);
   const isHiddenSidebar = HIDDEN_SIDEBAR.includes(router.asPath);
   const isHiddenFooter = HIDDEN_FOOTER.includes(router.asPath);
@@ -33,7 +32,6 @@ export default function Layout(props: any) {
   return (
     <>
       <Header />
-      {!isHiddenBanner && <Banner />}
       {!isHiddenNavigation && <Navigation />}
       {/* {!isHiddenSidebar && <SideBar />} */}
       {/* <LayoutBodyWrapper> */}

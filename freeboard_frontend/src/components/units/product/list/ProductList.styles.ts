@@ -90,14 +90,18 @@ export const WrapBestProduct = styled.div`
 `;
 
 export const WrapSearchBar = styled.div`
-  margin-top: 50px;
-  position: sticky;
-  top: 30px;
+  font-size: 1.2rem;
 `;
 
 export const SearchInput = styled.input`
+  border-radius: 5px;
   width: 456px;
   height: 36px;
+  border: 1px solid gray;
+  padding: 8px;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const WrapperProductList = styled.div`
@@ -132,10 +136,28 @@ export const WrapProductList = styled.div`
 
 export const Wrap = styled.div``;
 
+export const WrapProductImage = styled.div`
+  width: 194px;
+  height: 194px;
+`;
+
+export const ProductSold = styled.div`
+  position: absolute;
+  width: 194px;
+  height: 194px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  z-index: 10;
+`;
+
 export const ProductImage = styled.img`
   width: 194px;
   height: 194px;
   border: 1px solid #d1d1d6;
+  filter: ${(props) => props.soldAt && "brightness(45%)"};
+  background: ${(props) => props.soldAt && "rgba(0, 0, 0, 0.55)"};
 `;
 
 export const WrapProductDetail = styled.div`
@@ -149,14 +171,33 @@ export const WrapProductDetail = styled.div`
   justify-content: space-between;
 `;
 
+export const WrapNameHeart = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const ProductName = styled.div`
+  width: 85%;
   font-size: 0.9rem;
   overflow: hidden;
-  /* display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis; */
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
+
+export const Heart = styled.div`
+  width: 15%;
+  display: flex;
+  align-items: center;
+`;
+
+export const HeartIcon = styled.img`
+  width: 14px;
+  margin-right: 7px;
+`;
+
+export const HeartCount = styled.div``;
 
 export const WrapDate = styled.div`
   display: flex;
@@ -179,6 +220,31 @@ export const WrapButton = styled.div`
   justify-content: flex-end;
 `;
 
+export const WrapHeader = styled.div`
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const WrapSoldout = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;
+export const IsSell = styled.div`
+  font-size: 1.2rem;
+  margin-right: 20px;
+  font-weight: ${(props) => props.isSold || "700"};
+  border-bottom: ${(props) => props.isSold || "2px solid #FED602"};
+`;
+
+export const IsSold = styled.div`
+  font-size: 1.2rem;
+  font-weight: ${(props) => props.isSold && "700"};
+  border-bottom: ${(props) => props.isSold && "2px solid #FED602"};
+`;
+
 export const SubmitButton = styled.button`
   color: gray;
   width: 100%;
@@ -196,6 +262,6 @@ export const Submit = styled.div`
 export const PlusCircle = styled(PlusCircleOutlined)`
   position: fixed;
   font-size: 100px;
-  bottom: 100px;
-  right: 150px;
+  bottom: 10px;
+  right: 80px;
 `;

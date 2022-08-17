@@ -18,21 +18,25 @@ export default function ProductAnswerEditPresenter(props) {
                   <S.Date>{getDateToday(props.el.createdAt)}</S.Date>
                 </S.WrapFrontHeader>
                 <S.WrapBackHeader>
-                  <S.Answer
+                  {/* <S.Answer
                     src="/images/answer.png"
                     onClick={props.onClickAnswerImg}
                     id={props.el._id}
-                  ></S.Answer>
-                  <S.Pencil
-                    src="/commentBoard/Pencil.svg"
-                    onClick={props.onClickEdit}
-                    id={props.el._id}
-                  />
-                  <S.Delete
-                    src="/commentBoard/X-Button.svg"
-                    id={props.el._id}
-                    onClick={props.onClickDelete}
-                  />
+                  ></S.Answer> */}
+                  {props.myId && (
+                    <>
+                      <S.Pencil
+                        src="/commentBoard/Pencil.svg"
+                        onClick={props.onClickEdit}
+                        id={props.el._id}
+                      />
+                      <S.Delete
+                        src="/commentBoard/X-Button.svg"
+                        id={props.el._id}
+                        onClick={props.onClickDelete}
+                      />
+                    </>
+                  )}
                 </S.WrapBackHeader>
               </S.WrapWritedHeader>
               <S.Contents>{props.el.contents}</S.Contents>

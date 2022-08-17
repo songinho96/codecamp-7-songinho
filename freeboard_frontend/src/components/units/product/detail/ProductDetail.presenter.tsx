@@ -14,6 +14,7 @@ import ProductImage from "../../../commons/ProductImage";
 import ProductQuestionListContainer from "../../productComment/list/ProductQuestionList.container";
 import ProductQuestionWriteContainer from "../../productComment/write/ProductQuestionWrite.container";
 import * as S from "./ProductDetail.styles";
+
 export default function ProductDetailPresenter(props) {
   return (
     <S.Wrapper>
@@ -22,16 +23,18 @@ export default function ProductDetailPresenter(props) {
         <S.WrapDetail>
           <S.WrapTitle>
             <S.ProductName>{props.data?.fetchUseditem.name}</S.ProductName>
-            <S.WrapIcon>
-              <FormOutlined
-                style={{ fontSize: 30, marginRight: 20 }}
-                onClick={props.onClickEdit}
-              />
-              <DeleteOutlined
-                style={{ fontSize: 30 }}
-                onClick={props.onClickDelete}
-              />
-            </S.WrapIcon>
+            {props.seller && (
+              <S.WrapIcon>
+                <FormOutlined
+                  style={{ fontSize: 30, marginRight: 20 }}
+                  onClick={props.onClickEdit}
+                />
+                <DeleteOutlined
+                  style={{ fontSize: 30 }}
+                  onClick={props.onClickDelete}
+                />
+              </S.WrapIcon>
+            )}
           </S.WrapTitle>
           <S.Price>
             {props.data?.fetchUseditem.price.toLocaleString("ko-KR")} 원
@@ -76,13 +79,25 @@ export default function ProductDetailPresenter(props) {
             </S.Contents>
           </S.WrapLocation>
           <S.WrapButton>
-            <S.Pickbutton onClick={props.onClickPick}>
-              찜 {props.data?.fetchUseditem.pickedCount}
-            </S.Pickbutton>
-            <S.BasketButton onClick={props.onClickBasket}>
-              {props.isBaskets ? "장바구니 삭제" : "장바구니"}
-            </S.BasketButton>
-            <S.BuyButton onClick={props.onClickBuy}>구매하기</S.BuyButton>
+            {props.data?.fetchUseditem.soldAt ? (
+              <S.Sold>판매 완료된 상품 입니다</S.Sold>
+            ) : (
+              <>
+                {props.seller || (
+                  <>
+                    <S.Pickbutton onClick={props.onClickPick}>
+                      찜 {props.data?.fetchUseditem.pickedCount}
+                    </S.Pickbutton>
+                    <S.BasketButton onClick={props.onClickBasket}>
+                      {props.isBaskets ? "장바구니 취소" : "장바구니"}
+                    </S.BasketButton>
+                    <S.BuyButton onClick={props.onClickBuy}>
+                      구매하기
+                    </S.BuyButton>
+                  </>
+                )}
+              </>
+            )}
           </S.WrapButton>
         </S.WrapDetail>
       </S.Header>

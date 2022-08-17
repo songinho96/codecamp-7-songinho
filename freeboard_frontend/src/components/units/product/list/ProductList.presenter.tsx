@@ -3,54 +3,28 @@ import * as S from "./ProductList.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { getDateToday } from "../../../commons/libraries/utils";
+import Banner from "../../../commons/layout/banner";
+import TopButton from "../../../commons/topButton";
 
 export default function ProductListPresenter(props) {
   return (
     <S.Wrapper>
+      <Banner />
       <S.Body>
-        {/* <S.WrapperBest>
-          <S.WrapperBestProduct>
-            <S.WrapperBest1>
-              <S.ProductDetail>베스트 상품</S.ProductDetail>
-              <S.WrapBest>
-                {props.BestData?.fetchUseditemsOfTheBest.map(
-                  (el: any, index: number) => (
-                    <S.BestWrapProductList
-                      key={el._id}
-                      id={el._id}
-                      onClick={props.onClickList(el)}
-                    >
-                      <S.BestProductImage
-                        src={
-                          el.images[0]
-                            ? `https://storage.googleapis.com/${el.images[0]}`
-                            : "/list/noimage.gif"
-                        }
-                        id={el._id}
-                      />
-                      <S.BestWrapProductDetail>
-                        <S.ProductName>{el.name}</S.ProductName>
-                        <S.ProductPrice>{el.price}원</S.ProductPrice>
-                        <S.ProductDate>
-                          {getDateToday(el.createdAt)}
-                        </S.ProductDate>
-                      </S.BestWrapProductDetail>
-                    </S.BestWrapProductList>
-                  )
-                )}
-              </S.WrapBest>
-            </S.WrapperBest1>
-          </S.WrapperBestProduct>
-        </S.WrapperBest> */}
-        <S.WrapButton>
-          <S.SubmitButton onClick={props.onClickMoveWrite}>
-            판매하기
-          </S.SubmitButton>
-        </S.WrapButton>
-        <S.WrapSearchBar>
-          상품명 입력:{" "}
-          <S.SearchInput type="text" onChange={props.onChangeSearch} />
-        </S.WrapSearchBar>
+        <S.WrapHeader>
+          <S.WrapSoldout>
+            <S.IsSell isSold={props.isSold} onClick={props.onClickSell}>
+              판매중 상품
+            </S.IsSell>
+            <S.IsSold isSold={props.isSold} onClick={props.onClickSold}>
+              판매된 상품
+            </S.IsSold>
+          </S.WrapSoldout>
+          <S.WrapSearchBar>
+            상품명 입력:{" "}
+            <S.SearchInput type="text" onChange={props.onChangeSearch} />
+          </S.WrapSearchBar>
+        </S.WrapHeader>
         <S.WrapperProductList>
           <S.WrapProductRow>
             <S.Scroll>
@@ -67,16 +41,27 @@ export default function ProductListPresenter(props) {
                     onClick={props.onClickList(el)}
                   >
                     {/* <S.Wrap> */}
-                    <S.ProductImage
-                      src={
-                        el.images[0]
-                          ? `https://storage.googleapis.com/${el.images[0]}`
-                          : "/list/noimage.gif"
-                      }
-                      id={el._id}
-                    />
+
+                    <S.WrapProductImage>
+                      {el.soldAt && <S.ProductSold>판매 완료</S.ProductSold>}
+                      <S.ProductImage
+                        src={
+                          el.images[0]
+                            ? `https://storage.googleapis.com/${el.images[0]}`
+                            : "/list/noimage.gif"
+                        }
+                        id={el._id}
+                        soldAt={el.soldAt}
+                      />
+                    </S.WrapProductImage>
                     <S.WrapProductDetail>
-                      <S.ProductName>{el.name}</S.ProductName>
+                      <S.WrapNameHeart>
+                        <S.ProductName>{el.name}</S.ProductName>
+                        <S.Heart>
+                          <S.HeartIcon src="/product/Heart.png" />
+                          <S.HeartCount>{el.pickedCount}</S.HeartCount>
+                        </S.Heart>
+                      </S.WrapNameHeart>
                       <S.WrapDate>
                         <S.ProductPrice>
                           {el.price.toLocaleString("ko-KR")}원
@@ -95,7 +80,7 @@ export default function ProductListPresenter(props) {
         </S.WrapperProductList>
       </S.Body>
       {/* <TodayProductPage /> */}
-      <S.PlusCircle onClick={props.onClickMoveWrite} />
+      <TopButton />
     </S.Wrapper>
   );
 }

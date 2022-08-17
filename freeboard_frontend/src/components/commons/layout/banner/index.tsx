@@ -4,25 +4,51 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Images = styled.img`
-  width: 1200px;
+  width: 100%;
   margin: auto;
-  box-shadow: 0px 16px 48px;
 `;
 
 const Wrapper = styled.div`
   width: 100%;
-  border-radius: 0%;
-  display: none;
 `;
 
 export default function Banner() {
   const StyledSlider = styled(Slider)`
     .slick-dots {
-      bottom: 260px;
+      bottom: -20px;
     }
     .slick-dots li button:before {
-      color: blue;
+      color: black;
+      font-size: 13px;
     }
+
+    /* .slick-arrow {
+      display: flex;
+      z-index: 10;
+      width: 1vw;
+      height: 1vw;
+    } */
+
+    /* .slick-prev {
+      left: 50px;
+      z-index: 10;
+    }
+
+    .slick-next {
+      right: 50px;
+    }
+
+    .slick-prev:before {
+      opacity: 1; // 기존에 숨어있던 화살표 버튼이 보이게
+      color: black; // 버튼 색은 검은색으로
+      left: 0;
+      font-size: 25px;
+    }
+    .slick-next:before {
+      opacity: 1;
+      color: black;
+      font-size: 25px;
+    } */
   `;
 
   const settings = {
@@ -35,17 +61,16 @@ export default function Banner() {
     autoplaySpeed: 3500,
     pauseOnHover: true,
     arrows: false,
-    appendDots: (dots: any) => (
-      <div
-        style={{
-          backgroundColor: "#ddd",
-          borderRadius: "10px",
-          // padding: "10px",
-        }}
-      >
-        <ul style={{ margin: "0px" }}> {dots} </ul>
-      </div>
-    ),
+    // appendDots: (dots: any) => (
+    //   <div
+    //     style={{
+    //       color: "white",
+    //       borderRadius: "10px",
+    //     }}
+    //   >
+    //     <ul style={{ margin: "0px" }}> {dots} </ul>
+    //   </div>
+    // ),
   };
 
   return (
@@ -53,16 +78,13 @@ export default function Banner() {
       <div>
         <StyledSlider {...settings}>
           <div>
-            <Images src="/bannerImages/banner4.jpeg" />
+            <Images src="/bannerImages/event1.jpeg" />
           </div>
           <div>
-            <Images src="/bannerImages/banner1.jpeg" />
+            <Images src="/bannerImages/event2.jpeg" />
           </div>
           <div>
-            <Images src="/bannerImages/banner2.jpeg" />
-          </div>
-          <div>
-            <Images src="/bannerImages/banner3.jpeg" />
+            <Images src="/bannerImages/event3.jpeg" />
           </div>
         </StyledSlider>
       </div>

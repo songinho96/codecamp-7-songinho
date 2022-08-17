@@ -1,4 +1,6 @@
+import { useQuery } from "@apollo/client";
 import { useState } from "react";
+import { FETCH_USER_LOGGED_IN } from "../list/ProductQuestionList.queries";
 import ProductQuestionItemPresenter from "./ProductQuestionItem.presenter";
 
 export default function ProductQuestionItemContainer(props) {
@@ -7,6 +9,8 @@ export default function ProductQuestionItemContainer(props) {
 
   const [isAnswer, setIsAnswer] = useState(false);
   const [answerId, setAnswerId] = useState("");
+
+  const { data: UserData } = useQuery(FETCH_USER_LOGGED_IN);
 
   const onClickAnswerImg = (event) => {
     setIsAnswer((prev) => !prev);
@@ -18,6 +22,9 @@ export default function ProductQuestionItemContainer(props) {
     setEditId(event.target.id);
   };
 
+  const myId = props.el?.user._id.includes(UserData?.fetchUserLoggedIn._id);
+  console.log(myId);
+  console.log(props.el?.user._id);
   return (
     <ProductQuestionItemPresenter
       setIsEdit={setIsEdit}
@@ -32,6 +39,8 @@ export default function ProductQuestionItemContainer(props) {
       isAnswer={isAnswer}
       answerId={answerId}
       setIsAnswer={setIsAnswer}
+      // 질문자
+      myId={myId}
     />
   );
 }

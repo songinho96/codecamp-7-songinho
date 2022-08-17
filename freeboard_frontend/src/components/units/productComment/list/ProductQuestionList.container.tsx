@@ -6,6 +6,7 @@ import ProductQuestionListPresenter from "./ProductQuestionList.presenter";
 import {
   DELETE_USED_ITEM_QUESTION,
   FETCH_USED_ITEM_QUESTIONS,
+  FETCH_USER_LOGGED_IN,
 } from "./ProductQuestionList.queries";
 
 export default function ProductQuestionListContainer(props) {
@@ -13,7 +14,7 @@ export default function ProductQuestionListContainer(props) {
   const { data, fetchMore } = useQuery(FETCH_USED_ITEM_QUESTIONS, {
     variables: { useditemId: router.query.boardId },
   });
-  console.log(data);
+
   const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
 
   const onClickDelete = async (event) => {

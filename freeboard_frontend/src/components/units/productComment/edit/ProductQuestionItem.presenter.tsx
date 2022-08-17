@@ -23,16 +23,20 @@ export default function ProductQuestionItemPresenter(props) {
                     onClick={props.onClickAnswerImg}
                     id={props.el._id}
                   ></S.Answer>
-                  <S.Pencil
-                    src="/commentBoard/Pencil.svg"
-                    onClick={props.onClickEdit}
-                    id={props.el._id}
-                  />
-                  <S.Delete
-                    src="/commentBoard/X-Button.svg"
-                    id={props.el._id}
-                    onClick={props.onClickDelete}
-                  />
+                  {props.myId && (
+                    <>
+                      <S.Pencil
+                        src="/commentBoard/Pencil.svg"
+                        onClick={props.onClickEdit}
+                        id={props.el._id}
+                      />
+                      <S.Delete
+                        src="/commentBoard/X-Button.svg"
+                        id={props.el._id}
+                        onClick={props.onClickDelete}
+                      />
+                    </>
+                  )}
                 </S.WrapBackHeader>
               </S.WrapWritedHeader>
               <S.Contents>{props.el.contents}</S.Contents>

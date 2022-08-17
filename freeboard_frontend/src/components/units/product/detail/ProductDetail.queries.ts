@@ -11,6 +11,7 @@ export const FETCH_USED_ITEM = gql`
       tags
       images
       pickedCount
+      soldAt
       useditemAddress {
         address
         addressDetail
@@ -19,6 +20,7 @@ export const FETCH_USED_ITEM = gql`
       }
       seller {
         name
+        _id
       }
       createdAt
     }
@@ -42,6 +44,14 @@ export const CREATE_POINT_TRANSATION_OF_BUYING_AND_SELLING = gql`
     createPointTransactionOfBuyingAndSelling(useritemId: $useritemId) {
       _id
       name
+    }
+  }
+`;
+
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
     }
   }
 `;

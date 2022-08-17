@@ -2,11 +2,14 @@ import styled from "@emotion/styled";
 import { useMoveToPage } from "../../hooks/useMoveToPage";
 
 const Wrapper = styled.div`
+  width: 100%;
+  /* margin: 0 auto; */
+  /* width: 1024px; */
   height: 100px;
-  background-color: #495057;
+  background-color: #fed602;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 `;
 
 const List = styled.div`
@@ -17,7 +20,7 @@ const GoBoard = styled.div`
   padding-left: 80px;
   font-size: 30px;
   font-weight: 700;
-  color: white;
+  color: black;
   cursor: pointer;
 `;
 
@@ -27,8 +30,8 @@ export default function Navigation() {
   return (
     <Wrapper>
       <List>
-        <GoBoard onClick={onClickMoveToPage("/")}>나의 메뉴2</GoBoard>
-        <GoBoard onClick={onClickMoveToPage("/")}>나의 메뉴1</GoBoard>
+        {/* <GoBoard onClick={onClickMoveToPage("/")}>나의 메뉴2</GoBoard>
+        <GoBoard onClick={onClickMoveToPage("/")}>나의 메뉴1</GoBoard> */}
         <GoBoard onClick={onClickMoveToPage("/boards")}>게시판</GoBoard>
         <GoBoard onClick={onClickMoveToPage("/products")}>중고마켓</GoBoard>
         <GoBoard onClick={onClickMoveToPage("/mypage/mymarket/myproducts")}>
