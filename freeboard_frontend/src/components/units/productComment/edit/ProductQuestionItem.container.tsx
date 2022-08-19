@@ -22,9 +22,9 @@ export default function ProductQuestionItemContainer(props) {
     setEditId(event.target.id);
   };
 
+  // 아이디 일치 확인
   const myId = props.el?.user._id.includes(UserData?.fetchUserLoggedIn._id);
-  console.log(myId);
-  console.log(props.el?.user._id);
+
   return (
     <ProductQuestionItemPresenter
       setIsEdit={setIsEdit}

@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 80%;
+  width: 1024px;
   border: 1px solid black;
   padding: 80px 102px 100px 102px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0px 16px 48px;
+
   margin: 0 auto;
 `;
 
@@ -145,6 +145,7 @@ export const RadioLabel = styled.div``;
 export const WrapButton = styled.div`
   display: flex;
   justify-content: center;
+  padding-top: 30px;
 `;
 
 export const SubmitButton = styled.button`

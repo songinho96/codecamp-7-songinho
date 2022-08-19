@@ -16,28 +16,32 @@ export default function MyProductContainer() {
   const { data, refetch } = useQuery(FETCH_USED_ITEMS_I_SOLD, {
     variables: { page: 1 },
   });
-  const { data: soldCount } = useQuery(FETCH_USED_ITEMS_COUNT_I_SOLD);
+
+  const { data: soldCount, refetch: refetchCount } = useQuery(
+    FETCH_USED_ITEMS_COUNT_I_SOLD
+  );
 
   const onClickMoveToDetail = (event) => {
     router.push(`/products/${event.target.id}`);
     console.log(data);
   };
 
-  const getDebounce = _.debounce((data) => {
-    refetch({ search: data, page: 1 });
+  const getDebounce = _.debounce((searchData) => {
+    refetch({ search: searchData, page: 1 });
+    refetchCount({ search: searchData });
   }, 200);
 
   const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    getDebounce(event.target.value);
+    getDebounce(event.currentTarget.value);
   };
 
   return (
     <MyProductPresenter
       data={data}
       onClickMoveToDetail={onClickMoveToDetail}
-      refetch={refetch}
       soldCount={soldCount}
       onChangeSearch={onChangeSearch}
+      refetch={refetch}
     />
   );
 }

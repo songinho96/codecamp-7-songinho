@@ -23,7 +23,7 @@ const schema = yup.object({
 });
 
 export default function LoginContainer() {
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [, setAccessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
   const [loginUser] = useMutation(LOGIN_USER);
 
@@ -40,7 +40,6 @@ export default function LoginContainer() {
           password: data.password,
         },
       });
-      console.log(result);
       const accessToken = result.data.loginUser.accessToken;
       setAccessToken(accessToken);
       localStorage.setItem("accessToken", accessToken);
@@ -48,7 +47,7 @@ export default function LoginContainer() {
         title: "로그인 성공!",
         content: "환영합니다!",
       });
-      router.push("/boards");
+      router.push("/products");
     } catch (error: any) {
       Modal.error({
         title: "Error 메시지",

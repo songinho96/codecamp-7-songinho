@@ -65,7 +65,7 @@ export default function ProductDetailPresenter(props) {
               {props.data?.fetchUseditem.tags
                 ?.filter((el) => el)
                 .map((el) => (
-                  <Tag key={el}>{el}</Tag>
+                  <Tag key={el}># {el}</Tag>
                 ))}
             </S.Tags>
           </S.WrapTags>

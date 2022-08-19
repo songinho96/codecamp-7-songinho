@@ -2,14 +2,12 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 
 export const SliderWrapper = styled.div`
-  margin: auto;
-
   .slick-prev {
     left: -70px;
   }
 
   .slick-next {
-    right: 70px;
+    right: 40px;
   }
   .slick-prev:before {
     opacity: 1; // 기존에 숨어있던 화살표 버튼이 보이게
@@ -26,6 +24,7 @@ export const SliderWrapper = styled.div`
   .slick-dots {
     right: 100px;
     bottom: -60px;
+    right: 50px;
   }
   .slick-dots li button:before {
     color: blue;
@@ -34,27 +33,26 @@ export const SliderWrapper = styled.div`
 `;
 
 export const SliderWrap = styled(Slider)`
-  width: 1000px;
-  margin: auto;
-  /* padding-left: 80px; */
+  width: 800px;
+  margin-left: 100px;
 `;
 
 export const Wrapper = styled.div`
+  width: 1024px;
   border: 1px solid black;
-  margin: 100px auto;
-  padding: 80px 102px 0px 102px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
   font-size: 20px;
+  padding-top: 20px;
 `;
 // header
 
 export const Header = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   padding-bottom: 80px;
 `;
 
@@ -73,26 +71,29 @@ export const WrapBest = styled.div`
   display: flex;
   flex-direction: column;
   width: 282px;
-  height: 257px;
+  height: 320px;
   border: 1px solid black;
 `;
 
 export const BestImage = styled.img`
   width: 282px;
-  height: 120px;
+  height: 200px;
   border: 1px solid black;
   cursor: pointer;
 `;
 
 export const BestTitle = styled.div`
-  font-size: 18px;
-  padding-top: 20px;
+  font-size: 1.2rem;
+  padding: 20px 10px 10px 10px;
+  font-weight: 700;
 `;
 
 export const WrapBestInfo = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 10px;
+  align-items: center;
 `;
 
 export const WrapperProfileInfo = styled.div`
@@ -103,24 +104,29 @@ export const WrapperProfileInfo = styled.div`
 export const WrapProfile = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  padding-bottom: 5px;
 `;
 
 export const ProfileIcon = styled.img`
   width: 20px;
   height: 20px;
+  margin-right: 10px;
 `;
 
 export const ProfileWriter = styled.div`
-  font-size: 16px;
+  font-size: 1rem;
 `;
 
 export const WrapDate = styled.div`
-  font-size: 12px;
+  font-size: 0.7rem;
+  color: #a8a8a8;
 `;
 
 export const WrapperThumbs = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const Thumbsup = styled.img`

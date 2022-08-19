@@ -32,7 +32,7 @@ export default function Navigation() {
       <List>
         {/* <GoBoard onClick={onClickMoveToPage("/")}>나의 메뉴2</GoBoard>
         <GoBoard onClick={onClickMoveToPage("/")}>나의 메뉴1</GoBoard> */}
-        <GoBoard onClick={onClickMoveToPage("/boards")}>게시판</GoBoard>
+        <GoBoard onClick={onClickMoveToPage("/boards")}>익명 게시판</GoBoard>
         <GoBoard onClick={onClickMoveToPage("/products")}>중고마켓</GoBoard>
         <GoBoard onClick={onClickMoveToPage("/mypage/mymarket/myproducts")}>
           마이 페이지

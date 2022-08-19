@@ -9,7 +9,7 @@ export const Error = styled.div`
 export const WrapError = styled.div``;
 
 export const Wrapper = styled.div`
-  width: 80%;
+  width: 1024px;
   margin: 100px auto;
 `;
 

@@ -10,8 +10,13 @@ export const InputSearch = styled.input`
   margin-right: 42px;
   width: 776px;
   height: 52px;
-  background-color: #f2f2f2;
+  background-color: #f4f2fc;
+  padding: 8px;
+  border: none;
   border-radius: 10px;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const DateSearch = styled.input`

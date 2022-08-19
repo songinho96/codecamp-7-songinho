@@ -4,15 +4,14 @@ import InfiniteScroll from "react-infinite-scroller";
 import BoardCommentItem from "../edit/BoardCommentItem.container";
 
 const Wrapperwrited = styled.div`
-  width: 1200px;
-  margin: 100px auto;
+  margin: 0 auto;
   box-sizing: border-box;
 `;
 
 const Scroll = styled.div`
   height: 867px;
   overflow: auto;
-  width: 1240px;
+  width: 1024px;
   display: flex;
   margin: 0px auto;
   margin-bottom: 200px;

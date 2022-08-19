@@ -1,21 +1,32 @@
 import { PlusOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 import { Input, Tag, Tooltip } from "antd";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+
+interface ITagsProps {
+  tags: string[];
+  setTags: Dispatch<SetStateAction<string[]>>;
+}
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+`;
 
 const Inputs = styled(Input)`
   width: 200px;
   border-radius: 10px;
 `;
 
-export default function Tags(props) {
+export default function Tags(props: ITagsProps) {
   // const [tags, setTags] = useState([""]);
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [editInputIndex, setEditInputIndex] = useState(-1);
   const [editInputValue, setEditInputValue] = useState("");
-  const inputRef = useRef(null);
-  const editInputRef = useRef(null);
+  const inputRef = useRef<any>(null);
+  const editInputRef = useRef<any>(null);
   useEffect(() => {
     if (inputVisible) {
       inputRef.current?.focus();
@@ -25,9 +36,8 @@ export default function Tags(props) {
     editInputRef.current?.focus();
   }, [inputValue]);
 
-  const handleClose = (removedTag) => {
-    const newTags = props.tags.filter((tag) => tag !== removedTag);
-    console.log(newTags);
+  const handleClose = (removedTag: string) => {
+    const newTags = props.tags.filter((tag: any) => tag !== removedTag);
     props.setTags(newTags);
   };
 
@@ -35,7 +45,7 @@ export default function Tags(props) {
     setInputVisible(true);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     setInputValue(e.target.value);
   };
 
@@ -48,7 +58,7 @@ export default function Tags(props) {
     setInputValue("");
   };
 
-  const handleEditInputChange = (e) => {
+  const handleEditInputChange = (e: any) => {
     setEditInputValue(e.target.value);
   };
 
@@ -61,7 +71,7 @@ export default function Tags(props) {
   };
 
   return (
-    <>
+    <Wrapper>
       {props.tags.map((tag, index) => {
         if (editInputIndex === index) {
           return (
@@ -82,9 +92,9 @@ export default function Tags(props) {
         const tagElem = (
           <Tag
             style={{
-              backgroundColor: "#008000",
+              backgroundColor: "#FED602",
               borderRadius: 10,
-              color: "white",
+              color: "black",
             }}
             className="edit-tag"
             key={tag}
@@ -129,14 +139,16 @@ export default function Tags(props) {
           className="site-tag-plus"
           onClick={showInput}
           style={{
-            backgroundColor: "gray",
+            backgroundColor: "#ffffff",
+            border: "1px solid #2277d2",
             borderRadius: 10,
-            color: "white",
+            color: "black",
+            cursor: "pointer",
           }}
         >
           <PlusOutlined /> 태그
         </Tag>
       )}
-    </>
+    </Wrapper>
   );
 }

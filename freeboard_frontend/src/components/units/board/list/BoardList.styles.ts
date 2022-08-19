@@ -1,19 +1,17 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 80%;
+  width: 1024px;
   border: 1px solid black;
-  margin: 100px auto;
-  padding: 0px 102px 100px 102px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
   box-sizing: border-box;
   background-color: white;
-  font-size: 20px;
+  font-size: 16px;
   background: no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
-  /* background-image: url("/list/blackground.jpeg"); */
   background-size: cover;
   object-fit: fill;
 `;
@@ -21,7 +19,6 @@ export const Wrapper = styled.div`
 // body
 export const Body = styled.div`
   width: 100%;
-  padding-bottom: 40px;
 `;
 
 export const WrapperSearch = styled.div`
@@ -66,17 +63,19 @@ export const TableRow = styled.div`
   display: flex;
   flex-direction: row;
   padding: 10px 0;
+  margin: 5px 0;
 `;
 
 export const Row = styled.div`
   display: flex;
-  padding: 10px 0;
+  padding: 13px 0;
   border-top: 1px solid gray;
 `;
 
 export const TitleColumntitle = styled.div`
   width: 60%;
   text-align: center;
+  font-weight: 700;
 `;
 
 export const NumColumn = styled.div`
@@ -88,6 +87,9 @@ export const TitleColumn = styled.div`
   width: 60%;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   :hover {
     color: red;
   }
@@ -96,11 +98,32 @@ export const TitleColumn = styled.div`
 export const WriterColumn = styled.div`
   width: 20%;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const DateColumn = styled.div`
   width: 20%;
   text-align: center;
+`;
+
+export const DateColumnTitle = styled.div`
+  width: 20%;
+  text-align: center;
+  font-weight: 700;
+`;
+
+export const NumColumnTitle = styled.div`
+  width: 10%;
+  text-align: center;
+  font-weight: 700;
+`;
+
+export const WriterColumnTitle = styled.div`
+  width: 20%;
+  text-align: center;
+  font-weight: 700;
 `;
 
 export const Footer = styled.div`
@@ -110,11 +133,22 @@ export const Footer = styled.div`
 `;
 
 export const Button = styled.button`
-  cursor: pointer;
+  width: 171px;
+  height: 52px;
+  background-color: white;
+  border-radius: 15px;
   display: flex;
-  margin-left: 150px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 30px;
+
+  :hover {
+    background-color: #f5f2b1;
+  }
 `;
 
 export const Word = styled.span`
-  color: ${(props: any) => (props.isMatched ? "gray" : "black")};
+  color: ${(props: any) => (props.isMatched ? "blue" : "black")};
 `;

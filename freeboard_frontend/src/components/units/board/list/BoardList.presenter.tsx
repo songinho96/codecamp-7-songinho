@@ -19,10 +19,10 @@ export default function BoardListUI(props) {
         <S.Underline></S.Underline>
         <S.WrapperTable>
           <S.TableRow>
-            <S.NumColumn>번호</S.NumColumn>
+            <S.NumColumnTitle>번호</S.NumColumnTitle>
             <S.TitleColumntitle>제목</S.TitleColumntitle>
-            <S.WriterColumn>작성자</S.WriterColumn>
-            <S.DateColumn>날짜</S.DateColumn>
+            <S.WriterColumnTitle>작성자</S.WriterColumnTitle>
+            <S.DateColumnTitle>날짜</S.DateColumnTitle>
           </S.TableRow>
           {props.data?.fetchBoards.map((el, index) => (
             <S.Row key={el._id}>

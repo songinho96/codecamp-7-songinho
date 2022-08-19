@@ -1,24 +1,19 @@
 import styled from "@emotion/styled";
-import { PlusSquareFilled } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
-  width: 80%;
-  /* height: 1847px; */
+  width: 1024px;
   border: 1px solid black;
-  margin: 100px auto;
-  /* margin: 100px; */
-  padding: 80px 102px 100px 102px;
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: none; */
-  box-shadow: 0px 16px 48px;
-  box-sizing: border-box;
   font-size: 16px;
 `;
 export const WrapBackButton = styled.div`
   display: flex;
   justify-content: flex-end;
+  padding-top: 50px;
 `;
 
 export const BackButton = styled.button`
@@ -42,10 +37,15 @@ export const MainTitle = styled.div`
 export const WrapperWritePassword = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding-bottom: 40px;
+  width: 100%;
 `;
 
-export const WraprWriter = styled.div``;
+export const WraprWriter = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const Label = styled.div`
   font-size: 16px;
@@ -58,16 +58,19 @@ export const WrapUpload = styled.div`
 `;
 
 export const Writer = styled.input`
-  width: 486px;
+  width: 450px;
   height: 53px;
   margin-right: 40px;
   padding-left: 10px;
 `;
 
-export const WrapPassword = styled.div``;
+export const WrapPassword = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const Password = styled.input`
-  width: 486px;
+  width: 450px;
   height: 53px;
   padding-left: 10px;
 `;
@@ -171,7 +174,11 @@ export const RadioButton = styled.input`
 
 export const RadioLabel = styled.div``;
 
-export const WrapperSubmit = styled.div``;
+export const WrapperSubmit = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+`;
 
 export const Wrap = styled.div`
   margin: 0 auto;

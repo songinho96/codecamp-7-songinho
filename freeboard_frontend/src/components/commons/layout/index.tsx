@@ -15,7 +15,7 @@ const LayoutBodyWrapper = styled.div`
 
 // const HIDDEN_HEADERS = ["/"];
 const HIDDEN_NAVIGATION = ["/"];
-const HIDDEN_SIDEBAR = ["/"];
+const HIDDEN_SIDEBAR = ["/", "/login", "/signup"];
 const HIDDEN_FOOTER = ["/", "/products"];
 const HIDDEN_MYPAGE_SIDEBAR = ["products", "/boards"];
 
@@ -38,7 +38,7 @@ export default function Layout(props: any) {
       {/* {!isHideenMypageSidebar && <MypageSidebar />} */}
       {/* <div style={{ width: "1000px", margin: "auto" }}>{props.children}</div> */}
       <div>{props.children}</div>
-      <SideBar />
+      {!isHiddenSidebar && <SideBar />}
       {/* </LayoutBodyWrapper> */}
       {!isHiddenFooter && <Footer />}
     </>

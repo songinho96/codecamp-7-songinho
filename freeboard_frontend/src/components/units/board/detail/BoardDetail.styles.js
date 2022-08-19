@@ -4,7 +4,7 @@ import { Popover, Image } from "antd";
 export const Pop = styled(Popover)``;
 
 export const Wrapper = styled.div`
-  width: 80%;
+  width: 1024px;
   margin: 100px auto;
   box-sizing: border-box;
   font-size: 20px;
@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
 export const WrapperCard = styled.div`
   border: 1px solid black;
   padding-top: 80px;
-  padding-bottom: 100px;
   padding-left: 102px;
   padding-right: 102px;
   display: flex;
@@ -91,7 +90,7 @@ export const WrapperBody = styled.div`
 export const Subject = styled.div`
   font-size: 36px;
   font-weight: bold;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 `;
 
 export const WrapperContents = styled.div`
@@ -107,15 +106,15 @@ export const Picture = styled(Image)`
 `;
 
 export const Contents = styled.div`
-  margin-top: 100px;
+  margin: 50px 0;
   overflow: hidden;
   word-wrap: break-word;
-  width: 996px;
+  width: 100%;
   border: none;
 `;
 
 export const Video = styled.div`
-  padding-bottom: 163px;
+  padding-bottom: 100px;
 `;
 
 export const WrapperThumbs = styled.div`
@@ -149,7 +148,7 @@ export const WrapperButton = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 87px;
+  padding-top: 37px;
   padding-bottom: 87px;
 `;
 
@@ -172,6 +171,7 @@ export const Images = styled.div`
 `;
 
 export const DetailImage = styled.div`
-  border: 1px solid gray;
   margin: 0 30px;
+  width: 300px;
+  height: 300px;
 `;

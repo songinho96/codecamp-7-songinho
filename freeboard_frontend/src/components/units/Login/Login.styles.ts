@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1920px;
-
-  height: 1080px;
+  width: 100%;
+  height: 100%;
   margin: 100px auto;
   font-size: 20px;
   border: 1px solid black;
@@ -59,6 +58,7 @@ export const InputEmail = styled.input`
   width: 500px;
   height: 64px;
   color: black;
+  border-radius: 10px;
 `;
 
 export const Error = styled.div`
@@ -70,6 +70,7 @@ export const InputPassword = styled.input`
   width: 500px;
   height: 64px;
   color: black;
+  border-radius: 10px;
 `;
 
 export const WrapLoginCheck = styled.div`
@@ -95,6 +96,7 @@ export const LoginButton = styled.button`
   background-color: yellow;
   color: black;
   margin-bottom: 40px;
+  border-radius: 10px;
 `;
 
 export const DivideLine = styled.div`

@@ -142,7 +142,7 @@ export default function ProductWritePresenter(props) {
               ))}
             </S.WrapImage>
           </S.WrapperImage>
-          <S.WrapperRadioButton>
+          {/* <S.WrapperRadioButton>
             <S.Label>메인 사진 설정</S.Label>
             <S.WrapperRadio>
               <S.WrapRadio>
@@ -154,7 +154,7 @@ export default function ProductWritePresenter(props) {
                 <S.RadioLabel>RadioLabel</S.RadioLabel>
               </S.WrapRadio>
             </S.WrapperRadio>
-          </S.WrapperRadioButton>
+          </S.WrapperRadioButton> */}
           <S.WrapButton>
             <S.SubmitButton>
               {props.isEdit ? "UpdateButton" : "SubmitButton"}

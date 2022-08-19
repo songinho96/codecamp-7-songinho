@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 80%;
-  margin: 100px auto;
-  box-sizing: border-box;
+  width: 1024px;
+  margin: 0 auto;
 `;
 
 export const WrapTitle = styled.div`
@@ -54,6 +53,7 @@ export const WrapWritedHeader = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const WrapFrontHeader = styled.div`
@@ -68,7 +68,9 @@ export const CommentWriter = styled.div`
   font-size: 16px;
 `;
 
-export const WrapBackHeader = styled.div``;
+export const WrapBackHeader = styled.div`
+  padding-left: 30px;
+`;
 
 export const Pencil = styled.img`
   width: 18px;

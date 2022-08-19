@@ -22,6 +22,25 @@ export default function Banner() {
       font-size: 13px;
     }
 
+    /*화살표 크기*/
+    /* .slick-prev:before,
+    .slick-next:before {
+      font-size: 60px;
+      opacity: 1;
+    }
+
+    .slick-prev {
+      opacity: 1;
+      left: 10%; 
+      z-index: 999;
+    }
+
+    .slick-next {
+      opacity: 1;
+      right: 10%;
+      z-index: 999;
+    } */
+
     /* .slick-arrow {
       display: flex;
       z-index: 10;
