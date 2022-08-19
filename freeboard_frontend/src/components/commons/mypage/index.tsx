@@ -17,11 +17,13 @@ const Wraaper = styled.div`
     margin: 40px 0 0 0;
     flex-direction: row;
     justify-content: center;
+    border-bottom: 1px solid gray;
   }
 
   @media ${breakPoints.mobile} {
     width: 100%;
     margin: 40px 0 0 0;
+    border-bottom: 1px solid gray;
   }
 `;
 

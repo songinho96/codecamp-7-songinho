@@ -1,15 +1,13 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../commons/styles/media";
 
 export const Error = styled.div`
   color: red;
-  font-size: 14px;
+  font-size: 0.875rem;
 `;
 
 export const Wrapper = styled.div`
-  /* width: 100%; */
-  /* height: 100%; */
-  margin: auto;
-  font-size: 20px;
+  font-size: 1, 25rem;
   border: 1px solid black;
   background: url("/login/Background Image-1.png"), no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
   background-size: cover;
@@ -19,7 +17,14 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   margin: 0 auto;
-  /* opacity: 0.5; */
+
+  @media ${breakPoints.tablet} {
+    padding: 30px 10px;
+  }
+
+  @media ${breakPoints.mobile} {
+    padding: 30px 10px;
+  }
 `;
 
 export const WrapMainTitle = styled.div`
@@ -31,8 +36,16 @@ export const WrapMainTitle = styled.div`
 export const MainIcon = styled.div``;
 
 export const MainTitle = styled.div`
-  font-size: 60px;
+  font-size: 3.75rem;
   padding-bottom: 30px;
+
+  @media ${breakPoints.tablet} {
+    font-size: 3rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 2.3rem;
+  }
 `;
 
 export const WrapperBody = styled.div`
@@ -40,6 +53,16 @@ export const WrapperBody = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+
+  @media ${breakPoints.mobile} {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  @media ${breakPoints.tablet} {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
 `;
 
 export const WrapperSocialSignup = styled.div`
@@ -50,28 +73,66 @@ export const WrapperSocialSignup = styled.div`
 export const SocialButton = styled.img`
   width: 570px;
   height: 64px;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.div`
   text-align: center;
-  font-size: 40px;
+  font-size: 2.5rem;
+
+  @media ${breakPoints.tablet} {
+    font-size: 2.3rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 1.8rem;
+  }
 `;
 
 export const WrapperEmailSignup = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const Label = styled.div`
   text-align: start;
   padding: 20px 0;
-  font-size: 25px;
+  font-size: 1.563rem;
+
+  @media ${breakPoints.mobile} {
+    font-size: 1.2rem;
+  }
 `;
 
 export const InputSign = styled.input`
   width: 578px;
   height: 64px;
   color: black;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    height: 55px;
+    font-size: 0.9rem;
+  }
 `;
 
 export const SignupButton = styled.button`
@@ -80,7 +141,17 @@ export const SignupButton = styled.button`
   margin-top: 50px;
   color: black;
   background-color: yellow;
-  font-size: 30px;
+  font-size: 1.875rem;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    height: 55px;
+    font-size: 1.5rem;
+  }
 `;
 
 export const WrapperDivideLine = styled.div`
@@ -93,6 +164,14 @@ export const WrapperDivideLine = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export const DivideLine = styled.div`
@@ -106,7 +185,7 @@ export const DivideLine = styled.div`
 `;
 
 export const Or = styled.div`
-  font-size: 30px;
+  font-size: 1.875rem;
 `;
 
 export const WrapperFooter = styled.div`
@@ -118,11 +197,27 @@ export const WrapperFooter = styled.div`
 
 export const FooterLabel = styled.div`
   padding: 20px;
-  font-size: 30px;
+  font-size: 1.875rem;
+
+  @media ${breakPoints.tablet} {
+    font-size: 1.5rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 1.2rem;
+  }
 `;
 
 export const FooterLabelLog = styled.div`
   text-decoration: underline;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 1.875rem;
+
+  @media ${breakPoints.tablet} {
+    font-size: 1.5rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 1.2rem;
+  }
 `;

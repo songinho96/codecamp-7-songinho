@@ -42,6 +42,18 @@ export const WrapDetail = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+
+  @media ${breakPoints.tablet} {
+    margin-top: 120px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  @media ${breakPoints.mobile} {
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 20px;
+  }
 `;
 
 export const WrapTitle = styled.div`
@@ -131,8 +143,13 @@ export const WrapButton = styled.div`
   display: flex;
   padding-top: 40px;
 
+  @media ${breakPoints.tablet} {
+    justify-content: center;
+  }
+
   @media ${breakPoints.mobile} {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -157,6 +174,7 @@ export const Pickbutton = styled.button`
 
   @media ${breakPoints.mobile} {
     margin-bottom: 15px;
+    margin-right: 0;
   }
 `;
 
@@ -171,6 +189,7 @@ export const BasketButton = styled.button`
 
   @media ${breakPoints.mobile} {
     margin-bottom: 15px;
+    margin-right: 0;
   }
 `;
 
@@ -187,6 +206,10 @@ export const Body = styled.div`
   display: flex;
   padding-top: 30px;
 
+  @media ${breakPoints.tablet} {
+    flex-direction: column;
+  }
+
   @media ${breakPoints.mobile} {
     flex-direction: column;
   }
@@ -199,6 +222,10 @@ export const WrapProduct = styled.div`
   height: 100%;
   border-right: 1.5px solid #eeeeee;
   padding-right: 30px;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
 
   @media ${breakPoints.mobile} {
     width: 100%;
@@ -264,6 +291,10 @@ export const DiveideLine = styled.div`
   border-width: 1;
   background-color: white;
 
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+
   @media ${breakPoints.mobile} {
     display: none;
   }
@@ -276,7 +307,10 @@ export const WrapComment = styled.div`
   flex-direction: column;
 
   @media ${breakPoints.tablet} {
+    width: 100%;
+    padding-left: 10px;
     padding-right: 10px;
+    padding-top: 30px;
   }
 
   @media ${breakPoints.mobile} {

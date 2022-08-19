@@ -30,7 +30,7 @@ export const SliderWrapper = styled.div`
     opacity: 1; // 기존에 숨어있던 화살표 버튼이 보이게
     color: black; // 버튼 색은 검은색으로
     left: 0;
-    font-size: 25px;
+    font-size: 1.563rem;
 
     @media ${breakPoints.tablet} {
       display: none;
@@ -43,7 +43,7 @@ export const SliderWrapper = styled.div`
   .slick-next:before {
     opacity: 1;
     color: black;
-    font-size: 25px;
+    font-size: 1.563rem;
 
     @media ${breakPoints.tablet} {
       display: none;
@@ -68,7 +68,7 @@ export const SliderWrapper = styled.div`
   }
   .slick-dots li button:before {
     color: blue;
-    font-size: 15px;
+    font-size: 0.938rem;
   }
 `;
 
@@ -97,7 +97,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border: none;
-  font-size: 20px;
+  font-size: 1.25rem;
   padding-top: 20px;
 
   @media ${breakPoints.tablet} {
@@ -118,9 +118,13 @@ export const Header = styled.div`
 
 export const BestPost = styled.div`
   text-align: center;
-  font-size: 60px;
+  font-size: 3.75rem;
   font-weight: 700;
   padding-bottom: 40px;
+
+  @media ${breakPoints.mobile} {
+    font-size: 2.3rem;
+  }
 `;
 
 export const WrapperBest = styled.div`
@@ -199,5 +203,5 @@ export const Thumbsup = styled.img`
 `;
 
 export const TuumbsCount = styled.div`
-  font-size: 16px;
+  font-size: 1rem;
 `;

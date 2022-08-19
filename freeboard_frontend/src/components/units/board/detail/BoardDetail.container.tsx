@@ -6,6 +6,7 @@ import {
   DELETE_BOARD,
   DISLIKE_BOARD,
   FETCH_BOARD,
+  FETCH_USER_LOGGED_IN,
   LIKE_BOARD,
 } from "./BoardDetail.queries";
 import ReactPlayer from "react-player/youtube"; // youtube 영상
@@ -25,6 +26,8 @@ export default function BoardDetail() {
   }); // 모두 한줄  FETCH_BOARD요청 data에 저장, 처음에 undefined => data
   console.log(data?.fetchBoard.images);
   // console.log(data);
+
+  const { data: UserData } = useQuery(FETCH_USER_LOGGED_IN);
 
   const onClickMoveList = () => {
     router.push(`/boards`);
@@ -74,6 +77,9 @@ export default function BoardDetail() {
     });
   };
 
+  // 아이디
+  const MyId = data?.fetchBoard.user?._id === UserData?.fetchUserLoggedIn._id;
+  console.log(data);
   return (
     <BoardDetailUI
       data={data}
@@ -83,6 +89,7 @@ export default function BoardDetail() {
       ReactPlayer={ReactPlayer}
       onClickLike={onClickLike}
       onClickDisLike={onClickDisLike}
+      MyId={MyId}
     />
   );
 }

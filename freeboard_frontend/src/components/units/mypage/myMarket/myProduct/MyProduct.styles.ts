@@ -89,6 +89,10 @@ export const ProductSold = styled.div`
   align-items: center;
   color: rgb(255, 255, 255);
   z-index: 10;
+
+  @media ${breakPoints.mobile} {
+    width: 180px;
+  }
 `;
 
 export const ProductImage = styled.img`

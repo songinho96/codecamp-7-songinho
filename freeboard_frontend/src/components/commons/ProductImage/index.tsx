@@ -1,6 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
-import { Image } from "antd";
 import { useRouter } from "next/router";
 import React from "react";
 import Slider from "react-slick";
@@ -19,7 +18,10 @@ const SliderWrapper = styled.div`
   margin-right: 30px;
 
   @media ${breakPoints.tablet} {
-    margin-bottom: 120px;
+    margin-right: 0;
+  }
+
+  @media ${breakPoints.mobile} {
     margin-right: 0;
   }
 `;
@@ -66,14 +68,27 @@ const SliderWrap = styled(Slider)`
 
   .slick-dots {
     bottom: -90px;
+
+    @media ${breakPoints.tablet} {
+      bottom: 10px;
+    }
+
+    @media ${breakPoints.mobile} {
+      bottom: 10px;
+    }
   }
   .slick-dots li button:before {
     color: blue;
     font-size: 15px;
+
+    @media ${breakPoints.mobile} {
+      color: white;
+    }
   }
 
   @media ${breakPoints.mobile} {
     width: 300px;
+    height: 300px;
   }
 `;
 
@@ -84,6 +99,7 @@ const Images = styled.img`
 
   @media ${breakPoints.mobile} {
     width: 300px;
+    height: 300px;
   }
 `;
 

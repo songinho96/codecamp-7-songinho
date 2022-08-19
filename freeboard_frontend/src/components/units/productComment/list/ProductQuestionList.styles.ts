@@ -74,8 +74,7 @@ export const Underline = styled.div`
 `;
 
 export const Scroll = styled.div`
-  height: 400px;
+  height: 300px;
   overflow: auto;
   margin: 0px auto;
-  margin-bottom: 200px;
 `;

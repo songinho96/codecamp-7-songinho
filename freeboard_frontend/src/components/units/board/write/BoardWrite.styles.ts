@@ -1,14 +1,23 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1024px;
   border: 1px solid black;
   margin: 0 auto;
-
+  padding: 80px 102px 100px 102px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-size: 16px;
+  font-size: 1rem;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    padding: 10px;
+  }
 `;
 export const WrapBackButton = styled.div`
   display: flex;
@@ -19,19 +28,30 @@ export const WrapBackButton = styled.div`
 export const BackButton = styled.button`
   width: 77px;
   height: 38px;
+  margin-bottom: 20px;
+
+  @media ${breakPoints.mobile} {
+    width: 60px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
 `;
 
 export const Error = styled.div`
   padding-top: 10px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: red;
 `;
 
 export const MainTitle = styled.div`
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: bold;
   padding-bottom: 80px;
   text-align: center;
+
+  @media ${breakPoints.mobile} {
+    font-size: 1.8rem;
+  }
 `;
 
 export const WrapperWritePassword = styled.div`
@@ -40,6 +60,14 @@ export const WrapperWritePassword = styled.div`
   justify-content: space-between;
   padding-bottom: 40px;
   width: 100%;
+
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+  }
+
+  @media ${breakPoints.tablet} {
+    flex-direction: column;
+  }
 `;
 
 export const WraprWriter = styled.div`
@@ -48,8 +76,12 @@ export const WraprWriter = styled.div`
 `;
 
 export const Label = styled.div`
-  font-size: 16px;
+  font-size: 1rem;
   padding-bottom: 16px;
+
+  @media ${breakPoints.mobile} {
+    font-size: 0.8rem;
+  }
 `;
 
 export const WrapUpload = styled.div`
@@ -58,10 +90,19 @@ export const WrapUpload = styled.div`
 `;
 
 export const Writer = styled.input`
-  width: 450px;
+  width: 350px;
   height: 53px;
   margin-right: 40px;
   padding-left: 10px;
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    height: 40px;
+  }
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
 `;
 
 export const WrapPassword = styled.div`
@@ -70,9 +111,18 @@ export const WrapPassword = styled.div`
 `;
 
 export const Password = styled.input`
-  width: 450px;
+  width: 350px;
   height: 53px;
   padding-left: 10px;
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    height: 40px;
+  }
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
 `;
 
 export const WrapperTitle = styled.div`
@@ -80,9 +130,13 @@ export const WrapperTitle = styled.div`
 `;
 
 export const Title = styled.input`
-  width: 996px;
+  width: 100%;
   height: 52px;
   padding-left: 10px;
+
+  @media ${breakPoints.mobile} {
+    height: 40px;
+  }
 `;
 
 export const WrapperContents = styled.div`
@@ -90,10 +144,15 @@ export const WrapperContents = styled.div`
 `;
 
 export const Contents = styled.textarea`
-  width: 996px;
+  width: 100%;
   height: 480px;
   padding-left: 10px;
   padding-top: 10px;
+  resize: none;
+
+  @media ${breakPoints.mobile} {
+    height: 300px;
+  }
 `;
 
 export const WrapperAddress = styled.div`
@@ -113,6 +172,12 @@ export const Zipcode = styled.input`
   border: 1px solid black;
   color: #bdbdbd;
   box-shadow: 0px 2px 4px;
+
+  @media ${breakPoints.mobile} {
+    width: 60px;
+    height: 40px;
+    font-size: 0.8rem;
+  }
 `;
 
 export const SearchButton = styled.button`
@@ -120,22 +185,36 @@ export const SearchButton = styled.button`
   height: 52px;
   background-color: black;
   color: white;
+
+  @media ${breakPoints.mobile} {
+    width: 100px;
+    height: 40px;
+    font-size: 0.8rem;
+  }
 `;
 
 export const Address = styled.input`
-  width: 996px;
+  width: 100%;
   height: 52px;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
   padding-left: 10px;
+
+  @media ${breakPoints.mobile} {
+    height: 40px;
+  }
 `;
 
 export const AddressDetail = styled.input`
-  width: 996px;
+  width: 100%;
   height: 52px;
   margin-bottom: 30px;
   padding-left: 10px;
+
+  @media ${breakPoints.mobile} {
+    height: 40px;
+  }
 `;
 
 export const WrapperYoutube = styled.div`
@@ -143,9 +222,13 @@ export const WrapperYoutube = styled.div`
 `;
 
 export const YoutubeLink = styled.input`
-  width: 996px;
+  width: 100%;
   height: 52px;
   padding-left: 10px;
+
+  @media ${breakPoints.mobile} {
+    height: 40px;
+  }
 `;
 
 export const WrapperPicture = styled.div`
@@ -180,9 +263,7 @@ export const WrapperSubmit = styled.div`
   padding-bottom: 50px;
 `;
 
-export const Wrap = styled.div`
-  margin: 0 auto;
-`;
+export const Wrap = styled.div``;
 
 export const SubmitButton = styled.button`
   background-color: ${(props) => (props.isActive ? "#212529" : "default")};

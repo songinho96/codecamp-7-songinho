@@ -11,6 +11,10 @@ export const FETCH_BOARD = gql`
       youtubeUrl
       likeCount
       dislikeCount
+      user {
+        _id
+        email
+      }
       boardAddress {
         zipcode
         address
@@ -36,5 +40,13 @@ export const LIKE_BOARD = gql`
 export const DISLIKE_BOARD = gql`
   mutation dislikeBoard($boardId: ID!) {
     dislikeBoard(boardId: $boardId)
+  }
+`;
+
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+    }
   }
 `;
