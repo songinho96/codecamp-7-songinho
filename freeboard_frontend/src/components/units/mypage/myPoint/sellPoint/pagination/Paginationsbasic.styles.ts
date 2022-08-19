@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   font-size: 16px;
@@ -25,6 +26,11 @@ export const Pagination = styled.div`
   cursor: pointer;
   border-radius: 50%;
   background-color: ${(props) => (props.isActive ? "#FED602" : "none")};
+
+  @media ${breakPoints.mobile} {
+    margin-left: 5px;
+    width: 25px;
+  }
 `;
 
 export const NextButton = styled.div`

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Error = styled.div`
   padding-top: 10px;
@@ -6,11 +7,27 @@ export const Error = styled.div`
   color: red;
 `;
 
+export const WrapWriterPassword = styled.div`
+  display: flex;
+
+  @media ${breakPoints.mobile} {
+  }
+`;
+
 export const WrapError = styled.div``;
 
 export const Wrapper = styled.div`
   width: 1024px;
   margin: 100px auto;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    margin: 30px 0;
+  }
 `;
 
 export const WrapTitle = styled.div`
@@ -31,6 +48,10 @@ export const WrapCommentWrite = styled.div`
   display: flex;
   flex-direction: row;
   padding-bottom: 20px;
+
+  @media ${breakPoints.mobile} {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const Writer = styled.input`
@@ -38,6 +59,10 @@ export const Writer = styled.input`
   height: 52px;
   margin-right: 24px;
   padding: 20px;
+
+  @media ${breakPoints.mobile} {
+    width: 170px;
+  }
 `;
 
 export const Password = styled.input`
@@ -45,19 +70,29 @@ export const Password = styled.input`
   height: 52px;
   margin-right: 26px;
   padding: 20px;
+
+  @media ${breakPoints.mobile} {
+    width: 170px;
+    margin-right: 0;
+  }
 `;
 
-export const Star = styled.div``;
+export const Star = styled.div`
+  @media ${breakPoints.mobile} {
+    padding-bottom: 20px;
+  }
+`;
 
 export const WrapperWriteComment = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const WriteContent = styled.input`
+export const WriteContent = styled.textarea`
   /* width: 1200px; */
   height: 108px;
   padding: 20px;
+  resize: none;
 `;
 
 export const WriteFooter = styled.div`

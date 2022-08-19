@@ -7,6 +7,7 @@ import { accessTokenState, basketPageState } from "../../../store";
 import { useRouter } from "next/router";
 import MyProductChargePage from "../../charge";
 import { Modal } from "antd";
+import { breakPoints } from "../../../../commons/styles/media";
 
 const LOG_OUT = gql`
   mutation logoutUser {
@@ -51,6 +52,15 @@ const Wrap = styled.div`
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    flex-direction: column;
+  }
 `;
 
 const Head = styled.div`
@@ -69,6 +79,10 @@ const WrapTitle = styled.div`
 const WrapInfo = styled.div`
   display: flex;
   align-items: center;
+
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+  }
 `;
 
 const Title1 = styled.div`
@@ -76,17 +90,46 @@ const Title1 = styled.div`
   font-size: 60px;
   padding-right: 20px;
   color: #ffc107;
+
+  @media ${breakPoints.tablet} {
+    font-size: 55px;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 50px;
+  }
 `;
 
 const Title2 = styled.div`
   font-weight: 800;
   font-size: 40px;
+  padding-top: 10px;
+
+  @media ${breakPoints.tablet} {
+    font-size: 33px;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 30px;
+  }
 `;
 
 const Main = styled.div`
   display: flex;
   flex-direction: row;
   padding: 10px 0;
+
+  @media ${breakPoints.mobile} {
+    justify-content: flex-start;
+  }
+`;
+
+const WrapLog = styled.div`
+  display: flex;
+
+  @media ${breakPoints.mobile} {
+    margin: 20px 0;
+  }
 `;
 
 const Label = styled.div`
@@ -169,22 +212,26 @@ export default function Header() {
                   )} P`
                 : ""}
             </Label>
-            <Label onClick={data ? onClickCharge : onClickMoveToPage("/login")}>
-              {/* {data ? <MyProductChargePage /> : "로그인"} */}
-              {data ? "" : "로그인"}
-            </Label>
-            <Label
-              onClick={data ? onClickLogout : onClickMoveToPage("/signup")}
-            >
-              {data ? "로그아웃" : "회원가입"}
-            </Label>
-            <WrapBasket>
-              <Label>장바구니</Label>
-              <Basket>{basketPage.length}</Basket>
-              <LabelSell onClick={onClickMoveToPage("/products/new")}>
-                판매하기
-              </LabelSell>
-            </WrapBasket>
+            <WrapLog>
+              <Label
+                onClick={data ? onClickCharge : onClickMoveToPage("/login")}
+              >
+                {/* {data ? <MyProductChargePage /> : "로그인"} */}
+                {data ? "" : "로그인"}
+              </Label>
+              <Label
+                onClick={data ? onClickLogout : onClickMoveToPage("/signup")}
+              >
+                {data ? "로그아웃" : "회원가입"}
+              </Label>
+              <WrapBasket>
+                <Label>장바구니</Label>
+                <Basket>{basketPage.length}</Basket>
+                <LabelSell onClick={onClickMoveToPage("/products/new")}>
+                  판매하기
+                </LabelSell>
+              </WrapBasket>
+            </WrapLog>
           </WrapInfo>
         </Head>
       </Wrap>

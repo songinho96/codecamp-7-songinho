@@ -1,10 +1,19 @@
 import styled from "@emotion/styled";
 import { Image } from "antd";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1024px;
   margin: auto;
   padding: 100px 0;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const Header = styled.div`
@@ -12,14 +21,17 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   padding-bottom: 100px;
-`;
 
-// export const Image = styled.img`
-//   width: 480px;
-//   height: 480px;
-//   border: 1px solid gray;
-//   margin-right: 75px;
-// `;
+  @media ${breakPoints.tablet} {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
 
 export const AntImage = styled(Image)`
   width: 480px;
@@ -38,7 +50,7 @@ export const WrapTitle = styled.div`
 `;
 
 export const ProductName = styled.div`
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   word-break: break-all;
 `;
@@ -54,7 +66,7 @@ export const EditIcon = styled.img`
 `;
 
 export const Price = styled.div`
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 500;
   margin-bottom: 20px;
 `;
@@ -77,7 +89,7 @@ export const WrapHeart = styled.div`
 `;
 
 export const Count = styled.div`
-  font-size: 20px;
+  font-size: 1.25rem;
   padding-left: 7px;
   color: #cccccc;
 `;
@@ -118,6 +130,10 @@ export const WrapLocation = styled.div`
 export const WrapButton = styled.div`
   display: flex;
   padding-top: 40px;
+
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+  }
 `;
 
 export const Sold = styled.div`
@@ -132,28 +148,36 @@ export const Pickbutton = styled.button`
   width: 177px;
   height: 54px;
   margin-right: 22px;
-  font-size: 25px;
+  font-size: 1.563rem;
   font-weight: 700;
   color: white;
   background-color: red;
   border: none;
   cursor: pointer;
+
+  @media ${breakPoints.mobile} {
+    margin-bottom: 15px;
+  }
 `;
 
 export const BasketButton = styled.button`
   width: 177px;
   height: 54px;
   margin-right: 22px;
-  font-size: 25px;
+  font-size: 1.563rem;
   font-weight: 700;
   border: none;
   cursor: pointer;
+
+  @media ${breakPoints.mobile} {
+    margin-bottom: 15px;
+  }
 `;
 
 export const BuyButton = styled.button`
   width: 177px;
   height: 54px;
-  font-size: 25px;
+  font-size: 1.563rem;
   font-weight: 700;
   border: none;
   cursor: pointer;
@@ -162,6 +186,10 @@ export const BuyButton = styled.button`
 export const Body = styled.div`
   display: flex;
   padding-top: 30px;
+
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+  }
 `;
 
 export const WrapProduct = styled.div`
@@ -171,11 +199,23 @@ export const WrapProduct = styled.div`
   height: 100%;
   border-right: 1.5px solid #eeeeee;
   padding-right: 30px;
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const WrapProductContents = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media ${breakPoints.tablet} {
+    padding-left: 10px;
+  }
+
+  @media ${breakPoints.mobile} {
+    padding-left: 10px;
+  }
 `;
 
 export const Title = styled.div`
@@ -185,78 +225,25 @@ export const Title = styled.div`
   font-weight: 700;
 `;
 
-// export const Wrapper = styled.div`
-//   width: 80%;
-//   display: flex;
-//   flex-direction: column;
-//   margin: 0 auto;
-// `;
-
-// export const WrapImage = styled.div`
-//   display: flex;
-// `;
-
-// export const DetailImage = styled.div`
-//   border: 1px solid gray;
-
-//   /* width: 300px; */
-// `;
-
-// export const WrapEditDelete = styled.div`
-//   display: flex;
-//   background-color: gray;
-// `;
-
-// export const ProductName = styled.div`
-//   font-size: 30px;
-//   font-weight: bold;
-//   padding-bottom: 20px;
-// `;
-
-// export const ProductPrice = styled.div`
-//   font-size: 25px;
-// `;
-
 export const ProductContents = styled.div`
-  font-size: 17px;
+  font-size: 1.063rem;
   padding: 20px 0;
   border-bottom: 1.5px solid #eeeeee;
 `;
-
-// export const ProductTag = styled.div`
-//   padding-bottom: 200px;
-// `;
-
-// export const ListButton = styled.button`
-//   width: 180px;
-//   height: 50px;
-//   margin: 0 50px;
-// `;
-
-// export const BuyButton = styled.button`
-//   width: 180px;
-//   height: 50px;
-// `;
-
-// export const BasketButton = styled.button`
-//   width: 180px;
-//   height: 50px;
-//   background-color: ${(props) => (props.isBaskets ? "yellow" : "gray")};
-//   color: ${(props) => (props.isBaskets ? "black" : "white")};
-// `;
-
-// export const PickButton = styled.button`
-//   width: 180px;
-//   height: 50px;
-//   background-color: ${(props) => (props.myPick === 1 ? "yellow" : "gray")};
-//   color: ${(props) => (props.myPick === 1 ? "black" : "white")};
-// `;
 
 export const WrapMap = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 30px;
   border-bottom: 1.5px solid #eeeeee;
+
+  @media ${breakPoints.tablet} {
+    padding-left: 10px;
+  }
+
+  @media ${breakPoints.mobile} {
+    padding-left: 10px;
+  }
 `;
 
 export const WrapAddress = styled.div`
@@ -266,7 +253,7 @@ export const WrapAddress = styled.div`
 `;
 
 export const Address = styled.div`
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   margin: 10px;
 `;
@@ -276,6 +263,10 @@ export const DiveideLine = styled.div`
   width: 0.02vw;
   border-width: 1;
   background-color: white;
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 export const WrapComment = styled.div`
@@ -283,6 +274,17 @@ export const WrapComment = styled.div`
   padding-left: 30px;
   display: flex;
   flex-direction: column;
+
+  @media ${breakPoints.tablet} {
+    padding-right: 10px;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+  }
 `;
 
 export const WrapSeller = styled.div`

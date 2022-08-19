@@ -99,7 +99,7 @@ export default function BoardCommentList() {
   };
 
   return (
-    <p>
+    <>
       <BoardCommentListUI
         onClickDelete={onClickDelete}
         data={data}
@@ -113,6 +113,6 @@ export default function BoardCommentList() {
         onChangeDeletePassword={onChangeDeletePassword}
         loadFunc={loadFunc}
       />
-    </p>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import { EnvironmentFilled } from "@ant-design/icons";
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../../commons/styles/media";
 
 // export const Wrapper = styled.div`
 //   width: 1000px;
@@ -66,6 +67,14 @@ export const Wrapper = styled.div`
   width: 70%;
   border-bottom: 2px solid gray;
   margin: 0 auto;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const WrapHeader = styled.div`
@@ -111,6 +120,10 @@ export const WrapperList = styled.div`
   grid-template-rows: 2fr;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
+
+  @media ${breakPoints.mobile} {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export const WrapProductList = styled.div`
@@ -121,6 +134,10 @@ export const WrapProductList = styled.div`
 export const WrapProductImage = styled.div`
   width: 194px;
   height: 194px;
+
+  @media ${breakPoints.mobile} {
+    width: 180px;
+  }
 `;
 
 export const ProductSold = styled.div`
@@ -135,7 +152,7 @@ export const ProductSold = styled.div`
 `;
 
 export const ProductImage = styled.img`
-  width: 194px;
+  width: 100%;
   height: 194px;
   border: 1px solid #d1d1d6;
   filter: ${(props) => props.soldAt && "brightness(45%)"};
@@ -151,6 +168,10 @@ export const WrapProductDetail = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media ${breakPoints.mobile} {
+    width: 180px;
+  }
 `;
 
 export const ProductName = styled.div`
@@ -184,6 +205,10 @@ export const WrapAddress = styled.div`
   border-top: none;
   padding: 10px;
   flex-wrap: nowrap;
+
+  @media ${breakPoints.mobile} {
+    width: 180px;
+  }
 `;
 
 export const ProductAddressIcon = styled(EnvironmentFilled)`

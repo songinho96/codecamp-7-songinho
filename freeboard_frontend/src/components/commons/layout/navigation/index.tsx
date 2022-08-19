@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 import { useMoveToPage } from "../../hooks/useMoveToPage";
 
 const Wrapper = styled.div`
   width: 100%;
-  /* margin: 0 auto; */
-  /* width: 1024px; */
   height: 100px;
   background-color: #fed602;
   display: flex;
@@ -13,15 +12,24 @@ const Wrapper = styled.div`
 `;
 
 const List = styled.div`
+  width: 80%;
   display: flex;
+  justify-content: space-around;
 `;
 
 const GoBoard = styled.div`
-  padding-left: 80px;
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: 700;
   color: black;
   cursor: pointer;
+
+  @media ${breakPoints.tablet} {
+    font-size: 1.7rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 1.2rem;
+  }
 `;
 
 export default function Navigation() {

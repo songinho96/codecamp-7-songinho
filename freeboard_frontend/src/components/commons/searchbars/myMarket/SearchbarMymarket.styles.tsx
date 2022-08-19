@@ -1,9 +1,14 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   padding-top: 30px;
   width: 100%;
   display: flex;
+
+  @media ${breakPoints.tablet} {
+    padding-top: 10px;
+  }
 `;
 
 export const WrapMove = styled.div`

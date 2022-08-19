@@ -2,6 +2,7 @@
 
 import styled from "@emotion/styled";
 import { useEffect } from "react";
+import { breakPoints } from "../../../../commons/styles/media";
 
 declare const window: typeof globalThis & {
   kakao: any;
@@ -11,6 +12,31 @@ const Wrapper = styled.div`
   width: 1024px;
   padding-top: 20px;
   padding-right: 30px;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+    padding: 0;
+    padding-left: 10px;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    padding: 0;
+    padding-left: 10px;
+  }
+`;
+
+const Map = styled.div`
+  width: 60%;
+  height: 360px;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export default function KakaoMapPageRoute(props) {
@@ -195,7 +221,7 @@ export default function KakaoMapPageRoute(props) {
 
   return (
     <Wrapper>
-      <div id="map" style={{ width: "60%", height: 360 }}></div>
+      <Map id="map"></Map>
     </Wrapper>
   );
 }

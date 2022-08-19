@@ -1,30 +1,70 @@
 import styled from "@emotion/styled";
 import Slider from "react-slick";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const SliderWrapper = styled.div`
   .slick-prev {
     left: -70px;
+
+    @media ${breakPoints.tablet} {
+      display: none;
+    }
+
+    @media ${breakPoints.mobile} {
+      display: none;
+    }
   }
 
   .slick-next {
     right: 40px;
+
+    @media ${breakPoints.tablet} {
+      display: none;
+    }
+
+    @media ${breakPoints.mobile} {
+      display: none;
+    }
   }
   .slick-prev:before {
     opacity: 1; // 기존에 숨어있던 화살표 버튼이 보이게
     color: black; // 버튼 색은 검은색으로
     left: 0;
     font-size: 25px;
+
+    @media ${breakPoints.tablet} {
+      display: none;
+    }
+
+    @media ${breakPoints.mobile} {
+      display: none;
+    }
   }
   .slick-next:before {
     opacity: 1;
     color: black;
     font-size: 25px;
+
+    @media ${breakPoints.tablet} {
+      display: none;
+    }
+
+    @media ${breakPoints.mobile} {
+      display: none;
+    }
   }
 
   .slick-dots {
-    right: 100px;
     bottom: -60px;
     right: 50px;
+
+    @media ${breakPoints.tablet} {
+      right: 0;
+    }
+
+    @media ${breakPoints.mobile} {
+      right: 0;
+    }
   }
   .slick-dots li button:before {
     color: blue;
@@ -35,6 +75,18 @@ export const SliderWrapper = styled.div`
 export const SliderWrap = styled(Slider)`
   width: 800px;
   margin-left: 100px;
+
+  @media ${breakPoints.mobile} {
+    width: 350px;
+    margin: 0;
+    padding-left: 3px;
+  }
+
+  @media ${breakPoints.tablet} {
+    width: 767px;
+    margin: 0;
+    padding-left: 65px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -47,6 +99,14 @@ export const Wrapper = styled.div`
   border: none;
   font-size: 20px;
   padding-top: 20px;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 // header
 
@@ -73,12 +133,16 @@ export const WrapBest = styled.div`
   width: 282px;
   height: 320px;
   border: 1px solid black;
+
+  @media ${breakPoints.mobile} {
+    width: 170px;
+  }
 `;
 
 export const BestImage = styled.img`
-  width: 282px;
+  width: 100%;
   height: 200px;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   cursor: pointer;
 `;
 

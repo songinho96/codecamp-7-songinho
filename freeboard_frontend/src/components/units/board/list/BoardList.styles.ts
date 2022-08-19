@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1024px;
@@ -10,10 +11,18 @@ export const Wrapper = styled.div`
   border: none;
   box-sizing: border-box;
   background-color: white;
-  font-size: 16px;
+  font-size: 1rem;
   background: no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
   background-size: cover;
   object-fit: fill;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 // body
@@ -81,6 +90,10 @@ export const TitleColumntitle = styled.div`
 export const NumColumn = styled.div`
   width: 10%;
   text-align: center;
+
+  @media ${breakPoints.mobile} {
+    font-size: 0.8rem;
+  }
 `;
 
 export const TitleColumn = styled.div`
@@ -93,6 +106,10 @@ export const TitleColumn = styled.div`
   :hover {
     color: red;
   }
+
+  @media ${breakPoints.mobile} {
+    font-size: 0.8rem;
+  }
 `;
 
 export const WriterColumn = styled.div`
@@ -101,17 +118,30 @@ export const WriterColumn = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media ${breakPoints.mobile} {
+    font-size: 0.8rem;
+  }
 `;
 
 export const DateColumn = styled.div`
   width: 20%;
   text-align: center;
+
+  @media ${breakPoints.mobile} {
+    width: 40%;
+    font-size: 0.8rem;
+  }
 `;
 
 export const DateColumnTitle = styled.div`
   width: 20%;
   text-align: center;
   font-weight: 700;
+
+  @media ${breakPoints.mobile} {
+    width: 40%;
+  }
 `;
 
 export const NumColumnTitle = styled.div`

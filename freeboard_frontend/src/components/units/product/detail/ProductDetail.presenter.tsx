@@ -130,7 +130,7 @@ export default function ProductDetailPresenter(props) {
               />
               <S.WrapAddress>
                 <S.Address>
-                  <EnvironmentOutlined style={{ marginRight: 20 }} />
+                  <EnvironmentOutlined style={{ paddingRight: 20 }} />
                   {props.data?.fetchUseditem.useditemAddress?.address}
                 </S.Address>
                 <S.Address>

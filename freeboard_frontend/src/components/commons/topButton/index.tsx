@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { ArrowUpOutlined } from "@ant-design/icons";
 // import { breakPoints } from "../../../../commons/styles/media";
 import { useRouter } from "next/router";
+import { breakPoints } from "../../../commons/styles/media";
 
 const TopBtnBox = styled.div`
   z-index: 999;
@@ -24,6 +25,19 @@ const TopBtnBox = styled.div`
   font-size: 30px;
   letter-spacing: 0.1em;
   cursor: pointer;
+
+  @media ${breakPoints.tablet} {
+    right: 1rem;
+    bottom: 0.1rem;
+
+    width: 4rem;
+    height: 4rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    right: 1rem;
+    bottom: 0.1rem;
+  }
 `;
 
 const TopBtn = styled(ArrowUpOutlined)``;

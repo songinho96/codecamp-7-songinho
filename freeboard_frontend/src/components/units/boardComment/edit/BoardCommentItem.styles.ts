@@ -1,27 +1,23 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1024px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const WrapTitle = styled.div`
   display: flex;
   padding-bottom: 40px;
-`;
-
-export const Writer = styled.input`
-  width: 180px;
-  height: 52px;
-  margin-right: 24px;
-  padding: 20px;
-`;
-
-export const Password = styled.input`
-  width: 180px;
-  height: 52px;
-  margin-right: 26px;
-  padding: 20px;
 `;
 
 export const Star = styled.div``;
@@ -38,6 +34,11 @@ export const Wrapperwrited = styled.div`
   /* padding-top: 20px; */
 `;
 
+export const WrapStart = styled.div`
+  display: flex;
+  width: 90%;
+`;
+
 export const ProfileIcon = styled.img`
   width: 40px;
   height: 40px;
@@ -50,8 +51,8 @@ export const WrapWriteComment = styled.div`
 `;
 
 export const WrapWritedHeader = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;
@@ -69,7 +70,7 @@ export const CommentWriter = styled.div`
 `;
 
 export const WrapBackHeader = styled.div`
-  padding-left: 30px;
+  width: 15%;
 `;
 
 export const Pencil = styled.img`
@@ -84,11 +85,14 @@ export const Delete = styled.img`
 `;
 
 export const Contents = styled.div`
+  width: 100%;
   font-size: 16px;
   padding-bottom: 20px;
+  word-break: break-all;
 `;
 
 export const Date = styled.div`
+  width: 100%;
   font-size: 12px;
   font-weight: 400;
 `;
@@ -102,5 +106,6 @@ export const Underline = styled.div`
 
 export const WrapperComment = styled.div`
   display: flex;
-  width: 80%;
+  width: 100%;
+  justify-content: space-between;
 `;

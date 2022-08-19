@@ -4,6 +4,7 @@ import { Image } from "antd";
 import { useRouter } from "next/router";
 import React from "react";
 import Slider from "react-slick";
+import { breakPoints } from "../../../commons/styles/media";
 
 export const FETCH_USED_ITEM = gql`
   query fetchUseditem($useditemId: ID!) {
@@ -16,28 +17,51 @@ export const FETCH_USED_ITEM = gql`
 
 const SliderWrapper = styled.div`
   margin-right: 30px;
+
+  @media ${breakPoints.tablet} {
+    margin-bottom: 120px;
+    margin-right: 0;
+  }
 `;
 
 const SliderWrap = styled(Slider)`
   width: 428px;
   height: 428px;
+
   .slick-prev {
     left: -50px;
+
+    @media ${breakPoints.mobile} {
+      left: 20px;
+      z-index: 999;
+    }
   }
 
   .slick-next {
     right: -50px;
+
+    @media ${breakPoints.mobile} {
+      right: 20px;
+    }
   }
   .slick-prev:before {
     opacity: 1; // 기존에 숨어있던 화살표 버튼이 보이게
     color: black; // 버튼 색은 검은색으로
     left: 0;
     font-size: 25px;
+
+    @media ${breakPoints.mobile} {
+      color: white;
+    }
   }
   .slick-next:before {
     opacity: 1;
     color: black;
     font-size: 25px;
+
+    @media ${breakPoints.mobile} {
+      color: white;
+    }
   }
 
   .slick-dots {
@@ -46,6 +70,20 @@ const SliderWrap = styled(Slider)`
   .slick-dots li button:before {
     color: blue;
     font-size: 15px;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 300px;
+  }
+`;
+
+const Images = styled.img`
+  width: 480px;
+  height: 480px;
+  border: 1px solid gray;
+
+  @media ${breakPoints.mobile} {
+    width: 300px;
   }
 `;
 
@@ -73,22 +111,11 @@ export default function ProductImage() {
             {data?.fetchUseditem.images
               ?.filter((el) => el)
               .map((el) => (
-                <Image
-                  style={{ border: "1px solid gray" }}
-                  width={480}
-                  height={480}
-                  key={el}
-                  src={`https://storage.googleapis.com/${el}`}
-                />
+                <Images key={el} src={`https://storage.googleapis.com/${el}`} />
               ))}
           </SliderWrap>
         ) : (
-          <Image
-            style={{ border: "1px solid gray" }}
-            width={480}
-            height={480}
-            src="/images/noimage.gif/"
-          />
+          <Images src="/images/noimage.gif/" />
         )}
       </SliderWrapper>
     </div>

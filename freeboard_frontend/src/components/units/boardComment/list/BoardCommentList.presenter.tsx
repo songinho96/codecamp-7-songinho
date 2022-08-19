@@ -1,25 +1,30 @@
 import styled from "@emotion/styled";
 import { Modal } from "antd";
 import InfiniteScroll from "react-infinite-scroller";
+import { breakPoints } from "../../../../commons/styles/media";
 import BoardCommentItem from "../edit/BoardCommentItem.container";
 
 const Wrapperwrited = styled.div`
-  margin: 0 auto;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Scroll = styled.div`
-  height: 867px;
+  height: 800px;
   overflow: auto;
-  width: 1024px;
-  display: flex;
   margin: 0px auto;
   margin-bottom: 200px;
 `;
 
 export default function BoardCommentListUI(props) {
   return (
-    <div>
+    <Wrapper>
       {props.isModalVisible && (
         <Modal
           visible={props.isModalVisible}
@@ -49,6 +54,6 @@ export default function BoardCommentListUI(props) {
           ))}
         </InfiniteScroll>
       </Scroll>
-    </div>
+    </Wrapper>
   );
 }

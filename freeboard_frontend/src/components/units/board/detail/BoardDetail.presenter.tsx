@@ -44,9 +44,9 @@ export default function BoardDetailUI(props) {
               {props.data?.fetchBoard.images
                 ?.filter((el) => el)
                 .map((el) => (
-                  <S.DetailImage key={el}>
-                    <Image src={`https://storage.googleapis.com/${el}`} />
-                  </S.DetailImage>
+                  <div key={el}>
+                    <S.Image src={`https://storage.googleapis.com/${el}`} />
+                  </div>
                 ))}
             </S.Images>
 
@@ -56,7 +56,7 @@ export default function BoardDetailUI(props) {
               {props.data?.fetchBoard.youtubeUrl && (
                 <props.ReactPlayer
                   url={props.data?.fetchBoard.youtubeUrl}
-                  width={486}
+                  width={"100%"}
                   height={240}
                   controls={true}
                   playing={true}

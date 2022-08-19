@@ -1,12 +1,21 @@
 import { PlusCircleOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 import InfiniteScroll from "react-infinite-scroller";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1024px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 // 베스트
@@ -102,6 +111,11 @@ export const SearchInput = styled.input`
   &:focus {
     outline: none;
   }
+
+  @media ${breakPoints.mobile} {
+    margin-top: 20px;
+    width: 200px;
+  }
 `;
 
 export const WrapperProductList = styled.div`
@@ -124,14 +138,41 @@ export const InfiniteScrolls = styled(InfiniteScroll)`
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  @media ${breakPoints.tablet} {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 830px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media ${breakPoints.mobile} {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export const WrapProductList = styled.div`
-  /* height: 855px; */
   width: 196px;
   height: 276px;
   cursor: pointer;
   margin: 0 11px 11px 0;
+
+  @media ${breakPoints.tablet} {
+    transition-duration: 1s;
+    margin: 0 10px 20px 10px;
+  }
+
+  @media ${breakPoints.mobile} {
+    transition-duration: 1s;
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 180px;
+  }
+
+  @media ${breakPoints.mobileSmall} {
+    width: 170px;
+  }
 `;
 
 export const Wrap = styled.div``;
@@ -139,6 +180,14 @@ export const Wrap = styled.div``;
 export const WrapProductImage = styled.div`
   width: 194px;
   height: 194px;
+
+  @media ${breakPoints.mobile} {
+    width: 180px;
+  }
+
+  @media ${breakPoints.mobileSmall} {
+    width: 170px;
+  }
 `;
 
 export const ProductSold = styled.div`
@@ -150,10 +199,18 @@ export const ProductSold = styled.div`
   align-items: center;
   color: rgb(255, 255, 255);
   z-index: 10;
+
+  @media ${breakPoints.mobile} {
+    width: 180px;
+  }
+
+  @media ${breakPoints.mobileSmall} {
+    width: 170px;
+  }
 `;
 
 export const ProductImage = styled.img`
-  width: 194px;
+  width: 100%;
   height: 194px;
   border: 1px solid #d1d1d6;
   filter: ${(props) => props.soldAt && "brightness(45%)"};
@@ -161,7 +218,7 @@ export const ProductImage = styled.img`
 `;
 
 export const WrapProductDetail = styled.div`
-  width: 194px;
+  width: 100%;
   height: 80px;
   border: 1px solid #d1d1d6;
   border-top: none;
@@ -225,12 +282,29 @@ export const WrapHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media ${breakPoints.tablet} {
+    padding: 0 20px;
+    transition-duration: 1s;
+  }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+  }
 `;
 
 export const WrapSoldout = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+
+  @media (max-width: 800px) {
+    margin: 20px 0;
+  }
 `;
 export const IsSell = styled.div`
   font-size: 1.2rem;
