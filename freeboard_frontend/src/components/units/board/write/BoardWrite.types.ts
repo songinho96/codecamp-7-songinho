@@ -8,18 +8,17 @@ export interface IBoardWriteProps {
 }
 
 export interface IUpdateBoardInput {
-  title?: String;
-  contents?: String;
-  youtubeUrl?: String;
+  title?: string;
+  contents?: string;
+  youtubeUrl?: string;
   boardAddress?: {
-    zipcode?: String;
-    address?: String;
+    zipcode?: string;
+    address?: string;
     addressDetail?: String;
   };
 }
 
 export interface IBoardWriteUIProps {
-  data: any;
   onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -27,20 +26,29 @@ export interface IBoardWriteUIProps {
   onClickSubmit: () => void;
   onClickUpdate: () => void;
   onChangeYoutube: (event: ChangeEvent<HTMLInputElement>) => void;
-  writerError: String;
-  passwordError: String;
-  titleError: String;
-  contentsError: String;
+  writerError: string;
+  passwordError: string;
+  titleError: string;
+  contentsError: string;
   isActive: boolean;
   isEdit: boolean;
   boardData?: any;
   isModalVisible: boolean;
   showModal: () => void;
-  // handleOk={handleOk}
-  // handleCancel={handleCancel}
-  handleComplete: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleComplete: (data: any) => void;
   onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
-  zipcode: String;
-  address: String;
-  value: String;
+  zipcode: string;
+  address: string;
+  onClickbackDetail: () => void;
+  onClickbackList: () => void;
+  inputRef: any;
+  handleCancel: () => void;
+  isBackVisible: boolean;
+  onClickhandleOk: () => void;
+  onChangeFileUrls: (fileUrl: string, index: number) => void;
+  fileUrls: string[];
+}
+
+export interface ISubmitButtonProps {
+  isActive: boolean;
 }

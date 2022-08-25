@@ -60,7 +60,6 @@ export default function MypageConutainer() {
   );
 
   const onChangeValue = (event: any) => {
-    // console.log(event.target.value);
     setValue(event.target.value);
   };
 
@@ -96,7 +95,7 @@ export default function MypageConutainer() {
           // 결제 성공 시 로직,
           // ...
           try {
-            const result = createPointTransactionOfLoading({
+            createPointTransactionOfLoading({
               variables: {
                 impUid: rsp?.imp_uid,
               },
@@ -106,11 +105,9 @@ export default function MypageConutainer() {
                 },
               ],
             });
-            console.log(result);
           } catch (error: any) {
             alert(error.message);
           }
-          console.log(rsp.imp_uid);
         } else {
           // ...,
           // 결제 실패 시 로직,

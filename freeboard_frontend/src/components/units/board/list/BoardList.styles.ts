@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { IWord } from "./BoardList.types";
 
 export const Wrapper = styled.div`
   width: 1024px;
@@ -180,5 +181,5 @@ export const Button = styled.button`
 `;
 
 export const Word = styled.span`
-  color: ${(props: any) => (props.isMatched ? "blue" : "black")};
+  color: ${(props: IWord) => (props.isMatched ? "blue" : "black")};
 `;

@@ -8,7 +8,7 @@ import { IBoardWriteProps, IUpdateBoardInput } from "./BoardWrite.types";
 
 export default function BoardWrite(props: IBoardWriteProps) {
   // useEffect(), useRef()
-  const inputRef = useRef();
+  const inputRef = useRef<any>();
 
   // const fileRef = useRef<HTMLInputElement>(null);
 

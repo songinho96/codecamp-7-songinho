@@ -3,8 +3,9 @@ import { getDate } from "../../../commons/libraries/utils";
 import Paginationbasic from "../../../commons/paginations/basic/Paginationsbasic.container";
 import { v4 as uuidv4 } from "uuid";
 import SearchbarBasicContainer from "../../../commons/searchbars/basic/SearchbarBasic.container";
+import { IBoardListUIProps, Iel } from "./BoardList.types";
 
-export default function BoardListUI(props) {
+export default function BoardListUI(props: IBoardListUIProps) {
   return (
     <S.Wrapper>
       <S.Body>
@@ -24,7 +25,7 @@ export default function BoardListUI(props) {
             <S.WriterColumnTitle>작성자</S.WriterColumnTitle>
             <S.DateColumnTitle>날짜</S.DateColumnTitle>
           </S.TableRow>
-          {props.data?.fetchBoards.map((el, index) => (
+          {props.data?.fetchBoards.map((el: Iel, index: number) => (
             <S.Row key={el._id}>
               <S.NumColumn>{index + 1}</S.NumColumn>
               <S.TitleColumn id={el._id} onClick={props.onClickMoveBoardDetail}>

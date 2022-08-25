@@ -3,8 +3,9 @@ import { getDateList } from "../../../commons/libraries/utils";
 import BoardCommentWrite from "../write/BoardCommentWrite.container";
 
 import * as S from "./BoardCommentItem.styles";
+import { IBoardCommentItemUIProps } from "./BoardCommentItem.types";
 
-export default function BoardCommentItemUI(props) {
+export default function BoardCommentItemUI(props: IBoardCommentItemUIProps) {
   return (
     <S.Wrapper>
       {/* 쓴 댓글 보여주는 곳 */}

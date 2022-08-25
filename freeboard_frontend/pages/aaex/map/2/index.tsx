@@ -42,7 +42,7 @@ const Map = (props: propsType) => {
       let keyword = props.searchKeyword;
 
       if (!keyword.replace(/^\s+|\s+$/g, "")) {
-        console.log("키워드를 입력해주세요!");
+        // console.log("키워드를 입력해주세요!");
         return false;
       }
 

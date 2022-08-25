@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { ISubmitButtonProps } from "./BoardWrite.types";
 
 export const Wrapper = styled.div`
   width: 1024px;
@@ -266,8 +267,10 @@ export const WrapperSubmit = styled.div`
 export const Wrap = styled.div``;
 
 export const SubmitButton = styled.button`
-  background-color: ${(props) => (props.isActive ? "#212529" : "default")};
-  color: ${(props) => (props.isActive ? "white" : "#212529")};
+  background-color: ${(props: ISubmitButtonProps) =>
+    props.isActive ? "#212529" : "default"};
+  color: ${(props: ISubmitButtonProps) =>
+    props.isActive ? "white" : "#212529"};
   width: 179px;
   height: 52px;
   border-radius: 4px;

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { Modal } from "antd";
 import InfiniteScroll from "react-infinite-scroller";
-import { breakPoints } from "../../../../commons/styles/media";
 import BoardCommentItem from "../edit/BoardCommentItem.container";
+import { IBoardCommentListUIProps, Iel } from "./BoardCommentList.types";
 
 const Wrapperwrited = styled.div`
   display: flex;
@@ -10,19 +10,16 @@ const Wrapperwrited = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  margin: 0 auto;
 `;
 
 const Scroll = styled.div`
-  height: 800px;
+  height: 300px;
   overflow: auto;
   margin: 0px auto;
-  margin-bottom: 200px;
 `;
 
-export default function BoardCommentListUI(props) {
+export default function BoardCommentListUI(props: IBoardCommentListUIProps) {
   return (
     <Wrapper>
       {props.isModalVisible && (
@@ -43,7 +40,7 @@ export default function BoardCommentListUI(props) {
           hasMore={true || false}
           useWindow={false}
         >
-          {props.data?.fetchBoardComments.map((el) => (
+          {props.data?.fetchBoardComments.map((el: Iel) => (
             <Wrapperwrited key={el._id}>
               <BoardCommentItem
                 key={el._id}

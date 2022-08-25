@@ -55,20 +55,18 @@ export default function App() {
       file.name || file.url.substring(file.url.lastIndexOf("/") + 1)
     );
 
-    const result = await createBoard({
+    await createBoard({
       variables: {
         createBoardInput: {
           images: [imageUrl],
         },
       },
     });
-    console.log(result);
   };
 
   const onChangeFile = async ({ fileList: newFileList }, event: any) => {
     setFileList(newFileList);
     const fileImage = event.target.files?.[0];
-    console.log(fileImage);
 
     const isValid = checkFileValidation(fileImage);
     if (!isValid) return;
@@ -80,8 +78,6 @@ export default function App() {
           file: fileImage,
         },
       });
-      console.log(result.data.uploadFile.url);
-      console.log(1, result);
 
       // 2. 요청 결과 URL을 state에 저장하기
       setImageUrl(result.data.uploadFile.url);

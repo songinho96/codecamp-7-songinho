@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import BoardCommentItemUI from "./BoardCommentItem.presenter";
+import { IBoardCommentItemProps } from "./BoardCommentItem.types";
 
-export default function BoardCommentItem(props) {
+export default function BoardCommentItem(props: IBoardCommentItemProps) {
   const [isEdit, setIsEdit] = useState(false);
   const [editId, setEditId] = useState("");
-  const onClickEdit = (event) => {
+  const onClickEdit = (event: MouseEvent<HTMLImageElement>) => {
     setIsEdit(true);
-    setEditId(event.target.id);
+    setEditId(event.currentTarget.id);
   };
 
   return (

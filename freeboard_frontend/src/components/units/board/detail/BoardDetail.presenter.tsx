@@ -1,8 +1,9 @@
 import { getDate } from "../../../commons/libraries/utils";
 import * as S from "./BoardDetail.styles";
-import { Image } from "antd";
+import ReactPlayer from "react-player";
+import { IBoardDetailUIProps } from "./BoardDetail.types";
 
-export default function BoardDetailUI(props) {
+export default function BoardDetailUI(props: IBoardDetailUIProps) {
   return (
     <S.Wrapper>
       {/* 게시글 화면 */}
@@ -42,8 +43,8 @@ export default function BoardDetailUI(props) {
           <S.WrapperContents>
             <S.Images>
               {props.data?.fetchBoard.images
-                ?.filter((el) => el)
-                .map((el) => (
+                ?.filter((el: string) => el)
+                .map((el: string) => (
                   <div key={el}>
                     <S.Image src={`https://storage.googleapis.com/${el}`} />
                   </div>
@@ -54,7 +55,7 @@ export default function BoardDetailUI(props) {
 
             <S.Video>
               {props.data?.fetchBoard.youtubeUrl && (
-                <props.ReactPlayer
+                <ReactPlayer
                   url={props.data?.fetchBoard.youtubeUrl}
                   width={"100%"}
                   height={240}

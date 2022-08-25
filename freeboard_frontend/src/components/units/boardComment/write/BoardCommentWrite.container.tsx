@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 
 import {
   CREATE_BOARD_COMMENT,
@@ -10,8 +10,12 @@ import {
 import { Modal } from "antd";
 import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
 import BoardCommentWriteUI from "./BoardCommentWrite.presenter";
+import {
+  IBoardCommentWriteProps,
+  IUpdateBoardCommentInput,
+} from "./BoardCommentWrite.types";
 
-export default function BoardCommentWrite(props) {
+export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
   // isActive
   const [isActive, setIsActive] = useState(false);
   // useState
@@ -36,7 +40,7 @@ export default function BoardCommentWrite(props) {
   // console.log(router);
   // detail페이지의 boardId 가져옴
 
-  const onChangeWriter = (event) => {
+  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
     setWriter(event.target.value);
     if (event.target.value !== "") {
       setWriterError("");
@@ -49,7 +53,7 @@ export default function BoardCommentWrite(props) {
     }
   };
 
-  const onChangePassword = (event) => {
+  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     if (event.target.value !== "") {
       setPasswordError("");
@@ -61,7 +65,7 @@ export default function BoardCommentWrite(props) {
     }
   };
 
-  const onChangeContents = (event) => {
+  const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContents(event.target.value);
     if (event.target.value !== "") {
       setContentsError("");
@@ -74,7 +78,7 @@ export default function BoardCommentWrite(props) {
   };
 
   // StarRating
-  const handleChange = async (value) => {
+  const handleChange = async (value: any) => {
     setValue(value);
   };
 
@@ -140,7 +144,7 @@ export default function BoardCommentWrite(props) {
       setContentsError("내용을 입력해주세요.");
     }
 
-    const updateBoardCommentInput = {};
+    const updateBoardCommentInput: IUpdateBoardCommentInput = {};
     if (contents) updateBoardCommentInput.contents = contents;
     if (value !== props.el?.rating) updateBoardCommentInput.rating = value;
 
@@ -192,7 +196,6 @@ export default function BoardCommentWrite(props) {
         value={value}
         setValue={setValue}
         // Modal
-        Modal={Modal}
         isEdit={props.isEdit}
         el={props.el}
       />

@@ -9,7 +9,6 @@ import {
   FETCH_USER_LOGGED_IN,
   LIKE_BOARD,
 } from "./BoardDetail.queries";
-import ReactPlayer from "react-player/youtube"; // youtube 영상
 import { Modal } from "antd";
 
 export default function BoardDetail() {
@@ -86,7 +85,6 @@ export default function BoardDetail() {
       onClickMoveList={onClickMoveList}
       onClickMoveEdit={onClickMoveEdit}
       onClickDelete={onClickDelete}
-      ReactPlayer={ReactPlayer}
       onClickLike={onClickLike}
       onClickDisLike={onClickDisLike}
       MyId={MyId}

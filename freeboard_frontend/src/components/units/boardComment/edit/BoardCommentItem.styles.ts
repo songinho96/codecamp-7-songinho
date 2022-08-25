@@ -8,10 +8,12 @@ export const Wrapper = styled.div`
 
   @media ${breakPoints.tablet} {
     width: 100%;
+    margin: 10px 0;
   }
 
   @media ${breakPoints.mobile} {
     width: 100%;
+    margin: 10px 0;
   }
 `;
 

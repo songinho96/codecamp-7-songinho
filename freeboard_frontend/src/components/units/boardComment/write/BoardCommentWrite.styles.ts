@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { ICommentButtonProps } from "./BoardCommentWrite.types";
 
 export const Error = styled.div`
   padding-top: 10px;
@@ -110,7 +111,8 @@ export const WriteNum = styled.div`
 export const CommentButton = styled.button`
   width: 10%;
   height: 52px;
-  background-color: ${(props) => (props.isActive ? "yellow" : "default")};
+  background-color: ${(props: ICommentButtonProps) =>
+    props.isActive ? "yellow" : "default"};
 `;
 
 export const Contents = styled.div`

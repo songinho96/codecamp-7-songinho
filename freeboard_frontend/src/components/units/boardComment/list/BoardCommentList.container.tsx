@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import {
   DELETE_BOARD_COMMENT,
   FETCH_BOARD_COMMENTS,
@@ -27,16 +27,16 @@ export default function BoardCommentList() {
     variables: { boardId: router.query.boardId },
   });
 
-  const onChangeDeletePassword = (event) => {
+  const onChangeDeletePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setDeletePassword(event.target.value);
   };
 
   // StarRating
-  const handleChange = async (value) => {
+  const handleChange = async (value: any) => {
     setValue(value);
   };
 
-  const onClickDelete = (event) => {
+  const onClickDelete = (event: any) => {
     setIsModalVisible(true);
     setEventId(event.target.id);
   };
@@ -106,7 +106,6 @@ export default function BoardCommentList() {
         handleChange={handleChange}
         value={value}
         // Modal
-        Modal={Modal}
         isModalVisible={isModalVisible}
         handleOk={handleOk}
         handleCancel={handleCancel}

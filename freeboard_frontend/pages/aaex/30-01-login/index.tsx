@@ -45,7 +45,6 @@ export default function LoginPage() {
       },
     });
     const accessToken = result.data.loginUserExample.accessToken;
-    console.log(accessToken);
     setAccessToken(accessToken);
     alert("로그인에 성공하였습니다.");
     router.push("./30-02-login-success");
