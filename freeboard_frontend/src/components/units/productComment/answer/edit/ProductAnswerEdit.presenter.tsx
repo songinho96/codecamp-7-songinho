@@ -2,8 +2,11 @@ import React from "react";
 import { getDateToday } from "../../../../commons/libraries/utils";
 import ProductAnswerContainer from "../write/ProductAnswer.container";
 import * as S from "./ProductAnswerEdit.styles";
+import { IProductAnswerEditPresenterProps } from "./ProductAnswerEdit.types";
 
-export default function ProductAnswerEditPresenter(props) {
+export default function ProductAnswerEditPresenter(
+  props: IProductAnswerEditPresenterProps
+) {
   return (
     <S.Wrapper>
       {props.isAnswerEdit === false && (

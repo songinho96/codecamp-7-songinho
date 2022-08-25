@@ -14,8 +14,11 @@ import ProductImage from "../../../commons/ProductImage";
 import ProductQuestionListContainer from "../../productComment/list/ProductQuestionList.container";
 import ProductQuestionWriteContainer from "../../productComment/write/ProductQuestionWrite.container";
 import * as S from "./ProductDetail.styles";
+import { IProductDetailPresenterProps } from "./ProductDetail.types";
 
-export default function ProductDetailPresenter(props) {
+export default function ProductDetailPresenter(
+  props: IProductDetailPresenterProps
+) {
   return (
     <S.Wrapper>
       <S.Header>
@@ -63,8 +66,8 @@ export default function ProductDetailPresenter(props) {
             <S.Remark>상품태그</S.Remark>
             <S.Tags>
               {props.data?.fetchUseditem.tags
-                ?.filter((el) => el)
-                .map((el) => (
+                ?.filter((el: any) => el)
+                .map((el: any) => (
                   <Tag key={el}># {el}</Tag>
                 ))}
             </S.Tags>

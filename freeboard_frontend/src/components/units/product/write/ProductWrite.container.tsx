@@ -8,6 +8,7 @@ import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { Editor } from "@toast-ui/react-editor";
+import { IProductWriteContainerProps } from "./ProductWrite.types";
 
 const schema = yup.object({
   name: yup.string().required("상품명은 필수 입력 사항입니다."),
@@ -16,11 +17,13 @@ const schema = yup.object({
   price: yup.number().required("가격은 필수 입력 사항입니다."),
 });
 
-export default function ProductWriteContainer(props) {
+export default function ProductWriteContainer(
+  props: IProductWriteContainerProps
+) {
   // kakao
-  const [getLat, setGetLat] = useState();
-  const [getLng, setGetLng] = useState();
-  const [addressClick, setAddressClick] = useState("");
+  // const [getLat, setGetLat] = useState();
+  // const [getLng, setGetLng] = useState();
+  // const [addressClick, setAddressClick] = useState("");
 
   const router = useRouter();
   const [fileUrls, setFileUrls] = useState(["", "", "", "", "", ""]);
@@ -46,7 +49,7 @@ export default function ProductWriteContainer(props) {
     trigger("contents");
   };
 
-  const onClickSubmit = async (data) => {
+  const onClickSubmit = async (data: any) => {
     try {
       const result = await createUseditem({
         variables: {
@@ -60,8 +63,8 @@ export default function ProductWriteContainer(props) {
             useditemAddress: {
               addressDetail: data.addressDetail,
               address,
-              lat: getLat,
-              lng: getLng,
+              // lat: getLat,
+              // lng: getLng,
             },
           },
         },
@@ -105,9 +108,9 @@ export default function ProductWriteContainer(props) {
 
     const useditemAddress: any = {};
     if (data?.addressDetail) useditemAddress.addressDetail = data.addressDetail;
-    if (addressClick) useditemAddress.address = address;
-    if (getLat) useditemAddress.lat = getLat;
-    if (getLng) useditemAddress.lng = getLng;
+    // if (addressClick) useditemAddress.address = address;
+    // if (getLat) useditemAddress.lat = getLat;
+    // if (getLng) useditemAddress.lng = getLng;
     try {
       const result = await updateUseditem({
         variables: {
@@ -148,13 +151,13 @@ export default function ProductWriteContainer(props) {
     }
   }, [props.productData]);
 
-  useEffect(() => {
-    if (props.productData?.fetchUseditem.useditemAddress?.address?.length) {
-      setAddressClick(
-        props.productData?.fetchUseditem.useditemAddress?.address
-      );
-    }
-  }, [props.productData]);
+  // useEffect(() => {
+  //   if (props.productData?.fetchUseditem.useditemAddress?.address?.length) {
+  //     setAddressClick(
+  //       props.productData?.fetchUseditem.useditemAddress?.address
+  //     );
+  //   }
+  // }, [props.productData]);
 
   // 태그
 
@@ -229,12 +232,9 @@ export default function ProductWriteContainer(props) {
       isEdit={props.isEdit}
       productData={props.productData}
       // kakaomap
-      setGetLat={setGetLat}
-      getLat={getLat}
-      setGetLng={setGetLng}
-      getLng={getLng}
-      setAddressClick={setAddressClick}
-      addressClick={addressClick}
+
+      // setAddressClick={setAddressClick}
+
       // 태그
       tags={tags}
       setTags={setTags}

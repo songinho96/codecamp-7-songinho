@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { IisPointProps } from "./MyPoint.types";
 
 export const Wrapper = styled.div`
   width: 70%;
@@ -32,8 +33,9 @@ export const TopAll = styled.div`
   font-size: 1.12rem;
   margin-right: 30px;
   cursor: pointer;
-  font-weight: ${(props) => props.isPoint === "AllPoint" && "700"};
-  border-bottom: ${(props) =>
+  font-weight: ${(props: IisPointProps) =>
+    props.isPoint === "AllPoint" && "700"};
+  border-bottom: ${(props: IisPointProps) =>
     props.isPoint === "AllPoint" && "2px solid #FED602"};
 
   @media ${breakPoints.mobile} {
@@ -45,8 +47,9 @@ export const TopCharge = styled.div`
   font-size: 1.12rem;
   margin-right: 30px;
   cursor: pointer;
-  font-weight: ${(props) => props.isPoint === "ChargePoint" && "700"};
-  border-bottom: ${(props) =>
+  font-weight: ${(props: IisPointProps) =>
+    props.isPoint === "ChargePoint" && "700"};
+  border-bottom: ${(props: IisPointProps) =>
     props.isPoint === "ChargePoint" && "2px solid #FED602"};
 
   @media ${breakPoints.mobile} {
@@ -58,8 +61,9 @@ export const TopPaid = styled.div`
   font-size: 1.12rem;
   margin-right: 30px;
   cursor: pointer;
-  font-weight: ${(props) => props.isPoint === "PaidPoint" && "700"};
-  border-bottom: ${(props) =>
+  font-weight: ${(props: IisPointProps) =>
+    props.isPoint === "PaidPoint" && "700"};
+  border-bottom: ${(props: IisPointProps) =>
     props.isPoint === "PaidPoint" && "2px solid #FED602"};
 
   @media ${breakPoints.mobile} {
@@ -71,8 +75,9 @@ export const TopSell = styled.div`
   font-size: 1.12rem;
   margin-right: 30px;
   cursor: pointer;
-  font-weight: ${(props) => props.isPoint === "SellPoint" && "700"};
-  border-bottom: ${(props) =>
+  font-weight: ${(props: IisPointProps) =>
+    props.isPoint === "SellPoint" && "700"};
+  border-bottom: ${(props: IisPointProps) =>
     props.isPoint === "SellPoint" && "2px solid #FED602"};
 
   @media ${breakPoints.mobile} {

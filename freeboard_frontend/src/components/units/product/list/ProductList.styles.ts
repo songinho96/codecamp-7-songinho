@@ -2,6 +2,7 @@ import { PlusCircleOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 import InfiniteScroll from "react-infinite-scroller";
 import { breakPoints } from "../../../../commons/styles/media";
+import { IisSoldProps, IsoldAtProps } from "./ProductList.types";
 
 export const Wrapper = styled.div`
   width: 1024px;
@@ -213,8 +214,8 @@ export const ProductImage = styled.img`
   width: 100%;
   height: 194px;
   border: 1px solid #d1d1d6;
-  filter: ${(props) => props.soldAt && "brightness(45%)"};
-  background: ${(props) => props.soldAt && "rgba(0, 0, 0, 0.55)"};
+  filter: ${(props: IsoldAtProps) => props.soldAt && "brightness(45%)"};
+  background: ${(props: IsoldAtProps) => props.soldAt && "rgba(0, 0, 0, 0.55)"};
 `;
 
 export const WrapProductDetail = styled.div`
@@ -309,14 +310,16 @@ export const WrapSoldout = styled.div`
 export const IsSell = styled.div`
   font-size: 1.2rem;
   margin-right: 20px;
-  font-weight: ${(props) => props.isSold || "700"};
-  border-bottom: ${(props) => props.isSold || "2px solid #FED602"};
+  font-weight: ${(props: IisSoldProps) => props.isSold || "700"};
+  border-bottom: ${(props: IisSoldProps) =>
+    props.isSold || "2px solid #FED602"};
 `;
 
 export const IsSold = styled.div`
   font-size: 1.2rem;
-  font-weight: ${(props) => props.isSold && "700"};
-  border-bottom: ${(props) => props.isSold && "2px solid #FED602"};
+  font-weight: ${(props: IisSoldProps) => props.isSold && "700"};
+  border-bottom: ${(props: IisSoldProps) =>
+    props.isSold && "2px solid #FED602"};
 `;
 
 export const SubmitButton = styled.button`

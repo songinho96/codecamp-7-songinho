@@ -1,6 +1,6 @@
-export interface IAllPointPresenterProps {
-  allData: {
-    fetchPointTransactions: {
+export interface IPaidPointPresenterProps {
+  paidData: {
+    fetchPointTransactionsOfBuying: {
       _id: string;
       amount: number;
       balance: number;
@@ -19,4 +19,7 @@ export interface Iel {
   status: string;
   statusDetail: string;
   createdAt: string;
+  user: {
+    name: string;
+  };
 }

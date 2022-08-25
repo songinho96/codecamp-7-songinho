@@ -1,15 +1,15 @@
 import React from "react";
-import Paginationbasic from "../../../commons/paginations/basic/Paginationsbasic.container";
 import AllPointPresenter from "./allPoint/AllPoint.presenter";
 import PaginationAllPoint from "./allPoint/pagination/Paginationsbasic.container";
 import ChargePointPresenter from "./chargePoint/ChargePoint.presenter";
 import PaginationChargePoint from "./chargePoint/pagination/Paginationsbasic.container";
 import * as S from "./MyPoint.styles";
+import { IMyPointPresenterProps } from "./MyPoint.types";
 import PaidPointPresenter from "./paidPoint/PaidPoint.presenter";
 import PaginationSellPoint from "./sellPoint/pagination/Paginationsbasic.container";
 import SellPointPresenter from "./sellPoint/SellPoint.presenter";
 
-export default function MyPointPresenter(props) {
+export default function MyPointPresenter(props: IMyPointPresenterProps) {
   return (
     <>
       <S.Wrapper>

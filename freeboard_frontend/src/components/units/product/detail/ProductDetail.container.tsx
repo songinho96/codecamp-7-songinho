@@ -13,7 +13,7 @@ import {
   TOGGLE_USED_ITEM_PICK,
 } from "./ProductDetail.queries";
 
-export default function ProductDetailContainer(props) {
+export default function ProductDetailContainer() {
   const router = useRouter();
 
   const [isBaskets, setIsBaskets] = useState(false);
@@ -40,7 +40,7 @@ export default function ProductDetailContainer(props) {
 
   // // 장바구니
 
-  const [basketPage, setBasketPage] = useRecoilState(basketPageState);
+  const [, setBasketPage] = useRecoilState(basketPageState);
   const onClickBasket = () => {
     const baskets = JSON.parse(localStorage.getItem("baskets") || "[]");
     setIsBaskets(true);
@@ -100,7 +100,7 @@ export default function ProductDetailContainer(props) {
           },
         ],
       });
-    } catch (error) {
+    } catch (error: any) {
       Modal.error({
         title: "Error 메시지",
         content: error.message,

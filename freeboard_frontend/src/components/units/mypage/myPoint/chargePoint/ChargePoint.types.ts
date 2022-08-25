@@ -1,6 +1,6 @@
 export interface IAllPointPresenterProps {
-  allData: {
-    fetchPointTransactions: {
+  chargeData: {
+    fetchPointTransactionsOfLoading: {
       _id: string;
       amount: number;
       balance: number;

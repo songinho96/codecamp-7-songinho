@@ -5,8 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { getDateToday } from "../../../commons/libraries/utils";
 import Banner from "../../../commons/layout/banner";
 import TopButton from "../../../commons/topButton";
+import { Iel, IProductListPresenterProps } from "./ProductList.types";
 
-export default function ProductListPresenter(props) {
+export default function ProductListPresenter(
+  props: IProductListPresenterProps
+) {
   return (
     <S.Wrapper>
       <Banner />
@@ -34,7 +37,7 @@ export default function ProductListPresenter(props) {
                 hasMore={true}
                 useWindow={true}
               >
-                {props.data?.fetchUseditems.map((el: any, index: number) => (
+                {props.data?.fetchUseditems.map((el: Iel, index: number) => (
                   <S.WrapProductList
                     key={el._id}
                     id={el._id}

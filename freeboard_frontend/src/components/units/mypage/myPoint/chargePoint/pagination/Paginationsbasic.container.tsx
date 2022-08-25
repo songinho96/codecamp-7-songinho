@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import PaginationbasicUI from "./Paginationsbasic.presenter";
+import { IPaginationChargePointProps } from "./Paginationsbasic.types";
 
-export default function PaginationChargePoint(props) {
+export default function PaginationChargePoint(
+  props: IPaginationChargePointProps
+) {
   const [startPage, setStartPage] = useState(1);
   const [isActive, setIsActive] = useState(false);
   const [activePage, setActivePage] = useState(1);
@@ -31,10 +34,10 @@ export default function PaginationChargePoint(props) {
     });
   };
 
-  const onClickPage = (event) => {
-    const activePage = Number(event.target.id);
+  const onClickPage = (event: MouseEvent<HTMLDivElement>) => {
+    const activePage = Number(event.currentTarget.id);
     setActivePage(activePage);
-    props.refetch({ page: Number(event.target.id) });
+    props.refetch({ page: Number(event.currentTarget.id) });
     setIsActive(true);
   };
 
@@ -62,6 +65,7 @@ export default function PaginationChargePoint(props) {
       activePage={activePage}
       onClickStart={onClickStart}
       onClickLast={onClickLast}
+      dataCount={props.dataCount}
     />
   );
 }

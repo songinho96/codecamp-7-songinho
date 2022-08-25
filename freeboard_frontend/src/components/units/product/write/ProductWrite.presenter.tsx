@@ -4,17 +4,19 @@ import UploadBasicContainer from "../../../commons/uploads/basic/UploadBasic.con
 import * as S from "./ProductWrite.styles";
 import { v4 as uuidv4 } from "uuid";
 import dynamic from "next/dynamic";
-import KakaoMapPage from "../../../commons/maps/kakao";
 import Tags from "../../../commons/tags";
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import KakaoMapPage2 from "../../../commons/maps/kakao2";
+import { IProductWritePresenterProps } from "./ProductWrite.types";
 
 const ToastUi = dynamic(() => import("../../../commons/toastUi"), {
   ssr: false,
 });
 
-export default function ProductWritePresenter(props) {
+export default function ProductWritePresenter(
+  props: IProductWritePresenterProps
+) {
   return (
     // <form onSubmit={props.handleSubmit(props.onClickSubmit)}>
     <form
@@ -79,12 +81,6 @@ export default function ProductWritePresenter(props) {
                   props.address ||
                   props.productData?.fetchUseditem.useditemAddress?.address
                 }
-                setGetLat={props.setGetLat}
-                setGetLng={props.setGetLng}
-                getLat={props.getLat}
-                getLng={props.getLng}
-                setAddress={props.setAddress}
-                onClickCurrent={props.onClickCurrent}
               />
 
               {props.isModalVisible && (

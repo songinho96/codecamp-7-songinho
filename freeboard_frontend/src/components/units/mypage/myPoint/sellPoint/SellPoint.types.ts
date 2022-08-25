@@ -1,6 +1,6 @@
-export interface IAllPointPresenterProps {
-  allData: {
-    fetchPointTransactions: {
+export interface ISellPointPresenterProps {
+  sellData: {
+    fetchPointTransactionsOfSelling: {
       _id: string;
       amount: number;
       balance: number;

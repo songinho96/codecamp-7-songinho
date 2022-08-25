@@ -1,11 +1,12 @@
 import React from "react";
 import { getDate } from "../../../../commons/libraries/utils";
 import * as S from "./PaidPoint.styles";
+import { Iel, IPaidPointPresenterProps } from "./PaidPoint.types";
 
-export default function PaidPointPresenter(props) {
+export default function PaidPointPresenter(props: IPaidPointPresenterProps) {
   return (
     <>
-      {props.paidData?.fetchPointTransactionsOfBuying.map((el) => (
+      {props.paidData?.fetchPointTransactionsOfBuying.map((el: Iel) => (
         <S.WrapList key={el._id}>
           <S.DateColume>{getDate(el.createdAt)}</S.DateColume>
           <S.StatusColume>{el.status}</S.StatusColume>

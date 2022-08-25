@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import ProductListPresenter from "./ProductList.presenter";
 import {
   FETCH_USED_ITEMS,
@@ -15,6 +15,7 @@ export default function ProductListContainer() {
     variables: {
       page: 1,
       isSoldout: isSold,
+      search: "",
     },
   });
 
@@ -41,7 +42,7 @@ export default function ProductListContainer() {
     });
   };
 
-  const onClickList = (el) => (event: any) => {
+  const onClickList = (el: any) => (event: any) => {
     const today = JSON.parse(sessionStorage.getItem("today") || "[]");
     // setIsBaskets(true);
 
@@ -67,7 +68,7 @@ export default function ProductListContainer() {
   };
 
   // 끝~~~~~~
-  const getDebounce = _.debounce((data) => {
+  const getDebounce = _.debounce((data: string) => {
     refetch({ search: data, page: 1 });
   }, 200);
 

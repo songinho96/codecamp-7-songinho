@@ -1,13 +1,16 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
-import React from "react";
+import React, { MouseEvent } from "react";
 import ProductAnswerListPresenter from "./ProductAnswerList.presenter";
 import {
   DELETE_USED_QUESTION_ANSWER,
   FETCH_USED_ITEM_QUESTION_ANSWERS,
 } from "./ProductAnswerList.queries";
+import { IProductAnswerListContainerProps } from "./ProductAnswerList.types";
 
-export default function ProductAnswerListContainer(props: any) {
+export default function ProductAnswerListContainer(
+  props: IProductAnswerListContainerProps
+) {
   const { data: answerData, refetch } = useQuery(
     FETCH_USED_ITEM_QUESTION_ANSWERS,
     {
@@ -19,11 +22,11 @@ export default function ProductAnswerListContainer(props: any) {
     DELETE_USED_QUESTION_ANSWER
   );
 
-  const onClickDelete = async (event) => {
+  const onClickDelete = async (event: MouseEvent<HTMLImageElement>) => {
     try {
       await deleteUseditemQuestionAnswer({
         variables: {
-          useditemQuestionAnswerId: event.target.id,
+          useditemQuestionAnswerId: event.currentTarget.id,
         },
         // refetchQueries: [
         //   {
