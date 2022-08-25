@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { MouseEvent } from "react";
 import BestBoardsPresenter from "./BestBoards.presenter";
 import { FETCH_BOARDS_OF_THE_BEST } from "./BestBoards.quries";
 
@@ -9,9 +9,9 @@ export default function BestBoardsContainer() {
   console.log(data?.fetchBoardsOfTheBest.writer);
   const router = useRouter();
 
-  const onClickBestImage = (event) => {
-    router.push(`/boards/${event.target.id}`);
-    console.log(event.target.id);
+  const onClickBestImage = (event: MouseEvent<HTMLImageElement>) => {
+    router.push(`/boards/${event.currentTarget.id}`);
+    console.log(event.currentTarget.id);
   };
 
   const settings = {

@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, MouseEvent } from "react";
 import { useAuth } from "../../../../commons/hooks/useAuth";
 import MyProductPresenter from "./MyProduct.presenter";
 
@@ -14,19 +14,19 @@ export default function MyProductContainer() {
   useAuth();
   const router = useRouter();
   const { data, refetch } = useQuery(FETCH_USED_ITEMS_I_SOLD, {
-    variables: { page: 1 },
+    variables: { page: 1, search: "" },
   });
 
   const { data: soldCount, refetch: refetchCount } = useQuery(
     FETCH_USED_ITEMS_COUNT_I_SOLD
   );
 
-  const onClickMoveToDetail = (event) => {
-    router.push(`/products/${event.target.id}`);
+  const onClickMoveToDetail = (event: MouseEvent<HTMLDivElement>) => {
+    router.push(`/products/${event.currentTarget.id}`);
     console.log(data);
   };
 
-  const getDebounce = _.debounce((searchData) => {
+  const getDebounce = _.debounce((searchData: string) => {
     refetch({ search: searchData, page: 1 });
     refetchCount({ search: searchData });
   }, 200);

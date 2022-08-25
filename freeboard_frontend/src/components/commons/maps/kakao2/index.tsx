@@ -1,14 +1,5 @@
 // import Head from "next/head";
-import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
-
-const Input = styled.input`
-  width: 100%;
-`;
-
-const Button = styled.button`
-  width: 100%;
-`;
+import { useEffect } from "react";
 
 declare const window: typeof globalThis & {
   kakao: any;

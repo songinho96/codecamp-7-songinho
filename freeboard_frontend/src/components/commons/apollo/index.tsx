@@ -12,9 +12,9 @@ import { getAccessToken } from "../../../commons/libraries/getAccessToken";
 
 import { accessTokenState, basketPageState } from "../../store";
 
-export default function ApolloSetting(props) {
+export default function ApolloSetting(props: any) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-  const [basketPage, setBasketPage] = useRecoilState(basketPageState);
+  const [, setBasketPage] = useRecoilState(basketPageState);
 
   useEffect(() => {
     getAccessToken().then((newAccessToken) => {

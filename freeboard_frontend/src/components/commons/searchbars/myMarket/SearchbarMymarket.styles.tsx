@@ -29,7 +29,7 @@ export const Myproduct = styled.div`
 export const Mypick = styled.div`
   font-size: 1.2rem;
   cursor: pointer;
-  font-weight: ${(props) => (props.soldclick ? 700 : 400)};
+  font-weight: ${(props: any) => (props.soldclick ? 700 : 400)};
 `;
 
 export const WrapperSearch = styled.div``;

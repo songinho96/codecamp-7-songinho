@@ -4,8 +4,11 @@ import React, { ChangeEvent, useRef } from "react";
 import { checkFileValidation } from "../../../../commons/libraries/fileValidation";
 import UploadBasicPresenter from "./UploadBasic.presenter";
 import { UPLOAD_FILE } from "./UploadBasic.queries";
+import { IUploadBasicContainerProps } from "./UploadBasic.types";
 
-export default function UploadBasicContainer(props) {
+export default function UploadBasicContainer(
+  props: IUploadBasicContainerProps
+) {
   const fileRef = useRef<HTMLInputElement>(null);
 
   const [uploadFile] = useMutation(UPLOAD_FILE);

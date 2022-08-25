@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, MouseEvent } from "react";
 import { useAuth } from "../../../../commons/hooks/useAuth";
 import MyPickPresenter from "./MyPick.presenter";
 import {
@@ -13,16 +13,16 @@ export default function MyPickContainer() {
   useAuth();
   const router = useRouter();
   const { data, refetch } = useQuery(FETCH_USED_I_PICKED, {
-    variables: { search: "" },
+    variables: { search: "", page: 1 },
   });
 
   const { data: pickCount } = useQuery(FETCH_USED_ITEMS_COUNT_I_PICKED);
 
-  const onClickMoveToDetail = (event) => {
-    router.push(`/products/${event.target.id}`);
+  const onClickMoveToDetail = (event: MouseEvent<HTMLDivElement>) => {
+    router.push(`/products/${event.currentTarget.id}`);
   };
 
-  const getDebounce = _.debounce((data) => {
+  const getDebounce = _.debounce((data: string) => {
     refetch({ search: data, page: 1 });
   }, 200);
 

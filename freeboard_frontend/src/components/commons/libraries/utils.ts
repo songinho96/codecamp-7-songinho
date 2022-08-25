@@ -1,4 +1,4 @@
-export const getDate = (value) => {
+export const getDate = (value: any) => {
   const date = new Date(value);
   const yyyy = date.getFullYear();
   const mm = String(date.getMonth() + 1).padStart(2, "0");
@@ -6,7 +6,7 @@ export const getDate = (value) => {
   return `${yyyy}-${mm}-${dd}`;
 };
 
-export const getDateList = (value) => {
+export const getDateList = (value: any) => {
   const date = new Date(value);
   const yyyy = date.getFullYear();
   const mm = String(date.getMonth() + 1).padStart(2, "0");
@@ -16,7 +16,7 @@ export const getDateList = (value) => {
   return `${yyyy}-${mm}-${dd} ${HH}:${MM}`;
 };
 
-export const getDateToday = (value) => {
+export const getDateToday = (value: any) => {
   const today = new Date();
   const timeValue = new Date(value);
 

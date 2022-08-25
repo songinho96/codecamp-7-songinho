@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { MouseEvent, useEffect, useState } from "react";
 
 import * as S from "./todayProduct.styles";
 
@@ -34,8 +34,8 @@ export default function TodayProductPage() {
     ),
   };
 
-  const onClickMoveToDetail = (event) => {
-    router.push(`./products/${event.target.id}`);
+  const onClickMoveToDetail = (event: MouseEvent<HTMLImageElement>) => {
+    router.push(`./products/${event.currentTarget.id}`);
   };
   return (
     <div>

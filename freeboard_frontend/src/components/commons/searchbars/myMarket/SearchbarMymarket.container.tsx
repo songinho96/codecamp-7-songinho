@@ -1,7 +1,7 @@
 import { useMoveToPage } from "../../hooks/useMoveToPage";
 import * as S from "./SearchbarMymarket.styles";
 
-export default function SearchbarMymarketSoldPresenter(props) {
+export default function SearchbarMymarketSoldPresenter() {
   const { onClickMoveToPage } = useMoveToPage();
 
   return (

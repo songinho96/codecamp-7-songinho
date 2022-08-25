@@ -125,8 +125,8 @@ export default function ProductImage() {
         {data?.fetchUseditem.images[0] ? (
           <SliderWrap {...settings}>
             {data?.fetchUseditem.images
-              ?.filter((el) => el)
-              .map((el) => (
+              ?.filter((el: string) => el)
+              .map((el: string) => (
                 <Images key={el} src={`https://storage.googleapis.com/${el}`} />
               ))}
           </SliderWrap>

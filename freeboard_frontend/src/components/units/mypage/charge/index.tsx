@@ -1,8 +1,6 @@
 import { gql, useMutation, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
-import { Modal } from "antd";
 import Head from "next/head";
-
 import React, { useState } from "react";
 import ProductBasketContainer from "../../product/basket/ProductBasket.container";
 

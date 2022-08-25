@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { MouseEvent, useEffect, useState } from "react";
 
 interface IPickItems {
   images: string;
@@ -48,8 +48,8 @@ export default function SideBar() {
     setTodayItems(today);
   }, [todayItems.length++]);
 
-  const onClickMoveDetail = (event) => {
-    router.push(`/products/${event.target.id}`);
+  const onClickMoveDetail = (event: MouseEvent<HTMLImageElement>) => {
+    router.push(`/products/${event.currentTarget.id}`);
   };
 
   return (

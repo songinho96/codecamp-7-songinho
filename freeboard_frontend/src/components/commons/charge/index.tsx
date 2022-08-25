@@ -56,24 +56,13 @@ const FETCH_USER_LOGED_IN = gql`
   }
 `;
 
-const FETCH_POINT_TRANSACTIONS = gql`
-  query fetchPointTransactions($search: String, $page: Int) {
-    fetchPointTransactions(search: $search, page: $page) {
-      _id
-      amount
-    }
-  }
-`;
-
 declare const window: typeof globalThis & {
   IMP: any;
 };
 
 export default function MyProductChargePage() {
   const { data } = useQuery(FETCH_USER_LOGED_IN);
-  const { data: fetchPointData } = useQuery(FETCH_POINT_TRANSACTIONS, {
-    variables: { page: 1 },
-  });
+
   const [value, setValue] = useState(100);
   const [createPointTransactionOfLoading] = useMutation(
     CREATE_POINT_TRANSACTION_OF_LOADING
@@ -116,7 +105,7 @@ export default function MyProductChargePage() {
           // 결제 성공 시 로직,
           // ...
           try {
-            const result = createPointTransactionOfLoading({
+            createPointTransactionOfLoading({
               variables: {
                 impUid: rsp?.imp_uid,
               },

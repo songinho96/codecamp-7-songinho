@@ -1,8 +1,8 @@
-import { CheckCircleOutlined } from "@ant-design/icons";
 import React from "react";
 import * as S from "./Login.styles";
+import { ILoginPresenterProps } from "./Login.types";
 
-export default function LoginPresenter(props) {
+export default function LoginPresenter(props: ILoginPresenterProps) {
   return (
     <>
       <S.Wrapper>

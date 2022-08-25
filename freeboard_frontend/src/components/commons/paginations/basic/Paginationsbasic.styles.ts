@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { IPaginationProps } from "./Paginationsbasic.types";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -26,8 +27,9 @@ export const Pagination = styled.div`
   text-align: center;
   width: 40px;
   cursor: pointer;
-  color: ${(props) => (props.isActive ? "#blue" : "none")};
-  font-weight: ${(props) => (props.isActive ? "700" : "none")};
+  color: ${(props: IPaginationProps) => (props.isActive ? "#blue" : "none")};
+  font-weight: ${(props: IPaginationProps) =>
+    props.isActive ? "700" : "none"};
 
   @media ${breakPoints.mobile} {
     width: 5px;

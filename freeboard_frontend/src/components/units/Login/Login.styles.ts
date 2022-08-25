@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../commons/styles/media";
+import { ILoginButtonProps } from "./Login.types";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -160,7 +161,8 @@ export const LoginButton = styled.button`
   height: 64px;
   margin-top: 50px;
   font-size: 1.875rem;
-  background-color: yellow;
+  background-color: ${(props: ILoginButtonProps) =>
+    props.isActive ? "yellow" : "#A7A7A7"};
   color: black;
   margin-bottom: 40px;
   border-radius: 10px;

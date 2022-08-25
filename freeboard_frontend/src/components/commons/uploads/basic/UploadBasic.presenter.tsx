@@ -1,6 +1,9 @@
 import React from "react";
 import * as S from "./UploadBasic.styles";
-export default function UploadBasicPresenter(props) {
+import { IUploadBasicPresenterprops } from "./UploadBasic.types";
+export default function UploadBasicPresenter(
+  props: IUploadBasicPresenterprops
+) {
   return (
     <>
       {props.fileUrl ? (

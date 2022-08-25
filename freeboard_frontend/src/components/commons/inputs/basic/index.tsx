@@ -5,7 +5,7 @@ const Input = styled.input`
   height: 52px;
 `;
 
-export default function InputBasic(props) {
+export default function InputBasic(props: any) {
   return (
     <Input
       type={props.type}

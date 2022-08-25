@@ -32,7 +32,7 @@ export default function LoginContainer() {
     mode: "onChange",
   });
 
-  const onClickSubmit = async (data) => {
+  const onClickSubmit = async (data: any) => {
     try {
       const result = await loginUser({
         variables: {

@@ -5,8 +5,9 @@ import PaginationMyProduct from "../../../../commons/paginations/myProduct/Pagin
 import SearchbarMymarketSoldPresenter from "../../../../commons/searchbars/myMarket/SearchbarMymarket.container";
 
 import * as S from "./MyProduct.styles";
+import { Iel, IMyProductPresenterProps } from "./MyProduct.types";
 
-export default function MyProductPresenter(props) {
+export default function MyProductPresenter(props: IMyProductPresenterProps) {
   return (
     <S.Wrapper>
       <SearchbarMymarketSoldPresenter />
@@ -22,7 +23,7 @@ export default function MyProductPresenter(props) {
         </S.WrapperSearch>
       </S.WrapHeader>
       <S.WrapperList>
-        {props.data?.fetchUseditemsISold.map((el) => (
+        {props.data?.fetchUseditemsISold.map((el: Iel) => (
           <S.WrapProductList
             onClick={props.onClickMoveToDetail}
             key={el._id}

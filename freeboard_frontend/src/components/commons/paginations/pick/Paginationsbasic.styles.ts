@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { IPaginationProps } from "./Paginationsbasic.types";
 
 export const Wrapper = styled.div`
   font-size: 16px;
@@ -23,7 +24,8 @@ export const Pagination = styled.div`
   text-align: center;
   width: 30px;
   border-radius: 50%;
-  background-color: ${(props) => (props.isActive ? "#FED602" : "none")};
+  background-color: ${(props: IPaginationProps) =>
+    props.isActive ? "#FED602" : "none"};
 `;
 
 export const NextButton = styled.div`

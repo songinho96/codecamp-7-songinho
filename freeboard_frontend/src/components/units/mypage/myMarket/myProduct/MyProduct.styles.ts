@@ -1,6 +1,7 @@
 import { EnvironmentFilled } from "@ant-design/icons";
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../../commons/styles/media";
+import { IProductImageProps } from "./MyProduct.types";
 
 export const Wrapper = styled.div`
   width: 70%;
@@ -99,8 +100,9 @@ export const ProductImage = styled.img`
   width: 100%;
   height: 194px;
   border: 1px solid #d1d1d6;
-  filter: ${(props) => props.soldAt && "brightness(45%)"};
-  background: ${(props) => props.soldAt && "rgba(0, 0, 0, 0.55)"};
+  filter: ${(props: IProductImageProps) => props.soldAt && "brightness(45%)"};
+  background: ${(props: IProductImageProps) =>
+    props.soldAt && "rgba(0, 0, 0, 0.55)"};
 `;
 
 export const WrapProductDetail = styled.div`

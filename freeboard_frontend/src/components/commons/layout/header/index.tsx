@@ -5,7 +5,6 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import { useRecoilState } from "recoil";
 import { accessTokenState, basketPageState } from "../../../store";
 import { useRouter } from "next/router";
-import MyProductChargePage from "../../charge";
 import { Modal } from "antd";
 import { breakPoints } from "../../../../commons/styles/media";
 
@@ -148,11 +147,6 @@ const LabelSell = styled.div`
 
 const WrapBasket = styled.div`
   display: flex;
-`;
-
-const Underline = styled.div`
-  width: 100%;
-  border-bottom: 1px solid #555555;
 `;
 
 export default function Header() {

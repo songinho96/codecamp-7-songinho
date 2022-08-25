@@ -1,8 +1,9 @@
 import React from "react";
 import { getDate } from "../../libraries/utils";
 import * as S from "./BestBoards.styles";
+import { IBestBoardsPresenterProps } from "./BestBoards.types";
 
-export default function BestBoardsPresenter(props) {
+export default function BestBoardsPresenter(props: IBestBoardsPresenterProps) {
   return (
     <S.Wrapper>
       <S.Header>

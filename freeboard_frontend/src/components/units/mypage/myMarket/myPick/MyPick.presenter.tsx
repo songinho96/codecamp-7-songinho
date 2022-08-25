@@ -5,11 +5,12 @@ import PaginationPick from "../../../../commons/paginations/pick/Paginationsbasi
 import SearchbarMymarketPickPresenter from "../../../../commons/searchbars/myMarket/pick/SearchbarMymarket.container";
 
 import * as S from "./MyPick.styles";
+import { Iel, IMyPickPresenterProps } from "./MyPick.types";
 
-export default function MyProductPresenter(props) {
+export default function MyProductPresenter(props: IMyPickPresenterProps) {
   return (
     <S.Wrapper>
-      <SearchbarMymarketPickPresenter refetch={props.refetch} />
+      <SearchbarMymarketPickPresenter />
       <S.WrapHeader>
         <S.Count>전체: {props.pickCount?.fetchUseditemsCountIPicked} </S.Count>
         <S.WrapperSearch>
@@ -21,7 +22,7 @@ export default function MyProductPresenter(props) {
         </S.WrapperSearch>
       </S.WrapHeader>
       <S.WrapperList>
-        {props.data?.fetchUseditemsIPicked.map((el) => (
+        {props.data?.fetchUseditemsIPicked.map((el: Iel) => (
           <S.WrapProductList
             onClick={props.onClickMoveToDetail}
             key={el._id}

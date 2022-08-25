@@ -2,7 +2,7 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-export const withAuth = (Component) => (props) => {
+export const withAuth = (Component: any) => (props: any) => {
   const router = useRouter();
 
   useEffect(() => {
