@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,15 +11,15 @@ import { Modal } from "antd";
 
 import { useRouter } from "next/router";
 import ProductQuestionWritePresenter from "./ProductQuestionWrite.presenter";
-import { useState } from "react";
+import { IProductQuestionWriteContainerProps } from "./ProductQuestionWrite.types";
 
 const schema = yup.object({
   contents: yup.string().required("문의사항을 입력해주세요."),
 });
 
-export default function ProductQuestionWriteContainer(props) {
-  const { data } = useQuery(FETCH_USED_ITEM_QUESTIONS);
-
+export default function ProductQuestionWriteContainer(
+  props: IProductQuestionWriteContainerProps
+) {
   const router = useRouter();
   const [createUseditemQuestion] = useMutation(CREATE_USED_ITEM_QUESTION);
   const [updateUseditemQuestion] = useMutation(UPDATE_USED_ITEM_QUESTION);
@@ -28,9 +28,9 @@ export default function ProductQuestionWriteContainer(props) {
     mode: "onChange",
   });
 
-  const onClickComment = async (data) => {
+  const onClickComment = async (data: any) => {
     try {
-      const result = await createUseditemQuestion({
+      await createUseditemQuestion({
         variables: {
           createUseditemQuestionInput: {
             ...data,
@@ -49,8 +49,6 @@ export default function ProductQuestionWriteContainer(props) {
         title: "댓글 등록!",
         content: "댓글 등록되었습니다!",
       });
-
-      console.log(result);
     } catch (error: any) {
       Modal.error({
         title: "Error 메시지",
@@ -59,7 +57,7 @@ export default function ProductQuestionWriteContainer(props) {
     }
   };
 
-  const onClickUpdate = async (data) => {
+  const onClickUpdate = async (data: any) => {
     try {
       await updateUseditemQuestion({
         variables: {

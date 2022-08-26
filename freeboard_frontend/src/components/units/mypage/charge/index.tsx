@@ -91,7 +91,7 @@ export default function MypageContainer() {
           // 결제 성공 시 로직,
           // ...
           try {
-            const result = createPointTransactionOfLoading({
+            createPointTransactionOfLoading({
               variables: {
                 impUid: rsp?.imp_uid,
               },
@@ -101,11 +101,10 @@ export default function MypageContainer() {
                 },
               ],
             });
-            console.log(result);
           } catch (error: any) {
             alert(error.message);
           }
-          console.log(rsp.imp_uid);
+          // console.log(rsp.imp_uid);
         } else {
           // ...,
           // 결제 실패 시 로직,
@@ -117,8 +116,8 @@ export default function MypageContainer() {
   };
 
   const Click = () => {
-    console.log(data);
-    console.log(fetchPointData);
+    // console.log(data);
+    // console.log(fetchPointData);
   };
 
   return (

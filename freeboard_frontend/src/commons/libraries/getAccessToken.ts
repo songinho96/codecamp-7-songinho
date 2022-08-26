@@ -18,6 +18,6 @@ export async function getAccessToken() {
     const newAccessToken = result.restoreAccessToken.accessToken;
     return newAccessToken;
   } catch (error: any) {
-    console.log(error.message); // refreshToken 만료, 로그인페이지로 이동
+    // console.log(error.message); // refreshToken 만료, 로그인페이지로 이동
   }
 }

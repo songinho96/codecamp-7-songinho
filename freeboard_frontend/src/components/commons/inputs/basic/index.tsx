@@ -5,12 +5,18 @@ const Input = styled.input`
   height: 52px;
 `;
 
+const Wrapper = styled.div`
+  width: 100%;
+`;
+
 export default function InputBasic(props: any) {
   return (
-    <Input
-      type={props.type}
-      {...props.register}
-      defaultValue={props.defaultValue}
-    />
+    <Wrapper>
+      <Input
+        type={props.type}
+        {...props.register}
+        defaultValue={props.defaultValue}
+      />
+    </Wrapper>
   );
 }

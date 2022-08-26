@@ -23,7 +23,6 @@ export default function MyProductContainer() {
 
   const onClickMoveToDetail = (event: MouseEvent<HTMLDivElement>) => {
     router.push(`/products/${event.currentTarget.id}`);
-    console.log(data);
   };
 
   const getDebounce = _.debounce((searchData: string) => {

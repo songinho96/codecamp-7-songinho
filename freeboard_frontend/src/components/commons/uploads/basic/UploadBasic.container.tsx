@@ -19,7 +19,7 @@ export default function UploadBasicContainer(
 
   const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    console.log(file);
+    // console.log(file);
 
     const isValid = checkFileValidation(file);
     if (!isValid) return;

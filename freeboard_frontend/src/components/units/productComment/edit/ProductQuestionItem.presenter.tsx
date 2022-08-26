@@ -3,8 +3,11 @@ import ProductAnswerListContainer from "../answer/list/ProductAnswerList.contain
 import ProductAnswerContainer from "../answer/write/ProductAnswer.container";
 import ProductQuestionWriteContainer from "../write/ProductQuestionWrite.container";
 import * as S from "./ProductQuestionItem.styles";
+import { IProductQuestionItemPresenterProps } from "./ProductQuestionItem.types";
 
-export default function ProductQuestionItemPresenter(props) {
+export default function ProductQuestionItemPresenter(
+  props: IProductQuestionItemPresenterProps
+) {
   return (
     <S.Wrapper>
       {props.isEdit === false && (
@@ -22,7 +25,7 @@ export default function ProductQuestionItemPresenter(props) {
                     src="/images/answer.png"
                     onClick={props.onClickAnswerImg}
                     id={props.el._id}
-                  ></S.Answer>
+                  />
                   {props.myId && (
                     <>
                       <S.Pencil
@@ -61,7 +64,6 @@ export default function ProductQuestionItemPresenter(props) {
           isAnswer={props.isAnswer}
           answerId={props.answerId}
           el={props.el}
-          onClickAnswerImg={props.onClickAnswerImg}
         />
       )}
     </S.Wrapper>

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import React, { MouseEvent, useEffect, useState } from "react";
+import { breakPoints } from "../../../../commons/styles/media";
 
 interface IPickItems {
   images: string;
@@ -38,6 +39,14 @@ const Wrapper = styled.div`
   z-index: 20;
   border: 1px solid black;
   background-color: white;
+
+  @media ${breakPoints.tablet} {
+    display: none;
+  }
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 export default function SideBar() {
   const router = useRouter();

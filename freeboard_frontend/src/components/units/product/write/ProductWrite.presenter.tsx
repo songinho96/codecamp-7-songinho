@@ -49,7 +49,6 @@ export default function ProductWritePresenter(
           </S.WrapProduct>
           <S.WrapDetail>
             <S.Label>상품설명</S.Label>
-            {/* <S.InputDetail {...props.register("contents")} /> */}
             <ToastUi
               onChangeContents={props.onChangeContents}
               editorRef={props.editorRef}
@@ -138,26 +137,12 @@ export default function ProductWritePresenter(
               ))}
             </S.WrapImage>
           </S.WrapperImage>
-          {/* <S.WrapperRadioButton>
-            <S.Label>메인 사진 설정</S.Label>
-            <S.WrapperRadio>
-              <S.WrapRadio>
-                <S.Radio>Radio</S.Radio>
-                <S.RadioLabel>RadioLabel</S.RadioLabel>
-              </S.WrapRadio>
-              <S.WrapRadio>
-                <S.Radio>Radio</S.Radio>
-                <S.RadioLabel>RadioLabel</S.RadioLabel>
-              </S.WrapRadio>
-            </S.WrapperRadio>
-          </S.WrapperRadioButton> */}
           <S.WrapButton>
             <S.SubmitButton>
               {props.isEdit ? "UpdateButton" : "SubmitButton"}
             </S.SubmitButton>
           </S.WrapButton>
         </S.Wrap>
-        {/* <div onClick={props.onClickgetLocation}>123123</div> */}
       </S.Wrapper>
     </form>
   );

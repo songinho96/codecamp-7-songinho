@@ -1,15 +1,14 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { MouseEvent } from "react";
 import ProductQuestionListPresenter from "./ProductQuestionList.presenter";
 import {
   DELETE_USED_ITEM_QUESTION,
   FETCH_USED_ITEM_QUESTIONS,
-  FETCH_USER_LOGGED_IN,
 } from "./ProductQuestionList.queries";
 
-export default function ProductQuestionListContainer(props) {
+export default function ProductQuestionListContainer() {
   const router = useRouter();
   const { data, fetchMore } = useQuery(FETCH_USED_ITEM_QUESTIONS, {
     variables: { useditemId: router.query.boardId },
@@ -17,11 +16,11 @@ export default function ProductQuestionListContainer(props) {
 
   const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
 
-  const onClickDelete = async (event) => {
+  const onClickDelete = async (event: MouseEvent<HTMLImageElement>) => {
     try {
       await deleteUseditemQuestion({
         variables: {
-          useditemQuestionId: event.target.id,
+          useditemQuestionId: event.currentTarget.id,
         },
         refetchQueries: [
           {

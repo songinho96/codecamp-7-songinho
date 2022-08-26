@@ -11,10 +11,11 @@ const Wrapperwrited = styled.div`
 
 const Wrapper = styled.div`
   margin: 0 auto;
+  margin-bottom: 100px;
 `;
 
 const Scroll = styled.div`
-  height: 300px;
+  height: 700px;
   overflow: auto;
   margin: 0px auto;
 `;

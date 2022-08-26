@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Modal } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import ProductAnswerPresenter from "./ProductAnswer.presenter";
 import {
@@ -10,12 +10,15 @@ import {
 } from "./ProductAnswer.queries";
 import * as yup from "yup";
 import { FETCH_USED_ITEM_QUESTION_ANSWERS } from "../../list/ProductQuestionList.queries";
+import { IProductAnswerContainerProps } from "./ProductAnswer.types";
 
 const schema = yup.object({
   contents: yup.string().required("답변사항을 입력해주세요."),
 });
 
-export default function ProductAnswerContainer(props) {
+export default function ProductAnswerContainer(
+  props: IProductAnswerContainerProps
+) {
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -28,9 +31,9 @@ export default function ProductAnswerContainer(props) {
   const [updateUseditemQuestionAnswer] = useMutation(
     UPDATE_USED_ITEM_QUESTION_ANSWER
   );
-  const onClickAnswer = async (data) => {
+  const onClickAnswer = async (data: any) => {
     try {
-      const result = await createUseditemQuestionAnswer({
+      await createUseditemQuestionAnswer({
         variables: {
           createUseditemQuestionAnswerInput: {
             ...data,
@@ -50,12 +53,11 @@ export default function ProductAnswerContainer(props) {
     } catch (error: any) {
       Modal.error({ content: error.message });
     }
-    props.setIsAnswer((prev) => !prev);
+    props.setIsAnswer((prev: boolean) => !prev);
   };
 
-  const onClickAnswerUpdate = async (data) => {
+  const onClickAnswerUpdate = async (data: any) => {
     try {
-      console.log(props.answerId);
       await updateUseditemQuestionAnswer({
         variables: {
           updateUseditemQuestionAnswerInput: {
@@ -65,7 +67,7 @@ export default function ProductAnswerContainer(props) {
         },
       });
       props.refetch();
-      props.setIsAnswerEdit((prev) => !prev);
+      props.setIsAnswerEdit((prev: boolean) => !prev);
       Modal.success({ title: "수정 성공", content: "답글이 수정 되었습니다!" });
     } catch (error: any) {
       Modal.error({ content: error.message });

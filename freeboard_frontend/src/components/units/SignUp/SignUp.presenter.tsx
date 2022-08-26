@@ -1,7 +1,8 @@
 import React from "react";
 import * as S from "./SignUp.styles";
+import { ISignUpPresenterProps } from "./SignUp.types";
 
-export default function SignUpPresenter(props) {
+export default function SignUpPresenter(props: ISignUpPresenterProps) {
   return (
     <S.Wrapper>
       <S.WrapMainTitle>

@@ -39,7 +39,7 @@ const Map = styled.div`
   }
 `;
 
-export default function KakaoMapPageRoute(props) {
+export default function KakaoMapPageRoute(props: any) {
   useEffect(() => {
     const script = document.createElement("script"); // <script></script> 태그 만들기
     script.src =

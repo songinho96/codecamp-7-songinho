@@ -69,7 +69,7 @@ export default function ProductWriteContainer(
           },
         },
       });
-      console.log(result);
+      // console.log(result);
       Modal.success({
         title: "등록 성공!",
         content: "상품이 등록되었습니다!",
@@ -108,6 +108,7 @@ export default function ProductWriteContainer(
 
     const useditemAddress: any = {};
     if (data?.addressDetail) useditemAddress.addressDetail = data.addressDetail;
+    if (address) useditemAddress.address = address;
     // if (addressClick) useditemAddress.address = address;
     // if (getLat) useditemAddress.lat = getLat;
     // if (getLng) useditemAddress.lng = getLng;

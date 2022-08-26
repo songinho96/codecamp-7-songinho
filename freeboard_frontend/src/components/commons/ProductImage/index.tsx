@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import React from "react";
 import Slider from "react-slick";
+
 import { breakPoints } from "../../../commons/styles/media";
 
 export const FETCH_USED_ITEM = gql`

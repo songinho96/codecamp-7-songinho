@@ -84,20 +84,20 @@ const WrapInfo = styled.div`
   }
 `;
 
-const Title1 = styled.div`
-  font-weight: 800;
-  font-size: 60px;
-  padding-right: 20px;
-  color: #ffc107;
+// const Title1 = styled.div`
+//   font-weight: 800;
+//   font-size: 60px;
+//   padding-right: 20px;
+//   color: #ffc107;
 
-  @media ${breakPoints.tablet} {
-    font-size: 55px;
-  }
+//   @media ${breakPoints.tablet} {
+//     font-size: 55px;
+//   }
 
-  @media ${breakPoints.mobile} {
-    font-size: 50px;
-  }
-`;
+//   @media ${breakPoints.mobile} {
+//     font-size: 50px;
+//   }
+// `;
 
 const Title2 = styled.div`
   font-weight: 800;
@@ -149,6 +149,12 @@ const WrapBasket = styled.div`
   display: flex;
 `;
 
+const MainIcon = styled.img`
+  width: 80px;
+  /* height: 60px; */
+  margin-right: 10px;
+  margin-top: 8px;
+`;
 export default function Header() {
   const router = useRouter();
   const [, setAccessToken] = useRecoilState(accessTokenState);
@@ -183,7 +189,7 @@ export default function Header() {
   }, []);
 
   const onClickTitle = () => {
-    router.push(`/boards`);
+    router.push(`/`);
   };
 
   return (
@@ -191,7 +197,8 @@ export default function Header() {
       <Wrap>
         <Main>
           <WrapTitle onClick={onClickTitle}>
-            <Title1>&#123; &#125;</Title1>
+            {/* <Title1>&#123; &#125;</Title1> */}
+            <MainIcon src="/images/Main.svg" />
             <Title2>PORTFOLIO</Title2>
           </WrapTitle>
         </Main>

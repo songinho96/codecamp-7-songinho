@@ -102,7 +102,7 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
         content: "댓글이 등록 되었습니다!",
       });
       try {
-        const result = await createBoardComments({
+        await createBoardComments({
           variables: {
             createBoardCommentInput: {
               writer,
@@ -119,9 +119,7 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
             },
           ],
         });
-        console.log("aaa" + result);
       } catch (error) {
-        console.log(error);
         Modal.error({
           title: "댓글 등록 실패!!",
           content: "댓글 등록에 실패 했습니다!",

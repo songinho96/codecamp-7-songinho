@@ -35,13 +35,11 @@ export default function MyPointContainer() {
   const { data: sellCount } = useQuery(
     FETCH_POINT_TRANSACTIONS_COUNT_OF_SELLING
   );
-  console.log(sellCount);
+
   const allCount =
     sellCount?.fetchPointTransactionsCountOfSelling +
     paidCount?.fetchPointTransactionsCountOfBuying +
     chargeCount?.fetchPointTransactionsCountOfLoading;
-
-  console.log(allCount);
 
   const onClickFetchAllPoint = () => {
     setIsPoint("AllPoint");
@@ -59,7 +57,6 @@ export default function MyPointContainer() {
     setIsPoint("SellPoint");
   };
 
-  console.log(paidData);
   return (
     <MyPointPresenter
       isPoint={isPoint}

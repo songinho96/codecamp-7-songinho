@@ -110,10 +110,10 @@ export default function ProductDetailContainer() {
 
   const onClickBuy = async () => {
     try {
-      const result = await createPointTransactionOfBuyingAndSelling({
+      await createPointTransactionOfBuyingAndSelling({
         variables: { useritemId: router.query.boardId },
       });
-      console.log(result);
+
       Modal.success({ content: "구매가 완료되었습니다!" });
       router.push("/products");
     } catch (error: any) {

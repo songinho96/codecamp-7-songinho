@@ -2,9 +2,9 @@ import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { Iel } from "../list/BoardCommentList.types";
 
 export interface IBoardCommentWriteProps {
-  setIsEdit: Dispatch<SetStateAction<boolean>>;
-  isEdit: boolean;
-  editId: string;
+  setIsEdit?: Dispatch<SetStateAction<boolean>> | any;
+  isEdit?: boolean;
+  editId?: string;
   el?: Iel;
 }
 
@@ -29,7 +29,7 @@ export interface IBoardCommentWriteUIProps {
   handleChange: (value: any) => void;
   value: number;
   setValue: Dispatch<SetStateAction<number>>;
-  isEdit: boolean;
+  isEdit: boolean | any;
   el?: Iel;
 }
 

@@ -69,7 +69,6 @@ export default function MyProductChargePage() {
   );
 
   const onChangeValue = (event: any) => {
-    // console.log(event.target.value);
     setValue(event.target.value);
   };
 
@@ -115,7 +114,6 @@ export default function MyProductChargePage() {
                 },
               ],
             });
-            // console.log(result);
             Modal.success({
               title: "결제성공",
               content: "포인트가 충전 되었습니다!",
@@ -123,7 +121,7 @@ export default function MyProductChargePage() {
           } catch (error: any) {
             Modal.error({ content: error.message });
           }
-          console.log(rsp.imp_uid);
+          // console.log(rsp.imp_uid);
         } else {
           // ...,
           // 결제 실패 시 로직,

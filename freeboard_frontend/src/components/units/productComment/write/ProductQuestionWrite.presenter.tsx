@@ -1,6 +1,9 @@
 import * as S from "./ProductQuestionWrite.styles";
+import { IProductQuestionWritePresenterProps } from "./ProductQuestionWrite.types";
 
-export default function ProductQuestionWritePresenter(props) {
+export default function ProductQuestionWritePresenter(
+  props: IProductQuestionWritePresenterProps
+) {
   return (
     <S.Wrapper>
       <form

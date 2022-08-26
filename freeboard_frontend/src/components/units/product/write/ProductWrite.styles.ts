@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1024px;
@@ -6,9 +7,16 @@ export const Wrapper = styled.div`
   padding: 80px 102px 100px 102px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-
   margin: 0 auto;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    padding: 10px;
+  }
 `;
 
 export const Title = styled.div`
@@ -42,6 +50,14 @@ export const WrapTags = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+  }
 `;
 
 export const Error = styled.div`
@@ -60,15 +76,14 @@ export const WrapDetail = styled.div`
   padding-bottom: 40px;
 `;
 
-export const InputDetail = styled.textarea`
-  width: 996px;
-  height: 320px;
-`;
-
 export const WrapperLocation = styled.div`
   display: flex;
   flex-direction: row;
   padding-bottom: 40px;
+
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+  }
 `;
 
 export const WrapMap = styled.div`
@@ -76,16 +91,15 @@ export const WrapMap = styled.div`
   flex-direction: column;
 `;
 
-export const Map = styled.div`
-  width: 384px;
-  height: 252px;
-`;
-
 export const WrapperGpsLocation = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 24px;
   padding-top: 30px;
+
+  @media ${breakPoints.mobile} {
+    margin: 0;
+  }
 `;
 
 export const WrapAddress = styled.div`
@@ -101,6 +115,15 @@ export const Address = styled.input`
   width: 588px;
   height: 52px;
   margin-bottom: 30px;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    padding: 10px;
+  }
 `;
 
 export const WrapperImage = styled.div`
@@ -112,6 +135,7 @@ export const WrapperImage = styled.div`
 export const WrapImage = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const Image1 = styled.div`

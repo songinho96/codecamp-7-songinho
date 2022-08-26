@@ -10,6 +10,7 @@ export const UploadImage = styled.img`
   height: 78px;
   margin-right: 24px;
   cursor: pointer;
+  margin-bottom: 20px;
 `;
 
 export const PlusIcon = styled(PlusSquareFilled)`
@@ -17,4 +18,5 @@ export const PlusIcon = styled(PlusSquareFilled)`
   padding: 27px;
   border: 1px solid black;
   margin-right: 24px;
+  margin-bottom: 20px;
 `;

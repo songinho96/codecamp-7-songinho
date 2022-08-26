@@ -1,9 +1,12 @@
 import { useQuery } from "@apollo/client";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import { FETCH_USER_LOGGED_IN } from "../list/ProductQuestionList.queries";
 import ProductQuestionItemPresenter from "./ProductQuestionItem.presenter";
+import { IProductQuestionItemContainerProps } from "./ProductQuestionItem.types";
 
-export default function ProductQuestionItemContainer(props) {
+export default function ProductQuestionItemContainer(
+  props: IProductQuestionItemContainerProps
+) {
   const [isEdit, setIsEdit] = useState(false);
   const [editId, setEditId] = useState("");
 
@@ -12,14 +15,14 @@ export default function ProductQuestionItemContainer(props) {
 
   const { data: UserData } = useQuery(FETCH_USER_LOGGED_IN);
 
-  const onClickAnswerImg = (event) => {
+  const onClickAnswerImg = (event: MouseEvent<HTMLImageElement>) => {
     setIsAnswer((prev) => !prev);
-    setAnswerId(event.target.id);
+    setAnswerId(event.currentTarget.id);
   };
 
-  const onClickEdit = (event) => {
+  const onClickEdit = (event: MouseEvent<HTMLImageElement>) => {
     setIsEdit((prev) => !prev);
-    setEditId(event.target.id);
+    setEditId(event.currentTarget.id);
   };
 
   // 아이디 일치 확인

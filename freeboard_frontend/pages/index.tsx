@@ -1,40 +1,29 @@
-import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
-
 import React from "react";
-
-import Fade from "react-reveal/Fade";
-import Slider from "react-slick";
-
-export const FETCH_USED_ITEM = gql`
-  query fetchUseditem($useditemId: ID!) {
-    fetchUseditem(useditemId: $useditemId) {
-      _id
-      images
-    }
-  }
-`;
+import { breakPoints } from "../src/commons/styles/media";
+import { useMoveToPage } from "../src/components/commons/hooks/useMoveToPage";
+import useScrollFadeIn from "../src/components/commons/hooks/useScrollFadeIn";
 
 const Wrapper = styled.div`
-  width: 1200px;
-  border: 1px solid black;
-  margin: 100px auto;
-  /* padding: 80px 102px 100px 102px; */
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
-  box-shadow: 0px 16px 48px;
-  box-sizing: border-box;
-  background-color: white;
-`;
-
-const Wrapaaa = styled.div`
-  height: 2000px;
+  padding-top: 20px;
 `;
 
 const Title = styled.div`
-  font-size: 100px;
+  font-size: 6.25rem;
+
+  @media ${breakPoints.tablet} {
+    font-size: 5.5rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 4.2rem;
+  }
 `;
 
 const WrapperReveal = styled.div`
@@ -56,110 +45,104 @@ const WrapSubTitle = styled.div`
 `;
 
 const SubTitle = styled.div`
-  font-size: 40px;
-`;
+  font-size: 2.5rem;
 
-const SliderWrapper = styled.div`
-  /* margin: auto; */
-`;
-
-const SliderWrap = styled(Slider)`
-  margin: auto;
-  width: 1200px;
-  height: 73px;
-
-  .slick-prev {
-    left: -100px;
+  @media ${breakPoints.tablet} {
+    font-size: 2rem;
   }
 
-  .slick-next {
-    right: -100px;
-  }
-  .slick-prev:before {
-    opacity: 1; // 기존에 숨어있던 화살표 버튼이 보이게
-    color: black; // 버튼 색은 검은색으로
-    left: 0;
-    font-size: 25px;
-  }
-  .slick-next:before {
-    opacity: 1;
-    color: black;
-    font-size: 25px;
-  }
-
-  .slick-dots {
-    bottom: -60px;
-  }
-  .slick-dots li button:before {
-    color: blue;
-    font-size: 15px;
+  @media ${breakPoints.mobile} {
+    font-size: 1.7rem;
   }
 `;
 
-const Image = styled.img`
-  width: 300px;
-  height: 140px;
-  border: 1px solid gray;
-  margin-right: 50px;
-`;
-const WrapImage = styled.div`
+const WrapperMarket = styled.div`
+  width: 100%;
   display: flex;
-  margin-right: 10px;
-  /* margin: auto; */
+  justify-content: space-around;
+  margin: 0;
+  flex-wrap: wrap;
+`;
+
+const WrapMarket = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding-top: 80px;
+  :hover {
+    padding-top: 50px;
+    transition-duration: 1s;
+  }
+  transition-duration: 1s;
+
+  @media ${breakPoints.mobile} {
+    padding-top: 40px;
+    :hover {
+      padding-top: 40px;
+    }
+  }
+`;
+
+const MarketImage = styled.img`
+  width: 300px;
+
+  @media ${breakPoints.tablet} {
+    width: 180px;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100px;
+  }
+`;
+
+const Label = styled.div`
+  font-size: 3.125rem;
+  margin-top: 10px;
+
+  @media ${breakPoints.tablet} {
+    font-size: 2.7rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 2.2rem;
+  }
 `;
 
 export default function Main() {
-  const { data } = useQuery(FETCH_USED_ITEM, {
-    variables: { useditemId: "62c2b07903610b0029993143" },
-  });
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-  };
+  const { onClickMoveToPage } = useMoveToPage();
+  const FadeIn = useScrollFadeIn();
 
   return (
     <>
       <Wrapper>
-        <Wrapaaa>스크롤</Wrapaaa>
-        <WrapperReveal>
+        <WrapperReveal {...FadeIn}>
           <WrapMainTitle>
-            <Fade bottom duration={3000}>
-              <Title>당신이 끝까지 읽을 책을</Title>
-            </Fade>
-            <Fade bottom duration={4000}>
-              <Title>알려주는 완독 지수</Title>
-            </Fade>
+            <Title>중고마켓</Title>
+            <Title>포트폴리오</Title>
           </WrapMainTitle>
           <WrapSubTitle>
-            <Fade bottom duration={5000}>
-              <SubTitle>독자들이 픽한</SubTitle>
-            </Fade>
-            <Fade bottom duration={7000}>
-              <SubTitle>인기 분야 소설을 확인해 보세요</SubTitle>
-            </Fade>
+            <SubTitle>중고마켓과 익명 게시판</SubTitle>
+            <SubTitle>개인 프로젝트 입니다</SubTitle>
           </WrapSubTitle>
         </WrapperReveal>
+        <WrapperMarket>
+          <WrapMarket onClick={onClickMoveToPage("/boards")}>
+            <MarketImage src="/images/Board.png" />
+            <Label>자유게시판</Label>
+          </WrapMarket>
+          <WrapMarket onClick={onClickMoveToPage("/products")}>
+            <MarketImage src="/images/MainIcon.png" />
+            <Label>중고마켓</Label>
+          </WrapMarket>
+          <WrapMarket
+            onClick={onClickMoveToPage("/mypage/mymarket/myproducts")}
+          >
+            <MarketImage src="/images/MyIcon.png" />
+            <Label>마이페이지</Label>
+          </WrapMarket>
+        </WrapperMarket>
       </Wrapper>
-
-      <SliderWrapper>
-        <SliderWrap {...settings}>
-          {data?.fetchUseditem.images
-            ?.filter((el) => el)
-            .map((el) => (
-              <>
-                <WrapImage key={el}>
-                  <Image src={`https://storage.googleapis.com/${el}`} />
-                  <Image src={`https://storage.googleapis.com/${el}`} />
-                </WrapImage>
-              </>
-            ))}
-        </SliderWrap>
-      </SliderWrapper>
     </>
   );
 }

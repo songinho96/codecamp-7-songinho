@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../commons/styles/media";
+import { ISignupButtonProps } from "./SignUp.types";
 
 export const Error = styled.div`
   color: red;
@@ -142,6 +143,8 @@ export const SignupButton = styled.button`
   color: black;
   background-color: yellow;
   font-size: 1.875rem;
+  background-color: ${(props: ISignupButtonProps) =>
+    props.isActive ? "yellow" : "#A7A7A7"};
 
   @media ${breakPoints.tablet} {
     width: 100%;

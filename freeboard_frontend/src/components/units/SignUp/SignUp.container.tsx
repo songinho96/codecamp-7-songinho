@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 import SignUpPresenter from "./SignUp.presenter";
 import { CREATE_USER } from "./SignUp.queries";
 
@@ -31,8 +31,7 @@ export default function SignUpContainer() {
     mode: "onChange",
   });
 
-  const onClickSubmit = async (data) => {
-    console.log(data);
+  const onClickSubmit = async (data: any) => {
     try {
       const result = await createUser({
         variables: {

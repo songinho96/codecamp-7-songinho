@@ -1,11 +1,23 @@
 // import Head from "next/head";
+import styled from "@emotion/styled";
 import { useEffect } from "react";
+import { breakPoints } from "../../../../commons/styles/media";
 
 declare const window: typeof globalThis & {
   kakao: any;
 };
 
-export default function KakaoMapPage2(props) {
+const Wrapper = styled.div`
+  width: 384px;
+  height: 252px;
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    height: 300px;
+  }
+`;
+
+export default function KakaoMapPage2(props: any) {
   // const [address, setAddress] = useState("");
   // const [addressClick, setAddressClick] = useState("");
   // const [loadAddress, setLoadAddress] = useState("");
@@ -292,7 +304,7 @@ export default function KakaoMapPage2(props) {
         주소 검색
       </Button> */}
       {/* <div onClick={onClickCurrent}>현재위치 로</div> */}
-      <div id="map" style={{ width: 384, height: 252 }}></div>
+      <Wrapper id="map"></Wrapper>
     </div>
   );
 }

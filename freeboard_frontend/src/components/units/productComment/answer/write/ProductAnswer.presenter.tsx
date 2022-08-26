@@ -1,7 +1,10 @@
 import React from "react";
 import * as S from "./ProductAnswer.styles";
+import { IProductAnswerPresenterProps } from "./ProductAnswer.types";
 
-export default function ProductAnswerPresenter(props) {
+export default function ProductAnswerPresenter(
+  props: IProductAnswerPresenterProps
+) {
   return (
     <>
       <form
@@ -43,7 +46,7 @@ export default function ProductAnswerPresenter(props) {
                   type="button"
                   onClick={props.onClickBackButtonEdit}
                 >
-                  답변 취소
+                  수정 취소
                 </S.CommentButton>
               )}
             </S.WriteFooter>

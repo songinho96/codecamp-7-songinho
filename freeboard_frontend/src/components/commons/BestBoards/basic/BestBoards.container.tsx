@@ -6,12 +6,10 @@ import { FETCH_BOARDS_OF_THE_BEST } from "./BestBoards.quries";
 
 export default function BestBoardsContainer() {
   const { data } = useQuery(FETCH_BOARDS_OF_THE_BEST);
-  console.log(data?.fetchBoardsOfTheBest.writer);
   const router = useRouter();
 
   const onClickBestImage = (event: MouseEvent<HTMLImageElement>) => {
     router.push(`/boards/${event.currentTarget.id}`);
-    console.log(event.currentTarget.id);
   };
 
   const settings = {
