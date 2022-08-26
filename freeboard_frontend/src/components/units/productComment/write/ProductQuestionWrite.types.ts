@@ -10,6 +10,7 @@ export interface IProductQuestionWriteContainerProps {
   editId?: string;
   setIsEdit?: Dispatch<SetStateAction<boolean>> | any;
   isEdit?: boolean | any;
+  el?: any;
 }
 
 export interface IProductQuestionWritePresenterProps {

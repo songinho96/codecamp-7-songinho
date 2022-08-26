@@ -1,9 +1,7 @@
 import { MouseEvent } from "react";
 
 export interface IPaginationbasicProps {
-  dataCount: {
-    fetchBoardsCount: number;
-  };
+  dataCount: any;
   refetch: any;
 }
 

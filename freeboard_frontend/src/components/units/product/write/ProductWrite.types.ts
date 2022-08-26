@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { FieldValues, FormState, UseFormRegister } from "react-hook-form";
 
 export interface IProductWriteContainerProps {
-  productData: any;
+  productData?: any;
   isEdit: boolean;
 }
 
