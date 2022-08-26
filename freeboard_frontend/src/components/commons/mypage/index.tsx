@@ -49,8 +49,12 @@ const WrapTitle = styled.div`
 `;
 
 const MyPage = styled.div`
+  padding-left: 5px;
+  width: 100%;
   font-weight: 400;
   color: #959595;
+  text-align: center;
+  cursor: pointer;
 `;
 
 const WrapProfile = styled.div`
@@ -197,14 +201,22 @@ export default function MypageSidebar() {
     router.push("/mypage/myprofile");
   };
 
+  const onClickHome = () => {
+    router.push("/products");
+  };
+
+  const onClickMy = () => {
+    router.push("/mypage/mymarket/myproducts");
+  };
+
   return (
     <>
       <Wraaper>
         <WrapHead>
           <WrapTitle>
-            <MyPage>Home </MyPage>
+            <MyPage onClick={onClickHome}>Home </MyPage>
             <RightOutlined style={{ color: "#959595", fontWeight: "400" }} />
-            <MyPage>나의 메뉴</MyPage>
+            <MyPage onClick={onClickMy}>나의 메뉴</MyPage>
           </WrapTitle>
           <WrapProfile>
             <ProfileImage src="/detailBoard/profile-Icon.svg" />

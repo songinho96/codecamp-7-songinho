@@ -9,11 +9,14 @@ declare const window: typeof globalThis & {
 
 const Wrapper = styled.div`
   width: 384px;
-  height: 252px;
+  height: 300px;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
 
   @media ${breakPoints.mobile} {
     width: 100%;
-    height: 300px;
   }
 `;
 

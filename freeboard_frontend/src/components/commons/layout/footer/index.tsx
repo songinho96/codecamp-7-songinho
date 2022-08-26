@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,6 +18,10 @@ const WrapIcon = styled.div`
 const Wrapinfo = styled.div`
   font-size: 20px;
   padding-bottom: 5px;
+
+  @media ${breakPoints.mobile} {
+    font-size: 17px;
+  }
 `;
 
 const Wrapfooter = styled.div`
@@ -34,11 +39,19 @@ const Icon = styled.div`
 
 const Icons = styled.img`
   width: 40px;
+
+  @media ${breakPoints.mobile} {
+    width: 30px;
+  }
 `;
 
 const Address = styled.div`
   padding-top: 10px;
   font-size: 0.7rem;
+
+  @media ${breakPoints.mobile} {
+    font-size: 0.8rem;
+  }
 `;
 
 export default function Footer() {

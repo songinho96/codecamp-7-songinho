@@ -84,6 +84,10 @@ export const WrapperLocation = styled.div`
   @media ${breakPoints.mobile} {
     flex-direction: column;
   }
+
+  @media ${breakPoints.tablet} {
+    flex-direction: column;
+  }
 `;
 
 export const WrapMap = styled.div`
@@ -100,6 +104,10 @@ export const WrapperGpsLocation = styled.div`
   @media ${breakPoints.mobile} {
     margin: 0;
   }
+
+  @media ${breakPoints.tablet} {
+    margin: 0;
+  }
 `;
 
 export const WrapAddress = styled.div`
@@ -112,12 +120,13 @@ export const WrapSearch = styled.div`
 `;
 
 export const Address = styled.input`
-  width: 588px;
+  width: 500px;
   height: 52px;
   margin-bottom: 30px;
 
   @media ${breakPoints.tablet} {
     width: 100%;
+    padding: 10px;
   }
 
   @media ${breakPoints.mobile} {
@@ -189,5 +198,17 @@ export const SearchButton = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 10px;
+  margin-top: 25px;
+
   cursor: pointer;
+
+  @media ${breakPoints.tablet} {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  @media ${breakPoints.mobile} {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
 `;
