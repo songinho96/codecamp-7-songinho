@@ -63,6 +63,16 @@ export default function MyProductPresenter(props: IMyPickPresenterProps) {
         ))}
       </S.WrapperList>
       <PaginationPick pickCount={props.pickCount} refetch={props.refetch} />
+
+      {props.pickCount?.fetchUseditemsCountIPicked === 0 && (
+        <S.WrapNoImage>
+          <S.NoImage src="/images/No.svg" />
+          <S.Title>찜한 상품이 없습니다.</S.Title>
+          <S.SellButton onClick={props.onClickSeeButton}>
+            상품 둘러보기
+          </S.SellButton>
+        </S.WrapNoImage>
+      )}
     </S.Wrapper>
   );
 }

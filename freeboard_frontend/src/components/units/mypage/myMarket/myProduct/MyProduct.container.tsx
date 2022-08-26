@@ -34,6 +34,10 @@ export default function MyProductContainer() {
     getDebounce(event.currentTarget.value);
   };
 
+  const onClickSellButton = () => {
+    router.push("/products/new");
+  };
+
   return (
     <MyProductPresenter
       data={data}
@@ -41,6 +45,7 @@ export default function MyProductContainer() {
       soldCount={soldCount}
       onChangeSearch={onChangeSearch}
       refetch={refetch}
+      onClickSellButton={onClickSellButton}
     />
   );
 }

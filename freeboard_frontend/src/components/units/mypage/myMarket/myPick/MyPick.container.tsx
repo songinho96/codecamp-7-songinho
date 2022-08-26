@@ -30,6 +30,10 @@ export default function MyPickContainer() {
     getDebounce(event.target.value);
   };
 
+  const onClickSeeButton = () => {
+    router.push("/products");
+  };
+
   return (
     <MyPickPresenter
       data={data}
@@ -37,6 +41,7 @@ export default function MyPickContainer() {
       onClickMoveToDetail={onClickMoveToDetail}
       onChangeSearch={onChangeSearch}
       pickCount={pickCount}
+      onClickSeeButton={onClickSeeButton}
     />
   );
 }

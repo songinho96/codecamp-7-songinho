@@ -8,6 +8,7 @@ export interface IMyProductPresenterProps {
   };
   onChangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;
   refetch: any;
+  onClickSellButton: () => void;
 }
 
 export interface Iel {

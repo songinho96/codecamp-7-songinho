@@ -8,6 +8,7 @@ export interface IMyPickPresenterProps {
   pickCount: {
     fetchUseditemsCountIPicked: number;
   };
+  onClickSeeButton: () => void;
 }
 
 export interface Iel {

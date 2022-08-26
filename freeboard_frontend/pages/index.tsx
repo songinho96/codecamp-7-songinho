@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Head from "next/head";
 import React from "react";
 import { breakPoints } from "../src/commons/styles/media";
 import { useMoveToPage } from "../src/components/commons/hooks/useMoveToPage";
@@ -116,6 +117,15 @@ export default function Main() {
   return (
     <>
       <Wrapper>
+        <Head>
+          <title>포트폴리오 &#58; 중고마켓 개인프로젝트 </title>
+          <meta property="og:title" content="중고마켓" />
+          <meta
+            property="og:description"
+            content="익명게시판, 중고마켓 프로젝트입니다."
+          />
+          <link rel="icon" href="/images/Main.svg" />
+        </Head>
         <WrapperReveal {...FadeIn}>
           <WrapMainTitle>
             <Title>중고마켓</Title>

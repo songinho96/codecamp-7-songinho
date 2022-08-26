@@ -171,6 +171,42 @@ export const ProductAddress = styled.div`
   white-space: nowrap;
 `;
 
+export const WrapNoImage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NoImage = styled.img`
+  width: 20%;
+`;
+
+export const Title = styled.div`
+  padding-top: 20px;
+  font-size: 2rem;
+  color: #a7a7a7;
+`;
+
+export const SellButton = styled.div`
+  margin-top: 20px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  :hover {
+    background-color: #bdbdbd;
+    transition-duration: 0.5s;
+  }
+`;
+
 // export const TableRow = styled.div`
 //   margin-top: 30px;
 //   display: flex;

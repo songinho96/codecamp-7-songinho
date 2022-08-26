@@ -68,6 +68,16 @@ export default function MyProductPresenter(props: IMyProductPresenterProps) {
         refetch={props.refetch}
         soldCount={props.soldCount}
       />
+
+      {props.soldCount?.fetchUseditemsCountISold === 0 && (
+        <S.WrapNoImage>
+          <S.NoImage src="/images/No.svg" />
+          <S.Title>판매중인 상품이 없습니다.</S.Title>
+          <S.SellButton onClick={props.onClickSellButton}>
+            판매하러 가기
+          </S.SellButton>
+        </S.WrapNoImage>
+      )}
     </S.Wrapper>
   );
 }
