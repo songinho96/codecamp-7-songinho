@@ -173,7 +173,7 @@ export default function Header() {
       await logoutUser;
       setAccessToken("");
       localStorage.clear();
-      router.push("/products/login");
+      // router.push("/products/login");
     } catch (error: any) {
       Modal.error({ content: error.message });
     }

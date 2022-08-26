@@ -1,9 +1,5 @@
 import styled from "@emotion/styled";
 
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,26 +24,50 @@ const Wrapfooter = styled.div`
 `;
 
 const Icon = styled.div`
-  padding-right: 10px;
+  cursor: pointer;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Icons = styled.img`
+  width: 40px;
+`;
+
+const Address = styled.div`
+  padding-top: 10px;
+  font-size: 0.7rem;
 `;
 
 export default function Footer() {
+  const onClickUrlGit = () => {
+    window.open("https://github.com/songinho96", "_blank");
+  };
+
+  const onClickUrlVelog = () => {
+    window.open("https://velog.io/@songinho96", "_blank");
+  };
   return (
     <Wrapper>
       <WrapIcon>
-        <Icon>
-          <FacebookIcon style={{ fontSize: "40px" }} />
+        <Icon onClick={onClickUrlGit}>
+          <Icons src="/images/git.png" />
+          <Address>https://github.com/songinho96</Address>
+        </Icon>
+        <Icon onClick={onClickUrlVelog}>
+          <Icons src="/images/velog.svg" />
+          <Address>https://velog.io/@songinho96</Address>
         </Icon>
         <Icon>
-          <InstagramIcon style={{ fontSize: "40px" }} />
-        </Icon>
-        <Icon>
-          <TwitterIcon style={{ fontSize: "40px" }} />
+          <Icons src="/images/gmail.png" />
+          <Address>inhosong96@gmail.com</Address>
         </Icon>
       </WrapIcon>
-      <Wrapinfo>Info﹒Support﹒Marketing</Wrapinfo>
-      <Wrapinfo>Terms of Use﹒Privacy Policy</Wrapinfo>
-      <Wrapfooter>@ 2022 Clarity Money</Wrapfooter>
+      <Wrapinfo>송인호</Wrapinfo>
+      <Wrapinfo>익명 게시판 / 중고마켓</Wrapinfo>
+      <Wrapfooter>@ 2022 </Wrapfooter>
     </Wrapper>
   );
 }

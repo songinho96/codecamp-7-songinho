@@ -5,19 +5,21 @@ import { ISignupButtonProps } from "./SignUp.types";
 export const Error = styled.div`
   color: red;
   font-size: 0.875rem;
+  padding: 10px 0px 0px 10px;
 `;
 
 export const Wrapper = styled.div`
   font-size: 1, 25rem;
-  border: 1px solid black;
-  background: url("/login/Background Image-1.png"), no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
+  background-color: #f8f8f8;
+
+  /* background: url("/login/Background Image-1.png"), no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
   background-size: cover;
   object-fit: fill;
-  color: white;
+  color: white; */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   margin: 0 auto;
+  padding: 100px 0;
 
   @media ${breakPoints.tablet} {
     padding: 30px 10px;
@@ -25,6 +27,25 @@ export const Wrapper = styled.div`
 
   @media ${breakPoints.mobile} {
     padding: 30px 10px;
+  }
+`;
+
+export const WrapSign = styled.div`
+  background-color: white;
+  width: 50%;
+  margin: 0 auto;
+  padding: 30px 0;
+
+  @media ${breakPoints.tablet} {
+    background-color: #f8f8f8;
+    width: 100%;
+    padding: 0;
+  }
+
+  @media ${breakPoints.mobile} {
+    background-color: #f8f8f8;
+    width: 100%;
+    padding: 0;
   }
 `;
 
@@ -37,7 +58,7 @@ export const WrapMainTitle = styled.div`
 export const MainIcon = styled.div``;
 
 export const MainTitle = styled.div`
-  font-size: 3.75rem;
+  font-size: 3rem;
   padding-bottom: 30px;
 
   @media ${breakPoints.tablet} {
@@ -63,24 +84,6 @@ export const WrapperBody = styled.div`
   @media ${breakPoints.tablet} {
     flex-direction: column-reverse;
     justify-content: center;
-  }
-`;
-
-export const WrapperSocialSignup = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const SocialButton = styled.img`
-  width: 570px;
-  height: 64px;
-
-  @media ${breakPoints.tablet} {
-    width: 100%;
-  }
-
-  @media ${breakPoints.mobile} {
-    width: 100%;
   }
 `;
 
@@ -124,6 +127,8 @@ export const InputSign = styled.input`
   width: 578px;
   height: 64px;
   color: black;
+  border-radius: 16px;
+  padding: 20px 16px;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -137,15 +142,17 @@ export const InputSign = styled.input`
 `;
 
 export const SignupButton = styled.button`
+  cursor: pointer;
   width: 578px;
   height: 64px;
   margin-top: 50px;
   color: black;
   background-color: yellow;
-  font-size: 1.875rem;
+  font-size: 1.675rem;
   background-color: ${(props: ISignupButtonProps) =>
-    props.isActive ? "yellow" : "#A7A7A7"};
-
+    props.isActive ? "#FED503" : "#A7A7A7"};
+  border-radius: 16px;
+  transition-duration: 0.5s;
   @media ${breakPoints.tablet} {
     width: 100%;
   }

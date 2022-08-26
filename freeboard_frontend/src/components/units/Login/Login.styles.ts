@@ -3,22 +3,20 @@ import { breakPoints } from "../../../commons/styles/media";
 import { ILoginButtonProps } from "./Login.types";
 
 export const Wrapper = styled.div`
+  background-color: #f8f8f8;
   width: 100%;
-  height: 100%;
-  margin: 100px auto;
+  margin: 0 auto;
   font-size: 1.25rem;
-  border: 1px solid black;
-  background: no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
+  /* background: no-repeat center; // no-repert: 이미지 반복x  center: 가운데배치
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url("/login/Frame 1.png");
   background-size: cover;
   object-fit: fill;
-  color: white;
+  color: white; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 0 auto;
-  padding: 30px 0px;
+  padding: 100px 0px;
 
   @media ${breakPoints.tablet} {
     padding: 30px 10px;
@@ -26,6 +24,25 @@ export const Wrapper = styled.div`
 
   @media ${breakPoints.mobile} {
     padding: 30px 10px;
+  }
+`;
+
+export const WrapSign = styled.div`
+  background-color: white;
+  width: 50%;
+  margin: 0 auto;
+  padding: 30px 0;
+
+  @media ${breakPoints.tablet} {
+    background-color: #f8f8f8;
+    width: 100%;
+    padding: 0;
+  }
+
+  @media ${breakPoints.mobile} {
+    background-color: #f8f8f8;
+    width: 100%;
+    padding: 0;
   }
 `;
 
@@ -106,7 +123,8 @@ export const InputEmail = styled.input`
   width: 500px;
   height: 64px;
   color: black;
-  border-radius: 10px;
+  border-radius: 16px;
+  padding: 20px 16px;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -122,13 +140,15 @@ export const InputEmail = styled.input`
 export const Error = styled.div`
   font-size: 0.75rem;
   color: red;
+  padding: 10px 0px 0px 10px;
 `;
 
 export const InputPassword = styled.input`
   width: 500px;
   height: 64px;
   color: black;
-  border-radius: 10px;
+  border-radius: 16px;
+  padding: 20px 16px;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -162,10 +182,12 @@ export const LoginButton = styled.button`
   margin-top: 50px;
   font-size: 1.875rem;
   background-color: ${(props: ILoginButtonProps) =>
-    props.isActive ? "yellow" : "#A7A7A7"};
+    props.isActive ? "#FED503" : "#A7A7A7"};
   color: black;
   margin-bottom: 40px;
-  border-radius: 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition-duration: 0.5s;
 
   @media ${breakPoints.tablet} {
     width: 100%;
@@ -237,8 +259,7 @@ export const UnderLine = styled.div`
 
 export const FooterLabel = styled.div`
   font-size: 1.875rem;
-  padding: 40px;
-  cursor: pointer;
+  padding: 10px;
 
   @media ${breakPoints.tablet} {
     font-size: 1.4rem;
@@ -248,5 +269,19 @@ export const FooterLabel = styled.div`
   @media ${breakPoints.mobile} {
     font-size: 1rem;
     padding: 10px;
+  }
+`;
+
+export const FooterLabelLog = styled.div`
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1.875rem;
+
+  @media ${breakPoints.tablet} {
+    font-size: 1.5rem;
+  }
+
+  @media ${breakPoints.mobile} {
+    font-size: 1.2rem;
   }
 `;

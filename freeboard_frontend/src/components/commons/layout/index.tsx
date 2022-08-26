@@ -8,9 +8,9 @@ import SideBar from "./sidebar";
 // const LayoutBody = styled.div``;
 
 // const HIDDEN_HEADERS = ["/"];
-const HIDDEN_NAVIGATION = ["/"];
+const HIDDEN_NAVIGATION = ["/", "/login", "/signup"];
 const HIDDEN_SIDEBAR = ["/", "/login", "/signup"];
-const HIDDEN_FOOTER = ["/", "/products"];
+const HIDDEN_FOOTER = ["/", "/products", "/login", "/signup"];
 // const HIDDEN_MYPAGE_SIDEBAR = ["products", "/boards"];
 
 export default function Layout(props: any) {

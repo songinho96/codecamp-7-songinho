@@ -20,6 +20,7 @@ const schema = yup.object({
     .max(15, "비밀번호는 최대 15자리로 입력해 주세요.")
     .required("비밀번호는 필수 입력 사항입니다."),
   name: yup.string().required("이름은 필수 입력 사항입니다."),
+  pwdCheck: yup.string().oneOf([yup.ref("password"), null]),
 });
 
 export default function SignUpContainer() {
