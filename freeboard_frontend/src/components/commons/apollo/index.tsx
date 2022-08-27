@@ -52,7 +52,7 @@ export default function ApolloSetting(props: any) {
   });
 
   const uploadLink = createUploadLink({
-    uri: "https://backend07.codebootcamp.co.kr/graphql", // 백엔드 주소
+    uri: "https://backend07.codebootcamp.co.kr/graphql19", // 백엔드 주소
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
