@@ -93,7 +93,7 @@ export default function ProductDetailPresenter(
                         찜 {props.data?.fetchUseditem.pickedCount}
                       </S.Pickbutton>
                       <S.BasketButton onClick={props.onClickBasket}>
-                        {props.isBaskets ? "장바구니 취소" : "장바구니"}
+                        {props.isBasket ? "장바구니 취소" : "장바구니"}
                       </S.BasketButton>
                       <S.BuyButton onClick={props.onClickBuy}>
                         구매하기

@@ -60,6 +60,8 @@ export const Writer = styled.input`
   height: 52px;
   margin-right: 24px;
   padding: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
 
   @media ${breakPoints.mobile} {
     width: 170px;
@@ -71,6 +73,8 @@ export const Password = styled.input`
   height: 52px;
   margin-right: 26px;
   padding: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
 
   @media ${breakPoints.mobile} {
     width: 170px;
@@ -90,10 +94,10 @@ export const WrapperWriteComment = styled.div`
 `;
 
 export const WriteContent = styled.textarea`
-  /* width: 1200px; */
   height: 108px;
   padding: 20px;
   resize: none;
+  border: 1px solid gray;
 `;
 
 export const WriteFooter = styled.div`
@@ -105,14 +109,22 @@ export const WriteNum = styled.div`
   width: 90%;
   height: 52px;
   padding: 20px;
-  border: 1px solid black;
+  border: 1px solid gray;
+  border-top: none;
 `;
 
 export const CommentButton = styled.button`
   width: 10%;
   height: 52px;
+  border: 1px solid gray;
+  border-top: none;
+  border-left: none;
   background-color: ${(props: ICommentButtonProps) =>
     props.isActive ? "yellow" : "default"};
+
+  @media ${breakPoints.mobile} {
+    width: 20%;
+  }
 `;
 
 export const Contents = styled.div`

@@ -18,6 +18,7 @@ const TopBtnBox = styled.div`
   width: 3.5rem;
   height: 3.5rem;
   background: #f9f32c;
+
   border-radius: 50%;
   border: none;
   color: black;
@@ -32,11 +33,13 @@ const TopBtnBox = styled.div`
 
     width: 4rem;
     height: 4rem;
+    opacity: 0.7;
   }
 
   @media ${breakPoints.mobile} {
     right: 1rem;
-    bottom: 0.1rem;
+    bottom: 5rem;
+    opacity: 0.7;
   }
 `;
 

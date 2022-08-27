@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 const Input = styled.input`
   width: 100%;
   height: 52px;
+  border: 1px solid gray;
 `;
 
 const Wrapper = styled.div`

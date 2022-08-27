@@ -138,7 +138,7 @@ export const WrapBest = styled.div`
   flex-direction: column;
   width: 282px;
   height: 320px;
-  border: 1px solid black;
+  border: 1px solid gray;
 
   @media ${breakPoints.mobile} {
     width: 170px;

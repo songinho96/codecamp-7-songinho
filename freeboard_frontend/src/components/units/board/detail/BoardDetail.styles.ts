@@ -9,16 +9,18 @@ export const Wrapper = styled.div`
   margin: 100px auto;
   box-sizing: border-box;
   font-size: 1.25rem;
-  border: 1px solid black;
+  border: 1px solid #bdbdbd;
 
   @media ${breakPoints.tablet} {
     width: 100%;
     margin: 50px auto;
+    border: none;
   }
 
   @media ${breakPoints.mobile} {
     width: 100%;
     margin: 50px auto;
+    border: none;
   }
 `;
 
@@ -190,7 +192,11 @@ export const Button = styled.button`
   margin: 0px 24px;
   background-color: white;
   border: 1px solid #bdbdbd;
+  border-radius: 10px;
   cursor: pointer;
+  :hover {
+    background-color: #bdbdbd;
+  }
 `;
 
 export const Underline2 = styled.div`

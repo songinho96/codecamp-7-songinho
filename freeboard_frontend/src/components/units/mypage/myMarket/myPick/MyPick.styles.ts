@@ -75,6 +75,7 @@ export const Wrapper = styled.div`
 
   @media ${breakPoints.mobile} {
     width: 100%;
+    margin-bottom: 70px;
   }
 `;
 
@@ -242,6 +243,10 @@ export const Title = styled.div`
   padding-top: 20px;
   font-size: 2rem;
   color: #a7a7a7;
+
+  @media ${breakPoints.mobile} {
+    font-size: 1.6rem;
+  }
 `;
 
 export const SellButton = styled.div`

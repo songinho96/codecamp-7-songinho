@@ -8,6 +8,10 @@ const Wrapper = styled.div`
   align-items: center;
   height: 285px;
   background-color: #495057;
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 
 const WrapIcon = styled.div`

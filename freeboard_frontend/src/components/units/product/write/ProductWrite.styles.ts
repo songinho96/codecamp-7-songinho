@@ -3,7 +3,7 @@ import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1024px;
-  border: 1px solid black;
+  border: 1px solid #bdbdbd;
   padding: 80px 102px 100px 102px;
   display: flex;
   flex-direction: column;
@@ -16,6 +16,9 @@ export const Wrapper = styled.div`
   @media ${breakPoints.mobile} {
     width: 100%;
     padding: 10px;
+    border: none;
+    padding-bottom: 130px;
+    padding-top: 50px;
   }
 `;
 
@@ -123,6 +126,7 @@ export const Address = styled.input`
   width: 500px;
   height: 52px;
   margin-bottom: 30px;
+  border: 1px solid gray;
 
   @media ${breakPoints.tablet} {
     width: 100%;

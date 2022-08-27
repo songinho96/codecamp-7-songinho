@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { basketPageState } from "../../../store";
 import ProductDetailPresenter from "./ProductDetail.presenter";
@@ -15,15 +15,11 @@ import {
 
 export default function ProductDetailContainer() {
   const router = useRouter();
-
-  const [isBaskets, setIsBaskets] = useState(false);
-
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.boardId },
   });
   const { data: UserData } = useQuery(FETCH_USER_LOGGED_IN);
-  // console.log(data);
-  // 마이 찜
+
   const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK, {
     variables: { useditemId: router.query.boardId },
   });
@@ -39,20 +35,17 @@ export default function ProductDetailContainer() {
   };
 
   // // 장바구니
+  const [basketItems, setBasketItems] = useState([]);
 
-  const [, setBasketPage] = useRecoilState(basketPageState);
+  const [basketPage, setBasketPage] = useRecoilState(basketPageState);
   const onClickBasket = () => {
     const baskets = JSON.parse(localStorage.getItem("baskets") || "[]");
-    setIsBaskets(true);
+    setBasketItems(baskets);
 
     const temp = baskets.filter(
       (basket: any) => basket._id === data.fetchUseditem._id
     );
     if (temp.length === 1) {
-      // alert("이미 담으신 물품입니다!");
-      // return;
-      setIsBaskets(false);
-
       const Delete = baskets.filter(
         (baskets: any) => baskets._id !== data.fetchUseditem._id
       );
@@ -67,6 +60,17 @@ export default function ProductDetailContainer() {
     localStorage.setItem("baskets", JSON.stringify(baskets));
     setBasketPage(baskets);
   };
+
+  useEffect(() => {
+    const baskets = JSON.parse(localStorage.getItem("baskets") || "[]");
+    setBasketItems(baskets);
+  }, [basketPage.length]);
+
+  const isBasket = basketItems
+    .map((el: any) => el._id)
+    .includes(data?.fetchUseditem._id);
+
+  console.log(isBasket);
 
   const onClickDelete = async () => {
     try {
@@ -109,6 +113,18 @@ export default function ProductDetailContainer() {
   };
 
   const onClickBuy = async () => {
+    const baskets = JSON.parse(localStorage.getItem("baskets") || "[]");
+    const temp = baskets.filter(
+      (basket: any) => basket._id === data.fetchUseditem._id
+    );
+    if (temp.length === 1) {
+      const Delete = baskets.filter(
+        (baskets: any) => baskets._id !== data.fetchUseditem._id
+      );
+
+      localStorage.setItem("baskets", JSON.stringify(Delete));
+      setBasketPage(Delete);
+    }
     try {
       await createPointTransactionOfBuyingAndSelling({
         variables: { useritemId: router.query.boardId },
@@ -130,11 +146,11 @@ export default function ProductDetailContainer() {
       data={data}
       onClickEdit={onClickEdit}
       onClickBasket={onClickBasket}
-      isBaskets={isBaskets}
       onClickDelete={onClickDelete}
       onClickPick={onClickPick}
       onClickBuy={onClickBuy}
       seller={seller}
+      isBasket={isBasket}
     />
   );
 }

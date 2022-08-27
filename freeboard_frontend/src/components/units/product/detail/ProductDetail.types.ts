@@ -2,7 +2,7 @@ export interface IProductDetailPresenterProps {
   data?: any;
   onClickEdit: () => void;
   onClickBasket: () => void;
-  isBaskets: boolean;
+  isBasket: boolean;
   onClickDelete: () => void;
   onClickPick: () => void;
   onClickBuy: () => void;

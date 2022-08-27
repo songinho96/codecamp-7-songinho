@@ -1,23 +1,32 @@
 import styled from "@emotion/styled";
 import { Modal } from "antd";
 import InfiniteScroll from "react-infinite-scroller";
+import { breakPoints } from "../../../../commons/styles/media";
 import BoardCommentItem from "../edit/BoardCommentItem.container";
 import { IBoardCommentListUIProps, Iel } from "./BoardCommentList.types";
 
 const Wrapperwrited = styled.div`
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 `;
 
 const Wrapper = styled.div`
-  margin: 0 auto;
+  width: 1024px;
   margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+
+  @media ${breakPoints.tablet} {
+    width: 100%;
+  }
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    padding-bottom: 100px;
+  }
 `;
 
 const Scroll = styled.div`
-  height: 700px;
-  overflow: auto;
-  margin: 0px auto;
+  width: 100%;
 `;
 
 export default function BoardCommentListUI(props: IBoardCommentListUIProps) {
@@ -34,13 +43,13 @@ export default function BoardCommentListUI(props: IBoardCommentListUIProps) {
         </Modal>
       )}
 
-      <Scroll>
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={props.loadFunc}
-          hasMore={true || false}
-          useWindow={false}
-        >
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={props.loadFunc}
+        hasMore={true || false}
+        useWindow={true}
+      >
+        <Scroll>
           {props.data?.fetchBoardComments.map((el: Iel) => (
             <Wrapperwrited key={el._id}>
               <BoardCommentItem
@@ -50,8 +59,8 @@ export default function BoardCommentListUI(props: IBoardCommentListUIProps) {
               />
             </Wrapperwrited>
           ))}
-        </InfiniteScroll>
-      </Scroll>
+        </Scroll>
+      </InfiniteScroll>
     </Wrapper>
   );
 }

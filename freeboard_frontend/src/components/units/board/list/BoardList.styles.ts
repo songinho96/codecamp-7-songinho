@@ -62,7 +62,7 @@ export const ButtonSearch = styled.button`
 `;
 
 export const Underline = styled.div`
-  border-bottom: 3px solid gray;
+  border-bottom: 2px solid gray;
 `;
 
 export const WrapperTable = styled.div`
@@ -161,6 +161,10 @@ export const Footer = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
+
+  @media ${breakPoints.mobile} {
+    margin-bottom: 70px;
+  }
 `;
 
 export const Button = styled.button`

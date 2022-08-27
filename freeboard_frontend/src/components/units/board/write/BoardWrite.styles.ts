@@ -4,7 +4,7 @@ import { ISubmitButtonProps } from "./BoardWrite.types";
 
 export const Wrapper = styled.div`
   width: 1024px;
-  border: 1px solid black;
+  border: 1px solid #bdbdbd;
   margin: 0 auto;
   padding: 80px 102px 100px 102px;
   display: flex;
@@ -13,11 +13,14 @@ export const Wrapper = styled.div`
 
   @media ${breakPoints.tablet} {
     width: 100%;
+    border: none;
   }
 
   @media ${breakPoints.mobile} {
     width: 100%;
     padding: 10px;
+    padding-bottom: 70px;
+    border: none;
   }
 `;
 export const WrapBackButton = styled.div`
@@ -95,6 +98,7 @@ export const Writer = styled.input`
   height: 53px;
   margin-right: 40px;
   padding-left: 10px;
+  border: 1px solid gray;
 
   @media ${breakPoints.mobile} {
     width: 100%;
@@ -115,6 +119,7 @@ export const Password = styled.input`
   width: 350px;
   height: 53px;
   padding-left: 10px;
+  border: 1px solid gray;
 
   @media ${breakPoints.mobile} {
     width: 100%;
@@ -134,6 +139,7 @@ export const Title = styled.input`
   width: 100%;
   height: 52px;
   padding-left: 10px;
+  border: 1px solid gray;
 
   @media ${breakPoints.mobile} {
     height: 40px;
@@ -150,6 +156,7 @@ export const Contents = styled.textarea`
   padding-left: 10px;
   padding-top: 10px;
   resize: none;
+  border: 1px solid gray;
 
   @media ${breakPoints.mobile} {
     height: 300px;
@@ -170,9 +177,8 @@ export const Zipcode = styled.input`
   height: 52px;
   text-align: center;
   margin-right: 16px;
-  border: 1px solid black;
+  border: 1px solid gray;
   color: #bdbdbd;
-  box-shadow: 0px 2px 4px;
 
   @media ${breakPoints.mobile} {
     width: 60px;
@@ -201,6 +207,7 @@ export const Address = styled.input`
   display: flex;
   align-items: center;
   padding-left: 10px;
+  border: 1px solid gray;
 
   @media ${breakPoints.mobile} {
     height: 40px;
@@ -212,6 +219,7 @@ export const AddressDetail = styled.input`
   height: 52px;
   margin-bottom: 30px;
   padding-left: 10px;
+  border: 1px solid gray;
 
   @media ${breakPoints.mobile} {
     height: 40px;
@@ -226,6 +234,7 @@ export const YoutubeLink = styled.input`
   width: 100%;
   height: 52px;
   padding-left: 10px;
+  border: 1px solid gray;
 
   @media ${breakPoints.mobile} {
     height: 40px;

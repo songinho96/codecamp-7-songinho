@@ -139,7 +139,7 @@ export default function ProductWritePresenter(
           </S.WrapperImage>
           <S.WrapButton>
             <S.SubmitButton>
-              {props.isEdit ? "UpdateButton" : "SubmitButton"}
+              {props.isEdit ? "수정하기" : "등록하기"}
             </S.SubmitButton>
           </S.WrapButton>
         </S.Wrap>

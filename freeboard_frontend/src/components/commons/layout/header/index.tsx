@@ -225,7 +225,7 @@ export default function Header() {
               >
                 {data ? "로그아웃" : "회원가입"}
               </Label>
-              <WrapBasket>
+              <WrapBasket onClick={onClickMoveToPage("/baskets")}>
                 <Label>장바구니</Label>
                 <Basket>{basketPage.length}</Basket>
                 <LabelSell onClick={onClickMoveToPage("/products/new")}>

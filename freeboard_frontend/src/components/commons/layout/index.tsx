@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 
 import Footer from "./footer";
+import FooterMobile from "./footerMobile";
 import Header from "./header";
 import Navigation from "./navigation";
 import SideBar from "./sidebar";
@@ -12,6 +13,7 @@ const HIDDEN_NAVIGATION = ["/", "/login", "/signup"];
 const HIDDEN_SIDEBAR = ["/", "/login", "/signup"];
 const HIDDEN_FOOTER = ["/", "/products", "/login", "/signup"];
 // const HIDDEN_MYPAGE_SIDEBAR = ["products", "/boards"];
+const HIDDEN_FOOTERMOBILE = ["/", "/login", "/signup"];
 
 export default function Layout(props: any) {
   const router = useRouter();
@@ -22,6 +24,7 @@ export default function Layout(props: any) {
   const isHiddenSidebar = HIDDEN_SIDEBAR.includes(router.asPath);
   const isHiddenFooter = HIDDEN_FOOTER.includes(router.asPath);
   // const isHideenMypageSidebar = HIDDEN_MYPAGE_SIDEBAR.includes(router.asPath);
+  const isHiddenFooterMobile = HIDDEN_FOOTERMOBILE.includes(router.asPath);
 
   return (
     <>
@@ -35,6 +38,7 @@ export default function Layout(props: any) {
       {!isHiddenSidebar && <SideBar />}
       {/* </LayoutBodyWrapper> */}
       {!isHiddenFooter && <Footer />}
+      {!isHiddenFooterMobile && <FooterMobile />}
     </>
   );
 }
