@@ -1,4 +1,9 @@
 {
+  "babel": {
+    "ignore": [
+      "node_modules/aws-sdk/dist/aws-sdk-react-native.js"
+    ]
+  },
   "name": "freeboard_frontend",
   "version": "0.1.0",
   "private": true,
