@@ -1,0 +1,8 @@
+FROM node:14
+
+WORKDIR /freeBoard/
+COPY . /freeBoard/
+
+RUN yarn install
+RUN yarn build:ssr
+CMD yarn start 
