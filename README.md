@@ -63,8 +63,9 @@
 ## 💻 로그인 Page</br></br>
 
 ![Pc로그인](https://user-images.githubusercontent.com/104874492/187200669-37afda86-4f79-4884-ba70-39262669fe60.gif)
-</br></br></br></br>
-#📱 모바일
+</br></br></br></br></br></br>
+ # 📱모바일
+</br>
 
 ## 📱 랜딩 Page</br></br>
     
