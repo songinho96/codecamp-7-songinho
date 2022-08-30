@@ -2,6 +2,9 @@
 <img width="310" alt="스크린샷 2022-08-29 오후 4 05 47" src="https://user-images.githubusercontent.com/104874492/187197419-01197785-ea14-4cd1-9d91-e28ab720584d.png">
 </div>
 
+##  🌈 배포 주소
+ https://inhosong.shop (현재 동적배포 수정중)
+
 ## 💻  랜딩 Page </br></br>
     
 ![Pc랜딩](https://user-images.githubusercontent.com/104874492/187197713-3c5a1f4e-33c5-4ea4-bdb0-c341dca6f347.gif)
